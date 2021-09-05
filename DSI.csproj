@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A1767652-E7EF-4864-92C5-DF6809E43A0D}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>DSI</RootNamespace>
     <AssemblyName>DSI</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -32,6 +32,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
@@ -40,12 +45,13 @@
     <Folder Include="CapaNegocio\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CapaVistas\Form1Prueba.cs">
+    <Compile Include="CapaVistas\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CapaVistas\Form1Prueba.Designer.cs">
-      <DependentUpon>Form1Prueba.cs</DependentUpon>
+    <Compile Include="CapaVistas\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -55,8 +61,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CapaVistas\Form1Prueba.resx">
-      <DependentUpon>Form1Prueba.cs</DependentUpon>
+    <EmbeddedResource Include="CapaVistas\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
