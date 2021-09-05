@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DSI.CapaVistas
 {
-    public partial class Form1Prueba : Form
+    public partial class FrmLogin : Form
     {
-        public Form1Prueba()
+        public FrmLogin()
         {
             InitializeComponent();
         }
