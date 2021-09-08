@@ -16,5 +16,13 @@ namespace DSI.CapaVistas
         {
             InitializeComponent();
         }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+            //this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            //this.Location = Screen.PrimaryScreen.WorkingArea.Location;
+
+            //juagr con la propiedad anchor
+        }
     }
 }
