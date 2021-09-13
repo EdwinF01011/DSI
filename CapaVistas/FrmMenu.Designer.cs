@@ -29,6 +29,7 @@ namespace DSI.CapaVistas
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
             this.lblNombreUsuario = new System.Windows.Forms.Label();
             this.btnConfigurar = new System.Windows.Forms.Button();
             this.btnBackup = new System.Windows.Forms.Button();
@@ -108,28 +109,31 @@ namespace DSI.CapaVistas
             // 
             // btnClientes
             // 
+            this.btnClientes.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClientes.BackgroundImage")));
+            this.btnClientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnClientes.FlatAppearance.BorderSize = 0;
             this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClientes.ForeColor = System.Drawing.Color.Black;
-            this.btnClientes.Location = new System.Drawing.Point(572, 326);
+            this.btnClientes.Location = new System.Drawing.Point(563, 207);
             this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(132, 51);
+            this.btnClientes.Size = new System.Drawing.Size(202, 189);
             this.btnClientes.TabIndex = 5;
-            this.btnClientes.Text = "Clientes";
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
             // btnProvedoresGo
             // 
+            this.btnProvedoresGo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnProvedoresGo.BackgroundImage")));
+            this.btnProvedoresGo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnProvedoresGo.FlatAppearance.BorderSize = 0;
             this.btnProvedoresGo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProvedoresGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProvedoresGo.Location = new System.Drawing.Point(281, 326);
+            this.btnProvedoresGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProvedoresGo.Location = new System.Drawing.Point(253, 207);
             this.btnProvedoresGo.Name = "btnProvedoresGo";
-            this.btnProvedoresGo.Size = new System.Drawing.Size(153, 51);
+            this.btnProvedoresGo.Size = new System.Drawing.Size(197, 189);
             this.btnProvedoresGo.TabIndex = 6;
-            this.btnProvedoresGo.Text = "Provedores";
+            this.btnProvedoresGo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnProvedoresGo.UseVisualStyleBackColor = true;
             this.btnProvedoresGo.Click += new System.EventHandler(this.btnProvedoresGo_Click);
             // 
@@ -189,7 +193,7 @@ namespace DSI.CapaVistas
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(253)))), ((int)(((byte)(220)))));
             this.panel1.Controls.Add(this.lblNombreUsuario);
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Name = "panel1";
@@ -198,7 +202,7 @@ namespace DSI.CapaVistas
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(243)))), ((int)(((byte)(138)))));
             this.panel2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel2.Location = new System.Drawing.Point(599, 45);
             this.panel2.Name = "panel2";
@@ -209,6 +213,7 @@ namespace DSI.CapaVistas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(833, 540);
             this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.btnProvedoresGo);
@@ -219,6 +224,7 @@ namespace DSI.CapaVistas
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMenu";
+            this.Load += new System.EventHandler(this.FrmMenu_Load);
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
             this.panel1.ResumeLayout(false);

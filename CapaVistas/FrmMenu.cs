@@ -36,5 +36,10 @@ namespace DSI.CapaVistas
         {
 
         }
+
+        private void FrmMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
