@@ -32,13 +32,13 @@ namespace DSI.CapaVistas
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblNombreUsuario = new System.Windows.Forms.Label();
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.btnSalirProveedor = new System.Windows.Forms.Button();
             this.btnConfigurar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCrearProveedor = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnSalirProveedor = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -47,7 +47,7 @@ namespace DSI.CapaVistas
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(253)))), ((int)(((byte)(220)))));
             this.panel1.Controls.Add(this.lblNombreUsuario);
             this.panel1.Location = new System.Drawing.Point(2, 1);
             this.panel1.Name = "panel1";
@@ -79,6 +79,19 @@ namespace DSI.CapaVistas
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(158, 491);
             this.pnlMenu.TabIndex = 12;
+            // 
+            // btnSalirProveedor
+            // 
+            this.btnSalirProveedor.FlatAppearance.BorderSize = 0;
+            this.btnSalirProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalirProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalirProveedor.ForeColor = System.Drawing.Color.White;
+            this.btnSalirProveedor.Location = new System.Drawing.Point(10, 296);
+            this.btnSalirProveedor.Name = "btnSalirProveedor";
+            this.btnSalirProveedor.Size = new System.Drawing.Size(128, 47);
+            this.btnSalirProveedor.TabIndex = 14;
+            this.btnSalirProveedor.Text = "Salir";
+            this.btnSalirProveedor.UseVisualStyleBackColor = true;
             // 
             // btnConfigurar
             // 
@@ -159,19 +172,6 @@ namespace DSI.CapaVistas
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
-            // btnSalirProveedor
-            // 
-            this.btnSalirProveedor.FlatAppearance.BorderSize = 0;
-            this.btnSalirProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalirProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalirProveedor.ForeColor = System.Drawing.Color.White;
-            this.btnSalirProveedor.Location = new System.Drawing.Point(10, 296);
-            this.btnSalirProveedor.Name = "btnSalirProveedor";
-            this.btnSalirProveedor.Size = new System.Drawing.Size(128, 47);
-            this.btnSalirProveedor.TabIndex = 14;
-            this.btnSalirProveedor.Text = "Salir";
-            this.btnSalirProveedor.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -185,11 +185,11 @@ namespace DSI.CapaVistas
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.SpringGreen;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(243)))), ((int)(((byte)(138)))));
             this.panel2.ForeColor = System.Drawing.Color.Transparent;
-            this.panel2.Location = new System.Drawing.Point(726, 26);
+            this.panel2.Location = new System.Drawing.Point(726, 18);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 47);
+            this.panel2.Size = new System.Drawing.Size(10, 55);
             this.panel2.TabIndex = 15;
             // 
             // FrmBusquedaProvedor
