@@ -125,10 +125,10 @@ namespace DSI.CapaVistas
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(618, 212);
+            this.panel2.Location = new System.Drawing.Point(616, 209);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(536, 326);
+            this.panel2.Size = new System.Drawing.Size(536, 342);
             this.panel2.TabIndex = 6;
             // 
             // btnValidar
@@ -138,7 +138,7 @@ namespace DSI.CapaVistas
             this.btnValidar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnValidar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnValidar.ForeColor = System.Drawing.Color.White;
-            this.btnValidar.Location = new System.Drawing.Point(358, 263);
+            this.btnValidar.Location = new System.Drawing.Point(361, 279);
             this.btnValidar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnValidar.Name = "btnValidar";
             this.btnValidar.Size = new System.Drawing.Size(147, 45);
@@ -148,7 +148,7 @@ namespace DSI.CapaVistas
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(27, 205);
+            this.textBox2.Location = new System.Drawing.Point(27, 219);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(373, 26);
@@ -157,7 +157,7 @@ namespace DSI.CapaVistas
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(27, 112);
+            this.textBox1.Location = new System.Drawing.Point(27, 126);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(373, 26);
@@ -167,7 +167,7 @@ namespace DSI.CapaVistas
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(21, 163);
+            this.label7.Location = new System.Drawing.Point(21, 177);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(165, 33);
@@ -178,7 +178,7 @@ namespace DSI.CapaVistas
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(21, 71);
+            this.label6.Location = new System.Drawing.Point(21, 85);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(116, 33);
@@ -189,7 +189,7 @@ namespace DSI.CapaVistas
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(193, 11);
+            this.label5.Location = new System.Drawing.Point(186, 28);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(180, 47);
