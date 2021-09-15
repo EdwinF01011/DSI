@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DSI.CapaVistas
 {
-    public partial class FrmBusquedaProvedor : Form
+    public partial class FrmBusqueda : Form
     {
-        public FrmBusquedaProvedor()
+        public FrmBusqueda()
         {
             InitializeComponent();
         }
@@ -26,5 +26,7 @@ namespace DSI.CapaVistas
         {
 
         }
+
+        
     }
 }
