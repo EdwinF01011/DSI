@@ -21,5 +21,25 @@ namespace DSI.CapaVistas
         {
 
         }
+
+        private void pnlMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnProvedoresGo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
