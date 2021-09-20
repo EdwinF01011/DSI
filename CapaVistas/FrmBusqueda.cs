@@ -17,9 +17,16 @@ namespace DSI.CapaVistas
             InitializeComponent();
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void lblNombreUsuario_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }
