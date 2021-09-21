@@ -202,7 +202,7 @@ namespace DSI.CapaVistas
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(853, 11);
+            this.label1.Location = new System.Drawing.Point(850, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(155, 82);
             this.label1.TabIndex = 14;
@@ -213,7 +213,7 @@ namespace DSI.CapaVistas
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(243)))), ((int)(((byte)(138)))));
             this.panel2.ForeColor = System.Drawing.Color.Transparent;
-            this.panel2.Location = new System.Drawing.Point(994, 11);
+            this.panel2.Location = new System.Drawing.Point(991, 9);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(10, 85);
@@ -224,12 +224,12 @@ namespace DSI.CapaVistas
             this.lblcategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblcategoria.AutoSize = true;
             this.lblcategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcategoria.Location = new System.Drawing.Point(1015, 39);
+            this.lblcategoria.Location = new System.Drawing.Point(1003, 38);
             this.lblcategoria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblcategoria.Name = "lblcategoria";
-            this.lblcategoria.Size = new System.Drawing.Size(191, 33);
+            this.lblcategoria.Size = new System.Drawing.Size(203, 33);
             this.lblcategoria.TabIndex = 16;
-            this.lblcategoria.Text = "Proveedores";
+            this.lblcategoria.Text = "Proveedores*";
             // 
             // dataGridView1
             // 
@@ -405,7 +405,7 @@ namespace DSI.CapaVistas
             this.label12.TabIndex = 32;
             this.label12.Text = "Teléfono";
             // 
-            // FrmBusquedaProvedor
+            // FrmBusqueda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -432,7 +432,7 @@ namespace DSI.CapaVistas
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlMenu);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "FrmBusquedaProvedor";
+            this.Name = "FrmBusqueda";
             this.Text = "FrmBusquedaProvedor";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
