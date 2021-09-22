@@ -29,16 +29,7 @@ namespace DSI.CapaVistas
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblNombreUsuario = new System.Windows.Forms.Label();
-            this.pnlMenu = new System.Windows.Forms.Panel();
-            this.btnSalirProveedor = new System.Windows.Forms.Button();
-            this.btnConfigurar = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnCrearProveedor = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnActualizar = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBusqueda));
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblcategoria = new System.Windows.Forms.Label();
@@ -61,148 +52,26 @@ namespace DSI.CapaVistas
             this.cboxCiudadMenu = new System.Windows.Forms.ComboBox();
             this.txtTelMenu = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.pnlMenu.SuspendLayout();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnCrearProveedor = new System.Windows.Forms.Button();
+            this.btnConfigurar = new System.Windows.Forms.Button();
+            this.btnSalirProveedor = new System.Windows.Forms.Button();
+            this.pnlMenu = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblNombreUsuario = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.pnlMenu.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(253)))), ((int)(((byte)(220)))));
-            this.panel1.Controls.Add(this.lblNombreUsuario);
-            this.panel1.Location = new System.Drawing.Point(3, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 91);
-            this.panel1.TabIndex = 13;
-            // 
-            // lblNombreUsuario
-            // 
-            this.lblNombreUsuario.AutoSize = true;
-            this.lblNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreUsuario.Location = new System.Drawing.Point(45, 26);
-            this.lblNombreUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblNombreUsuario.Name = "lblNombreUsuario";
-            this.lblNombreUsuario.Size = new System.Drawing.Size(137, 33);
-            this.lblNombreUsuario.TabIndex = 0;
-            this.lblNombreUsuario.Text = "Nombre*";
-            this.lblNombreUsuario.Click += new System.EventHandler(this.lblNombreUsuario_Click);
-            // 
-            // pnlMenu
-            // 
-            this.pnlMenu.BackColor = System.Drawing.Color.SteelBlue;
-            this.pnlMenu.Controls.Add(this.btnSalirProveedor);
-            this.pnlMenu.Controls.Add(this.btnConfigurar);
-            this.pnlMenu.Controls.Add(this.label4);
-            this.pnlMenu.Controls.Add(this.label3);
-            this.pnlMenu.Controls.Add(this.btnCrearProveedor);
-            this.pnlMenu.Controls.Add(this.label2);
-            this.pnlMenu.Controls.Add(this.btnActualizar);
-            this.pnlMenu.Location = new System.Drawing.Point(3, 94);
-            this.pnlMenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(237, 755);
-            this.pnlMenu.TabIndex = 12;
-            // 
-            // btnSalirProveedor
-            // 
-            this.btnSalirProveedor.FlatAppearance.BorderSize = 0;
-            this.btnSalirProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalirProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalirProveedor.ForeColor = System.Drawing.Color.White;
-            this.btnSalirProveedor.Location = new System.Drawing.Point(15, 455);
-            this.btnSalirProveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnSalirProveedor.Name = "btnSalirProveedor";
-            this.btnSalirProveedor.Size = new System.Drawing.Size(192, 72);
-            this.btnSalirProveedor.TabIndex = 14;
-            this.btnSalirProveedor.Text = "Salir";
-            this.btnSalirProveedor.UseVisualStyleBackColor = true;
-            // 
-            // btnConfigurar
-            // 
-            this.btnConfigurar.FlatAppearance.BorderSize = 0;
-            this.btnConfigurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfigurar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfigurar.ForeColor = System.Drawing.Color.White;
-            this.btnConfigurar.Location = new System.Drawing.Point(16, 72);
-            this.btnConfigurar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnConfigurar.Name = "btnConfigurar";
-            this.btnConfigurar.Size = new System.Drawing.Size(192, 69);
-            this.btnConfigurar.TabIndex = 1;
-            this.btnConfigurar.Text = "Configurar";
-            this.btnConfigurar.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(12, 695);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(137, 20);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "E ingenierías SAS";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(12, 675);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 20);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Suministros";
-            // 
-            // btnCrearProveedor
-            // 
-            this.btnCrearProveedor.FlatAppearance.BorderSize = 0;
-            this.btnCrearProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCrearProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrearProveedor.ForeColor = System.Drawing.Color.White;
-            this.btnCrearProveedor.Location = new System.Drawing.Point(4, 195);
-            this.btnCrearProveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnCrearProveedor.Name = "btnCrearProveedor";
-            this.btnCrearProveedor.Size = new System.Drawing.Size(218, 72);
-            this.btnCrearProveedor.TabIndex = 2;
-            this.btnCrearProveedor.Text = "Crear Proveedor";
-            this.btnCrearProveedor.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 655);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 20);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Diseños ";
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.FlatAppearance.BorderSize = 0;
-            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.ForeColor = System.Drawing.Color.White;
-            this.btnActualizar.Location = new System.Drawing.Point(38, 320);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(147, 71);
-            this.btnActualizar.TabIndex = 3;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(850, 9);
+            this.label1.Location = new System.Drawing.Point(1095, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(155, 82);
             this.label1.TabIndex = 14;
@@ -213,7 +82,7 @@ namespace DSI.CapaVistas
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(243)))), ((int)(((byte)(138)))));
             this.panel2.ForeColor = System.Drawing.Color.Transparent;
-            this.panel2.Location = new System.Drawing.Point(991, 9);
+            this.panel2.Location = new System.Drawing.Point(1236, 9);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(10, 85);
@@ -224,7 +93,7 @@ namespace DSI.CapaVistas
             this.lblcategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblcategoria.AutoSize = true;
             this.lblcategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcategoria.Location = new System.Drawing.Point(1003, 38);
+            this.lblcategoria.Location = new System.Drawing.Point(1248, 38);
             this.lblcategoria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblcategoria.Name = "lblcategoria";
             this.lblcategoria.Size = new System.Drawing.Size(203, 33);
@@ -242,11 +111,11 @@ namespace DSI.CapaVistas
             this.teléfono,
             this.correo,
             this.etc});
-            this.dataGridView1.Location = new System.Drawing.Point(271, 289);
+            this.dataGridView1.Location = new System.Drawing.Point(272, 289);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(936, 524);
+            this.dataGridView1.Size = new System.Drawing.Size(1180, 535);
             this.dataGridView1.TabIndex = 17;
             // 
             // Nombre
@@ -281,7 +150,7 @@ namespace DSI.CapaVistas
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(267, 112);
+            this.label5.Location = new System.Drawing.Point(301, 110);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(101, 29);
             this.label5.TabIndex = 18;
@@ -291,7 +160,7 @@ namespace DSI.CapaVistas
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(513, 112);
+            this.label6.Location = new System.Drawing.Point(547, 110);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(187, 29);
             this.label6.TabIndex = 19;
@@ -301,7 +170,7 @@ namespace DSI.CapaVistas
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(513, 201);
+            this.label7.Location = new System.Drawing.Point(547, 200);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(88, 29);
             this.label7.TabIndex = 21;
@@ -311,7 +180,7 @@ namespace DSI.CapaVistas
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(267, 201);
+            this.label8.Location = new System.Drawing.Point(301, 200);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(154, 29);
             this.label8.TabIndex = 20;
@@ -321,7 +190,7 @@ namespace DSI.CapaVistas
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(756, 201);
+            this.label9.Location = new System.Drawing.Point(790, 200);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(90, 29);
             this.label9.TabIndex = 23;
@@ -331,7 +200,7 @@ namespace DSI.CapaVistas
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(756, 112);
+            this.label10.Location = new System.Drawing.Point(790, 110);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(60, 29);
             this.label10.TabIndex = 22;
@@ -340,7 +209,7 @@ namespace DSI.CapaVistas
             // Menu
             // 
             this.Menu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Menu.Location = new System.Drawing.Point(271, 142);
+            this.Menu.Location = new System.Drawing.Point(306, 140);
             this.Menu.Name = "Menu";
             this.Menu.Size = new System.Drawing.Size(192, 35);
             this.Menu.TabIndex = 24;
@@ -348,7 +217,7 @@ namespace DSI.CapaVistas
             // txtCorreoMenu
             // 
             this.txtCorreoMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreoMenu.Location = new System.Drawing.Point(518, 233);
+            this.txtCorreoMenu.Location = new System.Drawing.Point(552, 230);
             this.txtCorreoMenu.Name = "txtCorreoMenu";
             this.txtCorreoMenu.Size = new System.Drawing.Size(192, 35);
             this.txtCorreoMenu.TabIndex = 25;
@@ -356,7 +225,7 @@ namespace DSI.CapaVistas
             // txtRsocialMenu
             // 
             this.txtRsocialMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRsocialMenu.Location = new System.Drawing.Point(271, 233);
+            this.txtRsocialMenu.Location = new System.Drawing.Point(306, 230);
             this.txtRsocialMenu.Name = "txtRsocialMenu";
             this.txtRsocialMenu.Size = new System.Drawing.Size(192, 35);
             this.txtRsocialMenu.TabIndex = 27;
@@ -364,7 +233,7 @@ namespace DSI.CapaVistas
             // txtSectorMenu
             // 
             this.txtSectorMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSectorMenu.Location = new System.Drawing.Point(518, 144);
+            this.txtSectorMenu.Location = new System.Drawing.Point(552, 143);
             this.txtSectorMenu.Name = "txtSectorMenu";
             this.txtSectorMenu.Size = new System.Drawing.Size(192, 35);
             this.txtSectorMenu.TabIndex = 26;
@@ -373,7 +242,7 @@ namespace DSI.CapaVistas
             // 
             this.cboxPaisMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxPaisMenu.FormattingEnabled = true;
-            this.cboxPaisMenu.Location = new System.Drawing.Point(761, 145);
+            this.cboxPaisMenu.Location = new System.Drawing.Point(794, 143);
             this.cboxPaisMenu.Name = "cboxPaisMenu";
             this.cboxPaisMenu.Size = new System.Drawing.Size(166, 37);
             this.cboxPaisMenu.TabIndex = 28;
@@ -382,7 +251,7 @@ namespace DSI.CapaVistas
             // 
             this.cboxCiudadMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxCiudadMenu.FormattingEnabled = true;
-            this.cboxCiudadMenu.Location = new System.Drawing.Point(761, 233);
+            this.cboxCiudadMenu.Location = new System.Drawing.Point(794, 230);
             this.cboxCiudadMenu.Name = "cboxCiudadMenu";
             this.cboxCiudadMenu.Size = new System.Drawing.Size(166, 37);
             this.cboxCiudadMenu.TabIndex = 29;
@@ -390,7 +259,7 @@ namespace DSI.CapaVistas
             // txtTelMenu
             // 
             this.txtTelMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelMenu.Location = new System.Drawing.Point(994, 195);
+            this.txtTelMenu.Location = new System.Drawing.Point(1028, 193);
             this.txtTelMenu.Name = "txtTelMenu";
             this.txtTelMenu.Size = new System.Drawing.Size(192, 35);
             this.txtTelMenu.TabIndex = 31;
@@ -399,18 +268,156 @@ namespace DSI.CapaVistas
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(994, 163);
+            this.label12.Location = new System.Drawing.Point(1028, 161);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(110, 29);
             this.label12.TabIndex = 32;
             this.label12.Text = "Teléfono";
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.FlatAppearance.BorderSize = 0;
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.ForeColor = System.Drawing.Color.White;
+            this.btnActualizar.Location = new System.Drawing.Point(74, 177);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(147, 71);
+            this.btnActualizar.TabIndex = 3;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
+            // btnCrearProveedor
+            // 
+            this.btnCrearProveedor.FlatAppearance.BorderSize = 0;
+            this.btnCrearProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCrearProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrearProveedor.ForeColor = System.Drawing.Color.White;
+            this.btnCrearProveedor.Location = new System.Drawing.Point(28, 326);
+            this.btnCrearProveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCrearProveedor.Name = "btnCrearProveedor";
+            this.btnCrearProveedor.Size = new System.Drawing.Size(218, 72);
+            this.btnCrearProveedor.TabIndex = 2;
+            this.btnCrearProveedor.Text = "Crear Proveedor";
+            this.btnCrearProveedor.UseVisualStyleBackColor = true;
+            // 
+            // btnConfigurar
+            // 
+            this.btnConfigurar.FlatAppearance.BorderSize = 0;
+            this.btnConfigurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfigurar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfigurar.ForeColor = System.Drawing.Color.White;
+            this.btnConfigurar.Location = new System.Drawing.Point(54, 468);
+            this.btnConfigurar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnConfigurar.Name = "btnConfigurar";
+            this.btnConfigurar.Size = new System.Drawing.Size(192, 69);
+            this.btnConfigurar.TabIndex = 1;
+            this.btnConfigurar.Text = "Configurar";
+            this.btnConfigurar.UseVisualStyleBackColor = true;
+            // 
+            // btnSalirProveedor
+            // 
+            this.btnSalirProveedor.FlatAppearance.BorderSize = 0;
+            this.btnSalirProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalirProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalirProveedor.ForeColor = System.Drawing.Color.White;
+            this.btnSalirProveedor.Location = new System.Drawing.Point(54, 591);
+            this.btnSalirProveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSalirProveedor.Name = "btnSalirProveedor";
+            this.btnSalirProveedor.Size = new System.Drawing.Size(192, 72);
+            this.btnSalirProveedor.TabIndex = 14;
+            this.btnSalirProveedor.Text = "Salir";
+            this.btnSalirProveedor.UseVisualStyleBackColor = true;
+            // 
+            // pnlMenu
+            // 
+            this.pnlMenu.BackColor = System.Drawing.Color.Transparent;
+            this.pnlMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlMenu.BackgroundImage")));
+            this.pnlMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlMenu.Controls.Add(this.label2);
+            this.pnlMenu.Controls.Add(this.btnConfigurar);
+            this.pnlMenu.Controls.Add(this.lblNombreUsuario);
+            this.pnlMenu.Controls.Add(this.btnSalirProveedor);
+            this.pnlMenu.Controls.Add(this.label4);
+            this.pnlMenu.Controls.Add(this.label3);
+            this.pnlMenu.Controls.Add(this.btnActualizar);
+            this.pnlMenu.Controls.Add(this.label11);
+            this.pnlMenu.Controls.Add(this.btnCrearProveedor);
+            this.pnlMenu.Location = new System.Drawing.Point(-10, -14);
+            this.pnlMenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnlMenu.Name = "pnlMenu";
+            this.pnlMenu.Size = new System.Drawing.Size(274, 914);
+            this.pnlMenu.TabIndex = 33;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(22, 28);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(137, 33);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Nombre*";
+            // 
+            // lblNombreUsuario
+            // 
+            this.lblNombreUsuario.AutoSize = true;
+            this.lblNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreUsuario.ForeColor = System.Drawing.Color.White;
+            this.lblNombreUsuario.Location = new System.Drawing.Point(448, -208);
+            this.lblNombreUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombreUsuario.Name = "lblNombreUsuario";
+            this.lblNombreUsuario.Size = new System.Drawing.Size(137, 33);
+            this.lblNombreUsuario.TabIndex = 0;
+            this.lblNombreUsuario.Text = "Nombre*";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(14, 811);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(171, 25);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "E ingenierías SAS";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(14, 786);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(114, 25);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Suministros";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(14, 762);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(88, 25);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "Diseños ";
             // 
             // FrmBusqueda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1219, 825);
+            this.ClientSize = new System.Drawing.Size(1464, 835);
+            this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtTelMenu);
             this.Controls.Add(this.cboxCiudadMenu);
@@ -429,33 +436,18 @@ namespace DSI.CapaVistas
             this.Controls.Add(this.lblcategoria);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pnlMenu);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmBusqueda";
             this.Text = "FrmBusquedaProvedor";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblNombreUsuario;
-        private System.Windows.Forms.Panel pnlMenu;
-        private System.Windows.Forms.Button btnConfigurar;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnCrearProveedor;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.Button btnSalirProveedor;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblcategoria;
@@ -478,5 +470,15 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.ComboBox cboxCiudadMenu;
         private System.Windows.Forms.TextBox txtTelMenu;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.Button btnCrearProveedor;
+        private System.Windows.Forms.Button btnConfigurar;
+        private System.Windows.Forms.Button btnSalirProveedor;
+        private System.Windows.Forms.Panel pnlMenu;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblNombreUsuario;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label11;
     }
 }
