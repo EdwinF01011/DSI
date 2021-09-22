@@ -41,8 +41,8 @@ namespace DSI.CapaVistas
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlMenu = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.pnlMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,9 +51,10 @@ namespace DSI.CapaVistas
             this.lblNombreUsuario.AutoSize = true;
             this.lblNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblNombreUsuario.Location = new System.Drawing.Point(299, -135);
+            this.lblNombreUsuario.Location = new System.Drawing.Point(448, -208);
+            this.lblNombreUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombreUsuario.Name = "lblNombreUsuario";
-            this.lblNombreUsuario.Size = new System.Drawing.Size(93, 24);
+            this.lblNombreUsuario.Size = new System.Drawing.Size(137, 33);
             this.lblNombreUsuario.TabIndex = 0;
             this.lblNombreUsuario.Text = "Nombre*";
             // 
@@ -63,9 +64,10 @@ namespace DSI.CapaVistas
             this.btnConfigurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfigurar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfigurar.ForeColor = System.Drawing.Color.White;
-            this.btnConfigurar.Location = new System.Drawing.Point(47, 154);
+            this.btnConfigurar.Location = new System.Drawing.Point(60, 167);
+            this.btnConfigurar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnConfigurar.Name = "btnConfigurar";
-            this.btnConfigurar.Size = new System.Drawing.Size(128, 45);
+            this.btnConfigurar.Size = new System.Drawing.Size(192, 69);
             this.btnConfigurar.TabIndex = 1;
             this.btnConfigurar.Text = "Configurar";
             this.btnConfigurar.UseVisualStyleBackColor = true;
@@ -76,9 +78,10 @@ namespace DSI.CapaVistas
             this.btnBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBackup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBackup.ForeColor = System.Drawing.Color.White;
-            this.btnBackup.Location = new System.Drawing.Point(47, 254);
+            this.btnBackup.Location = new System.Drawing.Point(60, 321);
+            this.btnBackup.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBackup.Name = "btnBackup";
-            this.btnBackup.Size = new System.Drawing.Size(128, 47);
+            this.btnBackup.Size = new System.Drawing.Size(192, 72);
             this.btnBackup.TabIndex = 2;
             this.btnBackup.Text = "Backup";
             this.btnBackup.UseVisualStyleBackColor = true;
@@ -90,9 +93,10 @@ namespace DSI.CapaVistas
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(47, 360);
+            this.btnSalir.Location = new System.Drawing.Point(60, 484);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(128, 45);
+            this.btnSalir.Size = new System.Drawing.Size(192, 69);
             this.btnSalir.TabIndex = 3;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -101,9 +105,10 @@ namespace DSI.CapaVistas
             // 
             this.lblDirectorioEmpresarial.AutoSize = true;
             this.lblDirectorioEmpresarial.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDirectorioEmpresarial.Location = new System.Drawing.Point(595, 18);
+            this.lblDirectorioEmpresarial.Location = new System.Drawing.Point(892, 28);
+            this.lblDirectorioEmpresarial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDirectorioEmpresarial.Name = "lblDirectorioEmpresarial";
-            this.lblDirectorioEmpresarial.Size = new System.Drawing.Size(217, 24);
+            this.lblDirectorioEmpresarial.Size = new System.Drawing.Size(328, 33);
             this.lblDirectorioEmpresarial.TabIndex = 4;
             this.lblDirectorioEmpresarial.Text = "Directorio Empresarial";
             // 
@@ -115,9 +120,10 @@ namespace DSI.CapaVistas
             this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClientes.ForeColor = System.Drawing.Color.Black;
-            this.btnClientes.Location = new System.Drawing.Point(563, 207);
+            this.btnClientes.Location = new System.Drawing.Point(844, 318);
+            this.btnClientes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(202, 189);
+            this.btnClientes.Size = new System.Drawing.Size(303, 291);
             this.btnClientes.TabIndex = 5;
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
@@ -129,9 +135,10 @@ namespace DSI.CapaVistas
             this.btnProvedoresGo.FlatAppearance.BorderSize = 0;
             this.btnProvedoresGo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProvedoresGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProvedoresGo.Location = new System.Drawing.Point(253, 207);
+            this.btnProvedoresGo.Location = new System.Drawing.Point(380, 318);
+            this.btnProvedoresGo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnProvedoresGo.Name = "btnProvedoresGo";
-            this.btnProvedoresGo.Size = new System.Drawing.Size(197, 189);
+            this.btnProvedoresGo.Size = new System.Drawing.Size(296, 291);
             this.btnProvedoresGo.TabIndex = 6;
             this.btnProvedoresGo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnProvedoresGo.UseVisualStyleBackColor = true;
@@ -143,10 +150,9 @@ namespace DSI.CapaVistas
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(24, 517);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(36, 795);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(116, 16);
+            this.label4.Size = new System.Drawing.Size(171, 25);
             this.label4.TabIndex = 9;
             this.label4.Text = "E ingenierías SAS";
             // 
@@ -156,10 +162,9 @@ namespace DSI.CapaVistas
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(24, 501);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(36, 771);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 16);
+            this.label3.Size = new System.Drawing.Size(114, 25);
             this.label3.TabIndex = 8;
             this.label3.Text = "Suministros";
             // 
@@ -170,10 +175,9 @@ namespace DSI.CapaVistas
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(24, 485);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(36, 746);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 16);
+            this.label2.Size = new System.Drawing.Size(88, 25);
             this.label2.TabIndex = 7;
             this.label2.Text = "Diseños ";
             // 
@@ -190,43 +194,47 @@ namespace DSI.CapaVistas
             this.pnlMenu.Controls.Add(this.btnBackup);
             this.pnlMenu.Controls.Add(this.label2);
             this.pnlMenu.Controls.Add(this.btnSalir);
-            this.pnlMenu.Location = new System.Drawing.Point(-13, -2);
+            this.pnlMenu.Location = new System.Drawing.Point(-20, -3);
+            this.pnlMenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(222, 545);
+            this.pnlMenu.Size = new System.Drawing.Size(297, 838);
             this.pnlMenu.TabIndex = 10;
             this.pnlMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMenu_Paint);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(243)))), ((int)(((byte)(138)))));
-            this.panel2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel2.Location = new System.Drawing.Point(599, 45);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(213, 6);
-            this.panel2.TabIndex = 12;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(47, 20);
+            this.label1.Location = new System.Drawing.Point(70, 31);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 24);
+            this.label1.Size = new System.Drawing.Size(137, 33);
             this.label1.TabIndex = 13;
             this.label1.Text = "Nombre*";
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(243)))), ((int)(((byte)(138)))));
+            this.panel2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel2.Location = new System.Drawing.Point(898, 69);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(320, 9);
+            this.panel2.TabIndex = 12;
+            // 
             // FrmMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(833, 540);
+            this.ClientSize = new System.Drawing.Size(1250, 831);
             this.Controls.Add(this.btnClientes);
             this.Controls.Add(this.btnProvedoresGo);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.lblDirectorioEmpresarial);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMenu";
