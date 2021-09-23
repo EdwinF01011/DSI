@@ -54,5 +54,11 @@ namespace DSI.CapaVistas
             else
                 lblinfo.Text = "*Credenciales incorrectas*";
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
