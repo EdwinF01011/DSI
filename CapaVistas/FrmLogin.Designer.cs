@@ -32,7 +32,7 @@ namespace DSI.CapaVistas
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblinfo = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnValidar = new System.Windows.Forms.Button();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,7 +52,7 @@ namespace DSI.CapaVistas
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(253)))), ((int)(((byte)(220)))));
             this.panel3.Controls.Add(this.lblinfo);
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.btnValidar);
             this.panel3.Controls.Add(this.txtContraseña);
             this.panel3.Controls.Add(this.txtUsuario);
             this.panel3.Controls.Add(this.label2);
@@ -76,21 +76,21 @@ namespace DSI.CapaVistas
             this.lblinfo.TabIndex = 15;
             this.lblinfo.Text = "-";
             // 
-            // button1
+            // btnValidar
             // 
-            this.button1.BackColor = System.Drawing.Color.Black;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(362, 278);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 45);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Validar";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnValidar.BackColor = System.Drawing.Color.Black;
+            this.btnValidar.FlatAppearance.BorderSize = 0;
+            this.btnValidar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnValidar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnValidar.ForeColor = System.Drawing.Color.White;
+            this.btnValidar.Location = new System.Drawing.Point(362, 278);
+            this.btnValidar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnValidar.Name = "btnValidar";
+            this.btnValidar.Size = new System.Drawing.Size(147, 45);
+            this.btnValidar.TabIndex = 5;
+            this.btnValidar.Text = "Validar";
+            this.btnValidar.UseVisualStyleBackColor = false;
+            this.btnValidar.Click += new System.EventHandler(this.btnValidar_Click_1);
             // 
             // txtContraseña
             // 
@@ -243,7 +243,7 @@ namespace DSI.CapaVistas
 
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblinfo;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnValidar;
         private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label label2;

@@ -34,10 +34,6 @@ namespace DSI.CapaVistas
 
         }
 
-        private void btnValidar_Click(object sender, EventArgs e)
-        {
-            CapturarDatos();
-        }
 
         private void CapturarDatos()
         {
@@ -55,10 +51,9 @@ namespace DSI.CapaVistas
                 lblinfo.Text = "*Credenciales incorrectas*";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnValidar_Click_1(object sender, EventArgs e)
         {
-
+            CapturarDatos();
         }
-
     }
 }
