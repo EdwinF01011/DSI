@@ -17,7 +17,7 @@ namespace DSI.Datos
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tipo_Estado()
         {
-            this.Contacto = new HashSet<Contacto>();
+            this.contacto = new HashSet<contacto>();
             this.Usuarios = new HashSet<Usuarios>();
         }
     
@@ -25,7 +25,7 @@ namespace DSI.Datos
         public string EStado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contacto> Contacto { get; set; }
+        public virtual ICollection<contacto> contacto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Usuarios> Usuarios { get; set; }
     }

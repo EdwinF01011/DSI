@@ -26,7 +26,7 @@ namespace DSI.Datos
         public string Ruta { get; set; }
         public Nullable<int> id_contacto { get; set; }
     
-        public virtual Contacto Contacto { get; set; }
+        public virtual contacto contacto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Etapas> Etapas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

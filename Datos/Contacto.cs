@@ -12,10 +12,10 @@ namespace DSI.Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class Contacto
+    public partial class contacto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Contacto()
+        public contacto()
         {
             this.Documentos = new HashSet<Documentos>();
         }
@@ -28,6 +28,7 @@ namespace DSI.Datos
         public string Correo { get; set; }
         public string Descripcion { get; set; }
         public string Sector_Actividad { get; set; }
+        public Nullable<byte> id_sector { get; set; }
         public Nullable<byte> id_ubicacion { get; set; }
         public Nullable<bool> id_categoria { get; set; }
         public Nullable<bool> id_estado { get; set; }
@@ -35,6 +36,7 @@ namespace DSI.Datos
         public virtual Categoria Categoria { get; set; }
         public virtual Ciudad Ciudad { get; set; }
         public virtual Tipo_Estado Tipo_Estado { get; set; }
+        public virtual sector sector { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Documentos> Documentos { get; set; }
     }
