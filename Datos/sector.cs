@@ -12,16 +12,18 @@ namespace DSI.Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class Usuarios
+    public partial class sector
     {
-        public byte id { get; set; }
-        public string Nombre { get; set; }
-        public string CC { get; set; }
-        public string pass { get; set; }
-        public bool id_Rol { get; set; }
-        public Nullable<bool> id_Estado { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public sector()
+        {
+            this.contacto = new HashSet<contacto>();
+        }
     
-        public virtual Roles Roles { get; set; }
-        public virtual Tipo_Estado Tipo_Estado { get; set; }
+        public byte id { get; set; }
+        public string nombre_sector { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<contacto> contacto { get; set; }
     }
 }

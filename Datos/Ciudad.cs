@@ -17,7 +17,7 @@ namespace DSI.Datos
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Ciudad()
         {
-            this.Contacto = new HashSet<Contacto>();
+            this.contacto = new HashSet<contacto>();
         }
     
         public byte id { get; set; }
@@ -26,6 +26,6 @@ namespace DSI.Datos
     
         public virtual Pais Pais { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contacto> Contacto { get; set; }
+        public virtual ICollection<contacto> contacto { get; set; }
     }
 }

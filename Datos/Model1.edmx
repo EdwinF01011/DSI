@@ -20,7 +20,7 @@
           <Property Name="NCiudad" Type="varchar" MaxLength="30" />
           <Property Name="id_pais" Type="tinyint" />
         </EntityType>
-        <EntityType Name="Contacto">
+        <EntityType Name="contacto">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -32,6 +32,7 @@
           <Property Name="Correo" Type="varchar" MaxLength="50" />
           <Property Name="Descripcion" Type="varchar" MaxLength="100" />
           <Property Name="Sector_Actividad" Type="varchar" MaxLength="30" />
+          <Property Name="id_sector" Type="tinyint" />
           <Property Name="id_ubicacion" Type="tinyint" />
           <Property Name="id_categoria" Type="bit" />
           <Property Name="id_estado" Type="bit" />
@@ -79,6 +80,13 @@
           <Property Name="idR" Type="bit" Nullable="false" />
           <Property Name="Rol" Type="varchar" MaxLength="15" />
         </EntityType>
+        <EntityType Name="sector">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_sector" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
         <EntityType Name="Tipo_Estado">
           <Key>
             <PropertyRef Name="id" />
@@ -109,47 +117,59 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contacto__id_cat__48CFD27E">
+        <Association Name="FK__contacto__id_cat__76969D2E">
           <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
-          <End Role="Contacto" Type="Self.Contacto" Multiplicity="*" />
+          <End Role="contacto" Type="Self.contacto" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Categoria">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Contacto">
+            <Dependent Role="contacto">
               <PropertyRef Name="id_categoria" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contacto__id_est__49C3F6B7">
+        <Association Name="FK__contacto__id_est__778AC167">
           <End Role="Tipo_Estado" Type="Self.Tipo_Estado" Multiplicity="0..1" />
-          <End Role="Contacto" Type="Self.Contacto" Multiplicity="*" />
+          <End Role="contacto" Type="Self.contacto" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tipo_Estado">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Contacto">
+            <Dependent Role="contacto">
               <PropertyRef Name="id_estado" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contacto__id_ubi__47DBAE45">
+        <Association Name="FK__contacto__id_sec__74AE54BC">
+          <End Role="sector" Type="Self.sector" Multiplicity="0..1" />
+          <End Role="contacto" Type="Self.contacto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sector">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="contacto">
+              <PropertyRef Name="id_sector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__contacto__id_ubi__75A278F5">
           <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="0..1" />
-          <End Role="Contacto" Type="Self.Contacto" Multiplicity="*" />
+          <End Role="contacto" Type="Self.contacto" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Ciudad">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Contacto">
+            <Dependent Role="contacto">
               <PropertyRef Name="id_ubicacion" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Documento__id_co__4CA06362">
-          <End Role="Contacto" Type="Self.Contacto" Multiplicity="0..1" />
+        <Association Name="FK__Documento__id_co__7A672E12">
+          <End Role="contacto" Type="Self.contacto" Multiplicity="0..1" />
           <End Role="Documentos" Type="Self.Documentos" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Contacto">
+            <Principal Role="contacto">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Documentos">
@@ -157,7 +177,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Etapas__id_Docu__52593CB8">
+        <Association Name="FK__Etapas__id_Docu__00200768">
           <End Role="Documentos" Type="Self.Documentos" Multiplicity="0..1" />
           <End Role="Etapas" Type="Self.Etapas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -169,7 +189,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Progreso__id_Doc__4F7CD00D">
+        <Association Name="FK__Progreso__id_Doc__7D439ABD">
           <End Role="Documentos" Type="Self.Documentos" Multiplicity="0..1" />
           <End Role="Progreso" Type="Self.Progreso" Multiplicity="*" />
           <ReferentialConstraint>
@@ -208,39 +228,44 @@
         <EntityContainer Name="DSIModelStoreContainer">
           <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ciudad" EntityType="Self.Ciudad" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Contacto" EntityType="Self.Contacto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contacto" EntityType="Self.contacto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Documentos" EntityType="Self.Documentos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Etapas" EntityType="Self.Etapas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Progreso" EntityType="Self.Progreso" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sector" EntityType="Self.sector" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tipo_Estado" EntityType="Self.Tipo_Estado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Ciudad__id_pais__4316F928" Association="Self.FK__Ciudad__id_pais__4316F928">
             <End Role="Pais" EntitySet="Pais" />
             <End Role="Ciudad" EntitySet="Ciudad" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contacto__id_cat__48CFD27E" Association="Self.FK__Contacto__id_cat__48CFD27E">
+          <AssociationSet Name="FK__contacto__id_cat__76969D2E" Association="Self.FK__contacto__id_cat__76969D2E">
             <End Role="Categoria" EntitySet="Categoria" />
-            <End Role="Contacto" EntitySet="Contacto" />
+            <End Role="contacto" EntitySet="contacto" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contacto__id_est__49C3F6B7" Association="Self.FK__Contacto__id_est__49C3F6B7">
+          <AssociationSet Name="FK__contacto__id_est__778AC167" Association="Self.FK__contacto__id_est__778AC167">
             <End Role="Tipo_Estado" EntitySet="Tipo_Estado" />
-            <End Role="Contacto" EntitySet="Contacto" />
+            <End Role="contacto" EntitySet="contacto" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contacto__id_ubi__47DBAE45" Association="Self.FK__Contacto__id_ubi__47DBAE45">
+          <AssociationSet Name="FK__contacto__id_sec__74AE54BC" Association="Self.FK__contacto__id_sec__74AE54BC">
+            <End Role="sector" EntitySet="sector" />
+            <End Role="contacto" EntitySet="contacto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__contacto__id_ubi__75A278F5" Association="Self.FK__contacto__id_ubi__75A278F5">
             <End Role="Ciudad" EntitySet="Ciudad" />
-            <End Role="Contacto" EntitySet="Contacto" />
+            <End Role="contacto" EntitySet="contacto" />
           </AssociationSet>
-          <AssociationSet Name="FK__Documento__id_co__4CA06362" Association="Self.FK__Documento__id_co__4CA06362">
-            <End Role="Contacto" EntitySet="Contacto" />
+          <AssociationSet Name="FK__Documento__id_co__7A672E12" Association="Self.FK__Documento__id_co__7A672E12">
+            <End Role="contacto" EntitySet="contacto" />
             <End Role="Documentos" EntitySet="Documentos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Etapas__id_Docu__52593CB8" Association="Self.FK__Etapas__id_Docu__52593CB8">
+          <AssociationSet Name="FK__Etapas__id_Docu__00200768" Association="Self.FK__Etapas__id_Docu__00200768">
             <End Role="Documentos" EntitySet="Documentos" />
             <End Role="Etapas" EntitySet="Etapas" />
           </AssociationSet>
-          <AssociationSet Name="FK__Progreso__id_Doc__4F7CD00D" Association="Self.FK__Progreso__id_Doc__4F7CD00D">
+          <AssociationSet Name="FK__Progreso__id_Doc__7D439ABD" Association="Self.FK__Progreso__id_Doc__7D439ABD">
             <End Role="Documentos" EntitySet="Documentos" />
             <End Role="Progreso" EntitySet="Progreso" />
           </AssociationSet>
@@ -264,7 +289,7 @@
           </Key>
           <Property Name="id" Type="Boolean" Nullable="false" />
           <Property Name="Tipo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Contacto" Relationship="Self.FK__Contacto__id_cat__48CFD27E" FromRole="Categoria" ToRole="Contacto" />
+          <NavigationProperty Name="contacto" Relationship="Self.FK__contacto__id_cat__76969D2E" FromRole="Categoria" ToRole="contacto" />
         </EntityType>
         <EntityType Name="Ciudad">
           <Key>
@@ -274,9 +299,9 @@
           <Property Name="NCiudad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="id_pais" Type="Byte" />
           <NavigationProperty Name="Pais" Relationship="Self.FK__Ciudad__id_pais__4316F928" FromRole="Ciudad" ToRole="Pais" />
-          <NavigationProperty Name="Contacto" Relationship="Self.FK__Contacto__id_ubi__47DBAE45" FromRole="Ciudad" ToRole="Contacto" />
+          <NavigationProperty Name="contacto" Relationship="Self.FK__contacto__id_ubi__75A278F5" FromRole="Ciudad" ToRole="contacto" />
         </EntityType>
-        <EntityType Name="Contacto">
+        <EntityType Name="contacto">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -288,13 +313,15 @@
           <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Sector_Actividad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="id_sector" Type="Byte" />
           <Property Name="id_ubicacion" Type="Byte" />
           <Property Name="id_categoria" Type="Boolean" />
           <Property Name="id_estado" Type="Boolean" />
-          <NavigationProperty Name="Categoria" Relationship="Self.FK__Contacto__id_cat__48CFD27E" FromRole="Contacto" ToRole="Categoria" />
-          <NavigationProperty Name="Ciudad" Relationship="Self.FK__Contacto__id_ubi__47DBAE45" FromRole="Contacto" ToRole="Ciudad" />
-          <NavigationProperty Name="Tipo_Estado" Relationship="Self.FK__Contacto__id_est__49C3F6B7" FromRole="Contacto" ToRole="Tipo_Estado" />
-          <NavigationProperty Name="Documentos" Relationship="Self.FK__Documento__id_co__4CA06362" FromRole="Contacto" ToRole="Documentos" />
+          <NavigationProperty Name="Categoria" Relationship="Self.FK__contacto__id_cat__76969D2E" FromRole="contacto" ToRole="Categoria" />
+          <NavigationProperty Name="Ciudad" Relationship="Self.FK__contacto__id_ubi__75A278F5" FromRole="contacto" ToRole="Ciudad" />
+          <NavigationProperty Name="Tipo_Estado" Relationship="Self.FK__contacto__id_est__778AC167" FromRole="contacto" ToRole="Tipo_Estado" />
+          <NavigationProperty Name="sector" Relationship="Self.FK__contacto__id_sec__74AE54BC" FromRole="contacto" ToRole="sector" />
+          <NavigationProperty Name="Documentos" Relationship="Self.FK__Documento__id_co__7A672E12" FromRole="contacto" ToRole="Documentos" />
         </EntityType>
         <EntityType Name="Documentos">
           <Key>
@@ -304,9 +331,9 @@
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Ruta" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="id_contacto" Type="Int32" />
-          <NavigationProperty Name="Contacto" Relationship="Self.FK__Documento__id_co__4CA06362" FromRole="Documentos" ToRole="Contacto" />
-          <NavigationProperty Name="Etapas" Relationship="Self.FK__Etapas__id_Docu__52593CB8" FromRole="Documentos" ToRole="Etapas" />
-          <NavigationProperty Name="Progreso" Relationship="Self.FK__Progreso__id_Doc__4F7CD00D" FromRole="Documentos" ToRole="Progreso" />
+          <NavigationProperty Name="contacto" Relationship="Self.FK__Documento__id_co__7A672E12" FromRole="Documentos" ToRole="contacto" />
+          <NavigationProperty Name="Etapas" Relationship="Self.FK__Etapas__id_Docu__00200768" FromRole="Documentos" ToRole="Etapas" />
+          <NavigationProperty Name="Progreso" Relationship="Self.FK__Progreso__id_Doc__7D439ABD" FromRole="Documentos" ToRole="Progreso" />
         </EntityType>
         <EntityType Name="Etapas">
           <Key>
@@ -317,7 +344,7 @@
           <Property Name="fecha_fin" Type="DateTime" Precision="0" />
           <Property Name="N_Etapas" Type="Byte" />
           <Property Name="id_Docu" Type="Int16" />
-          <NavigationProperty Name="Documentos" Relationship="Self.FK__Etapas__id_Docu__52593CB8" FromRole="Etapas" ToRole="Documentos" />
+          <NavigationProperty Name="Documentos" Relationship="Self.FK__Etapas__id_Docu__00200768" FromRole="Etapas" ToRole="Documentos" />
         </EntityType>
         <EntityType Name="Pais">
           <Key>
@@ -336,7 +363,7 @@
           <Property Name="N_Etapa" Type="Byte" />
           <Property Name="Estado" Type="Boolean" />
           <Property Name="id_Doc" Type="Int16" />
-          <NavigationProperty Name="Documentos" Relationship="Self.FK__Progreso__id_Doc__4F7CD00D" FromRole="Progreso" ToRole="Documentos" />
+          <NavigationProperty Name="Documentos" Relationship="Self.FK__Progreso__id_Doc__7D439ABD" FromRole="Progreso" ToRole="Documentos" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -346,13 +373,21 @@
           <Property Name="Rol" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Usuarios" Relationship="Self.FK__Usuarios__id_Rol__3B75D760" FromRole="Roles" ToRole="Usuarios" />
         </EntityType>
+        <EntityType Name="sector">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_sector" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="contacto" Relationship="Self.FK__contacto__id_sec__74AE54BC" FromRole="sector" ToRole="contacto" />
+        </EntityType>
         <EntityType Name="Tipo_Estado">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Boolean" Nullable="false" />
           <Property Name="EStado" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Contacto" Relationship="Self.FK__Contacto__id_est__49C3F6B7" FromRole="Tipo_Estado" ToRole="Contacto" />
+          <NavigationProperty Name="contacto" Relationship="Self.FK__contacto__id_est__778AC167" FromRole="Tipo_Estado" ToRole="contacto" />
           <NavigationProperty Name="Usuarios" Relationship="Self.FK__Usuarios__id_Est__3C69FB99" FromRole="Tipo_Estado" ToRole="Usuarios" />
         </EntityType>
         <EntityType Name="Usuarios">
@@ -365,15 +400,17 @@
           <Property Name="pass" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="id_Rol" Type="Boolean" Nullable="false" />
           <Property Name="id_Estado" Type="Boolean" />
+          <NavigationProperty Name="Roles" Relationship="Self.FK__Usuarios__id_Rol__3B75D760" FromRole="Usuarios" ToRole="Roles" />
+          <NavigationProperty Name="Tipo_Estado" Relationship="Self.FK__Usuarios__id_Est__3C69FB99" FromRole="Usuarios" ToRole="Tipo_Estado" />
         </EntityType>
-        <Association Name="FK__Contacto__id_cat__48CFD27E">
+        <Association Name="FK__contacto__id_cat__76969D2E">
           <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
-          <End Role="Contacto" Type="Self.Contacto" Multiplicity="*" />
+          <End Role="contacto" Type="Self.contacto" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Categoria">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Contacto">
+            <Dependent Role="contacto">
               <PropertyRef Name="id_categoria" />
             </Dependent>
           </ReferentialConstraint>
@@ -390,35 +427,47 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contacto__id_ubi__47DBAE45">
+        <Association Name="FK__contacto__id_ubi__75A278F5">
           <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="0..1" />
-          <End Role="Contacto" Type="Self.Contacto" Multiplicity="*" />
+          <End Role="contacto" Type="Self.contacto" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Ciudad">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Contacto">
+            <Dependent Role="contacto">
               <PropertyRef Name="id_ubicacion" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contacto__id_est__49C3F6B7">
+        <Association Name="FK__contacto__id_est__778AC167">
           <End Role="Tipo_Estado" Type="Self.Tipo_Estado" Multiplicity="0..1" />
-          <End Role="Contacto" Type="Self.Contacto" Multiplicity="*" />
+          <End Role="contacto" Type="Self.contacto" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tipo_Estado">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Contacto">
+            <Dependent Role="contacto">
               <PropertyRef Name="id_estado" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Documento__id_co__4CA06362">
-          <End Role="Contacto" Type="Self.Contacto" Multiplicity="0..1" />
+        <Association Name="FK__contacto__id_sec__74AE54BC">
+          <End Role="sector" Type="Self.sector" Multiplicity="0..1" />
+          <End Role="contacto" Type="Self.contacto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sector">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="contacto">
+              <PropertyRef Name="id_sector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Documento__id_co__7A672E12">
+          <End Role="contacto" Type="Self.contacto" Multiplicity="0..1" />
           <End Role="Documentos" Type="Self.Documentos" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Contacto">
+            <Principal Role="contacto">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Documentos">
@@ -426,7 +475,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Etapas__id_Docu__52593CB8">
+        <Association Name="FK__Etapas__id_Docu__00200768">
           <End Role="Documentos" Type="Self.Documentos" Multiplicity="0..1" />
           <End Role="Etapas" Type="Self.Etapas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -438,7 +487,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Progreso__id_Doc__4F7CD00D">
+        <Association Name="FK__Progreso__id_Doc__7D439ABD">
           <End Role="Documentos" Type="Self.Documentos" Multiplicity="0..1" />
           <End Role="Progreso" Type="Self.Progreso" Multiplicity="*" />
           <ReferentialConstraint>
@@ -474,42 +523,47 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DSIEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DSIEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categoria" EntityType="Self.Categoria" />
           <EntitySet Name="Ciudad" EntityType="Self.Ciudad" />
-          <EntitySet Name="Contacto" EntityType="Self.Contacto" />
+          <EntitySet Name="contacto" EntityType="Self.contacto" />
           <EntitySet Name="Documentos" EntityType="Self.Documentos" />
           <EntitySet Name="Etapas" EntityType="Self.Etapas" />
           <EntitySet Name="Pais" EntityType="Self.Pais" />
           <EntitySet Name="Progreso" EntityType="Self.Progreso" />
           <EntitySet Name="Roles" EntityType="Self.Roles" />
+          <EntitySet Name="sector" EntityType="Self.sector" />
           <EntitySet Name="Tipo_Estado" EntityType="Self.Tipo_Estado" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
-          <AssociationSet Name="FK__Contacto__id_cat__48CFD27E" Association="Self.FK__Contacto__id_cat__48CFD27E">
+          <AssociationSet Name="FK__contacto__id_cat__76969D2E" Association="Self.FK__contacto__id_cat__76969D2E">
             <End Role="Categoria" EntitySet="Categoria" />
-            <End Role="Contacto" EntitySet="Contacto" />
+            <End Role="contacto" EntitySet="contacto" />
           </AssociationSet>
           <AssociationSet Name="FK__Ciudad__id_pais__4316F928" Association="Self.FK__Ciudad__id_pais__4316F928">
             <End Role="Pais" EntitySet="Pais" />
             <End Role="Ciudad" EntitySet="Ciudad" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contacto__id_ubi__47DBAE45" Association="Self.FK__Contacto__id_ubi__47DBAE45">
+          <AssociationSet Name="FK__contacto__id_ubi__75A278F5" Association="Self.FK__contacto__id_ubi__75A278F5">
             <End Role="Ciudad" EntitySet="Ciudad" />
-            <End Role="Contacto" EntitySet="Contacto" />
+            <End Role="contacto" EntitySet="contacto" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contacto__id_est__49C3F6B7" Association="Self.FK__Contacto__id_est__49C3F6B7">
+          <AssociationSet Name="FK__contacto__id_est__778AC167" Association="Self.FK__contacto__id_est__778AC167">
             <End Role="Tipo_Estado" EntitySet="Tipo_Estado" />
-            <End Role="Contacto" EntitySet="Contacto" />
+            <End Role="contacto" EntitySet="contacto" />
           </AssociationSet>
-          <AssociationSet Name="FK__Documento__id_co__4CA06362" Association="Self.FK__Documento__id_co__4CA06362">
-            <End Role="Contacto" EntitySet="Contacto" />
+          <AssociationSet Name="FK__contacto__id_sec__74AE54BC" Association="Self.FK__contacto__id_sec__74AE54BC">
+            <End Role="sector" EntitySet="sector" />
+            <End Role="contacto" EntitySet="contacto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Documento__id_co__7A672E12" Association="Self.FK__Documento__id_co__7A672E12">
+            <End Role="contacto" EntitySet="contacto" />
             <End Role="Documentos" EntitySet="Documentos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Etapas__id_Docu__52593CB8" Association="Self.FK__Etapas__id_Docu__52593CB8">
+          <AssociationSet Name="FK__Etapas__id_Docu__00200768" Association="Self.FK__Etapas__id_Docu__00200768">
             <End Role="Documentos" EntitySet="Documentos" />
             <End Role="Etapas" EntitySet="Etapas" />
           </AssociationSet>
-          <AssociationSet Name="FK__Progreso__id_Doc__4F7CD00D" Association="Self.FK__Progreso__id_Doc__4F7CD00D">
+          <AssociationSet Name="FK__Progreso__id_Doc__7D439ABD" Association="Self.FK__Progreso__id_Doc__7D439ABD">
             <End Role="Documentos" EntitySet="Documentos" />
             <End Role="Progreso" EntitySet="Progreso" />
           </AssociationSet>
@@ -527,7 +581,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DSIModelStoreContainer" CdmEntityContainer="DSIEntities">
+        <EntityContainerMapping StorageEntityContainer="DSIModelStoreContainer" CdmEntityContainer="DSIEntities1">
           <EntitySetMapping Name="Categoria">
             <EntityTypeMapping TypeName="DSIModel.Categoria">
               <MappingFragment StoreEntitySet="Categoria">
@@ -545,9 +599,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Contacto">
-            <EntityTypeMapping TypeName="DSIModel.Contacto">
-              <MappingFragment StoreEntitySet="Contacto">
+          <EntitySetMapping Name="contacto">
+            <EntityTypeMapping TypeName="DSIModel.contacto">
+              <MappingFragment StoreEntitySet="contacto">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
@@ -556,6 +610,7 @@
                 <ScalarProperty Name="Correo" ColumnName="Correo" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Sector_Actividad" ColumnName="Sector_Actividad" />
+                <ScalarProperty Name="id_sector" ColumnName="id_sector" />
                 <ScalarProperty Name="id_ubicacion" ColumnName="id_ubicacion" />
                 <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
                 <ScalarProperty Name="id_estado" ColumnName="id_estado" />
@@ -607,6 +662,14 @@
               <MappingFragment StoreEntitySet="Roles">
                 <ScalarProperty Name="idR" ColumnName="idR" />
                 <ScalarProperty Name="Rol" ColumnName="Rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sector">
+            <EntityTypeMapping TypeName="DSIModel.sector">
+              <MappingFragment StoreEntitySet="sector">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre_sector" ColumnName="nombre_sector" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

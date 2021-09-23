@@ -13,7 +13,7 @@ namespace DSI.Negocio
         {
             // 8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918
             string passE = ClsEncrytp.GetSHA256(pass);
-            using (DSIEntities BD = new DSIEntities())
+            using (DSIEntities1 BD = new DSIEntities1())
             {
                 var busqueda = (from l in BD.Usuarios
                                 where l.CC == usuario && l.pass == passE

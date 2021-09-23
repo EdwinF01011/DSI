@@ -17,13 +17,13 @@ namespace DSI.Datos
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Categoria()
         {
-            this.Contacto = new HashSet<Contacto>();
+            this.contacto = new HashSet<contacto>();
         }
     
         public bool id { get; set; }
         public string Tipo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contacto> Contacto { get; set; }
+        public virtual ICollection<contacto> contacto { get; set; }
     }
 }
