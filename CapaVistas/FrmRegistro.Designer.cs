@@ -34,6 +34,7 @@ namespace DSI.CapaVistas
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbxDeshabilitado = new System.Windows.Forms.CheckBox();
             this.cboxSectorR = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.btnActualizar = new System.Windows.Forms.Button();
@@ -56,7 +57,7 @@ namespace DSI.CapaVistas
             this.txtCorreoR = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.cbxDeshabilitado = new System.Windows.Forms.CheckBox();
+            this.btnDocR = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,7 +99,7 @@ namespace DSI.CapaVistas
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 20);
+            this.label5.Location = new System.Drawing.Point(872, 113);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(136, 29);
             this.label5.TabIndex = 20;
@@ -133,6 +134,17 @@ namespace DSI.CapaVistas
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // cbxDeshabilitado
+            // 
+            this.cbxDeshabilitado.AutoSize = true;
+            this.cbxDeshabilitado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxDeshabilitado.Location = new System.Drawing.Point(678, 505);
+            this.cbxDeshabilitado.Name = "cbxDeshabilitado";
+            this.cbxDeshabilitado.Size = new System.Drawing.Size(170, 30);
+            this.cbxDeshabilitado.TabIndex = 40;
+            this.cbxDeshabilitado.Text = "Deshabilitado";
+            this.cbxDeshabilitado.UseVisualStyleBackColor = true;
             // 
             // cboxSectorR
             // 
@@ -206,7 +218,7 @@ namespace DSI.CapaVistas
             this.txtDescripcionR.Location = new System.Drawing.Point(518, 76);
             this.txtDescripcionR.Multiline = true;
             this.txtDescripcionR.Name = "txtDescripcionR";
-            this.txtDescripcionR.Size = new System.Drawing.Size(319, 128);
+            this.txtDescripcionR.Size = new System.Drawing.Size(319, 214);
             this.txtDescripcionR.TabIndex = 32;
             // 
             // label8
@@ -326,7 +338,7 @@ namespace DSI.CapaVistas
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 62);
+            this.label2.Location = new System.Drawing.Point(872, 149);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 29);
             this.label2.TabIndex = 22;
@@ -342,22 +354,23 @@ namespace DSI.CapaVistas
             this.label12.TabIndex = 25;
             this.label12.Text = "faltan + cosas";
             // 
-            // cbxDeshabilitado
+            // btnDocR
             // 
-            this.cbxDeshabilitado.AutoSize = true;
-            this.cbxDeshabilitado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxDeshabilitado.Location = new System.Drawing.Point(678, 505);
-            this.cbxDeshabilitado.Name = "cbxDeshabilitado";
-            this.cbxDeshabilitado.Size = new System.Drawing.Size(170, 30);
-            this.cbxDeshabilitado.TabIndex = 40;
-            this.cbxDeshabilitado.Text = "Deshabilitado";
-            this.cbxDeshabilitado.UseVisualStyleBackColor = true;
+            this.btnDocR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDocR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDocR.Location = new System.Drawing.Point(906, 490);
+            this.btnDocR.Name = "btnDocR";
+            this.btnDocR.Size = new System.Drawing.Size(178, 50);
+            this.btnDocR.TabIndex = 26;
+            this.btnDocR.Text = "Documentos";
+            this.btnDocR.UseVisualStyleBackColor = true;
             // 
             // FrmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1128, 666);
+            this.Controls.Add(this.btnDocR);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
@@ -405,5 +418,6 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.TextBox txtDireccionR;
         private System.Windows.Forms.ComboBox cboxSectorR;
         private System.Windows.Forms.CheckBox cbxDeshabilitado;
+        private System.Windows.Forms.Button btnDocR;
     }
 }
