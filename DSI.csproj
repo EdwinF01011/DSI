@@ -55,6 +55,12 @@
     <Compile Include="CapaVistas\FrmBusqueda.Designer.cs">
       <DependentUpon>FrmBusqueda.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapaVistas\FrmDocumentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaVistas\FrmDocumentos.Designer.cs">
+      <DependentUpon>FrmDocumentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaVistas\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,9 @@
   <ItemGroup>
     <EmbeddedResource Include="CapaVistas\FrmBusqueda.resx">
       <DependentUpon>FrmBusqueda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaVistas\FrmDocumentos.resx">
+      <DependentUpon>FrmDocumentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaVistas\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
