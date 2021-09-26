@@ -27,6 +27,16 @@ namespace DSI.CapaVistas
 
         }
 
-        
+        private void FrmBusqueda_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void Busqueda_tipo_label(string x)
+        {
+            //Cuando el usuario seleccione el tipo de categoría que
+            //quiere buscar
+            lblcategoria.Text = x;
+        }
     }
 }
