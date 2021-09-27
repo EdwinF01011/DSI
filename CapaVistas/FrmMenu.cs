@@ -43,6 +43,7 @@ namespace DSI.CapaVistas
             this.Hide();
             FrmBusqueda fmB = new FrmBusqueda();
             fmB.Show();
+            ClsUsuario.categoria_busqueda = "Clientes";
             fmB.Busqueda_tipo_label("Clientes");
         }
 
@@ -51,6 +52,7 @@ namespace DSI.CapaVistas
             this.Hide();
             FrmBusqueda fmB = new FrmBusqueda();
             fmB.Show();
+            ClsUsuario.categoria_busqueda = "Proveedores";
             fmB.Busqueda_tipo_label("Proveedores");
         }
     }

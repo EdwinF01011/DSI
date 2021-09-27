@@ -36,12 +36,12 @@ namespace DSI.CapaVistas
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnAnadir = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnAnadir = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -113,7 +113,7 @@ namespace DSI.CapaVistas
             this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.btnAnadir);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.txtDescripcion);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
@@ -124,23 +124,43 @@ namespace DSI.CapaVistas
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Añadir";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 346);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 29);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "%";
+            // 
             // btnAnadir
             // 
-            this.btnAnadir.Location = new System.Drawing.Point(169, 335);
+            this.btnAnadir.Location = new System.Drawing.Point(11, 498);
             this.btnAnadir.Name = "btnAnadir";
             this.btnAnadir.Size = new System.Drawing.Size(114, 40);
             this.btnAnadir.TabIndex = 25;
             this.btnAnadir.Text = "Añadir";
             this.btnAnadir.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnCancelar
             // 
-            this.button2.Location = new System.Drawing.Point(169, 395);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 38);
-            this.button2.TabIndex = 26;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCancelar.Location = new System.Drawing.Point(169, 500);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(114, 38);
+            this.btnCancelar.TabIndex = 26;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescripcion.Location = new System.Drawing.Point(11, 120);
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(272, 183);
+            this.txtDescripcion.TabIndex = 28;
             // 
             // label2
             // 
@@ -152,15 +172,6 @@ namespace DSI.CapaVistas
             this.label2.TabIndex = 27;
             this.label2.Text = "#0*";
             // 
-            // txtDescripcion
-            // 
-            this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.Location = new System.Drawing.Point(11, 120);
-            this.txtDescripcion.Multiline = true;
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(272, 183);
-            this.txtDescripcion.TabIndex = 28;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -170,16 +181,6 @@ namespace DSI.CapaVistas
             this.label3.Size = new System.Drawing.Size(147, 29);
             this.label3.TabIndex = 27;
             this.label3.Text = "Descripción:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 346);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 29);
-            this.label4.TabIndex = 29;
-            this.label4.Text = "%";
             // 
             // FrmProgreso
             // 
@@ -211,7 +212,7 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnAnadir;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label3;

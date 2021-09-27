@@ -9,5 +9,6 @@ namespace DSI.Negocio
     public class ClsUsuario
     {
         public static string nameUsuario;
+        public static string categoria_busqueda;
     }
 }

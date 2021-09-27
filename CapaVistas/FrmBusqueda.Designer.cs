@@ -44,7 +44,7 @@ namespace DSI.CapaVistas
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.Menu = new System.Windows.Forms.TextBox();
+            this.txtNombreMenu = new System.Windows.Forms.TextBox();
             this.txtCorreoMenu = new System.Windows.Forms.TextBox();
             this.txtRsocialMenu = new System.Windows.Forms.TextBox();
             this.txtSectorMenu = new System.Windows.Forms.TextBox();
@@ -55,7 +55,7 @@ namespace DSI.CapaVistas
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnCrearProveedor = new System.Windows.Forms.Button();
             this.btnConfigurar = new System.Windows.Forms.Button();
-            this.btnSalirProveedor = new System.Windows.Forms.Button();
+            this.btnSalirBusq = new System.Windows.Forms.Button();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.lblUsuarioname = new System.Windows.Forms.Label();
             this.lblNombreUsuario = new System.Windows.Forms.Label();
@@ -164,9 +164,9 @@ namespace DSI.CapaVistas
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(547, 110);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(187, 29);
+            this.label6.Size = new System.Drawing.Size(83, 29);
             this.label6.TabIndex = 19;
-            this.label6.Text = "Sector/Actividad";
+            this.label6.Text = "Sector";
             // 
             // label7
             // 
@@ -208,13 +208,13 @@ namespace DSI.CapaVistas
             this.label10.TabIndex = 22;
             this.label10.Text = "País";
             // 
-            // Menu
+            // txtNombreMenu
             // 
-            this.Menu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Menu.Location = new System.Drawing.Point(306, 140);
-            this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(192, 35);
-            this.Menu.TabIndex = 24;
+            this.txtNombreMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreMenu.Location = new System.Drawing.Point(306, 140);
+            this.txtNombreMenu.Name = "txtNombreMenu";
+            this.txtNombreMenu.Size = new System.Drawing.Size(192, 35);
+            this.txtNombreMenu.TabIndex = 24;
             // 
             // txtCorreoMenu
             // 
@@ -304,6 +304,7 @@ namespace DSI.CapaVistas
             this.btnCrearProveedor.TabIndex = 2;
             this.btnCrearProveedor.Text = "Crear Nuevo";
             this.btnCrearProveedor.UseVisualStyleBackColor = true;
+            this.btnCrearProveedor.Click += new System.EventHandler(this.btnCrearProveedor_Click);
             // 
             // btnConfigurar
             // 
@@ -319,19 +320,20 @@ namespace DSI.CapaVistas
             this.btnConfigurar.Text = "Configurar";
             this.btnConfigurar.UseVisualStyleBackColor = true;
             // 
-            // btnSalirProveedor
+            // btnSalirBusq
             // 
-            this.btnSalirProveedor.FlatAppearance.BorderSize = 0;
-            this.btnSalirProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalirProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalirProveedor.ForeColor = System.Drawing.Color.White;
-            this.btnSalirProveedor.Location = new System.Drawing.Point(54, 591);
-            this.btnSalirProveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnSalirProveedor.Name = "btnSalirProveedor";
-            this.btnSalirProveedor.Size = new System.Drawing.Size(192, 72);
-            this.btnSalirProveedor.TabIndex = 14;
-            this.btnSalirProveedor.Text = "Salir";
-            this.btnSalirProveedor.UseVisualStyleBackColor = true;
+            this.btnSalirBusq.FlatAppearance.BorderSize = 0;
+            this.btnSalirBusq.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalirBusq.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalirBusq.ForeColor = System.Drawing.Color.White;
+            this.btnSalirBusq.Location = new System.Drawing.Point(54, 591);
+            this.btnSalirBusq.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSalirBusq.Name = "btnSalirBusq";
+            this.btnSalirBusq.Size = new System.Drawing.Size(192, 72);
+            this.btnSalirBusq.TabIndex = 14;
+            this.btnSalirBusq.Text = "Salir";
+            this.btnSalirBusq.UseVisualStyleBackColor = true;
+            this.btnSalirBusq.Click += new System.EventHandler(this.btnSalirBusq_Click);
             // 
             // pnlMenu
             // 
@@ -341,7 +343,7 @@ namespace DSI.CapaVistas
             this.pnlMenu.Controls.Add(this.lblUsuarioname);
             this.pnlMenu.Controls.Add(this.btnConfigurar);
             this.pnlMenu.Controls.Add(this.lblNombreUsuario);
-            this.pnlMenu.Controls.Add(this.btnSalirProveedor);
+            this.pnlMenu.Controls.Add(this.btnSalirBusq);
             this.pnlMenu.Controls.Add(this.label4);
             this.pnlMenu.Controls.Add(this.label3);
             this.pnlMenu.Controls.Add(this.btnActualizar);
@@ -427,7 +429,7 @@ namespace DSI.CapaVistas
             this.Controls.Add(this.txtRsocialMenu);
             this.Controls.Add(this.txtSectorMenu);
             this.Controls.Add(this.txtCorreoMenu);
-            this.Controls.Add(this.Menu);
+            this.Controls.Add(this.txtNombreMenu);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label7);
@@ -466,7 +468,7 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox Menu;
+        private System.Windows.Forms.TextBox txtNombreMenu;
         private System.Windows.Forms.TextBox txtCorreoMenu;
         private System.Windows.Forms.TextBox txtRsocialMenu;
         private System.Windows.Forms.TextBox txtSectorMenu;
@@ -477,7 +479,7 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnCrearProveedor;
         private System.Windows.Forms.Button btnConfigurar;
-        private System.Windows.Forms.Button btnSalirProveedor;
+        private System.Windows.Forms.Button btnSalirBusq;
         private System.Windows.Forms.Panel pnlMenu;
         private System.Windows.Forms.Label lblUsuarioname;
         private System.Windows.Forms.Label lblNombreUsuario;

@@ -58,6 +58,8 @@ namespace DSI.CapaVistas
             this.label2 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.btnDocR = new System.Windows.Forms.Button();
+            this.btnPlusSector = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,11 +109,10 @@ namespace DSI.CapaVistas
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnPlusSector);
             this.groupBox1.Controls.Add(this.cbxDeshabilitado);
             this.groupBox1.Controls.Add(this.cboxSectorR);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.btnActualizar);
-            this.groupBox1.Controls.Add(this.btnGuardarR);
             this.groupBox1.Controls.Add(this.txtDireccionR);
             this.groupBox1.Controls.Add(this.cboxCiudadRegistro);
             this.groupBox1.Controls.Add(this.txtRsocialR);
@@ -169,7 +170,7 @@ namespace DSI.CapaVistas
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.Location = new System.Drawing.Point(659, 388);
+            this.btnActualizar.Location = new System.Drawing.Point(913, 380);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(178, 50);
             this.btnActualizar.TabIndex = 24;
@@ -180,7 +181,7 @@ namespace DSI.CapaVistas
             // 
             this.btnGuardarR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGuardarR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarR.Location = new System.Drawing.Point(659, 321);
+            this.btnGuardarR.Location = new System.Drawing.Point(913, 309);
             this.btnGuardarR.Name = "btnGuardarR";
             this.btnGuardarR.Size = new System.Drawing.Size(178, 50);
             this.btnGuardarR.TabIndex = 23;
@@ -358,22 +359,50 @@ namespace DSI.CapaVistas
             // 
             this.btnDocR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDocR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDocR.Location = new System.Drawing.Point(906, 490);
+            this.btnDocR.Location = new System.Drawing.Point(913, 449);
             this.btnDocR.Name = "btnDocR";
             this.btnDocR.Size = new System.Drawing.Size(178, 50);
             this.btnDocR.TabIndex = 26;
             this.btnDocR.Text = "Documentos";
             this.btnDocR.UseVisualStyleBackColor = true;
+            this.btnDocR.Click += new System.EventHandler(this.btnDocR_Click);
+            // 
+            // btnPlusSector
+            // 
+            this.btnPlusSector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPlusSector.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlusSector.Location = new System.Drawing.Point(488, 311);
+            this.btnPlusSector.Name = "btnPlusSector";
+            this.btnPlusSector.Size = new System.Drawing.Size(53, 37);
+            this.btnPlusSector.TabIndex = 27;
+            this.btnPlusSector.Text = "+";
+            this.btnPlusSector.UseVisualStyleBackColor = true;
+            this.btnPlusSector.Click += new System.EventHandler(this.btnPlusSector_Click);
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.Location = new System.Drawing.Point(913, 521);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(178, 50);
+            this.btnVolver.TabIndex = 27;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // FrmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1128, 666);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnDocR);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnActualizar);
+            this.Controls.Add(this.btnGuardarR);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblregistro);
             this.Controls.Add(this.panel2);
@@ -419,5 +448,7 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.ComboBox cboxSectorR;
         private System.Windows.Forms.CheckBox cbxDeshabilitado;
         private System.Windows.Forms.Button btnDocR;
+        private System.Windows.Forms.Button btnPlusSector;
+        private System.Windows.Forms.Button btnVolver;
     }
 }
