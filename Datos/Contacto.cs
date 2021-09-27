@@ -32,6 +32,7 @@ namespace DSI.Datos
         public Nullable<byte> id_ubicacion { get; set; }
         public Nullable<bool> id_categoria { get; set; }
         public Nullable<bool> id_estado { get; set; }
+        public string ruta_carpeta { get; set; }
     
         public virtual Categoria Categoria { get; set; }
         public virtual Ciudad Ciudad { get; set; }
