@@ -10,13 +10,11 @@ using System.Windows.Forms;
 
 namespace DSI.CapaVistas
 {
-    public partial class FrmRegistro : Form
+    public partial class FrmProgreso : Form
     {
-        public FrmRegistro()
+        public FrmProgreso()
         {
             InitializeComponent();
         }
-
-
     }
 }

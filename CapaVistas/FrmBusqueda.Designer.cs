@@ -57,7 +57,7 @@ namespace DSI.CapaVistas
             this.btnConfigurar = new System.Windows.Forms.Button();
             this.btnSalirProveedor = new System.Windows.Forms.Button();
             this.pnlMenu = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblUsuarioname = new System.Windows.Forms.Label();
             this.lblNombreUsuario = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -71,18 +71,19 @@ namespace DSI.CapaVistas
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1095, 9);
+            this.label1.Location = new System.Drawing.Point(1143, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(155, 82);
             this.label1.TabIndex = 14;
             this.label1.Text = "DSI";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(243)))), ((int)(((byte)(138)))));
             this.panel2.ForeColor = System.Drawing.Color.Transparent;
-            this.panel2.Location = new System.Drawing.Point(1236, 9);
+            this.panel2.Location = new System.Drawing.Point(1284, 14);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(10, 85);
@@ -93,12 +94,13 @@ namespace DSI.CapaVistas
             this.lblcategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblcategoria.AutoSize = true;
             this.lblcategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcategoria.Location = new System.Drawing.Point(1248, 38);
+            this.lblcategoria.Location = new System.Drawing.Point(272, 9);
             this.lblcategoria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblcategoria.Name = "lblcategoria";
             this.lblcategoria.Size = new System.Drawing.Size(203, 33);
             this.lblcategoria.TabIndex = 16;
             this.lblcategoria.Text = "Proveedores*";
+            this.lblcategoria.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dataGridView1
             // 
@@ -115,7 +117,7 @@ namespace DSI.CapaVistas
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1180, 535);
+            this.dataGridView1.Size = new System.Drawing.Size(1026, 535);
             this.dataGridView1.TabIndex = 17;
             // 
             // Nombre
@@ -300,7 +302,7 @@ namespace DSI.CapaVistas
             this.btnCrearProveedor.Name = "btnCrearProveedor";
             this.btnCrearProveedor.Size = new System.Drawing.Size(218, 72);
             this.btnCrearProveedor.TabIndex = 2;
-            this.btnCrearProveedor.Text = "Crear Proveedor";
+            this.btnCrearProveedor.Text = "Crear Nuevo";
             this.btnCrearProveedor.UseVisualStyleBackColor = true;
             // 
             // btnConfigurar
@@ -336,7 +338,7 @@ namespace DSI.CapaVistas
             this.pnlMenu.BackColor = System.Drawing.Color.Transparent;
             this.pnlMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlMenu.BackgroundImage")));
             this.pnlMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlMenu.Controls.Add(this.label2);
+            this.pnlMenu.Controls.Add(this.lblUsuarioname);
             this.pnlMenu.Controls.Add(this.btnConfigurar);
             this.pnlMenu.Controls.Add(this.lblNombreUsuario);
             this.pnlMenu.Controls.Add(this.btnSalirProveedor);
@@ -351,16 +353,16 @@ namespace DSI.CapaVistas
             this.pnlMenu.Size = new System.Drawing.Size(274, 914);
             this.pnlMenu.TabIndex = 33;
             // 
-            // label2
+            // lblUsuarioname
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(22, 28);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 33);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Nombre*";
+            this.lblUsuarioname.AutoSize = true;
+            this.lblUsuarioname.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuarioname.Location = new System.Drawing.Point(22, 28);
+            this.lblUsuarioname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUsuarioname.Name = "lblUsuarioname";
+            this.lblUsuarioname.Size = new System.Drawing.Size(137, 33);
+            this.lblUsuarioname.TabIndex = 13;
+            this.lblUsuarioname.Text = "Nombre*";
             // 
             // lblNombreUsuario
             // 
@@ -416,7 +418,7 @@ namespace DSI.CapaVistas
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1464, 835);
+            this.ClientSize = new System.Drawing.Size(1310, 835);
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtTelMenu);
@@ -438,7 +440,9 @@ namespace DSI.CapaVistas
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmBusqueda";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBusquedaProvedor";
+            this.Load += new System.EventHandler(this.FrmBusqueda_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
@@ -475,7 +479,7 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.Button btnConfigurar;
         private System.Windows.Forms.Button btnSalirProveedor;
         private System.Windows.Forms.Panel pnlMenu;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblUsuarioname;
         private System.Windows.Forms.Label lblNombreUsuario;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;

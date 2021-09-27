@@ -16,11 +16,14 @@ namespace DSI.Negocio
             string passE = ClsEncrytp.GetSHA256(pass);
             using (DSIEntities1 BD = new DSIEntities1())
             {
+                //VALIDA LAS CREDENCIALES
                 var busqueda = (from l in BD.Usuarios
                                 where l.CC == usuario && l.pass == passE
                                 select l).FirstOrDefault();
                 if (busqueda != null)
                 {
+                    //PARA OBTENER EL NOMBRE DEL USUARIO
+                    ClsUsuario.nameUsuario=busqueda.Nombre;
                     return true;
                 }
                 else
