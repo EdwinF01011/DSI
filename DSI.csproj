@@ -45,12 +45,6 @@
     <Folder Include="CapaNegocio\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CapaVistas\formParaEjemplo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CapaVistas\formParaEjemplo.Designer.cs">
-      <DependentUpon>formParaEjemplo.cs</DependentUpon>
-    </Compile>
     <Compile Include="CapaVistas\FrmBusqueda.cs">
       <SubType>Form</SubType>
     </Compile>
