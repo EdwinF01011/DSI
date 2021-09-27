@@ -57,7 +57,7 @@ namespace DSI.CapaVistas
             this.btnConfigurar = new System.Windows.Forms.Button();
             this.btnSalirProveedor = new System.Windows.Forms.Button();
             this.pnlMenu = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblUsuarioname = new System.Windows.Forms.Label();
             this.lblNombreUsuario = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -338,7 +338,7 @@ namespace DSI.CapaVistas
             this.pnlMenu.BackColor = System.Drawing.Color.Transparent;
             this.pnlMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlMenu.BackgroundImage")));
             this.pnlMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlMenu.Controls.Add(this.label2);
+            this.pnlMenu.Controls.Add(this.lblUsuarioname);
             this.pnlMenu.Controls.Add(this.btnConfigurar);
             this.pnlMenu.Controls.Add(this.lblNombreUsuario);
             this.pnlMenu.Controls.Add(this.btnSalirProveedor);
@@ -353,16 +353,16 @@ namespace DSI.CapaVistas
             this.pnlMenu.Size = new System.Drawing.Size(274, 914);
             this.pnlMenu.TabIndex = 33;
             // 
-            // label2
+            // lblUsuarioname
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(22, 28);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 33);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Nombre*";
+            this.lblUsuarioname.AutoSize = true;
+            this.lblUsuarioname.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuarioname.Location = new System.Drawing.Point(22, 28);
+            this.lblUsuarioname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUsuarioname.Name = "lblUsuarioname";
+            this.lblUsuarioname.Size = new System.Drawing.Size(137, 33);
+            this.lblUsuarioname.TabIndex = 13;
+            this.lblUsuarioname.Text = "Nombre*";
             // 
             // lblNombreUsuario
             // 
@@ -479,7 +479,7 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.Button btnConfigurar;
         private System.Windows.Forms.Button btnSalirProveedor;
         private System.Windows.Forms.Panel pnlMenu;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblUsuarioname;
         private System.Windows.Forms.Label lblNombreUsuario;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;

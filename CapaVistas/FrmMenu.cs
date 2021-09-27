@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DSI.Negocio;
 
 namespace DSI.CapaVistas
 {
@@ -29,7 +30,12 @@ namespace DSI.CapaVistas
 
         private void FrmMenu_Load(object sender, EventArgs e)
         {
+            Nombre_Usuario();
+        }
 
+        private void Nombre_Usuario()
+        {
+            lblUsuarioname.Text = ClsUsuario.nameUsuario;
         }
 
         private void btnClientesGo_Click(object sender, EventArgs e)
