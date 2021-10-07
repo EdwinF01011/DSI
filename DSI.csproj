@@ -154,6 +154,7 @@
     <Compile Include="Datos\Usuarios.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Negocio\Clscontacto.cs" />
     <Compile Include="Negocio\ClsEncrytp.cs" />
     <Compile Include="Negocio\ClsLogin.cs" />
     <Compile Include="Negocio\ClsUsuario.cs" />
