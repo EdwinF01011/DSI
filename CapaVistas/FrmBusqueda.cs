@@ -60,5 +60,13 @@ namespace DSI.CapaVistas
             FrmMenu frmMenu = new FrmMenu();
             frmMenu.Show();
         }
+
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
+            ClsContactosCrud frmBusqueda = new ClsContactosCrud();
+            dataGridView1.DataSource = frmBusqueda.LeerContacto();
+        }
+
+      
     }
 }

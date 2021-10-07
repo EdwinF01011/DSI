@@ -31,7 +31,6 @@
           <Property Name="Direccion" Type="varchar" MaxLength="50" />
           <Property Name="Correo" Type="varchar" MaxLength="50" />
           <Property Name="Descripcion" Type="varchar" MaxLength="100" />
-          <Property Name="Sector_Actividad" Type="varchar" MaxLength="30" />
           <Property Name="id_sector" Type="tinyint" />
           <Property Name="id_ubicacion" Type="tinyint" />
           <Property Name="id_categoria" Type="bit" />
@@ -118,7 +117,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__contacto__id_cat__04E4BC85">
+        <Association Name="FK__contacto__id_cat__4BAC3F29">
           <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
           <End Role="contacto" Type="Self.contacto" Multiplicity="*" />
           <ReferentialConstraint>
@@ -130,7 +129,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__contacto__id_est__05D8E0BE">
+        <Association Name="FK__contacto__id_est__4CA06362">
           <End Role="Tipo_Estado" Type="Self.Tipo_Estado" Multiplicity="0..1" />
           <End Role="contacto" Type="Self.contacto" Multiplicity="*" />
           <ReferentialConstraint>
@@ -142,7 +141,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__contacto__id_sec__02FC7413">
+        <Association Name="FK__contacto__id_sec__49C3F6B7">
           <End Role="sector" Type="Self.sector" Multiplicity="0..1" />
           <End Role="contacto" Type="Self.contacto" Multiplicity="*" />
           <ReferentialConstraint>
@@ -154,7 +153,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__contacto__id_ubi__03F0984C">
+        <Association Name="FK__contacto__id_ubi__4AB81AF0">
           <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="0..1" />
           <End Role="contacto" Type="Self.contacto" Multiplicity="*" />
           <ReferentialConstraint>
@@ -166,7 +165,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Documento__id_co__08B54D69">
+        <Association Name="FK__Documento__id_co__4F7CD00D">
           <End Role="contacto" Type="Self.contacto" Multiplicity="0..1" />
           <End Role="Documentos" Type="Self.Documentos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -178,7 +177,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Etapas__id_Docu__0E6E26BF">
+        <Association Name="FK__Etapas__id_Docu__5535A963">
           <End Role="Documentos" Type="Self.Documentos" Multiplicity="0..1" />
           <End Role="Etapas" Type="Self.Etapas" Multiplicity="*" />
           <ReferentialConstraint>
@@ -190,7 +189,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Progreso__id_Doc__0B91BA14">
+        <Association Name="FK__Progreso__id_Doc__52593CB8">
           <End Role="Documentos" Type="Self.Documentos" Multiplicity="0..1" />
           <End Role="Progreso" Type="Self.Progreso" Multiplicity="*" />
           <ReferentialConstraint>
@@ -242,31 +241,31 @@
             <End Role="Pais" EntitySet="Pais" />
             <End Role="Ciudad" EntitySet="Ciudad" />
           </AssociationSet>
-          <AssociationSet Name="FK__contacto__id_cat__04E4BC85" Association="Self.FK__contacto__id_cat__04E4BC85">
+          <AssociationSet Name="FK__contacto__id_cat__4BAC3F29" Association="Self.FK__contacto__id_cat__4BAC3F29">
             <End Role="Categoria" EntitySet="Categoria" />
             <End Role="contacto" EntitySet="contacto" />
           </AssociationSet>
-          <AssociationSet Name="FK__contacto__id_est__05D8E0BE" Association="Self.FK__contacto__id_est__05D8E0BE">
+          <AssociationSet Name="FK__contacto__id_est__4CA06362" Association="Self.FK__contacto__id_est__4CA06362">
             <End Role="Tipo_Estado" EntitySet="Tipo_Estado" />
             <End Role="contacto" EntitySet="contacto" />
           </AssociationSet>
-          <AssociationSet Name="FK__contacto__id_sec__02FC7413" Association="Self.FK__contacto__id_sec__02FC7413">
+          <AssociationSet Name="FK__contacto__id_sec__49C3F6B7" Association="Self.FK__contacto__id_sec__49C3F6B7">
             <End Role="sector" EntitySet="sector" />
             <End Role="contacto" EntitySet="contacto" />
           </AssociationSet>
-          <AssociationSet Name="FK__contacto__id_ubi__03F0984C" Association="Self.FK__contacto__id_ubi__03F0984C">
+          <AssociationSet Name="FK__contacto__id_ubi__4AB81AF0" Association="Self.FK__contacto__id_ubi__4AB81AF0">
             <End Role="Ciudad" EntitySet="Ciudad" />
             <End Role="contacto" EntitySet="contacto" />
           </AssociationSet>
-          <AssociationSet Name="FK__Documento__id_co__08B54D69" Association="Self.FK__Documento__id_co__08B54D69">
+          <AssociationSet Name="FK__Documento__id_co__4F7CD00D" Association="Self.FK__Documento__id_co__4F7CD00D">
             <End Role="contacto" EntitySet="contacto" />
             <End Role="Documentos" EntitySet="Documentos" />
           </AssociationSet>
-          <AssociationSet Name="FK__Etapas__id_Docu__0E6E26BF" Association="Self.FK__Etapas__id_Docu__0E6E26BF">
+          <AssociationSet Name="FK__Etapas__id_Docu__5535A963" Association="Self.FK__Etapas__id_Docu__5535A963">
             <End Role="Documentos" EntitySet="Documentos" />
             <End Role="Etapas" EntitySet="Etapas" />
           </AssociationSet>
-          <AssociationSet Name="FK__Progreso__id_Doc__0B91BA14" Association="Self.FK__Progreso__id_Doc__0B91BA14">
+          <AssociationSet Name="FK__Progreso__id_Doc__52593CB8" Association="Self.FK__Progreso__id_Doc__52593CB8">
             <End Role="Documentos" EntitySet="Documentos" />
             <End Role="Progreso" EntitySet="Progreso" />
           </AssociationSet>
@@ -312,7 +311,6 @@
           <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Sector_Actividad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="id_sector" Type="Byte" />
           <Property Name="id_ubicacion" Type="Byte" />
           <Property Name="id_categoria" Type="Boolean" />
@@ -611,7 +609,6 @@
                 <ScalarProperty Name="Direccion" ColumnName="Direccion" />
                 <ScalarProperty Name="Correo" ColumnName="Correo" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="Sector_Actividad" ColumnName="Sector_Actividad" />
                 <ScalarProperty Name="id_sector" ColumnName="id_sector" />
                 <ScalarProperty Name="id_ubicacion" ColumnName="id_ubicacion" />
                 <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
