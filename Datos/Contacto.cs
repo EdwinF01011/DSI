@@ -27,7 +27,6 @@ namespace DSI.Datos
         public string Direccion { get; set; }
         public string Correo { get; set; }
         public string Descripcion { get; set; }
-        public string Sector_Actividad { get; set; }
         public Nullable<byte> id_sector { get; set; }
         public Nullable<byte> id_ubicacion { get; set; }
         public Nullable<bool> id_categoria { get; set; }
