@@ -31,13 +31,14 @@ namespace DSI.CapaVistas
 
         private void FrmBusqueda_Load(object sender, EventArgs e)
         {
-            lblcategoria.Text = ClsUsuario.categoria_busqueda;
+            
             Nombre_Usuario();
         }
 
         private void Nombre_Usuario()
         {
             lblUsuarioname.Text = ClsUsuario.nameUsuario;
+            lblcategoria.Text = ClsUsuario.categoria_busqueda;
         }
 
         public void Busqueda_tipo_label(string x)//string x
@@ -64,7 +65,7 @@ namespace DSI.CapaVistas
         private void btnbuscar_Click(object sender, EventArgs e)
         {
             ClsContactosCrud frmBusqueda = new ClsContactosCrud();
-            dataGridView1.DataSource = frmBusqueda.LeerContacto();
+            dataGridView1.DataSource = frmBusqueda.ReadContacto();
         }
 
       

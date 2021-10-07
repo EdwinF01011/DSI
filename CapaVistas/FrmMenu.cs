@@ -45,6 +45,7 @@ namespace DSI.CapaVistas
             fmB.Show();
             ClsUsuario.categoria_busqueda = "Clientes";
             fmB.Busqueda_tipo_label("Clientes");
+            ClsUsuario.number_categoria = false;
         }
 
         private void btnProveedorsGo_Click(object sender, EventArgs e)
@@ -54,6 +55,7 @@ namespace DSI.CapaVistas
             fmB.Show();
             ClsUsuario.categoria_busqueda = "Proveedores";
             fmB.Busqueda_tipo_label("Proveedores");
+            ClsUsuario.number_categoria = true;
         }
     }
 }

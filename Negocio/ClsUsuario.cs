@@ -9,6 +9,7 @@ namespace DSI.Negocio
     public class ClsUsuario
     {
         public static string nameUsuario;
-        public static string categoria_busqueda;
+        public static string categoria_busqueda;//indica qué se va buscar cliente, proveedor 
+        public static bool number_categoria;
     }
 }
