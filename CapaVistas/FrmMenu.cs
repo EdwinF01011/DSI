@@ -23,10 +23,6 @@ namespace DSI.CapaVistas
 
         }
 
-        private void pnlMenu_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void FrmMenu_Load(object sender, EventArgs e)
         {
@@ -56,6 +52,18 @@ namespace DSI.CapaVistas
             ClsUsuario.categoria_busqueda = "Proveedores";
             fmB.Busqueda_tipo_label("Proveedores");
             ClsUsuario.number_categoria = true;
+        }
+
+        private void btnUbicaciones_Click(object sender, EventArgs e)
+        {
+            FrmUbicación frmU = new FrmUbicación();
+            frmU.Show();
+        }
+
+        private void btnSectores_Click(object sender, EventArgs e)
+        {
+            FrmSector frmstr = new FrmSector();
+            frmstr.Show();
         }
     }
 }

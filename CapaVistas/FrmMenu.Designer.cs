@@ -41,6 +41,8 @@ namespace DSI.CapaVistas
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.btnSectores = new System.Windows.Forms.Button();
+            this.btnUbicaciones = new System.Windows.Forms.Button();
             this.lblUsuarioname = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnlMenu.SuspendLayout();
@@ -64,7 +66,7 @@ namespace DSI.CapaVistas
             this.btnConfigurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfigurar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfigurar.ForeColor = System.Drawing.Color.White;
-            this.btnConfigurar.Location = new System.Drawing.Point(60, 167);
+            this.btnConfigurar.Location = new System.Drawing.Point(99, 186);
             this.btnConfigurar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnConfigurar.Name = "btnConfigurar";
             this.btnConfigurar.Size = new System.Drawing.Size(192, 69);
@@ -78,7 +80,7 @@ namespace DSI.CapaVistas
             this.btnBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBackup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBackup.ForeColor = System.Drawing.Color.White;
-            this.btnBackup.Location = new System.Drawing.Point(60, 321);
+            this.btnBackup.Location = new System.Drawing.Point(99, 334);
             this.btnBackup.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBackup.Name = "btnBackup";
             this.btnBackup.Size = new System.Drawing.Size(192, 72);
@@ -93,7 +95,7 @@ namespace DSI.CapaVistas
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(60, 484);
+            this.btnSalir.Location = new System.Drawing.Point(99, 498);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(192, 69);
@@ -103,9 +105,10 @@ namespace DSI.CapaVistas
             // 
             // lblDirectorioEmpresarial
             // 
+            this.lblDirectorioEmpresarial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDirectorioEmpresarial.AutoSize = true;
             this.lblDirectorioEmpresarial.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDirectorioEmpresarial.Location = new System.Drawing.Point(892, 28);
+            this.lblDirectorioEmpresarial.Location = new System.Drawing.Point(1557, 9);
             this.lblDirectorioEmpresarial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDirectorioEmpresarial.Name = "lblDirectorioEmpresarial";
             this.lblDirectorioEmpresarial.Size = new System.Drawing.Size(328, 33);
@@ -120,7 +123,7 @@ namespace DSI.CapaVistas
             this.btnProveedorsGo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProveedorsGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProveedorsGo.ForeColor = System.Drawing.Color.Black;
-            this.btnProveedorsGo.Location = new System.Drawing.Point(844, 318);
+            this.btnProveedorsGo.Location = new System.Drawing.Point(1330, 402);
             this.btnProveedorsGo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnProveedorsGo.Name = "btnProveedorsGo";
             this.btnProveedorsGo.Size = new System.Drawing.Size(303, 291);
@@ -135,7 +138,7 @@ namespace DSI.CapaVistas
             this.btnClientesGo.FlatAppearance.BorderSize = 0;
             this.btnClientesGo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClientesGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClientesGo.Location = new System.Drawing.Point(380, 318);
+            this.btnClientesGo.Location = new System.Drawing.Point(722, 402);
             this.btnClientesGo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClientesGo.Name = "btnClientesGo";
             this.btnClientesGo.Size = new System.Drawing.Size(296, 291);
@@ -150,7 +153,7 @@ namespace DSI.CapaVistas
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(36, 795);
+            this.label4.Location = new System.Drawing.Point(32, 993);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(171, 25);
             this.label4.TabIndex = 9;
@@ -162,7 +165,7 @@ namespace DSI.CapaVistas
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(36, 771);
+            this.label3.Location = new System.Drawing.Point(32, 969);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(114, 25);
             this.label3.TabIndex = 8;
@@ -175,7 +178,7 @@ namespace DSI.CapaVistas
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(36, 746);
+            this.label2.Location = new System.Drawing.Point(32, 944);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 25);
             this.label2.TabIndex = 7;
@@ -186,6 +189,8 @@ namespace DSI.CapaVistas
             this.pnlMenu.BackColor = System.Drawing.Color.Transparent;
             this.pnlMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlMenu.BackgroundImage")));
             this.pnlMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlMenu.Controls.Add(this.btnSectores);
+            this.pnlMenu.Controls.Add(this.btnUbicaciones);
             this.pnlMenu.Controls.Add(this.lblUsuarioname);
             this.pnlMenu.Controls.Add(this.lblNombreUsuario);
             this.pnlMenu.Controls.Add(this.btnConfigurar);
@@ -197,9 +202,38 @@ namespace DSI.CapaVistas
             this.pnlMenu.Location = new System.Drawing.Point(-20, -3);
             this.pnlMenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(297, 838);
+            this.pnlMenu.Size = new System.Drawing.Size(368, 1028);
             this.pnlMenu.TabIndex = 10;
-            this.pnlMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMenu_Paint);
+            // 
+            // btnSectores
+            // 
+            this.btnSectores.FlatAppearance.BorderSize = 0;
+            this.btnSectores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSectores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSectores.ForeColor = System.Drawing.Color.White;
+            this.btnSectores.Location = new System.Drawing.Point(99, 769);
+            this.btnSectores.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSectores.Name = "btnSectores";
+            this.btnSectores.Size = new System.Drawing.Size(192, 72);
+            this.btnSectores.TabIndex = 13;
+            this.btnSectores.Text = "Sectores";
+            this.btnSectores.UseVisualStyleBackColor = true;
+            this.btnSectores.Click += new System.EventHandler(this.btnSectores_Click);
+            // 
+            // btnUbicaciones
+            // 
+            this.btnUbicaciones.FlatAppearance.BorderSize = 0;
+            this.btnUbicaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUbicaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUbicaciones.ForeColor = System.Drawing.Color.White;
+            this.btnUbicaciones.Location = new System.Drawing.Point(99, 637);
+            this.btnUbicaciones.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnUbicaciones.Name = "btnUbicaciones";
+            this.btnUbicaciones.Size = new System.Drawing.Size(192, 72);
+            this.btnUbicaciones.TabIndex = 13;
+            this.btnUbicaciones.Text = "Ubicaciones";
+            this.btnUbicaciones.UseVisualStyleBackColor = true;
+            this.btnUbicaciones.Click += new System.EventHandler(this.btnUbicaciones_Click);
             // 
             // lblUsuarioname
             // 
@@ -214,9 +248,10 @@ namespace DSI.CapaVistas
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(243)))), ((int)(((byte)(138)))));
             this.panel2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel2.Location = new System.Drawing.Point(898, 69);
+            this.panel2.Location = new System.Drawing.Point(1563, 50);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(320, 9);
@@ -228,7 +263,7 @@ namespace DSI.CapaVistas
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1250, 831);
+            this.ClientSize = new System.Drawing.Size(1898, 1024);
             this.Controls.Add(this.btnProveedorsGo);
             this.Controls.Add(this.btnClientesGo);
             this.Controls.Add(this.panel2);
@@ -238,6 +273,7 @@ namespace DSI.CapaVistas
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMenu";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmMenu_Load);
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
@@ -261,5 +297,7 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.Panel pnlMenu;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblUsuarioname;
+        private System.Windows.Forms.Button btnSectores;
+        private System.Windows.Forms.Button btnUbicaciones;
     }
 }
