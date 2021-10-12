@@ -13,6 +13,7 @@ namespace DSI.CapaVistas
 {
     public partial class FrmBusqueda : Form
     {
+
         public FrmBusqueda()
         {
             InitializeComponent();
@@ -30,19 +31,43 @@ namespace DSI.CapaVistas
 
         private void FrmBusqueda_Load(object sender, EventArgs e)
         {
+            
             Nombre_Usuario();
         }
 
         private void Nombre_Usuario()
         {
             lblUsuarioname.Text = ClsUsuario.nameUsuario;
+            lblcategoria.Text = ClsUsuario.categoria_busqueda;
         }
 
-        public void Busqueda_tipo_label(string x)
+        public void Busqueda_tipo_label(string x)//string x
         {
             //Cuando el usuario seleccione el tipo de categoría que
             //quiere buscar
             lblcategoria.Text = x;
         }
+
+        private void btnCrearProveedor_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmRegistro frmR = new FrmRegistro();
+            frmR.Show();
+        }
+
+        private void btnSalirBusq_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmMenu frmMenu = new FrmMenu();
+            frmMenu.Show();
+        }
+
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
+            ClsContactosCrud frmBusqueda = new ClsContactosCrud();
+            dataGridView1.DataSource = frmBusqueda.ReadContacto();
+        }
+
+      
     }
 }

@@ -33,16 +33,18 @@ namespace DSI.CapaVistas
             this.label1 = new System.Windows.Forms.Label();
             this.lblregistro = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtNameDoc = new System.Windows.Forms.TextBox();
-            this.txtRuta = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnAnexar = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtNameDoc = new System.Windows.Forms.TextBox();
+            this.txtRuta = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnAnexar = new System.Windows.Forms.Button();
+            this.btnSeguimiento = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,8 +95,43 @@ namespace DSI.CapaVistas
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(986, 355);
+            this.dataGridView1.Size = new System.Drawing.Size(986, 308);
             this.dataGridView1.TabIndex = 22;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Nombre";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Fecha inicial";
+            this.Column2.MinimumWidth = 8;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Fecha Final";
+            this.Column3.MinimumWidth = 8;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 150;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Total de etapas";
+            this.Column4.MinimumWidth = 8;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 150;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Progreso  %";
+            this.Column5.MinimumWidth = 8;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 150;
             // 
             // label3
             // 
@@ -134,53 +171,40 @@ namespace DSI.CapaVistas
             // 
             // btnAnexar
             // 
-            this.btnAnexar.Location = new System.Drawing.Point(404, 252);
+            this.btnAnexar.Location = new System.Drawing.Point(678, 621);
             this.btnAnexar.Name = "btnAnexar";
             this.btnAnexar.Size = new System.Drawing.Size(87, 35);
             this.btnAnexar.TabIndex = 28;
             this.btnAnexar.Text = "Anexar";
             this.btnAnexar.UseVisualStyleBackColor = true;
             // 
-            // Column1
+            // btnSeguimiento
             // 
-            this.Column1.HeaderText = "Nombre";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 150;
+            this.btnSeguimiento.Location = new System.Drawing.Point(771, 621);
+            this.btnSeguimiento.Name = "btnSeguimiento";
+            this.btnSeguimiento.Size = new System.Drawing.Size(118, 35);
+            this.btnSeguimiento.TabIndex = 29;
+            this.btnSeguimiento.Text = "Seguimiento";
+            this.btnSeguimiento.UseVisualStyleBackColor = true;
+            this.btnSeguimiento.Click += new System.EventHandler(this.btnSeguimiento_Click);
             // 
-            // Column2
+            // btnCancelar
             // 
-            this.Column2.HeaderText = "Fecha inicial";
-            this.Column2.MinimumWidth = 8;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Fecha Final";
-            this.Column3.MinimumWidth = 8;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 150;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Total de etapas";
-            this.Column4.MinimumWidth = 8;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 150;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Progreso  %";
-            this.Column5.MinimumWidth = 8;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 150;
+            this.btnCancelar.Location = new System.Drawing.Point(895, 621);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(103, 35);
+            this.btnCancelar.TabIndex = 30;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // FrmDocumentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1010, 668);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnSeguimiento);
             this.Controls.Add(this.btnAnexar);
             this.Controls.Add(this.txtRuta);
             this.Controls.Add(this.label2);
@@ -191,6 +215,7 @@ namespace DSI.CapaVistas
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
             this.Name = "FrmDocumentos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmDocumentos";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -214,5 +239,7 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.Button btnSeguimiento;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

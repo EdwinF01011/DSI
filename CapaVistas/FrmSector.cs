@@ -10,25 +10,16 @@ using System.Windows.Forms;
 
 namespace DSI.CapaVistas
 {
-    public partial class FrmDocumentos : Form
+    public partial class FrmSector : Form
     {
-        public FrmDocumentos()
+        public FrmSector()
         {
             InitializeComponent();
         }
 
-        private void btnSeguimiento_Click(object sender, EventArgs e)
-        {
-            //this.Hide();
-            FrmProgreso frmProg = new FrmProgreso();
-            frmProg.Show();
-        }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FrmRegistro frmRegi = new FrmRegistro();
-            frmRegi.Show();
+            this.Close();
         }
     }
 }

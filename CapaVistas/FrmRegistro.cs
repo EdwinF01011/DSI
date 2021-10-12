@@ -17,6 +17,24 @@ namespace DSI.CapaVistas
             InitializeComponent();
         }
 
+        private void btnDocR_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmDocumentos frmDoc = new FrmDocumentos();
+            frmDoc.Show();
+        }
 
+        private void btnPlusSector_Click(object sender, EventArgs e)
+        {
+            FrmSector frmStor = new FrmSector();
+            frmStor.Show();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmBusqueda frmBusq = new FrmBusqueda();
+            frmBusq.Show();
+        }
     }
 }
