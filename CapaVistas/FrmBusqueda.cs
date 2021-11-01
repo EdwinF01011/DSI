@@ -14,8 +14,8 @@ namespace DSI.CapaVistas
     public partial class FrmBusqueda : Form
     {
         ClsBusqueda ObjBu = new ClsBusqueda();
-        ClsContactosCrud ObjBusqueda = new ClsContactosCrud();
-        //ClsContactosCrud ObjBusquedaCr = new ClsContactosCrud();
+        //ClsContactosCrud ObjBusqueda = new ClsContactosCrud();    no se usa
+        //ClsContactosCrud ObjBusquedaCr = new ClsContactosCrud();  no se usa
 
 
         string NombreContacto;
@@ -37,16 +37,6 @@ namespace DSI.CapaVistas
             lblUsuarioname.Text = ClsUsuario.nameUsuario;
             lblcategoria.Text = ClsUsuario.categoria_busqueda;
             dataGridView1.DataSource = ObjBu.consultaTodo();
-        }
-
-        private void lblNombreUsuario_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnActualizar_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void FrmBusqueda_Load(object sender, EventArgs e)
@@ -148,7 +138,7 @@ namespace DSI.CapaVistas
 
         private void btnCrearProveedor_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             FrmRegistro frmR = new FrmRegistro();
             frmR.Show();
         }
@@ -181,11 +171,12 @@ namespace DSI.CapaVistas
                 
 
                 //Clscontacto ObjCont = new Clscontacto();
-                Clscontacto.Nombre = txtNombreMenu.Text;
-                Clscontacto.Razón_Social = txtRsocialMenu.Text;
-                Clscontacto.id_sector = cboxSectorMenu.SelectedValue.ToString();
-                Clscontacto.id_ubicacion = cboxCiudadMenu.SelectedValue.ToString();
-                Clscontacto.id_ubicacionPais = itemPais.ToString();
+                //  no se está usando
+                //Clscontacto.Nombre = txtNombreMenu.Text;
+                //Clscontacto.Razón_Social = txtRsocialMenu.Text;
+                //Clscontacto.id_sector = cboxSectorMenu.SelectedValue.ToString();
+                //Clscontacto.id_ubicacion = cboxCiudadMenu.SelectedValue.ToString();
+                //Clscontacto.id_ubicacionPais = itemPais.ToString();
 
                 //MessageBox.Show(txtNombreMenu.Text);
 
@@ -229,7 +220,15 @@ namespace DSI.CapaVistas
             
         }
 
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // doble click al datagridview
 
+            FrmRegistro ObjRegistro = new FrmRegistro();
+            ObjRegistro.Show();
+            //MessageBox.Show("sirve 2");
+
+        }
 
         private void txtNombreMenu_KeyPress(object sender, KeyPressEventArgs e)
         {

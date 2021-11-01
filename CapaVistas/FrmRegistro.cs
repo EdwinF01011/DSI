@@ -32,9 +32,16 @@ namespace DSI.CapaVistas
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FrmBusqueda frmBusq = new FrmBusqueda();
-            frmBusq.Show();
+            //esta acción no será tan util, mantener así
+
+            //this.Hide();
+            //FrmBusqueda frmBusq = new FrmBusqueda();
+            //frmBusq.Show();
+        }
+
+        private void FrmRegistro_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

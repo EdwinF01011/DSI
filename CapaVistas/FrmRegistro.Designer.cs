@@ -34,11 +34,10 @@ namespace DSI.CapaVistas
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnPlusSector = new System.Windows.Forms.Button();
             this.cbxDeshabilitado = new System.Windows.Forms.CheckBox();
             this.cboxSectorR = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnGuardarR = new System.Windows.Forms.Button();
             this.txtDireccionR = new System.Windows.Forms.TextBox();
             this.cboxCiudadRegistro = new System.Windows.Forms.ComboBox();
             this.txtRsocialR = new System.Windows.Forms.TextBox();
@@ -55,10 +54,11 @@ namespace DSI.CapaVistas
             this.label10 = new System.Windows.Forms.Label();
             this.txtTelefonoR = new System.Windows.Forms.TextBox();
             this.txtCorreoR = new System.Windows.Forms.TextBox();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnGuardarR = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.btnDocR = new System.Windows.Forms.Button();
-            this.btnPlusSector = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -136,6 +136,18 @@ namespace DSI.CapaVistas
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
+            // btnPlusSector
+            // 
+            this.btnPlusSector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPlusSector.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlusSector.Location = new System.Drawing.Point(488, 311);
+            this.btnPlusSector.Name = "btnPlusSector";
+            this.btnPlusSector.Size = new System.Drawing.Size(53, 37);
+            this.btnPlusSector.TabIndex = 27;
+            this.btnPlusSector.Text = "+";
+            this.btnPlusSector.UseVisualStyleBackColor = true;
+            this.btnPlusSector.Click += new System.EventHandler(this.btnPlusSector_Click);
+            // 
             // cbxDeshabilitado
             // 
             this.cbxDeshabilitado.AutoSize = true;
@@ -165,28 +177,6 @@ namespace DSI.CapaVistas
             this.label13.Size = new System.Drawing.Size(121, 29);
             this.label13.TabIndex = 29;
             this.label13.Text = "Dirección:";
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.Location = new System.Drawing.Point(913, 380);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(178, 50);
-            this.btnActualizar.TabIndex = 24;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            // 
-            // btnGuardarR
-            // 
-            this.btnGuardarR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardarR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarR.Location = new System.Drawing.Point(913, 309);
-            this.btnGuardarR.Name = "btnGuardarR";
-            this.btnGuardarR.Size = new System.Drawing.Size(178, 50);
-            this.btnGuardarR.TabIndex = 23;
-            this.btnGuardarR.Text = "Guardar";
-            this.btnGuardarR.UseVisualStyleBackColor = true;
             // 
             // txtDireccionR
             // 
@@ -335,6 +325,28 @@ namespace DSI.CapaVistas
             this.txtCorreoR.Size = new System.Drawing.Size(360, 35);
             this.txtCorreoR.TabIndex = 30;
             // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.Location = new System.Drawing.Point(913, 380);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(178, 50);
+            this.btnActualizar.TabIndex = 24;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            // 
+            // btnGuardarR
+            // 
+            this.btnGuardarR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGuardarR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarR.Location = new System.Drawing.Point(913, 309);
+            this.btnGuardarR.Name = "btnGuardarR";
+            this.btnGuardarR.Size = new System.Drawing.Size(178, 50);
+            this.btnGuardarR.TabIndex = 23;
+            this.btnGuardarR.Text = "Guardar";
+            this.btnGuardarR.UseVisualStyleBackColor = true;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -367,18 +379,6 @@ namespace DSI.CapaVistas
             this.btnDocR.UseVisualStyleBackColor = true;
             this.btnDocR.Click += new System.EventHandler(this.btnDocR_Click);
             // 
-            // btnPlusSector
-            // 
-            this.btnPlusSector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPlusSector.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlusSector.Location = new System.Drawing.Point(488, 311);
-            this.btnPlusSector.Name = "btnPlusSector";
-            this.btnPlusSector.Size = new System.Drawing.Size(53, 37);
-            this.btnPlusSector.TabIndex = 27;
-            this.btnPlusSector.Text = "+";
-            this.btnPlusSector.UseVisualStyleBackColor = true;
-            this.btnPlusSector.Click += new System.EventHandler(this.btnPlusSector_Click);
-            // 
             // btnVolver
             // 
             this.btnVolver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -410,6 +410,7 @@ namespace DSI.CapaVistas
             this.Name = "FrmRegistro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmRegistro";
+            this.Load += new System.EventHandler(this.FrmRegistro_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
