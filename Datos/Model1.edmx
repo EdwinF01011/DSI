@@ -238,6 +238,17 @@
         <Function Name="sp_consultaContacto2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_categoria" Type="bit" Mode="In" />
         </Function>
+        <Function Name="sp_consultaContactoFiltro" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="r_social" Type="varchar" Mode="In" />
+          <Parameter Name="sector" Type="varchar" Mode="In" />
+          <Parameter Name="ciudad" Type="varchar" Mode="In" />
+          <Parameter Name="pais" Type="varchar" Mode="In" />
+          <Parameter Name="id_categoria" Type="nchar" Mode="In" />
+        </Function>
+        <Function Name="sp_consultaTodo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_categoria" Type="bit" Mode="In" />
+        </Function>
         <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -247,6 +258,111 @@
         <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_filtroFiveOne" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="sector" Type="tinyint" Mode="In" />
+          <Parameter Name="ciudad" Type="tinyint" Mode="In" />
+          <Parameter Name="pais" Type="tinyint" Mode="In" />
+          <Parameter Name="id_categoria" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_filtroFiveTwo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="r_social" Type="varchar" Mode="In" />
+          <Parameter Name="ciudad" Type="tinyint" Mode="In" />
+          <Parameter Name="pais" Type="tinyint" Mode="In" />
+          <Parameter Name="id_categoria" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_filtroFour" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pais" Type="varchar" Mode="In" />
+          <Parameter Name="id_categoria" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_filtroFourFive" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ciudad" Type="varchar" Mode="In" />
+          <Parameter Name="pais" Type="varchar" Mode="In" />
+          <Parameter Name="id_categoria" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_filtroFourOne" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="sector" Type="tinyint" Mode="In" />
+          <Parameter Name="pais" Type="tinyint" Mode="In" />
+          <Parameter Name="id_categoria" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_filtroFourTwo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="r_social" Type="varchar" Mode="In" />
+          <Parameter Name="pais" Type="tinyint" Mode="In" />
+          <Parameter Name="id_categoria" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_filtroOne" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="id_categoria" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_filtroOneFive" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="r_social" Type="varchar" Mode="In" />
+          <Parameter Name="sector" Type="tinyint" Mode="In" />
+          <Parameter Name="ciudad" Type="tinyint" Mode="In" />
+          <Parameter Name="pais" Type="tinyint" Mode="In" />
+          <Parameter Name="id_categoria" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_filtroOneFour" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="r_social" Type="varchar" Mode="In" />
+          <Parameter Name="sector" Type="varchar" Mode="In" />
+          <Parameter Name="pais" Type="varchar" Mode="In" />
+          <Parameter Name="id_categoria" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_filtroOneThree" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="r_social" Type="varchar" Mode="In" />
+          <Parameter Name="sector" Type="varchar" Mode="In" />
+          <Parameter Name="id_categoria" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_filtroOneTwo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="r_social" Type="varchar" Mode="In" />
+          <Parameter Name="id_categoria" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_filtroThree" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="sector" Type="tinyint" Mode="In" />
+          <Parameter Name="id_categoria" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_filtroThreeFive" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="sector" Type="varchar" Mode="In" />
+          <Parameter Name="ciudad" Type="varchar" Mode="In" />
+          <Parameter Name="pais" Type="varchar" Mode="In" />
+          <Parameter Name="id_categoria" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_filtroThreeFour" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="sector" Type="varchar" Mode="In" />
+          <Parameter Name="pais" Type="varchar" Mode="In" />
+          <Parameter Name="id_categoria" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_filtroThreeOne" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="sector" Type="tinyint" Mode="In" />
+          <Parameter Name="id_categoria" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_filtroTwo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="r_social" Type="varchar" Mode="In" />
+          <Parameter Name="id_categoria" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_filtroTwoFive" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="r_social" Type="varchar" Mode="In" />
+          <Parameter Name="sector" Type="tinyint" Mode="In" />
+          <Parameter Name="ciudad" Type="tinyint" Mode="In" />
+          <Parameter Name="pais" Type="tinyint" Mode="In" />
+          <Parameter Name="id_categoria" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_filtroTwoFour" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="r_social" Type="varchar" Mode="In" />
+          <Parameter Name="sector" Type="varchar" Mode="In" />
+          <Parameter Name="pais" Type="varchar" Mode="In" />
+          <Parameter Name="id_categoria" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_filtroTwoThree" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="r_social" Type="varchar" Mode="In" />
+          <Parameter Name="sector" Type="varchar" Mode="In" />
+          <Parameter Name="id_categoria" Type="bit" Mode="In" />
         </Function>
         <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -645,6 +761,122 @@
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
           <FunctionImport Name="sp_consultaContacto2" ReturnType="Collection(DSIModel.sp_consultaContacto2_Result)">
+          <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_consultaContactoFiltro" ReturnType="Collection(DSIModel.sp_consultaContactoFiltro_Result)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="r_social" Mode="In" Type="String" />
+            <Parameter Name="sector" Mode="In" Type="String" />
+            <Parameter Name="ciudad" Mode="In" Type="String" />
+            <Parameter Name="pais" Mode="In" Type="String" />
+            <Parameter Name="id_categoria" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroOne" ReturnType="Collection(DSIModel.sp_filtroOne_Result)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroOneTwo" ReturnType="Collection(DSIModel.sp_filtroOneTwo_Result)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="r_social" Mode="In" Type="String" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroOneFive" ReturnType="Collection(DSIModel.sp_filtroOneFive_Result)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="r_social" Mode="In" Type="String" />
+            <Parameter Name="sector" Mode="In" Type="Byte" />
+            <Parameter Name="ciudad" Mode="In" Type="Byte" />
+            <Parameter Name="pais" Mode="In" Type="Byte" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroFour" ReturnType="Collection(DSIModel.sp_filtroFour_Result)">
+            <Parameter Name="pais" Mode="In" Type="String" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroFourFive" ReturnType="Collection(DSIModel.sp_filtroFourFive_Result)">
+            <Parameter Name="ciudad" Mode="In" Type="String" />
+            <Parameter Name="pais" Mode="In" Type="String" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroOneFour" ReturnType="Collection(DSIModel.sp_filtroOneFour_Result)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="r_social" Mode="In" Type="String" />
+            <Parameter Name="sector" Mode="In" Type="String" />
+            <Parameter Name="pais" Mode="In" Type="String" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroOneThree" ReturnType="Collection(DSIModel.sp_filtroOneThree_Result)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="r_social" Mode="In" Type="String" />
+            <Parameter Name="sector" Mode="In" Type="String" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroThree" ReturnType="Collection(DSIModel.sp_filtroThree_Result)">
+            <Parameter Name="sector" Mode="In" Type="Byte" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroThreeFive" ReturnType="Collection(DSIModel.sp_filtroThreeFive_Result)">
+            <Parameter Name="sector" Mode="In" Type="String" />
+            <Parameter Name="ciudad" Mode="In" Type="String" />
+            <Parameter Name="pais" Mode="In" Type="String" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroThreeFour" ReturnType="Collection(DSIModel.sp_filtroThreeFour_Result)">
+            <Parameter Name="sector" Mode="In" Type="String" />
+            <Parameter Name="pais" Mode="In" Type="String" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroTwo" ReturnType="Collection(DSIModel.sp_filtroTwo_Result)">
+            <Parameter Name="r_social" Mode="In" Type="String" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroTwoFive" ReturnType="Collection(DSIModel.sp_filtroTwoFive_Result)">
+            <Parameter Name="r_social" Mode="In" Type="String" />
+            <Parameter Name="sector" Mode="In" Type="Byte" />
+            <Parameter Name="ciudad" Mode="In" Type="Byte" />
+            <Parameter Name="pais" Mode="In" Type="Byte" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroTwoFour" ReturnType="Collection(DSIModel.sp_filtroTwoFour_Result)">
+            <Parameter Name="r_social" Mode="In" Type="String" />
+            <Parameter Name="sector" Mode="In" Type="String" />
+            <Parameter Name="pais" Mode="In" Type="String" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroTwoThree" ReturnType="Collection(DSIModel.sp_filtroTwoThree_Result)">
+            <Parameter Name="r_social" Mode="In" Type="String" />
+            <Parameter Name="sector" Mode="In" Type="String" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroFiveOne" ReturnType="Collection(DSIModel.sp_filtroFiveOne_Result)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="sector" Mode="In" Type="Byte" />
+            <Parameter Name="ciudad" Mode="In" Type="Byte" />
+            <Parameter Name="pais" Mode="In" Type="Byte" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroFiveTwo" ReturnType="Collection(DSIModel.sp_filtroFiveTwo_Result)">
+            <Parameter Name="r_social" Mode="In" Type="String" />
+            <Parameter Name="ciudad" Mode="In" Type="Byte" />
+            <Parameter Name="pais" Mode="In" Type="Byte" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroFourOne" ReturnType="Collection(DSIModel.sp_filtroFourOne_Result)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="sector" Mode="In" Type="Byte" />
+            <Parameter Name="pais" Mode="In" Type="Byte" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroFourTwo" ReturnType="Collection(DSIModel.sp_filtroFourTwo_Result)">
+            <Parameter Name="r_social" Mode="In" Type="String" />
+            <Parameter Name="pais" Mode="In" Type="Byte" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroThreeOne" ReturnType="Collection(DSIModel.sp_filtroThreeOne_Result)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="sector" Mode="In" Type="Byte" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_consultaTodo" ReturnType="Collection(DSIModel.sp_consultaTodo_Result)">
             <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
           </FunctionImport>
         </EntityContainer>
@@ -669,6 +901,196 @@
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
         <ComplexType Name="sp_consultaContacto2_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_consultaContactoFiltro_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="Byte" Name="id" Nullable="false" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroOne_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroOneTwo_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroOneFive_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroFour_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroFourFive_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroOneFour_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroOneThree_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroThree_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroThreeFive_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroThreeFour_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroTwo_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroTwoFive_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroTwoFour_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroTwoThree_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroFiveOne_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroFiveTwo_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroFourOne_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroFourTwo_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroThreeOne_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_consultaTodo_Result">
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
           <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
           <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
@@ -834,6 +1256,280 @@
           <FunctionImportMapping FunctionImportName="sp_consultaContacto2" FunctionName="DSIModel.Store.sp_consultaContacto2">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DSIModel.sp_consultaContacto2_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_consultaContactoFiltro" FunctionName="DSIModel.Store.sp_consultaContactoFiltro">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_consultaContactoFiltro_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroOne" FunctionName="DSIModel.Store.sp_filtroOne">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroOne_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroOneTwo" FunctionName="DSIModel.Store.sp_filtroOneTwo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroOneTwo_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroOneFive" FunctionName="DSIModel.Store.sp_filtroOneFive">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroOneFive_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroFour" FunctionName="DSIModel.Store.sp_filtroFour">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroFour_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroFourFive" FunctionName="DSIModel.Store.sp_filtroFourFive">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroFourFive_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroOneFour" FunctionName="DSIModel.Store.sp_filtroOneFour">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroOneFour_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroOneThree" FunctionName="DSIModel.Store.sp_filtroOneThree">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroOneThree_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroThree" FunctionName="DSIModel.Store.sp_filtroThree">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroThree_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroThreeFive" FunctionName="DSIModel.Store.sp_filtroThreeFive">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroThreeFive_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroThreeFour" FunctionName="DSIModel.Store.sp_filtroThreeFour">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroThreeFour_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroTwo" FunctionName="DSIModel.Store.sp_filtroTwo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroTwo_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroTwoFive" FunctionName="DSIModel.Store.sp_filtroTwoFive">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroTwoFive_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroTwoFour" FunctionName="DSIModel.Store.sp_filtroTwoFour">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroTwoFour_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroTwoThree" FunctionName="DSIModel.Store.sp_filtroTwoThree">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroTwoThree_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroFiveOne" FunctionName="DSIModel.Store.sp_filtroFiveOne">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroFiveOne_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroFiveTwo" FunctionName="DSIModel.Store.sp_filtroFiveTwo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroFiveTwo_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroFourOne" FunctionName="DSIModel.Store.sp_filtroFourOne">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroFourOne_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroFourTwo" FunctionName="DSIModel.Store.sp_filtroFourTwo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroFourTwo_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroThreeOne" FunctionName="DSIModel.Store.sp_filtroThreeOne">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroThreeOne_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_consultaTodo" FunctionName="DSIModel.Store.sp_consultaTodo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_consultaTodo_Result">
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
                 <ScalarProperty Name="Sector" ColumnName="Sector" />
