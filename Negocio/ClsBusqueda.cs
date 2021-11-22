@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//using DSI.Datos;
 using DSI.Datos;
 
 namespace DSI.Negocio
@@ -15,7 +16,7 @@ namespace DSI.Negocio
         //public bool categoriaContact = ClsUsuario.number_categoria;
 
 
-        public IList<Pais> BuscarPais()
+        public IList<Pais> BuscarPais()// usado en FrmUbicacion.cs y Frmbusqueda.cs
         {
             using (DSIEntities1 BD =new DSIEntities1())
             {
@@ -25,7 +26,7 @@ namespace DSI.Negocio
             }
         }
 
-        public IList<Ciudad> BuscarCiudad(byte itemPais)
+        public IList<Ciudad> BuscarCiudad(Byte itemPais)//  usado en FrmBusqueda.cs
         {
             using (DSIEntities1 BD = new DSIEntities1())
             {
@@ -33,6 +34,15 @@ namespace DSI.Negocio
                             where l.id_pais==itemPais
                              select l).ToList();
                 return BCity;
+            }
+        }
+
+        public IList BuscarCiudad()//   usado en FrmUbicacion.cs
+        {
+            using (DSIEntities1 BD = new DSIEntities1())
+            {
+                var BLugares =BD.sp_buscarLugares().ToList();
+                return BLugares;
             }
         }
 
@@ -76,7 +86,7 @@ namespace DSI.Negocio
         //             ( ﾉ ﾟｰﾟ)ﾉ  filtros superFiltrados  ＼(ﾟｰﾟ＼)  
         //             ( ﾉ ﾟｰﾟ)ﾉ  filtros superFiltrados  ＼(ﾟｰﾟ＼)  
         //             
-        //                     (￣﹃￣)            (￣﹃￣)
+        //                      (￣﹃￣)            (￣﹃￣)
         //                                                            
 
         public IList consultaTodo()                    //       ԅ(¯﹃¯ԅ) todo
@@ -143,11 +153,28 @@ namespace DSI.Negocio
             }
         }
 
-        public IList FiltroOneFive(string name, string Rsocial, Byte itemSector, Byte itemPais, Byte itemCity)
+        public IList FiltroOneFive(string name, string Rsocial, Byte itemSector, Byte itemCity, Byte itemPais)
         {
             using (DSIEntities1 BD = new DSIEntities1())
             {
-                //MessageBox.Show(Clscontacto.Nombre);
+                var Busqueda = BD.sp_filtroOneFive(
+                    name,
+                    Rsocial,
+                    itemSector,
+                    itemCity,
+                    itemPais,
+                    ClsUsuario.number_categoria).ToList();
+                return Busqueda;
+            }
+        }
+
+        public IList FiltroOneFive2(string name, string Rsocial, Byte itemSector, Byte itemCity, Byte itemPais)
+        {
+            using (DSIEntities1 BD = new DSIEntities1())
+            {
+                MessageBox.Show("one five 2 " );
+
+                //MessageBox.Show("one five2 " + itemCity.ToString());
                 var Busqueda = BD.sp_filtroOneFive(
                     name,
                     Rsocial,
@@ -200,7 +227,7 @@ namespace DSI.Negocio
             }
         }
 
-        public IList FiltroTwoFive(string Rsocial, Byte itemSector, Byte itemPais, Byte itemCity)
+        public IList FiltroTwoFive(string Rsocial, Byte itemSector, Byte itemCity, Byte itemPais)
         {
             using (DSIEntities1 BD = new DSIEntities1())
             {
@@ -242,7 +269,7 @@ namespace DSI.Negocio
             }
         }
 
-        public IList FiltroThreeFive(Byte itemSector, Byte itemPais, Byte itemCity)
+        public IList FiltroThreeFive(Byte itemSector, Byte itemCity, Byte itemPais)
         {
             using (DSIEntities1 BD = new DSIEntities1())
             {
@@ -326,7 +353,7 @@ namespace DSI.Negocio
             }
         }
 
-        public IList FiltroFiveTwo(string Rsocial, Byte itemPais, Byte itemCity)
+        public IList FiltroFiveTwo(string Rsocial, Byte itemCity, Byte itemPais)
         {
             using (DSIEntities1 BD = new DSIEntities1())
             {
@@ -347,6 +374,33 @@ namespace DSI.Negocio
                 //MessageBox.Show(Clscontacto.Nombre);
                 var Busqueda = BD.sp_filtroFourTwo(
                     Rsocial,
+                    itemPais,
+                    ClsUsuario.number_categoria).ToList();
+                return Busqueda;
+            }
+        }
+
+        public IList FiltroOneTFour(string name, string Rsocial,  Byte itemPais)
+        {
+            using (DSIEntities1 BD = new DSIEntities1())
+            {
+                var Busqueda = BD.sp_filtroOneTFour(
+                    name,
+                    Rsocial,
+                    itemPais,
+                    ClsUsuario.number_categoria).ToList();
+                return Busqueda;
+            }
+        }
+
+        public IList FiltroOneTFive(string name, string Rsocial, Byte itemCity, Byte itemPais)
+        {
+            using (DSIEntities1 BD = new DSIEntities1())
+            {
+                var Busqueda = BD.sp_filtroOneTFive(
+                    name,
+                    Rsocial,
+                    itemCity,
                     itemPais,
                     ClsUsuario.number_categoria).ToList();
                 return Busqueda;

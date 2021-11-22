@@ -11,14 +11,21 @@ namespace DSI.Datos
 {
     using System;
     
-    public partial class sp_consultaContactoFiltro_Result
+    public partial class sp_consultaTodo_Result2
     {
+        public int id { get; set; }
         public string Nombre { get; set; }
         public string Razón_Social { get; set; }
+        public string NIT { get; set; }
         public string Sector { get; set; }
         public string Correo { get; set; }
         public string Teléfono { get; set; }
         public string Ciudad { get; set; }
         public string País { get; set; }
+        public string Direccion { get; set; }
+        public byte idS { get; set; }
+        public string Descripcion { get; set; }
+        public byte idC { get; set; }
+        public Nullable<byte> id_pais { get; set; }
     }
 }

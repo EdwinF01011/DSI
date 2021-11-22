@@ -10,16 +10,22 @@
 namespace DSI.Datos
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Progreso
+    public partial class sp_rprp_Result
     {
         public int id { get; set; }
+        public string Nombre { get; set; }
+        public string Razón_Social { get; set; }
+        public string NIT { get; set; }
+        public string Sector { get; set; }
+        public string Correo { get; set; }
+        public string Teléfono { get; set; }
+        public string Ciudad { get; set; }
+        public string País { get; set; }
+        public string Direccion { get; set; }
+        public byte id1 { get; set; }
         public string Descripcion { get; set; }
-        public Nullable<byte> N_Etapa { get; set; }
-        public Nullable<bool> Estado { get; set; }
-        public Nullable<short> id_Doc { get; set; }
-    
-        public virtual Documentos Documentos { get; set; }
+        public byte id2 { get; set; }
+        public Nullable<byte> id_pais { get; set; }
     }
 }

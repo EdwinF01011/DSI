@@ -10,12 +10,15 @@
 namespace DSI.Datos
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Ciudad
+    public partial class sp_filtroOneTFour_Result
     {
-        public byte id { get; set; }
-        public string NCiudad { get; set; }
-        public Nullable<byte> id_pais { get; set; }
+        public string Nombre { get; set; }
+        public string Razón_Social { get; set; }
+        public string Sector { get; set; }
+        public string Correo { get; set; }
+        public string Teléfono { get; set; }
+        public string Ciudad { get; set; }
+        public string País { get; set; }
     }
 }

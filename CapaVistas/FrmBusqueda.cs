@@ -26,6 +26,20 @@ namespace DSI.CapaVistas
         bool bandera = false; //para el control del evento del selectedValue
         int uno = 0, dos = 0, cinco = 0, nueve = 0, once=0;
 
+        //  variables para los campos del dgv
+        Byte id;
+        string name;
+        string NIT;
+        string Rsocial;
+        string Tel;
+        string correo;
+        string Direccion;
+        string Sector;
+        string Pais;
+        string City;
+        string descripcion;
+        Byte idPais;
+
 
         public FrmBusqueda()
         {
@@ -36,19 +50,53 @@ namespace DSI.CapaVistas
         {
             lblUsuarioname.Text = ClsUsuario.nameUsuario;
             lblcategoria.Text = ClsUsuario.categoria_busqueda;
-            dataGridView1.DataSource = ObjBu.consultaTodo();
+            //dataGridView1.DataSource = ObjBu.consultaTodo();
         }
 
         private void FrmBusqueda_Load(object sender, EventArgs e)
         {
             LlenarCombox();
+            panelMenu.Visible = false;
 
             //LlenarComboxSector(); no
             Nombre_Usuario();
+
+            //txtNombreMenu.Enabled = false;
+
         }
+        //int a=9,b=8;
+
+        //private void sumar()// no recibe y no retorna
+        //{
+        //    int z = a + b;
+        //}
+
+        //private string ladrar(string comida)// recibe y no retorna
+        //{
+        //    string ladrido = "wao wao";
+        //    int c = a + b;
+        //    return ladrido;
+        //}
+
+        //private int correr(int a, int b)// recibe y retorna
+        //{
+        //    int c = a + b;
+        //    return c;
+        //}
+
+        //private int sumar1()// solo retorna
+        //{
+        //    int c = a + b;
+        //    return c;
+        //}
+
 
         private void LlenarCombox()
         {
+            //ladrar("peitas");
+
+
+
             //  cbox del país
             cboxPaisMenu.DataSource = ObjBu.BuscarPais();
             cboxPaisMenu.DisplayMember = "Npais";
@@ -138,9 +186,12 @@ namespace DSI.CapaVistas
 
         private void btnCrearProveedor_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            FrmRegistro frmR = new FrmRegistro();
-            frmR.Show();
+            ////this.Hide();
+            //FrmRegistro frmR = new FrmRegistro();
+            //frmR.Show();
+
+            panelMenu.Visible = true;
+            traerFormRegistro();
         }
 
         private void btnSalirBusq_Click(object sender, EventArgs e)
@@ -153,6 +204,17 @@ namespace DSI.CapaVistas
         private void btnbuscar_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = ObjBu.consultaTodo();
+            dataGridView1.Columns[0].Visible = false;
+            dataGridView1.Columns[3].Visible = false;
+            dataGridView1.Columns[9].Visible = false;
+            dataGridView1.Columns[10].Visible = false;
+
+
+
+
+
+            //dataGridView1.DataSource = ObjBu.consultaTodo2();
+
 
 
             //Lenarlistcontac();
@@ -224,12 +286,69 @@ namespace DSI.CapaVistas
         {
             // doble click al datagridview
 
-            FrmRegistro ObjRegistro = new FrmRegistro();
-            ObjRegistro.Show();
+            //FrmRegistro ObjRegistro = new FrmRegistro();
+            //ObjRegistro.Show();
+
+
+            id = Byte.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            name= dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            NIT= dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            Rsocial= dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            Tel= dataGridView1.CurrentRow.Cells[6].Value.ToString();
+            correo= dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            Direccion= dataGridView1.CurrentRow.Cells[9].Value.ToString();
+            Sector= dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            Pais= dataGridView1.CurrentRow.Cells[8].Value.ToString();
+            City= dataGridView1.CurrentRow.Cells[7].Value.ToString();
+            descripcion= dataGridView1.CurrentRow.Cells[10].Value.ToString();
+            //idPais =Byte.Parse( dataGridView1.CurrentRow.Cells[13].Value.ToString());
+
+
+
+            panelMenu.Visible = true;
+            traerFormRegistro();
             //MessageBox.Show("sirve 2");
 
         }
+        FrmRegistro frmRe = new FrmRegistro();
+        private void traerFormRegistro()
+        {
+            frmRe = new FrmRegistro();
+            frmRe.TopLevel = false;
+            panelMenu.Controls.Add(frmRe);
+            //
+            frmRe.Show();
+            frmRe.AsignarValues(
+                id,
+                name,
+                NIT,
+                Rsocial,
+                Tel,
+                correo,
+                Direccion,
+                 Sector,
+                 Pais,
+                 City,
+                descripcion
+                //idPais
+                );
 
+        }
+
+        private void FrmBusqueda_Click(object sender, EventArgs e)
+        {// para cerrar el panel
+            panelMenu.Visible = false;
+            frmRe.Close();
+
+        }
+
+        private void GetValuesDgv()
+        {
+
+
+
+        }
+        
         private void txtNombreMenu_KeyPress(object sender, KeyPressEventArgs e)
         {
             //label2.Text =txtNombreMenu.Text ;
@@ -344,6 +463,13 @@ namespace DSI.CapaVistas
                     dataGridView1.DataSource = ObjBu.FiltroOneThree(txtNombreMenu.Text,
                     txtRsocialMenu.Text,
                     itemSector);
+                    //----
+                    //dataGridView1.DataSource = ObjBu.FiltroOneFive2(txtNombreMenu.Text,
+                    //txtRsocialMenu.Text,
+                    //itemSector,
+                    //0,0
+                    ///*itemCity,
+                    //itemPais*/);
                     break;
                 case (17):
                     dataGridView1.DataSource = ObjBu.FiltroOneFour(txtNombreMenu.Text,
@@ -418,7 +544,17 @@ namespace DSI.CapaVistas
                     itemSector,
                     itemCity,
                     itemPais);
-
+                    break;
+                case (12):
+                    dataGridView1.DataSource = ObjBu.FiltroOneTFour(txtNombreMenu.Text,
+                    txtRsocialMenu.Text,
+                    itemPais);
+                    break;
+                case (23):
+                    dataGridView1.DataSource = ObjBu.FiltroOneTFive(txtNombreMenu.Text,
+                    txtRsocialMenu.Text,
+                    itemCity,
+                    itemPais);
                     break;
                 case (11):
                     dataGridView1.DataSource = ObjBu.FiltroFourTwo(
@@ -430,12 +566,14 @@ namespace DSI.CapaVistas
                     txtRsocialMenu.Text,
                     itemCity,
                     itemPais);
-                    MessageBox.Show(" pasando");
-
                     break;
-                
 
-
+                case (10):
+                    
+                    break;
+                case (21):
+                    MessageBox.Show(" pasando");
+                    break;
 
 
 
@@ -514,6 +652,9 @@ namespace DSI.CapaVistas
 
   --////////////////
 
+
+
+
    create proc sp_filtroFiveTwo
 @r_social varchar(20),
 @ciudad tinyint,
@@ -548,10 +689,50 @@ namespace DSI.CapaVistas
  c.id_categoria=@id_categoria 
   order by c.Nombre
 
+
+        --//////////////
+
+
+ 	create proc sp_filtroOneTFive
+@nombre varchar(35),
+@r_social varchar(20),
+@ciudad tinyint,
+@pais tinyint,    
+@id_categoria bit
+ as 
+ select c.Nombre, c.Razón_Social,s.nombre_sector as Sector,c.Correo,
+ c.Telefono as Teléfono,ci.NCiudad as Ciudad,p.Npais as País
+ from contacto as c,sector as s, Ciudad as ci, Pais as p --			 from 
+ where 
+ (c.Nombre like '%'+RTRIM(@nombre)+'%' and
+ c.Razón_Social like '%'+RTRIM(@r_social)+'%' and
+ c.id_ubicacion =@ciudad and 
+ p.id = @pais) and 
+ (c.id_sector=s.id and c.id_ubicacion=ci.id and ci.id_pais=p.id) and  --default
+ c.id_categoria=@id_categoria 
+  order by c.Nombre;
+
+        --//////////////
+
+   	create proc sp_filtroOneTFour
+@nombre varchar(35),
+@r_social varchar(20),
+@pais tinyint,    
+@id_categoria bit
+ as 
+ select c.Nombre, c.Razón_Social,s.nombre_sector as Sector,c.Correo,
+ c.Telefono as Teléfono,ci.NCiudad as Ciudad,p.Npais as País
+ from contacto as c,sector as s, Ciudad as ci, Pais as p --			 from 
+ where 
+ (c.Nombre like '%'+RTRIM(@nombre)+'%' and
+ c.Razón_Social like '%'+RTRIM(@r_social)+'%' and
+ p.id = @pais) and 
+ (c.id_sector=s.id and c.id_ubicacion=ci.id and ci.id_pais=p.id) and  --default
+ c.id_categoria=@id_categoria 
+  order by c.Nombre;
+
+
          */
-
-
-
 
 
     }

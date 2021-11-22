@@ -10,12 +10,12 @@
 namespace DSI.Datos
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Ciudad
+    public partial class sp_buscarLugares_Result
     {
         public byte id { get; set; }
         public string NCiudad { get; set; }
         public Nullable<byte> id_pais { get; set; }
+        public string Npais { get; set; }
     }
 }

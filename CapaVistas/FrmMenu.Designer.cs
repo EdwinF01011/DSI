@@ -100,8 +100,9 @@ namespace DSI.CapaVistas
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(192, 69);
             this.btnSalir.TabIndex = 3;
-            this.btnSalir.Text = "Salir";
+            this.btnSalir.Text = "Cerrar Sesión";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // lblDirectorioEmpresarial
             // 

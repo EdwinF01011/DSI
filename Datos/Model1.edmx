@@ -27,6 +27,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="35" Nullable="false" />
           <Property Name="Razón_Social" Type="varchar" MaxLength="20" />
+          <Property Name="NIT" Type="varchar" MaxLength="11" Nullable="false" />
           <Property Name="Telefono" Type="varchar" MaxLength="30" />
           <Property Name="Direccion" Type="varchar" MaxLength="50" />
           <Property Name="Correo" Type="varchar" MaxLength="50" />
@@ -37,41 +38,12 @@
           <Property Name="id_estado" Type="bit" />
           <Property Name="ruta_carpeta" Type="varchar" MaxLength="100" />
         </EntityType>
-        <EntityType Name="Documentos">
-          <Key>
-            <PropertyRef Name="id_doc" />
-          </Key>
-          <Property Name="id_doc" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nombre" Type="varchar" MaxLength="50" />
-          <Property Name="Ruta" Type="varchar" MaxLength="200" />
-          <Property Name="id_contacto" Type="int" />
-        </EntityType>
-        <EntityType Name="Etapas">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="fecha_ini" Type="date" />
-          <Property Name="fecha_fin" Type="date" />
-          <Property Name="N_Etapas" Type="tinyint" />
-          <Property Name="id_Docu" Type="smallint" />
-        </EntityType>
         <EntityType Name="Pais">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Npais" Type="varchar" MaxLength="30" />
-        </EntityType>
-        <EntityType Name="Progreso">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Descripcion" Type="varchar" MaxLength="500" />
-          <Property Name="N_Etapa" Type="tinyint" />
-          <Property Name="Estado" Type="bit" />
-          <Property Name="id_Doc" Type="smallint" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -117,7 +89,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__contacto__id_cat__04E4BC85">
+        <Association Name="FK__contacto__id_cat__57A801BA">
           <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
           <End Role="contacto" Type="Self.contacto" Multiplicity="*" />
           <ReferentialConstraint>
@@ -129,7 +101,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__contacto__id_est__05D8E0BE">
+        <Association Name="FK__contacto__id_est__589C25F3">
           <End Role="Tipo_Estado" Type="Self.Tipo_Estado" Multiplicity="0..1" />
           <End Role="contacto" Type="Self.contacto" Multiplicity="*" />
           <ReferentialConstraint>
@@ -141,7 +113,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__contacto__id_sec__02FC7413">
+        <Association Name="FK__contacto__id_sec__55BFB948">
           <End Role="sector" Type="Self.sector" Multiplicity="0..1" />
           <End Role="contacto" Type="Self.contacto" Multiplicity="*" />
           <ReferentialConstraint>
@@ -153,7 +125,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__contacto__id_ubi__03F0984C">
+        <Association Name="FK__contacto__id_ubi__56B3DD81">
           <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="0..1" />
           <End Role="contacto" Type="Self.contacto" Multiplicity="*" />
           <ReferentialConstraint>
@@ -162,42 +134,6 @@
             </Principal>
             <Dependent Role="contacto">
               <PropertyRef Name="id_ubicacion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Documento__id_co__08B54D69">
-          <End Role="contacto" Type="Self.contacto" Multiplicity="0..1" />
-          <End Role="Documentos" Type="Self.Documentos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="contacto">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Documentos">
-              <PropertyRef Name="id_contacto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Etapas__id_Docu__0E6E26BF">
-          <End Role="Documentos" Type="Self.Documentos" Multiplicity="0..1" />
-          <End Role="Etapas" Type="Self.Etapas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Documentos">
-              <PropertyRef Name="id_doc" />
-            </Principal>
-            <Dependent Role="Etapas">
-              <PropertyRef Name="id_Docu" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Progreso__id_Doc__0B91BA14">
-          <End Role="Documentos" Type="Self.Documentos" Multiplicity="0..1" />
-          <End Role="Progreso" Type="Self.Progreso" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Documentos">
-              <PropertyRef Name="id_doc" />
-            </Principal>
-            <Dependent Role="Progreso">
-              <PropertyRef Name="id_Doc" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -232,6 +168,7 @@
           <Parameter Name="version" Type="int" Mode="In" />
           <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
         </Function>
+        <Function Name="sp_buscarLugares" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_consultaContacto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_categoria" Type="bit" Mode="In" />
         </Function>
@@ -311,6 +248,19 @@
           <Parameter Name="pais" Type="varchar" Mode="In" />
           <Parameter Name="id_categoria" Type="bit" Mode="In" />
         </Function>
+        <Function Name="sp_filtroOneTFive" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="r_social" Type="varchar" Mode="In" />
+          <Parameter Name="ciudad" Type="tinyint" Mode="In" />
+          <Parameter Name="pais" Type="tinyint" Mode="In" />
+          <Parameter Name="id_categoria" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_filtroOneTFour" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="r_social" Type="varchar" Mode="In" />
+          <Parameter Name="pais" Type="tinyint" Mode="In" />
+          <Parameter Name="id_categoria" Type="bit" Mode="In" />
+        </Function>
         <Function Name="sp_filtroOneThree" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="nombre" Type="varchar" Mode="In" />
           <Parameter Name="r_social" Type="varchar" Mode="In" />
@@ -372,20 +322,39 @@
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
         </Function>
+        <Function Name="sp_insertCiudad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="tinyint" Mode="In" />
+          <Parameter Name="NCiudad" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_insertPais" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Npais" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_insertSector" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_updateCiudad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="tinyint" Mode="In" />
+          <Parameter Name="NCiudad" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_updatePais" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="tinyint" Mode="In" />
+          <Parameter Name="Npais" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_updateSector" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DSIModelStoreContainer">
           <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ciudad" EntityType="Self.Ciudad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="contacto" EntityType="Self.contacto" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Documentos" EntityType="Self.Documentos" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Etapas" EntityType="Self.Etapas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Progreso" EntityType="Self.Progreso" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sector" EntityType="Self.sector" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tipo_Estado" EntityType="Self.Tipo_Estado" Schema="dbo" store:Type="Tables" />
@@ -394,33 +363,21 @@
             <End Role="Pais" EntitySet="Pais" />
             <End Role="Ciudad" EntitySet="Ciudad" />
           </AssociationSet>
-          <AssociationSet Name="FK__contacto__id_cat__04E4BC85" Association="Self.FK__contacto__id_cat__04E4BC85">
+          <AssociationSet Name="FK__contacto__id_cat__57A801BA" Association="Self.FK__contacto__id_cat__57A801BA">
             <End Role="Categoria" EntitySet="Categoria" />
             <End Role="contacto" EntitySet="contacto" />
           </AssociationSet>
-          <AssociationSet Name="FK__contacto__id_est__05D8E0BE" Association="Self.FK__contacto__id_est__05D8E0BE">
+          <AssociationSet Name="FK__contacto__id_est__589C25F3" Association="Self.FK__contacto__id_est__589C25F3">
             <End Role="Tipo_Estado" EntitySet="Tipo_Estado" />
             <End Role="contacto" EntitySet="contacto" />
           </AssociationSet>
-          <AssociationSet Name="FK__contacto__id_sec__02FC7413" Association="Self.FK__contacto__id_sec__02FC7413">
+          <AssociationSet Name="FK__contacto__id_sec__55BFB948" Association="Self.FK__contacto__id_sec__55BFB948">
             <End Role="sector" EntitySet="sector" />
             <End Role="contacto" EntitySet="contacto" />
           </AssociationSet>
-          <AssociationSet Name="FK__contacto__id_ubi__03F0984C" Association="Self.FK__contacto__id_ubi__03F0984C">
+          <AssociationSet Name="FK__contacto__id_ubi__56B3DD81" Association="Self.FK__contacto__id_ubi__56B3DD81">
             <End Role="Ciudad" EntitySet="Ciudad" />
             <End Role="contacto" EntitySet="contacto" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Documento__id_co__08B54D69" Association="Self.FK__Documento__id_co__08B54D69">
-            <End Role="contacto" EntitySet="contacto" />
-            <End Role="Documentos" EntitySet="Documentos" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Etapas__id_Docu__0E6E26BF" Association="Self.FK__Etapas__id_Docu__0E6E26BF">
-            <End Role="Documentos" EntitySet="Documentos" />
-            <End Role="Etapas" EntitySet="Etapas" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Progreso__id_Doc__0B91BA14" Association="Self.FK__Progreso__id_Doc__0B91BA14">
-            <End Role="Documentos" EntitySet="Documentos" />
-            <End Role="Progreso" EntitySet="Progreso" />
           </AssociationSet>
           <AssociationSet Name="FK__Usuarios__id_Est__3C69FB99" Association="Self.FK__Usuarios__id_Est__3C69FB99">
             <End Role="Tipo_Estado" EntitySet="Tipo_Estado" />
@@ -441,7 +398,6 @@
           </Key>
           <Property Name="id" Type="Boolean" Nullable="false" />
           <Property Name="Tipo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="contacto" Relationship="Self.FK__contacto__id_cat__76969D2E" FromRole="Categoria" ToRole="contacto" />
         </EntityType>
         <EntityType Name="Ciudad">
           <Key>
@@ -450,53 +406,6 @@
           <Property Name="id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NCiudad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="id_pais" Type="Byte" />
-          <NavigationProperty Name="Pais" Relationship="Self.FK__Ciudad__id_pais__4316F928" FromRole="Ciudad" ToRole="Pais" />
-          <NavigationProperty Name="contacto" Relationship="Self.FK__contacto__id_ubi__75A278F5" FromRole="Ciudad" ToRole="contacto" />
-        </EntityType>
-        <EntityType Name="contacto">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Razón_Social" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Telefono" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="id_sector" Type="Byte" />
-          <Property Name="id_ubicacion" Type="Byte" />
-          <Property Name="id_categoria" Type="Boolean" />
-          <Property Name="id_estado" Type="Boolean" />
-          <NavigationProperty Name="Categoria" Relationship="Self.FK__contacto__id_cat__76969D2E" FromRole="contacto" ToRole="Categoria" />
-          <NavigationProperty Name="Ciudad" Relationship="Self.FK__contacto__id_ubi__75A278F5" FromRole="contacto" ToRole="Ciudad" />
-          <NavigationProperty Name="Tipo_Estado" Relationship="Self.FK__contacto__id_est__778AC167" FromRole="contacto" ToRole="Tipo_Estado" />
-          <NavigationProperty Name="sector" Relationship="Self.FK__contacto__id_sec__74AE54BC" FromRole="contacto" ToRole="sector" />
-          <NavigationProperty Name="Documentos" Relationship="Self.FK__Documento__id_co__7A672E12" FromRole="contacto" ToRole="Documentos" />
-          <Property Name="ruta_carpeta" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="Documentos">
-          <Key>
-            <PropertyRef Name="id_doc" />
-          </Key>
-          <Property Name="id_doc" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Ruta" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="id_contacto" Type="Int32" />
-          <NavigationProperty Name="contacto" Relationship="Self.FK__Documento__id_co__7A672E12" FromRole="Documentos" ToRole="contacto" />
-          <NavigationProperty Name="Etapas" Relationship="Self.FK__Etapas__id_Docu__00200768" FromRole="Documentos" ToRole="Etapas" />
-          <NavigationProperty Name="Progreso" Relationship="Self.FK__Progreso__id_Doc__7D439ABD" FromRole="Documentos" ToRole="Progreso" />
-        </EntityType>
-        <EntityType Name="Etapas">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fecha_ini" Type="DateTime" Precision="0" />
-          <Property Name="fecha_fin" Type="DateTime" Precision="0" />
-          <Property Name="N_Etapas" Type="Byte" />
-          <Property Name="id_Docu" Type="Int16" />
-          <NavigationProperty Name="Documentos" Relationship="Self.FK__Etapas__id_Docu__00200768" FromRole="Etapas" ToRole="Documentos" />
         </EntityType>
         <EntityType Name="Pais">
           <Key>
@@ -504,18 +413,6 @@
           </Key>
           <Property Name="id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Npais" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Ciudad" Relationship="Self.FK__Ciudad__id_pais__4316F928" FromRole="Pais" ToRole="Ciudad" />
-        </EntityType>
-        <EntityType Name="Progreso">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="N_Etapa" Type="Byte" />
-          <Property Name="Estado" Type="Boolean" />
-          <Property Name="id_Doc" Type="Int16" />
-          <NavigationProperty Name="Documentos" Relationship="Self.FK__Progreso__id_Doc__7D439ABD" FromRole="Progreso" ToRole="Documentos" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -531,7 +428,7 @@
           </Key>
           <Property Name="id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre_sector" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="contacto" Relationship="Self.FK__contacto__id_sec__74AE54BC" FromRole="sector" ToRole="contacto" />
+          <NavigationProperty Name="contacto" Relationship="DSIModel.FK__contacto__id_sec__55BFB948" FromRole="sector" ToRole="contacto" />
         </EntityType>
         <EntityType Name="Tipo_Estado">
           <Key>
@@ -539,8 +436,6 @@
           </Key>
           <Property Name="id" Type="Boolean" Nullable="false" />
           <Property Name="EStado" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="contacto" Relationship="Self.FK__contacto__id_est__778AC167" FromRole="Tipo_Estado" ToRole="contacto" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.FK__Usuarios__id_Est__3C69FB99" FromRole="Tipo_Estado" ToRole="Usuarios" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -552,21 +447,7 @@
           <Property Name="pass" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="id_Rol" Type="Boolean" Nullable="false" />
           <Property Name="id_Estado" Type="Boolean" />
-          <NavigationProperty Name="Roles" Relationship="Self.FK__Usuarios__id_Rol__3B75D760" FromRole="Usuarios" ToRole="Roles" />
-          <NavigationProperty Name="Tipo_Estado" Relationship="Self.FK__Usuarios__id_Est__3C69FB99" FromRole="Usuarios" ToRole="Tipo_Estado" />
-        </EntityType>
-        <Association Name="FK__contacto__id_cat__76969D2E">
-          <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
-          <End Role="contacto" Type="Self.contacto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Categoria">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="contacto">
-              <PropertyRef Name="id_categoria" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+          </EntityType>
         <Association Name="FK__Ciudad__id_pais__4316F928">
           <End Role="Pais" Type="Self.Pais" Multiplicity="0..1" />
           <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="*" />
@@ -576,78 +457,6 @@
             </Principal>
             <Dependent Role="Ciudad">
               <PropertyRef Name="id_pais" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__contacto__id_ubi__75A278F5">
-          <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="0..1" />
-          <End Role="contacto" Type="Self.contacto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Ciudad">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="contacto">
-              <PropertyRef Name="id_ubicacion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__contacto__id_est__778AC167">
-          <End Role="Tipo_Estado" Type="Self.Tipo_Estado" Multiplicity="0..1" />
-          <End Role="contacto" Type="Self.contacto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tipo_Estado">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="contacto">
-              <PropertyRef Name="id_estado" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__contacto__id_sec__74AE54BC">
-          <End Role="sector" Type="Self.sector" Multiplicity="0..1" />
-          <End Role="contacto" Type="Self.contacto" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="sector">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="contacto">
-              <PropertyRef Name="id_sector" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Documento__id_co__7A672E12">
-          <End Role="contacto" Type="Self.contacto" Multiplicity="0..1" />
-          <End Role="Documentos" Type="Self.Documentos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="contacto">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Documentos">
-              <PropertyRef Name="id_contacto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Etapas__id_Docu__00200768">
-          <End Role="Documentos" Type="Self.Documentos" Multiplicity="0..1" />
-          <End Role="Etapas" Type="Self.Etapas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Documentos">
-              <PropertyRef Name="id_doc" />
-            </Principal>
-            <Dependent Role="Etapas">
-              <PropertyRef Name="id_Docu" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Progreso__id_Doc__7D439ABD">
-          <End Role="Documentos" Type="Self.Documentos" Multiplicity="0..1" />
-          <End Role="Progreso" Type="Self.Progreso" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Documentos">
-              <PropertyRef Name="id_doc" />
-            </Principal>
-            <Dependent Role="Progreso">
-              <PropertyRef Name="id_Doc" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -678,46 +487,14 @@
         <EntityContainer Name="DSIEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categoria" EntityType="Self.Categoria" />
           <EntitySet Name="Ciudad" EntityType="Self.Ciudad" />
-          <EntitySet Name="contacto" EntityType="Self.contacto" />
-          <EntitySet Name="Documentos" EntityType="Self.Documentos" />
-          <EntitySet Name="Etapas" EntityType="Self.Etapas" />
           <EntitySet Name="Pais" EntityType="Self.Pais" />
-          <EntitySet Name="Progreso" EntityType="Self.Progreso" />
           <EntitySet Name="Roles" EntityType="Self.Roles" />
           <EntitySet Name="sector" EntityType="Self.sector" />
           <EntitySet Name="Tipo_Estado" EntityType="Self.Tipo_Estado" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
-          <AssociationSet Name="FK__contacto__id_cat__76969D2E" Association="Self.FK__contacto__id_cat__76969D2E">
-            <End Role="Categoria" EntitySet="Categoria" />
-            <End Role="contacto" EntitySet="contacto" />
-          </AssociationSet>
           <AssociationSet Name="FK__Ciudad__id_pais__4316F928" Association="Self.FK__Ciudad__id_pais__4316F928">
             <End Role="Pais" EntitySet="Pais" />
             <End Role="Ciudad" EntitySet="Ciudad" />
-          </AssociationSet>
-          <AssociationSet Name="FK__contacto__id_ubi__75A278F5" Association="Self.FK__contacto__id_ubi__75A278F5">
-            <End Role="Ciudad" EntitySet="Ciudad" />
-            <End Role="contacto" EntitySet="contacto" />
-          </AssociationSet>
-          <AssociationSet Name="FK__contacto__id_est__778AC167" Association="Self.FK__contacto__id_est__778AC167">
-            <End Role="Tipo_Estado" EntitySet="Tipo_Estado" />
-            <End Role="contacto" EntitySet="contacto" />
-          </AssociationSet>
-          <AssociationSet Name="FK__contacto__id_sec__74AE54BC" Association="Self.FK__contacto__id_sec__74AE54BC">
-            <End Role="sector" EntitySet="sector" />
-            <End Role="contacto" EntitySet="contacto" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Documento__id_co__7A672E12" Association="Self.FK__Documento__id_co__7A672E12">
-            <End Role="contacto" EntitySet="contacto" />
-            <End Role="Documentos" EntitySet="Documentos" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Etapas__id_Docu__00200768" Association="Self.FK__Etapas__id_Docu__00200768">
-            <End Role="Documentos" EntitySet="Documentos" />
-            <End Role="Etapas" EntitySet="Etapas" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Progreso__id_Doc__7D439ABD" Association="Self.FK__Progreso__id_Doc__7D439ABD">
-            <End Role="Documentos" EntitySet="Documentos" />
-            <End Role="Progreso" EntitySet="Progreso" />
           </AssociationSet>
           <AssociationSet Name="FK__Usuarios__id_Rol__3B75D760" Association="Self.FK__Usuarios__id_Rol__3B75D760">
             <End Role="Roles" EntitySet="Roles" />
@@ -736,30 +513,6 @@
           <FunctionImport Name="sp_consultaContacto" ReturnType="Collection(DSIModel.sp_consultaContacto_Result)">
           <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
           </FunctionImport>
-          <FunctionImport Name="sp_creatediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_dropdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(DSIModel.sp_helpdiagramdefinition_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(DSIModel.sp_helpdiagrams_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_renamediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="new_diagramname" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_upgraddiagrams" />
           <FunctionImport Name="sp_consultaContacto2" ReturnType="Collection(DSIModel.sp_consultaContacto2_Result)">
           <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
           </FunctionImport>
@@ -771,19 +524,25 @@
             <Parameter Name="pais" Mode="In" Type="String" />
             <Parameter Name="id_categoria" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="sp_filtroOne" ReturnType="Collection(DSIModel.sp_filtroOne_Result)">
-            <Parameter Name="nombre" Mode="In" Type="String" />
-            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
           </FunctionImport>
-          <FunctionImport Name="sp_filtroOneTwo" ReturnType="Collection(DSIModel.sp_filtroOneTwo_Result)">
-            <Parameter Name="nombre" Mode="In" Type="String" />
-            <Parameter Name="r_social" Mode="In" Type="String" />
-            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_filtroOneFive" ReturnType="Collection(DSIModel.sp_filtroOneFive_Result)">
+          <FunctionImport Name="sp_filtroFiveOne" ReturnType="Collection(DSIModel.sp_filtroFiveOne_Result)">
             <Parameter Name="nombre" Mode="In" Type="String" />
-            <Parameter Name="r_social" Mode="In" Type="String" />
             <Parameter Name="sector" Mode="In" Type="Byte" />
+            <Parameter Name="ciudad" Mode="In" Type="Byte" />
+            <Parameter Name="pais" Mode="In" Type="Byte" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroFiveTwo" ReturnType="Collection(DSIModel.sp_filtroFiveTwo_Result)">
+            <Parameter Name="r_social" Mode="In" Type="String" />
             <Parameter Name="ciudad" Mode="In" Type="Byte" />
             <Parameter Name="pais" Mode="In" Type="Byte" />
             <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
@@ -797,6 +556,29 @@
             <Parameter Name="pais" Mode="In" Type="String" />
             <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
           </FunctionImport>
+          <FunctionImport Name="sp_filtroFourOne" ReturnType="Collection(DSIModel.sp_filtroFourOne_Result)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="sector" Mode="In" Type="Byte" />
+            <Parameter Name="pais" Mode="In" Type="Byte" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroFourTwo" ReturnType="Collection(DSIModel.sp_filtroFourTwo_Result)">
+            <Parameter Name="r_social" Mode="In" Type="String" />
+            <Parameter Name="pais" Mode="In" Type="Byte" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroOne" ReturnType="Collection(DSIModel.sp_filtroOne_Result)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroOneFive" ReturnType="Collection(DSIModel.sp_filtroOneFive_Result)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="r_social" Mode="In" Type="String" />
+            <Parameter Name="sector" Mode="In" Type="Byte" />
+            <Parameter Name="ciudad" Mode="In" Type="Byte" />
+            <Parameter Name="pais" Mode="In" Type="Byte" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
           <FunctionImport Name="sp_filtroOneFour" ReturnType="Collection(DSIModel.sp_filtroOneFour_Result)">
             <Parameter Name="nombre" Mode="In" Type="String" />
             <Parameter Name="r_social" Mode="In" Type="String" />
@@ -804,10 +586,28 @@
             <Parameter Name="pais" Mode="In" Type="String" />
             <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
           </FunctionImport>
+          <FunctionImport Name="sp_filtroOneTFive" ReturnType="Collection(DSIModel.sp_filtroOneTFive_Result)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="r_social" Mode="In" Type="String" />
+            <Parameter Name="ciudad" Mode="In" Type="Byte" />
+            <Parameter Name="pais" Mode="In" Type="Byte" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroOneTFour" ReturnType="Collection(DSIModel.sp_filtroOneTFour_Result)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="r_social" Mode="In" Type="String" />
+            <Parameter Name="pais" Mode="In" Type="Byte" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
           <FunctionImport Name="sp_filtroOneThree" ReturnType="Collection(DSIModel.sp_filtroOneThree_Result)">
             <Parameter Name="nombre" Mode="In" Type="String" />
             <Parameter Name="r_social" Mode="In" Type="String" />
             <Parameter Name="sector" Mode="In" Type="String" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroOneTwo" ReturnType="Collection(DSIModel.sp_filtroOneTwo_Result)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="r_social" Mode="In" Type="String" />
             <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="sp_filtroThree" ReturnType="Collection(DSIModel.sp_filtroThree_Result)">
@@ -823,6 +623,11 @@
           <FunctionImport Name="sp_filtroThreeFour" ReturnType="Collection(DSIModel.sp_filtroThreeFour_Result)">
             <Parameter Name="sector" Mode="In" Type="String" />
             <Parameter Name="pais" Mode="In" Type="String" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroThreeOne" ReturnType="Collection(DSIModel.sp_filtroThreeOne_Result)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="sector" Mode="In" Type="Byte" />
             <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="sp_filtroTwo" ReturnType="Collection(DSIModel.sp_filtroTwo_Result)">
@@ -847,58 +652,72 @@
             <Parameter Name="sector" Mode="In" Type="String" />
             <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
           </FunctionImport>
-          <FunctionImport Name="sp_filtroFiveOne" ReturnType="Collection(DSIModel.sp_filtroFiveOne_Result)">
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(DSIModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(DSIModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="sp_insertSector">
+          <Parameter Name="nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_updateSector">
+            <Parameter Name="id" Mode="In" Type="Int32" />
             <Parameter Name="nombre" Mode="In" Type="String" />
-            <Parameter Name="sector" Mode="In" Type="Byte" />
-            <Parameter Name="ciudad" Mode="In" Type="Byte" />
-            <Parameter Name="pais" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="sp_buscarLugares" ReturnType="Collection(DSIModel.sp_buscarLugares_Result)" />
+          <FunctionImport Name="sp_insertCiudad">
+            <Parameter Name="id" Mode="In" Type="Byte" />
+            <Parameter Name="NCiudad" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_insertPais">
+          <Parameter Name="Npais" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_updateCiudad">
+            <Parameter Name="id" Mode="In" Type="Byte" />
+            <Parameter Name="NCiudad" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_updatePais">
+            <Parameter Name="id" Mode="In" Type="Byte" />
+            <Parameter Name="Npais" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="contacto" EntityType="DSIModel.contacto" />
+          <AssociationSet Name="FK__contacto__id_cat__57A801BA" Association="DSIModel.FK__contacto__id_cat__57A801BA">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="contacto" EntitySet="contacto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__contacto__id_ubi__56B3DD81" Association="DSIModel.FK__contacto__id_ubi__56B3DD81">
+            <End Role="Ciudad" EntitySet="Ciudad" />
+            <End Role="contacto" EntitySet="contacto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__contacto__id_est__589C25F3" Association="DSIModel.FK__contacto__id_est__589C25F3">
+            <End Role="Tipo_Estado" EntitySet="Tipo_Estado" />
+            <End Role="contacto" EntitySet="contacto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__contacto__id_sec__55BFB948" Association="DSIModel.FK__contacto__id_sec__55BFB948">
+            <End Role="sector" EntitySet="sector" />
+            <End Role="contacto" EntitySet="contacto" />
+          </AssociationSet>
+          <FunctionImport Name="sp_consultaTodo" ReturnType="Collection(DSIModel.sp_consultaTodo_Result3)">
             <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
           </FunctionImport>
-          <FunctionImport Name="sp_filtroFiveTwo" ReturnType="Collection(DSIModel.sp_filtroFiveTwo_Result)">
-            <Parameter Name="r_social" Mode="In" Type="String" />
-            <Parameter Name="ciudad" Mode="In" Type="Byte" />
-            <Parameter Name="pais" Mode="In" Type="Byte" />
-            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
-          </FunctionImport>
-          <FunctionImport Name="sp_filtroFourOne" ReturnType="Collection(DSIModel.sp_filtroFourOne_Result)">
-            <Parameter Name="nombre" Mode="In" Type="String" />
-            <Parameter Name="sector" Mode="In" Type="Byte" />
-            <Parameter Name="pais" Mode="In" Type="Byte" />
-            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
-          </FunctionImport>
-          <FunctionImport Name="sp_filtroFourTwo" ReturnType="Collection(DSIModel.sp_filtroFourTwo_Result)">
-            <Parameter Name="r_social" Mode="In" Type="String" />
-            <Parameter Name="pais" Mode="In" Type="Byte" />
-            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
-          </FunctionImport>
-          <FunctionImport Name="sp_filtroThreeOne" ReturnType="Collection(DSIModel.sp_filtroThreeOne_Result)">
-            <Parameter Name="nombre" Mode="In" Type="String" />
-            <Parameter Name="sector" Mode="In" Type="Byte" />
-            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
-          </FunctionImport>
-          <FunctionImport Name="sp_consultaTodo" ReturnType="Collection(DSIModel.sp_consultaTodo_Result)">
-            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
-          </FunctionImport>
-        </EntityContainer>
+          </EntityContainer>
         <ComplexType Name="sp_consultaContacto_Result">
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
           <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
-          <Property Type="String" Name="nombre_sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
           <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="NCiudad" Nullable="true" MaxLength="30" />
-          <Property Type="String" Name="Npais" Nullable="true" MaxLength="30" />
-          <Property Type="String" Name="Telefono" Nullable="true" MaxLength="30" />
-        </ComplexType>
-        <ComplexType Name="sp_helpdiagramdefinition_Result">
-          <Property Type="Int32" Name="version" Nullable="true" />
-          <Property Type="Binary" Name="definition" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="sp_helpdiagrams_Result">
-          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
-          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
         </ComplexType>
         <ComplexType Name="sp_consultaContacto2_Result">
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
@@ -913,13 +732,12 @@
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
           <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
           <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
-          <Property Type="Byte" Name="id" Nullable="false" />
           <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
         </ComplexType>
-        <ComplexType Name="sp_filtroOne_Result">
+        <ComplexType Name="sp_consultaTodo_Result">
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
           <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
           <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
@@ -928,7 +746,7 @@
           <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
         </ComplexType>
-        <ComplexType Name="sp_filtroOneTwo_Result">
+        <ComplexType Name="sp_filtroFiveOne_Result">
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
           <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
           <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
@@ -937,7 +755,7 @@
           <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
         </ComplexType>
-        <ComplexType Name="sp_filtroOneFive_Result">
+        <ComplexType Name="sp_filtroFiveTwo_Result">
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
           <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
           <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
@@ -964,6 +782,42 @@
           <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
         </ComplexType>
+        <ComplexType Name="sp_filtroFourOne_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroFourTwo_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroOne_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroOneFive_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
         <ComplexType Name="sp_filtroOneFour_Result">
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
           <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
@@ -973,7 +827,34 @@
           <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
         </ComplexType>
+        <ComplexType Name="sp_filtroOneTFive_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroOneTFour_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
         <ComplexType Name="sp_filtroOneThree_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroOneTwo_Result">
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
           <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
           <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
@@ -1001,6 +882,15 @@
           <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
         </ComplexType>
         <ComplexType Name="sp_filtroThreeFour_Result">
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_filtroThreeOne_Result">
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
           <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
           <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
@@ -1045,7 +935,106 @@
           <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
         </ComplexType>
-        <ComplexType Name="sp_filtroFiveOne_Result">
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_buscarLugares_Result">
+          <Property Type="Byte" Name="id" Nullable="false" />
+          <Property Type="String" Name="NCiudad" Nullable="true" MaxLength="30" />
+          <Property Type="Byte" Name="id_pais" Nullable="true" />
+          <Property Type="String" Name="Npais" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="sp_rprp_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="NIT" Nullable="false" MaxLength="11" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Direccion" Nullable="true" MaxLength="50" />
+          <Property Type="Byte" Name="id1" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
+          <Property Type="Byte" Name="id2" Nullable="false" />
+          <Property Type="Byte" Name="id_pais" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="contacto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Razón_Social" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="NIT" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="id_sector" Type="Byte" />
+          <Property Name="id_ubicacion" Type="Byte" />
+          <Property Name="id_categoria" Type="Boolean" />
+          <Property Name="id_estado" Type="Boolean" />
+          <Property Name="ruta_carpeta" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          </EntityType>
+        <Association Name="FK__contacto__id_cat__57A801BA">
+          <End Type="DSIModel.Categoria" Role="Categoria" Multiplicity="0..1" />
+          <End Type="DSIModel.contacto" Role="contacto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="contacto">
+              <PropertyRef Name="id_categoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__contacto__id_ubi__56B3DD81">
+          <End Type="DSIModel.Ciudad" Role="Ciudad" Multiplicity="0..1" />
+          <End Type="DSIModel.contacto" Role="contacto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ciudad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="contacto">
+              <PropertyRef Name="id_ubicacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__contacto__id_est__589C25F3">
+          <End Type="DSIModel.Tipo_Estado" Role="Tipo_Estado" Multiplicity="0..1" />
+          <End Type="DSIModel.contacto" Role="contacto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Estado">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="contacto">
+              <PropertyRef Name="id_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__contacto__id_sec__55BFB948">
+          <End Type="DSIModel.sector" Role="sector" Multiplicity="0..1" />
+          <End Type="DSIModel.contacto" Role="contacto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sector">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="contacto">
+              <PropertyRef Name="id_sector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="sp_consultaTodo_Result1">
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
           <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
           <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
@@ -1054,52 +1043,36 @@
           <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
         </ComplexType>
-        <ComplexType Name="sp_filtroFiveTwo_Result">
+        <ComplexType Name="sp_consultaTodo_Result2">
+          <Property Type="Int32" Name="id" Nullable="false" />
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
           <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="NIT" Nullable="false" MaxLength="11" />
           <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
           <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Direccion" Nullable="true" MaxLength="50" />
+          <Property Type="Byte" Name="idS" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
+          <Property Type="Byte" Name="idC" Nullable="false" />
+          <Property Type="Byte" Name="id_pais" Nullable="true" />
         </ComplexType>
-        <ComplexType Name="sp_filtroFourOne_Result">
+        <ComplexType Name="sp_consultaTodo_Result3">
+          <Property Type="Int32" Name="id" Nullable="false" />
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
           <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="NIT" Nullable="false" MaxLength="11" />
           <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
           <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Direccion" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
         </ComplexType>
-        <ComplexType Name="sp_filtroFourTwo_Result">
-          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
-          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
-          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
-          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
-          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
-          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
-        </ComplexType>
-        <ComplexType Name="sp_filtroThreeOne_Result">
-          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
-          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
-          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
-          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
-          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
-          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
-        </ComplexType>
-        <ComplexType Name="sp_consultaTodo_Result">
-          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
-          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
-          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
-          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
-          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
-          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
-        </ComplexType>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1122,61 +1095,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="contacto">
-            <EntityTypeMapping TypeName="DSIModel.contacto">
-              <MappingFragment StoreEntitySet="contacto">
-                <ScalarProperty Name="ruta_carpeta" ColumnName="ruta_carpeta" />
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
-                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
-                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="id_sector" ColumnName="id_sector" />
-                <ScalarProperty Name="id_ubicacion" ColumnName="id_ubicacion" />
-                <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
-                <ScalarProperty Name="id_estado" ColumnName="id_estado" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Documentos">
-            <EntityTypeMapping TypeName="DSIModel.Documentos">
-              <MappingFragment StoreEntitySet="Documentos">
-                <ScalarProperty Name="id_doc" ColumnName="id_doc" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Ruta" ColumnName="Ruta" />
-                <ScalarProperty Name="id_contacto" ColumnName="id_contacto" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Etapas">
-            <EntityTypeMapping TypeName="DSIModel.Etapas">
-              <MappingFragment StoreEntitySet="Etapas">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="fecha_ini" ColumnName="fecha_ini" />
-                <ScalarProperty Name="fecha_fin" ColumnName="fecha_fin" />
-                <ScalarProperty Name="N_Etapas" ColumnName="N_Etapas" />
-                <ScalarProperty Name="id_Docu" ColumnName="id_Docu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Pais">
             <EntityTypeMapping TypeName="DSIModel.Pais">
               <MappingFragment StoreEntitySet="Pais">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Npais" ColumnName="Npais" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Progreso">
-            <EntityTypeMapping TypeName="DSIModel.Progreso">
-              <MappingFragment StoreEntitySet="Progreso">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="N_Etapa" ColumnName="N_Etapa" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="id_Doc" ColumnName="id_Doc" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1222,37 +1145,14 @@
               <ComplexTypeMapping TypeName="DSIModel.sp_consultaContacto_Result">
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
-                <ScalarProperty Name="nombre_sector" ColumnName="nombre_sector" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
                 <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="NCiudad" ColumnName="NCiudad" />
-                <ScalarProperty Name="Npais" ColumnName="Npais" />
-                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="DSIModel.Store.sp_creatediagram" />
-          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="DSIModel.Store.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="DSIModel.Store.sp_helpdiagramdefinition">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DSIModel.sp_helpdiagramdefinition_Result">
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="DSIModel.Store.sp_helpdiagrams">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DSIModel.sp_helpdiagrams_Result">
-                <ScalarProperty Name="Database" ColumnName="Database" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="DSIModel.Store.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="DSIModel.Store.sp_upgraddiagrams" />
           <FunctionImportMapping FunctionImportName="sp_consultaContacto2" FunctionName="DSIModel.Store.sp_consultaContacto2">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DSIModel.sp_consultaContacto2_Result">
@@ -1272,7 +1172,6 @@
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
                 <ScalarProperty Name="Sector" ColumnName="Sector" />
-                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Correo" ColumnName="Correo" />
                 <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
                 <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
@@ -1280,9 +1179,11 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_filtroOne" FunctionName="DSIModel.Store.sp_filtroOne">
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="DSIModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="DSIModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_filtroFiveOne" FunctionName="DSIModel.Store.sp_filtroFiveOne">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="DSIModel.sp_filtroOne_Result">
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroFiveOne_Result">
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
                 <ScalarProperty Name="Sector" ColumnName="Sector" />
@@ -1293,22 +1194,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_filtroOneTwo" FunctionName="DSIModel.Store.sp_filtroOneTwo">
+          <FunctionImportMapping FunctionImportName="sp_filtroFiveTwo" FunctionName="DSIModel.Store.sp_filtroFiveTwo">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="DSIModel.sp_filtroOneTwo_Result">
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
-                <ScalarProperty Name="Sector" ColumnName="Sector" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
-                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
-                <ScalarProperty Name="País" ColumnName="País" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_filtroOneFive" FunctionName="DSIModel.Store.sp_filtroOneFive">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DSIModel.sp_filtroOneFive_Result">
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroFiveTwo_Result">
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
                 <ScalarProperty Name="Sector" ColumnName="Sector" />
@@ -1345,6 +1233,58 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroFourOne" FunctionName="DSIModel.Store.sp_filtroFourOne">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroFourOne_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroFourTwo" FunctionName="DSIModel.Store.sp_filtroFourTwo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroFourTwo_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroOne" FunctionName="DSIModel.Store.sp_filtroOne">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroOne_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroOneFive" FunctionName="DSIModel.Store.sp_filtroOneFive">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroOneFive_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_filtroOneFour" FunctionName="DSIModel.Store.sp_filtroOneFour">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DSIModel.sp_filtroOneFour_Result">
@@ -1358,9 +1298,48 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroOneTFive" FunctionName="DSIModel.Store.sp_filtroOneTFive">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroOneTFive_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroOneTFour" FunctionName="DSIModel.Store.sp_filtroOneTFour">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroOneTFour_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_filtroOneThree" FunctionName="DSIModel.Store.sp_filtroOneThree">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DSIModel.sp_filtroOneThree_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroOneTwo" FunctionName="DSIModel.Store.sp_filtroOneTwo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroOneTwo_Result">
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
                 <ScalarProperty Name="Sector" ColumnName="Sector" />
@@ -1400,6 +1379,19 @@
           <FunctionImportMapping FunctionImportName="sp_filtroThreeFour" FunctionName="DSIModel.Store.sp_filtroThreeFour">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DSIModel.sp_filtroThreeFour_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_filtroThreeOne" FunctionName="DSIModel.Store.sp_filtroThreeOne">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroThreeOne_Result">
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
                 <ScalarProperty Name="Sector" ColumnName="Sector" />
@@ -1462,81 +1454,76 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_filtroFiveOne" FunctionName="DSIModel.Store.sp_filtroFiveOne">
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="DSIModel.Store.sp_helpdiagramdefinition">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="DSIModel.sp_filtroFiveOne_Result">
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
-                <ScalarProperty Name="Sector" ColumnName="Sector" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
-                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
-                <ScalarProperty Name="País" ColumnName="País" />
+              <ComplexTypeMapping TypeName="DSIModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_filtroFiveTwo" FunctionName="DSIModel.Store.sp_filtroFiveTwo">
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="DSIModel.Store.sp_helpdiagrams">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="DSIModel.sp_filtroFiveTwo_Result">
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
-                <ScalarProperty Name="Sector" ColumnName="Sector" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
-                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
-                <ScalarProperty Name="País" ColumnName="País" />
+              <ComplexTypeMapping TypeName="DSIModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_filtroFourOne" FunctionName="DSIModel.Store.sp_filtroFourOne">
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="DSIModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="DSIModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="sp_insertSector" FunctionName="DSIModel.Store.sp_insertSector" />
+          <FunctionImportMapping FunctionImportName="sp_updateSector" FunctionName="DSIModel.Store.sp_updateSector" />
+          <FunctionImportMapping FunctionImportName="sp_buscarLugares" FunctionName="DSIModel.Store.sp_buscarLugares">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="DSIModel.sp_filtroFourOne_Result">
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
-                <ScalarProperty Name="Sector" ColumnName="Sector" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
-                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
-                <ScalarProperty Name="País" ColumnName="País" />
+              <ComplexTypeMapping TypeName="DSIModel.sp_buscarLugares_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="NCiudad" ColumnName="NCiudad" />
+                <ScalarProperty Name="id_pais" ColumnName="id_pais" />
+                <ScalarProperty Name="Npais" ColumnName="Npais" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_filtroFourTwo" FunctionName="DSIModel.Store.sp_filtroFourTwo">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DSIModel.sp_filtroFourTwo_Result">
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
-                <ScalarProperty Name="Sector" ColumnName="Sector" />
+          <FunctionImportMapping FunctionImportName="sp_insertCiudad" FunctionName="DSIModel.Store.sp_insertCiudad" />
+          <FunctionImportMapping FunctionImportName="sp_insertPais" FunctionName="DSIModel.Store.sp_insertPais" />
+          <FunctionImportMapping FunctionImportName="sp_updateCiudad" FunctionName="DSIModel.Store.sp_updateCiudad" />
+          <FunctionImportMapping FunctionImportName="sp_updatePais" FunctionName="DSIModel.Store.sp_updatePais" />
+          <EntitySetMapping Name="contacto">
+            <EntityTypeMapping TypeName="DSIModel.contacto">
+              <MappingFragment StoreEntitySet="contacto">
+                <ScalarProperty Name="ruta_carpeta" ColumnName="ruta_carpeta" />
+                <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+                <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+                <ScalarProperty Name="id_ubicacion" ColumnName="id_ubicacion" />
+                <ScalarProperty Name="id_sector" ColumnName="id_sector" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
-                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
-                <ScalarProperty Name="País" ColumnName="País" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_filtroThreeOne" FunctionName="DSIModel.Store.sp_filtroThreeOne">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DSIModel.sp_filtroThreeOne_Result">
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="NIT" ColumnName="NIT" />
                 <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
-                <ScalarProperty Name="Sector" ColumnName="Sector" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
-                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
-                <ScalarProperty Name="País" ColumnName="País" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_consultaTodo" FunctionName="DSIModel.Store.sp_consultaTodo">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="DSIModel.sp_consultaTodo_Result">
+              <ComplexTypeMapping TypeName="DSIModel.sp_consultaTodo_Result3">
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="NIT" ColumnName="NIT" />
                 <ScalarProperty Name="Sector" ColumnName="Sector" />
                 <ScalarProperty Name="Correo" ColumnName="Correo" />
                 <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
                 <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
                 <ScalarProperty Name="País" ColumnName="País" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

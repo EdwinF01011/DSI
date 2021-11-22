@@ -30,23 +30,18 @@ namespace DSI.CapaVistas
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBusqueda));
-            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblcategoria = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtNombreMenu = new System.Windows.Forms.TextBox();
-            this.txtCorreoMenu = new System.Windows.Forms.TextBox();
             this.txtRsocialMenu = new System.Windows.Forms.TextBox();
             this.cboxPaisMenu = new System.Windows.Forms.ComboBox();
             this.cboxCiudadMenu = new System.Windows.Forms.ComboBox();
-            this.txtTelMenu = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnCrearProveedor = new System.Windows.Forms.Button();
             this.btnConfigurar = new System.Windows.Forms.Button();
@@ -66,44 +61,33 @@ namespace DSI.CapaVistas
             this.lblsector = new System.Windows.Forms.Label();
             this.lblpais = new System.Windows.Forms.Label();
             this.lblciudad = new System.Windows.Forms.Label();
+            this.panelMenu = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlMenu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1731, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 82);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "DSI";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(243)))), ((int)(((byte)(138)))));
             this.panel2.ForeColor = System.Drawing.Color.Transparent;
-            this.panel2.Location = new System.Drawing.Point(1872, 14);
+            this.panel2.Location = new System.Drawing.Point(282, 9);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 85);
+            this.panel2.Size = new System.Drawing.Size(10, 33);
             this.panel2.TabIndex = 15;
             // 
             // lblcategoria
             // 
-            this.lblcategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblcategoria.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblcategoria.AutoSize = true;
             this.lblcategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcategoria.Location = new System.Drawing.Point(272, 9);
+            this.lblcategoria.Location = new System.Drawing.Point(300, 9);
             this.lblcategoria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblcategoria.Name = "lblcategoria";
-            this.lblcategoria.Size = new System.Drawing.Size(203, 33);
+            this.lblcategoria.Size = new System.Drawing.Size(78, 33);
             this.lblcategoria.TabIndex = 16;
-            this.lblcategoria.Text = "Proveedores*";
+            this.lblcategoria.Text = "nnn*";
             this.lblcategoria.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dataGridView1
@@ -136,21 +120,11 @@ namespace DSI.CapaVistas
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(651, 109);
+            this.label6.Location = new System.Drawing.Point(686, 109);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 29);
             this.label6.TabIndex = 19;
             this.label6.Text = "Sector";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(1430, 10);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 29);
-            this.label7.TabIndex = 21;
-            this.label7.Text = "Correo";
             // 
             // label8
             // 
@@ -191,14 +165,6 @@ namespace DSI.CapaVistas
             this.txtNombreMenu.TabIndex = 24;
             this.txtNombreMenu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreMenu_KeyPress);
             // 
-            // txtCorreoMenu
-            // 
-            this.txtCorreoMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreoMenu.Location = new System.Drawing.Point(1434, 39);
-            this.txtCorreoMenu.Name = "txtCorreoMenu";
-            this.txtCorreoMenu.Size = new System.Drawing.Size(258, 35);
-            this.txtCorreoMenu.TabIndex = 25;
-            // 
             // txtRsocialMenu
             // 
             this.txtRsocialMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -214,7 +180,7 @@ namespace DSI.CapaVistas
             this.cboxPaisMenu.FormattingEnabled = true;
             this.cboxPaisMenu.Location = new System.Drawing.Point(940, 140);
             this.cboxPaisMenu.Name = "cboxPaisMenu";
-            this.cboxPaisMenu.Size = new System.Drawing.Size(166, 37);
+            this.cboxPaisMenu.Size = new System.Drawing.Size(211, 37);
             this.cboxPaisMenu.TabIndex = 28;
             this.cboxPaisMenu.SelectedValueChanged += new System.EventHandler(this.cboxPaisMenu_SelectedValueChanged);
             // 
@@ -224,27 +190,9 @@ namespace DSI.CapaVistas
             this.cboxCiudadMenu.FormattingEnabled = true;
             this.cboxCiudadMenu.Location = new System.Drawing.Point(940, 226);
             this.cboxCiudadMenu.Name = "cboxCiudadMenu";
-            this.cboxCiudadMenu.Size = new System.Drawing.Size(166, 37);
+            this.cboxCiudadMenu.Size = new System.Drawing.Size(211, 37);
             this.cboxCiudadMenu.TabIndex = 29;
             this.cboxCiudadMenu.SelectedIndexChanged += new System.EventHandler(this.cboxCiudadMenu_SelectedIndexChanged);
-            // 
-            // txtTelMenu
-            // 
-            this.txtTelMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelMenu.Location = new System.Drawing.Point(1429, 126);
-            this.txtTelMenu.Name = "txtTelMenu";
-            this.txtTelMenu.Size = new System.Drawing.Size(192, 35);
-            this.txtTelMenu.TabIndex = 31;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(1429, 90);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(110, 29);
-            this.label12.TabIndex = 32;
-            this.label12.Text = "Teléfono";
             // 
             // btnActualizar
             // 
@@ -400,7 +348,7 @@ namespace DSI.CapaVistas
             // 
             this.cboxSectorMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxSectorMenu.FormattingEnabled = true;
-            this.cboxSectorMenu.Location = new System.Drawing.Point(655, 138);
+            this.cboxSectorMenu.Location = new System.Drawing.Point(686, 138);
             this.cboxSectorMenu.Name = "cboxSectorMenu";
             this.cboxSectorMenu.Size = new System.Drawing.Size(191, 37);
             this.cboxSectorMenu.TabIndex = 35;
@@ -421,7 +369,7 @@ namespace DSI.CapaVistas
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1097, 9);
+            this.label2.Location = new System.Drawing.Point(1430, 25);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 33);
@@ -446,7 +394,7 @@ namespace DSI.CapaVistas
             this.lblSocial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSocial.AutoSize = true;
             this.lblSocial.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSocial.Location = new System.Drawing.Point(1097, 54);
+            this.lblSocial.Location = new System.Drawing.Point(1430, 70);
             this.lblSocial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSocial.Name = "lblSocial";
             this.lblSocial.Size = new System.Drawing.Size(32, 33);
@@ -459,7 +407,7 @@ namespace DSI.CapaVistas
             this.lblsector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblsector.AutoSize = true;
             this.lblsector.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblsector.Location = new System.Drawing.Point(1148, 86);
+            this.lblsector.Location = new System.Drawing.Point(1481, 102);
             this.lblsector.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblsector.Name = "lblsector";
             this.lblsector.Size = new System.Drawing.Size(32, 33);
@@ -472,7 +420,7 @@ namespace DSI.CapaVistas
             this.lblpais.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblpais.AutoSize = true;
             this.lblpais.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpais.Location = new System.Drawing.Point(1148, 137);
+            this.lblpais.Location = new System.Drawing.Point(1481, 160);
             this.lblpais.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblpais.Name = "lblpais";
             this.lblpais.Size = new System.Drawing.Size(32, 33);
@@ -485,7 +433,7 @@ namespace DSI.CapaVistas
             this.lblciudad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblciudad.AutoSize = true;
             this.lblciudad.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblciudad.Location = new System.Drawing.Point(1148, 225);
+            this.lblciudad.Location = new System.Drawing.Point(1481, 248);
             this.lblciudad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblciudad.Name = "lblciudad";
             this.lblciudad.Size = new System.Drawing.Size(32, 33);
@@ -493,12 +441,24 @@ namespace DSI.CapaVistas
             this.lblciudad.Text = "#";
             this.lblciudad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panelMenu
+            // 
+            this.panelMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.panelMenu.Location = new System.Drawing.Point(271, 284);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(1615, 729);
+            this.panelMenu.TabIndex = 43;
+            // 
             // FrmBusqueda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1898, 1024);
+            this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.lblciudad);
             this.Controls.Add(this.lblpais);
             this.Controls.Add(this.lblsector);
@@ -509,29 +469,25 @@ namespace DSI.CapaVistas
             this.Controls.Add(this.cboxSectorMenu);
             this.Controls.Add(this.btnbuscar);
             this.Controls.Add(this.pnlMenu);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.txtTelMenu);
             this.Controls.Add(this.cboxCiudadMenu);
             this.Controls.Add(this.cboxPaisMenu);
             this.Controls.Add(this.txtRsocialMenu);
-            this.Controls.Add(this.txtCorreoMenu);
             this.Controls.Add(this.txtNombreMenu);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lblcategoria);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmBusqueda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBusquedaProvedor";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmBusqueda_Load);
+            this.Click += new System.EventHandler(this.FrmBusqueda_Click);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
@@ -541,23 +497,18 @@ namespace DSI.CapaVistas
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblcategoria;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtNombreMenu;
-        private System.Windows.Forms.TextBox txtCorreoMenu;
         private System.Windows.Forms.TextBox txtRsocialMenu;
         private System.Windows.Forms.ComboBox cboxPaisMenu;
         private System.Windows.Forms.ComboBox cboxCiudadMenu;
-        private System.Windows.Forms.TextBox txtTelMenu;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnCrearProveedor;
         private System.Windows.Forms.Button btnConfigurar;
@@ -577,5 +528,6 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.Label lblsector;
         private System.Windows.Forms.Label lblpais;
         private System.Windows.Forms.Label lblciudad;
+        private System.Windows.Forms.Panel panelMenu;
     }
 }

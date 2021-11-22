@@ -10,16 +10,15 @@
 namespace DSI.Datos
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Etapas
+    public partial class sp_filtroOneTFive_Result
     {
-        public byte id { get; set; }
-        public Nullable<System.DateTime> fecha_ini { get; set; }
-        public Nullable<System.DateTime> fecha_fin { get; set; }
-        public Nullable<byte> N_Etapas { get; set; }
-        public Nullable<short> id_Docu { get; set; }
-    
-        public virtual Documentos Documentos { get; set; }
+        public string Nombre { get; set; }
+        public string Razón_Social { get; set; }
+        public string Sector { get; set; }
+        public string Correo { get; set; }
+        public string Teléfono { get; set; }
+        public string Ciudad { get; set; }
+        public string País { get; set; }
     }
 }

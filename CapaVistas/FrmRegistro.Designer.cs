@@ -29,13 +29,15 @@ namespace DSI.CapaVistas
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblregistro = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblSector = new System.Windows.Forms.Label();
+            this.lblCity = new System.Windows.Forms.Label();
+            this.lblPais = new System.Windows.Forms.Label();
+            this.txtNIT = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnPlusSector = new System.Windows.Forms.Button();
-            this.cbxDeshabilitado = new System.Windows.Forms.CheckBox();
+            this.lblKey = new System.Windows.Forms.Label();
             this.cboxSectorR = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtDireccionR = new System.Windows.Forms.TextBox();
@@ -56,61 +58,31 @@ namespace DSI.CapaVistas
             this.txtCorreoR = new System.Windows.Forms.TextBox();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnGuardarR = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.btnDocR = new System.Windows.Forms.Button();
-            this.btnVolver = new System.Windows.Forms.Button();
+            this.panelRegistro = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lblregistro
-            // 
-            this.lblregistro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblregistro.AutoSize = true;
-            this.lblregistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblregistro.Location = new System.Drawing.Point(983, 34);
-            this.lblregistro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblregistro.Name = "lblregistro";
-            this.lblregistro.Size = new System.Drawing.Size(132, 33);
-            this.lblregistro.TabIndex = 19;
-            this.lblregistro.Text = "Registro";
-            // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(243)))), ((int)(((byte)(138)))));
             this.panel2.ForeColor = System.Drawing.Color.Transparent;
-            this.panel2.Location = new System.Drawing.Point(968, 9);
+            this.panel2.Location = new System.Drawing.Point(696, 14);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(10, 85);
             this.panel2.TabIndex = 18;
             // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(827, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 82);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "DSI";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(872, 113);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(136, 29);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "Proveedor*";
-            // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox1.Controls.Add(this.lblSector);
+            this.groupBox1.Controls.Add(this.lblCity);
+            this.groupBox1.Controls.Add(this.lblPais);
+            this.groupBox1.Controls.Add(this.txtNIT);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnPlusSector);
-            this.groupBox1.Controls.Add(this.cbxDeshabilitado);
+            this.groupBox1.Controls.Add(this.lblKey);
             this.groupBox1.Controls.Add(this.cboxSectorR);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.txtDireccionR);
@@ -129,18 +101,67 @@ namespace DSI.CapaVistas
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtTelefonoR);
             this.groupBox1.Controls.Add(this.txtCorreoR);
-            this.groupBox1.Location = new System.Drawing.Point(12, 102);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(854, 541);
+            this.groupBox1.Size = new System.Drawing.Size(677, 635);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Registro";
+            // 
+            // lblSector
+            // 
+            this.lblSector.AutoSize = true;
+            this.lblSector.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSector.Location = new System.Drawing.Point(120, 371);
+            this.lblSector.Name = "lblSector";
+            this.lblSector.Size = new System.Drawing.Size(96, 29);
+            this.lblSector.TabIndex = 44;
+            this.lblSector.Text = "#Sector";
+            // 
+            // lblCity
+            // 
+            this.lblCity.AutoSize = true;
+            this.lblCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCity.Location = new System.Drawing.Point(380, 423);
+            this.lblCity.Name = "lblCity";
+            this.lblCity.Size = new System.Drawing.Size(103, 29);
+            this.lblCity.TabIndex = 43;
+            this.lblCity.Text = "#Ciudad";
+            // 
+            // lblPais
+            // 
+            this.lblPais.AutoSize = true;
+            this.lblPais.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPais.Location = new System.Drawing.Point(90, 423);
+            this.lblPais.Name = "lblPais";
+            this.lblPais.Size = new System.Drawing.Size(73, 29);
+            this.lblPais.TabIndex = 42;
+            this.lblPais.Text = "#País";
+            // 
+            // txtNIT
+            // 
+            this.txtNIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNIT.Location = new System.Drawing.Point(90, 95);
+            this.txtNIT.Name = "txtNIT";
+            this.txtNIT.Size = new System.Drawing.Size(395, 35);
+            this.txtNIT.TabIndex = 41;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(24, 152);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(160, 29);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "Razón Social:";
             // 
             // btnPlusSector
             // 
             this.btnPlusSector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPlusSector.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlusSector.Location = new System.Drawing.Point(488, 311);
+            this.btnPlusSector.Location = new System.Drawing.Point(492, 311);
             this.btnPlusSector.Name = "btnPlusSector";
             this.btnPlusSector.Size = new System.Drawing.Size(53, 37);
             this.btnPlusSector.TabIndex = 27;
@@ -148,31 +169,31 @@ namespace DSI.CapaVistas
             this.btnPlusSector.UseVisualStyleBackColor = true;
             this.btnPlusSector.Click += new System.EventHandler(this.btnPlusSector_Click);
             // 
-            // cbxDeshabilitado
+            // lblKey
             // 
-            this.cbxDeshabilitado.AutoSize = true;
-            this.cbxDeshabilitado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxDeshabilitado.Location = new System.Drawing.Point(678, 505);
-            this.cbxDeshabilitado.Name = "cbxDeshabilitado";
-            this.cbxDeshabilitado.Size = new System.Drawing.Size(170, 30);
-            this.cbxDeshabilitado.TabIndex = 40;
-            this.cbxDeshabilitado.Text = "Deshabilitado";
-            this.cbxDeshabilitado.UseVisualStyleBackColor = true;
+            this.lblKey.AutoSize = true;
+            this.lblKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKey.Location = new System.Drawing.Point(503, 47);
+            this.lblKey.Name = "lblKey";
+            this.lblKey.Size = new System.Drawing.Size(49, 29);
+            this.lblKey.TabIndex = 22;
+            this.lblKey.Text = "#0*";
             // 
             // cboxSectorR
             // 
             this.cboxSectorR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxSectorR.FormattingEnabled = true;
-            this.cboxSectorR.Location = new System.Drawing.Point(116, 311);
+            this.cboxSectorR.Location = new System.Drawing.Point(271, 368);
             this.cboxSectorR.Name = "cboxSectorR";
-            this.cboxSectorR.Size = new System.Drawing.Size(365, 37);
+            this.cboxSectorR.Size = new System.Drawing.Size(214, 37);
             this.cboxSectorR.TabIndex = 39;
+            this.cboxSectorR.SelectedValueChanged += new System.EventHandler(this.cboxSectorR_SelectedValueChanged);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(21, 261);
+            this.label13.Location = new System.Drawing.Point(25, 317);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(121, 29);
             this.label13.TabIndex = 29;
@@ -181,7 +202,7 @@ namespace DSI.CapaVistas
             // txtDireccionR
             // 
             this.txtDireccionR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccionR.Location = new System.Drawing.Point(148, 258);
+            this.txtDireccionR.Location = new System.Drawing.Point(152, 314);
             this.txtDireccionR.Name = "txtDireccionR";
             this.txtDireccionR.Size = new System.Drawing.Size(333, 35);
             this.txtDireccionR.TabIndex = 30;
@@ -190,15 +211,16 @@ namespace DSI.CapaVistas
             // 
             this.cboxCiudadRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxCiudadRegistro.FormattingEnabled = true;
-            this.cboxCiudadRegistro.Location = new System.Drawing.Point(274, 401);
+            this.cboxCiudadRegistro.Location = new System.Drawing.Point(278, 455);
             this.cboxCiudadRegistro.Name = "cboxCiudadRegistro";
             this.cboxCiudadRegistro.Size = new System.Drawing.Size(207, 37);
             this.cboxCiudadRegistro.TabIndex = 36;
+            this.cboxCiudadRegistro.SelectedValueChanged += new System.EventHandler(this.cboxCiudadRegistro_SelectedValueChanged);
             // 
             // txtRsocialR
             // 
             this.txtRsocialR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRsocialR.Location = new System.Drawing.Point(187, 95);
+            this.txtRsocialR.Location = new System.Drawing.Point(191, 146);
             this.txtRsocialR.Name = "txtRsocialR";
             this.txtRsocialR.Size = new System.Drawing.Size(294, 35);
             this.txtRsocialR.TabIndex = 26;
@@ -206,21 +228,21 @@ namespace DSI.CapaVistas
             // txtDescripcionR
             // 
             this.txtDescripcionR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcionR.Location = new System.Drawing.Point(518, 76);
+            this.txtDescripcionR.Location = new System.Drawing.Point(26, 524);
             this.txtDescripcionR.Multiline = true;
             this.txtDescripcionR.Name = "txtDescripcionR";
-            this.txtDescripcionR.Size = new System.Drawing.Size(319, 214);
+            this.txtDescripcionR.Size = new System.Drawing.Size(616, 91);
             this.txtDescripcionR.TabIndex = 32;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(518, 44);
+            this.label8.Location = new System.Drawing.Point(503, 492);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(135, 29);
+            this.label8.Size = new System.Drawing.Size(141, 29);
             this.label8.TabIndex = 31;
-            this.label8.Text = "Desripción:";
+            this.label8.Text = "Descripción";
             // 
             // txtNombreR
             // 
@@ -234,17 +256,17 @@ namespace DSI.CapaVistas
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(21, 98);
+            this.label4.Location = new System.Drawing.Point(25, 98);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(160, 29);
+            this.label4.Size = new System.Drawing.Size(59, 29);
             this.label4.TabIndex = 25;
-            this.label4.Text = "Razón Social:";
+            this.label4.Text = "NIT:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(21, 150);
+            this.label6.Location = new System.Drawing.Point(25, 206);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(116, 29);
             this.label6.TabIndex = 27;
@@ -254,7 +276,7 @@ namespace DSI.CapaVistas
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(21, 315);
+            this.label11.Location = new System.Drawing.Point(25, 371);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(89, 29);
             this.label11.TabIndex = 37;
@@ -264,20 +286,21 @@ namespace DSI.CapaVistas
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(274, 369);
+            this.label9.Location = new System.Drawing.Point(278, 423);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(90, 29);
+            this.label9.Size = new System.Drawing.Size(96, 29);
             this.label9.TabIndex = 34;
-            this.label9.Text = "Ciudad";
+            this.label9.Text = "Ciudad:";
             // 
             // cboxPaisRegistro
             // 
             this.cboxPaisRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxPaisRegistro.FormattingEnabled = true;
-            this.cboxPaisRegistro.Location = new System.Drawing.Point(26, 401);
+            this.cboxPaisRegistro.Location = new System.Drawing.Point(24, 455);
             this.cboxPaisRegistro.Name = "cboxPaisRegistro";
             this.cboxPaisRegistro.Size = new System.Drawing.Size(204, 37);
             this.cboxPaisRegistro.TabIndex = 35;
+            this.cboxPaisRegistro.SelectedValueChanged += new System.EventHandler(this.cboxPaisRegistro_SelectedValueChanged);
             // 
             // label3
             // 
@@ -293,7 +316,7 @@ namespace DSI.CapaVistas
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(21, 203);
+            this.label7.Location = new System.Drawing.Point(25, 259);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(94, 29);
             this.label7.TabIndex = 29;
@@ -303,16 +326,16 @@ namespace DSI.CapaVistas
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(26, 369);
+            this.label10.Location = new System.Drawing.Point(24, 423);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(60, 29);
+            this.label10.Size = new System.Drawing.Size(66, 29);
             this.label10.TabIndex = 33;
-            this.label10.Text = "País";
+            this.label10.Text = "País:";
             // 
             // txtTelefonoR
             // 
             this.txtTelefonoR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefonoR.Location = new System.Drawing.Point(141, 147);
+            this.txtTelefonoR.Location = new System.Drawing.Point(145, 203);
             this.txtTelefonoR.Name = "txtTelefonoR";
             this.txtTelefonoR.Size = new System.Drawing.Size(340, 35);
             this.txtTelefonoR.TabIndex = 28;
@@ -320,16 +343,15 @@ namespace DSI.CapaVistas
             // txtCorreoR
             // 
             this.txtCorreoR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreoR.Location = new System.Drawing.Point(121, 200);
+            this.txtCorreoR.Location = new System.Drawing.Point(125, 256);
             this.txtCorreoR.Name = "txtCorreoR";
             this.txtCorreoR.Size = new System.Drawing.Size(360, 35);
             this.txtCorreoR.TabIndex = 30;
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.Location = new System.Drawing.Point(913, 380);
+            this.btnActualizar.Location = new System.Drawing.Point(202, 662);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(178, 50);
             this.btnActualizar.TabIndex = 24;
@@ -338,40 +360,18 @@ namespace DSI.CapaVistas
             // 
             // btnGuardarR
             // 
-            this.btnGuardarR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGuardarR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarR.Location = new System.Drawing.Point(913, 309);
+            this.btnGuardarR.Location = new System.Drawing.Point(18, 662);
             this.btnGuardarR.Name = "btnGuardarR";
             this.btnGuardarR.Size = new System.Drawing.Size(178, 50);
             this.btnGuardarR.TabIndex = 23;
             this.btnGuardarR.Text = "Guardar";
             this.btnGuardarR.UseVisualStyleBackColor = true;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(872, 149);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 29);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "#0*";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(381, 38);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(159, 29);
-            this.label12.TabIndex = 25;
-            this.label12.Text = "faltan + cosas";
-            // 
             // btnDocR
             // 
-            this.btnDocR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDocR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDocR.Location = new System.Drawing.Point(913, 449);
+            this.btnDocR.Location = new System.Drawing.Point(511, 662);
             this.btnDocR.Name = "btnDocR";
             this.btnDocR.Size = new System.Drawing.Size(178, 50);
             this.btnDocR.TabIndex = 26;
@@ -379,53 +379,41 @@ namespace DSI.CapaVistas
             this.btnDocR.UseVisualStyleBackColor = true;
             this.btnDocR.Click += new System.EventHandler(this.btnDocR_Click);
             // 
-            // btnVolver
+            // panelRegistro
             // 
-            this.btnVolver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolver.Location = new System.Drawing.Point(913, 521);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(178, 50);
-            this.btnVolver.TabIndex = 27;
-            this.btnVolver.Text = "Volver";
-            this.btnVolver.UseVisualStyleBackColor = true;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            this.panelRegistro.Location = new System.Drawing.Point(713, 14);
+            this.panelRegistro.Name = "panelRegistro";
+            this.panelRegistro.Size = new System.Drawing.Size(889, 698);
+            this.panelRegistro.TabIndex = 27;
             // 
             // FrmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1128, 666);
-            this.Controls.Add(this.btnVolver);
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(1614, 724);
+            this.Controls.Add(this.panelRegistro);
             this.Controls.Add(this.btnDocR);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnGuardarR);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.lblregistro);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmRegistro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmRegistro";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmRegistro_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblregistro;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblKey;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNombreR;
         private System.Windows.Forms.TextBox txtRsocialR;
@@ -443,13 +431,16 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.Button btnGuardarR;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtDireccionR;
         private System.Windows.Forms.ComboBox cboxSectorR;
-        private System.Windows.Forms.CheckBox cbxDeshabilitado;
         private System.Windows.Forms.Button btnDocR;
         private System.Windows.Forms.Button btnPlusSector;
-        private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.Panel panelRegistro;
+        private System.Windows.Forms.TextBox txtNIT;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblCity;
+        private System.Windows.Forms.Label lblPais;
+        private System.Windows.Forms.Label lblSector;
     }
 }

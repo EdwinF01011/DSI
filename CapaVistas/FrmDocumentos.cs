@@ -27,8 +27,6 @@ namespace DSI.CapaVistas
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FrmRegistro frmRegi = new FrmRegistro();
-            frmRegi.Show();
         }
     }
 }

@@ -36,22 +36,22 @@ namespace DSI.CapaVistas
 
         private void btnClientesGo_Click(object sender, EventArgs e)
         {
+            ClsUsuario.number_categoria = false;
             this.Hide();
             FrmBusqueda fmB = new FrmBusqueda();
             fmB.Show();
             ClsUsuario.categoria_busqueda = "Clientes";
             fmB.Busqueda_tipo_label("Clientes");
-            ClsUsuario.number_categoria = false;
         }
 
         private void btnProveedorsGo_Click(object sender, EventArgs e)
         {
+            ClsUsuario.number_categoria = true;
             this.Hide();
             FrmBusqueda fmB = new FrmBusqueda();
             fmB.Show();
             ClsUsuario.categoria_busqueda = "Proveedores";
             fmB.Busqueda_tipo_label("Proveedores");
-            ClsUsuario.number_categoria = true;
         }
 
         private void btnUbicaciones_Click(object sender, EventArgs e)
@@ -64,6 +64,13 @@ namespace DSI.CapaVistas
         {
             FrmSector frmstr = new FrmSector();
             frmstr.Show();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.Show();
         }
     }
 }

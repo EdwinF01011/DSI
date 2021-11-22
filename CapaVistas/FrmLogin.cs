@@ -38,8 +38,8 @@ namespace DSI.CapaVistas
         private void CapturarDatos()
         {
             // Método para validar y dar acceso al usuario
-            string usuario = txtUsuario.Text;
-            string contraseña = txtContraseña.Text;
+            string usuario = txtUsuario.Text.Trim();
+            string contraseña = txtContraseña.Text.Trim();
             bool busqueda= ObjL.BuscarUsuario(usuario,contraseña);
             if (busqueda == true)
             {

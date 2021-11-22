@@ -15,10 +15,10 @@ namespace DSI.Datos
     {
         public string Nombre { get; set; }
         public string Razón_Social { get; set; }
-        public string nombre_sector { get; set; }
+        public string Sector { get; set; }
         public string Correo { get; set; }
-        public string NCiudad { get; set; }
-        public string Npais { get; set; }
-        public string Telefono { get; set; }
+        public string Teléfono { get; set; }
+        public string Ciudad { get; set; }
+        public string País { get; set; }
     }
 }
