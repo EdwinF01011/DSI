@@ -14,16 +14,7 @@ namespace DSI.Datos
     
     public partial class sector
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public sector()
-        {
-            this.contacto = new HashSet<contacto>();
-        }
-    
         public byte id { get; set; }
         public string nombre_sector { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<contacto> contacto { get; set; }
     }
 }

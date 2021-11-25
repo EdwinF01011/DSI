@@ -14,22 +14,9 @@ namespace DSI.Datos
     
     public partial class Documentos
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Documentos()
-        {
-            this.Etapas = new HashSet<Etapas>();
-            this.Progreso = new HashSet<Progreso>();
-        }
-    
         public short id_doc { get; set; }
         public string Nombre { get; set; }
         public string Ruta { get; set; }
         public Nullable<int> id_contacto { get; set; }
-    
-        public virtual contacto contacto { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Etapas> Etapas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Progreso> Progreso { get; set; }
     }
 }

@@ -23,6 +23,7 @@ namespace DSI.Datos
         public int id { get; set; }
         public string Nombre { get; set; }
         public string Razón_Social { get; set; }
+        public string NIT { get; set; }
         public string Telefono { get; set; }
         public string Direccion { get; set; }
         public string Correo { get; set; }
@@ -33,10 +34,6 @@ namespace DSI.Datos
         public Nullable<bool> id_estado { get; set; }
         public string ruta_carpeta { get; set; }
     
-        public virtual Categoria Categoria { get; set; }
-        public virtual Ciudad Ciudad { get; set; }
-        public virtual Tipo_Estado Tipo_Estado { get; set; }
-        public virtual sector sector { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Documentos> Documentos { get; set; }
     }
