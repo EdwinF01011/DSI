@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="83f2571a5f37476abb63119df0019112" Name="Diagram1" ZoomLevel="112">
+        <EntityTypeShape EntityType="DSIModel.Categoria" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSIModel.Ciudad" Width="1.5" PointX="0.5" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSIModel.Pais" Width="1.5" PointX="0.5" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSIModel.Roles" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSIModel.sector" Width="1.5" PointX="5.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSIModel.Tipo_Estado" Width="1.5" PointX="0.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSIModel.Usuarios" Width="1.5" PointX="6.125" PointY="3.25" IsExpanded="true" />
+        <AssociationConnector Association="DSIModel.FK__Ciudad__id_pais__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="DSIModel.FK__Usuarios__id_Rol__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="DSIModel.FK__Usuarios__id_Est__3C69FB99" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DSIModel.contacto" Width="1.5" PointX="3" PointY="6.625" />
+        <AssociationConnector Association="DSIModel.FK__contacto__id_cat__57A801BA" />
+        <AssociationConnector Association="DSIModel.FK__contacto__id_ubi__56B3DD81" />
+        <AssociationConnector Association="DSIModel.FK__contacto__id_est__589C25F3" />
+        <AssociationConnector Association="DSIModel.FK__contacto__id_sec__55BFB948" />
+        <EntityTypeShape EntityType="DSIModel.Documentos" Width="1.5" PointX="5.25" PointY="8.5" />
+        <AssociationConnector Association="DSIModel.FK__Documento__id_co__67DE6983" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
