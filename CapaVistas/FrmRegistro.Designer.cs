@@ -161,7 +161,7 @@ namespace DSI.CapaVistas
             // 
             this.btnPlusSector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPlusSector.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlusSector.Location = new System.Drawing.Point(492, 311);
+            this.btnPlusSector.Location = new System.Drawing.Point(499, 368);
             this.btnPlusSector.Name = "btnPlusSector";
             this.btnPlusSector.Size = new System.Drawing.Size(53, 37);
             this.btnPlusSector.TabIndex = 27;
@@ -357,6 +357,7 @@ namespace DSI.CapaVistas
             this.btnActualizar.TabIndex = 24;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnGuardarR
             // 
@@ -367,6 +368,7 @@ namespace DSI.CapaVistas
             this.btnGuardarR.TabIndex = 23;
             this.btnGuardarR.Text = "Guardar";
             this.btnGuardarR.UseVisualStyleBackColor = true;
+            this.btnGuardarR.Click += new System.EventHandler(this.btnGuardarR_Click);
             // 
             // btnDocR
             // 

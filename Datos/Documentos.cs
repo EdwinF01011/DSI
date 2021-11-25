@@ -12,9 +12,11 @@ namespace DSI.Datos
     using System;
     using System.Collections.Generic;
     
-    public partial class sector
+    public partial class Documentos
     {
-        public byte id { get; set; }
-        public string nombre_sector { get; set; }
+        public short id_doc { get; set; }
+        public string Nombre { get; set; }
+        public string Ruta { get; set; }
+        public Nullable<int> id_contacto { get; set; }
     }
 }

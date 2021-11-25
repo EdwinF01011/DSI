@@ -38,6 +38,15 @@
           <Property Name="id_estado" Type="bit" />
           <Property Name="ruta_carpeta" Type="varchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="Documentos">
+          <Key>
+            <PropertyRef Name="id_doc" />
+          </Key>
+          <Property Name="id_doc" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Ruta" Type="varchar" MaxLength="200" />
+          <Property Name="id_contacto" Type="int" />
+        </EntityType>
         <EntityType Name="Pais">
           <Key>
             <PropertyRef Name="id" />
@@ -134,6 +143,18 @@
             </Principal>
             <Dependent Role="contacto">
               <PropertyRef Name="id_ubicacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Documento__id_co__67DE6983">
+          <End Role="contacto" Type="Self.contacto" Multiplicity="0..1" />
+          <End Role="Documentos" Type="Self.Documentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contacto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Documentos">
+              <PropertyRef Name="id_contacto" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -326,6 +347,19 @@
           <Parameter Name="id" Type="tinyint" Mode="In" />
           <Parameter Name="NCiudad" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="sp_insertContacto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Razón_Social" Type="varchar" Mode="In" />
+          <Parameter Name="NIT" Type="varchar" Mode="In" />
+          <Parameter Name="Telefono" Type="varchar" Mode="In" />
+          <Parameter Name="Direccion" Type="varchar" Mode="In" />
+          <Parameter Name="Correo" Type="varchar" Mode="In" />
+          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="id_sector" Type="tinyint" Mode="In" />
+          <Parameter Name="id_ubicacion" Type="tinyint" Mode="In" />
+          <Parameter Name="id_categoria" Type="bit" Mode="In" />
+          <Parameter Name="id_estado" Type="bit" Mode="In" />
+        </Function>
         <Function Name="sp_insertPais" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Npais" Type="varchar" Mode="In" />
         </Function>
@@ -341,6 +375,20 @@
           <Parameter Name="id" Type="tinyint" Mode="In" />
           <Parameter Name="NCiudad" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="sp_updateContacto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Razón_Social" Type="varchar" Mode="In" />
+          <Parameter Name="NIT" Type="varchar" Mode="In" />
+          <Parameter Name="Telefono" Type="varchar" Mode="In" />
+          <Parameter Name="Direccion" Type="varchar" Mode="In" />
+          <Parameter Name="Correo" Type="varchar" Mode="In" />
+          <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="id_sector" Type="tinyint" Mode="In" />
+          <Parameter Name="id_ubicacion" Type="tinyint" Mode="In" />
+          <Parameter Name="id_categoria" Type="bit" Mode="In" />
+          <Parameter Name="id_estado" Type="bit" Mode="In" />
+        </Function>
         <Function Name="sp_updatePais" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="tinyint" Mode="In" />
           <Parameter Name="Npais" Type="varchar" Mode="In" />
@@ -354,6 +402,7 @@
           <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ciudad" EntityType="Self.Ciudad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="contacto" EntityType="Self.contacto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Documentos" EntityType="Self.Documentos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pais" EntityType="Self.Pais" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sector" EntityType="Self.sector" Schema="dbo" store:Type="Tables" />
@@ -378,6 +427,10 @@
           <AssociationSet Name="FK__contacto__id_ubi__56B3DD81" Association="Self.FK__contacto__id_ubi__56B3DD81">
             <End Role="Ciudad" EntitySet="Ciudad" />
             <End Role="contacto" EntitySet="contacto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Documento__id_co__67DE6983" Association="Self.FK__Documento__id_co__67DE6983">
+            <End Role="contacto" EntitySet="contacto" />
+            <End Role="Documentos" EntitySet="Documentos" />
           </AssociationSet>
           <AssociationSet Name="FK__Usuarios__id_Est__3C69FB99" Association="Self.FK__Usuarios__id_Est__3C69FB99">
             <End Role="Tipo_Estado" EntitySet="Tipo_Estado" />
@@ -428,7 +481,6 @@
           </Key>
           <Property Name="id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre_sector" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="contacto" Relationship="DSIModel.FK__contacto__id_sec__55BFB948" FromRole="sector" ToRole="contacto" />
         </EntityType>
         <EntityType Name="Tipo_Estado">
           <Key>
@@ -706,7 +758,39 @@
             <End Role="sector" EntitySet="sector" />
             <End Role="contacto" EntitySet="contacto" />
           </AssociationSet>
-          <FunctionImport Name="sp_consultaTodo" ReturnType="Collection(DSIModel.sp_consultaTodo_Result3)">
+          <FunctionImport Name="sp_insertContacto">
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Razón_Social" Mode="In" Type="String" />
+            <Parameter Name="NIT" Mode="In" Type="String" />
+            <Parameter Name="Telefono" Mode="In" Type="String" />
+            <Parameter Name="Direccion" Mode="In" Type="String" />
+            <Parameter Name="Correo" Mode="In" Type="String" />
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="id_sector" Mode="In" Type="Byte" />
+            <Parameter Name="id_ubicacion" Mode="In" Type="Byte" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+            <Parameter Name="id_estado" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_updateContacto">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Razón_Social" Mode="In" Type="String" />
+            <Parameter Name="NIT" Mode="In" Type="String" />
+            <Parameter Name="Telefono" Mode="In" Type="String" />
+            <Parameter Name="Direccion" Mode="In" Type="String" />
+            <Parameter Name="Correo" Mode="In" Type="String" />
+            <Parameter Name="Descripcion" Mode="In" Type="String" />
+            <Parameter Name="id_sector" Mode="In" Type="Byte" />
+            <Parameter Name="id_ubicacion" Mode="In" Type="Byte" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+            <Parameter Name="id_estado" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <EntitySet Name="Documentos" EntityType="DSIModel.Documentos" />
+          <AssociationSet Name="FK__Documento__id_co__67DE6983" Association="DSIModel.FK__Documento__id_co__67DE6983">
+            <End Role="contacto" EntitySet="contacto" />
+            <End Role="Documentos" EntitySet="Documentos" />
+          </AssociationSet>
+          <FunctionImport Name="sp_consultaTodo" ReturnType="Collection(DSIModel.sp_consultaTodo_Result5)">
             <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
           </FunctionImport>
           </EntityContainer>
@@ -985,6 +1069,7 @@
           <Property Name="id_categoria" Type="Boolean" />
           <Property Name="id_estado" Type="Boolean" />
           <Property Name="ruta_carpeta" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Documentos" Relationship="DSIModel.FK__Documento__id_co__67DE6983" FromRole="contacto" ToRole="Documentos" />
           </EntityType>
         <Association Name="FK__contacto__id_cat__57A801BA">
           <End Type="DSIModel.Categoria" Role="Categoria" Multiplicity="0..1" />
@@ -1071,6 +1156,58 @@
           <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="Direccion" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <EntityType Name="Documentos">
+          <Key>
+            <PropertyRef Name="id_doc" />
+          </Key>
+          <Property Name="id_doc" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ruta" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="id_contacto" Type="Int32" />
+        </EntityType>
+        <Association Name="FK__Documento__id_co__67DE6983">
+          <End Type="DSIModel.contacto" Role="contacto" Multiplicity="0..1" />
+          <End Type="DSIModel.Documentos" Role="Documentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contacto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Documentos">
+              <PropertyRef Name="id_contacto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="sp_consultaTodo_Result4">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="NIT" Nullable="false" MaxLength="11" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Direccion" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
+          <Property Type="Byte" Name="id_city" Nullable="false" />
+          <Property Type="Byte" Name="id_pais" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_consultaTodo_Result5">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="NIT" Nullable="false" MaxLength="11" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Direccion" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
+          <Property Type="Byte" Name="id_city" Nullable="false" />
+          <Property Type="Byte" Name="id_pais" Nullable="true" />
+          <Property Type="Byte" Name="id_sector" Nullable="true" />
         </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
@@ -1510,9 +1647,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_insertContacto" FunctionName="DSIModel.Store.sp_insertContacto" />
+          <FunctionImportMapping FunctionImportName="sp_updateContacto" FunctionName="DSIModel.Store.sp_updateContacto" />
+          <EntitySetMapping Name="Documentos">
+            <EntityTypeMapping TypeName="DSIModel.Documentos">
+              <MappingFragment StoreEntitySet="Documentos">
+                <ScalarProperty Name="id_contacto" ColumnName="id_contacto" />
+                <ScalarProperty Name="Ruta" ColumnName="Ruta" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="id_doc" ColumnName="id_doc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_consultaTodo" FunctionName="DSIModel.Store.sp_consultaTodo">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="DSIModel.sp_consultaTodo_Result3">
+              <ComplexTypeMapping TypeName="DSIModel.sp_consultaTodo_Result5">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
@@ -1524,6 +1673,9 @@
                 <ScalarProperty Name="País" ColumnName="País" />
                 <ScalarProperty Name="Direccion" ColumnName="Direccion" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="id_city" ColumnName="id_city" />
+                <ScalarProperty Name="id_pais" ColumnName="id_pais" />
+                <ScalarProperty Name="id_sector" ColumnName="id_sector" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

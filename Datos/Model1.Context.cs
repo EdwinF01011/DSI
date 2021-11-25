@@ -35,6 +35,7 @@ namespace DSI.Datos
         public virtual DbSet<Tipo_Estado> Tipo_Estado { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
         public virtual DbSet<contacto> contacto { get; set; }
+        public virtual DbSet<Documentos> Documentos { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -670,13 +671,115 @@ namespace DSI.Datos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updatePais", idParameter, npaisParameter);
         }
     
-        public virtual ObjectResult<sp_consultaTodo_Result3> sp_consultaTodo(Nullable<bool> id_categoria)
+        public virtual int sp_insertContacto(string nombre, string razón_Social, string nIT, string telefono, string direccion, string correo, string descripcion, Nullable<byte> id_sector, Nullable<byte> id_ubicacion, Nullable<bool> id_categoria, Nullable<bool> id_estado)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var razón_SocialParameter = razón_Social != null ?
+                new ObjectParameter("Razón_Social", razón_Social) :
+                new ObjectParameter("Razón_Social", typeof(string));
+    
+            var nITParameter = nIT != null ?
+                new ObjectParameter("NIT", nIT) :
+                new ObjectParameter("NIT", typeof(string));
+    
+            var telefonoParameter = telefono != null ?
+                new ObjectParameter("Telefono", telefono) :
+                new ObjectParameter("Telefono", typeof(string));
+    
+            var direccionParameter = direccion != null ?
+                new ObjectParameter("Direccion", direccion) :
+                new ObjectParameter("Direccion", typeof(string));
+    
+            var correoParameter = correo != null ?
+                new ObjectParameter("Correo", correo) :
+                new ObjectParameter("Correo", typeof(string));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
+    
+            var id_sectorParameter = id_sector.HasValue ?
+                new ObjectParameter("id_sector", id_sector) :
+                new ObjectParameter("id_sector", typeof(byte));
+    
+            var id_ubicacionParameter = id_ubicacion.HasValue ?
+                new ObjectParameter("id_ubicacion", id_ubicacion) :
+                new ObjectParameter("id_ubicacion", typeof(byte));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            var id_estadoParameter = id_estado.HasValue ?
+                new ObjectParameter("id_estado", id_estado) :
+                new ObjectParameter("id_estado", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_insertContacto", nombreParameter, razón_SocialParameter, nITParameter, telefonoParameter, direccionParameter, correoParameter, descripcionParameter, id_sectorParameter, id_ubicacionParameter, id_categoriaParameter, id_estadoParameter);
+        }
+    
+        public virtual int sp_updateContacto(Nullable<int> id, string nombre, string razón_Social, string nIT, string telefono, string direccion, string correo, string descripcion, Nullable<byte> id_sector, Nullable<byte> id_ubicacion, Nullable<bool> id_categoria, Nullable<bool> id_estado)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var razón_SocialParameter = razón_Social != null ?
+                new ObjectParameter("Razón_Social", razón_Social) :
+                new ObjectParameter("Razón_Social", typeof(string));
+    
+            var nITParameter = nIT != null ?
+                new ObjectParameter("NIT", nIT) :
+                new ObjectParameter("NIT", typeof(string));
+    
+            var telefonoParameter = telefono != null ?
+                new ObjectParameter("Telefono", telefono) :
+                new ObjectParameter("Telefono", typeof(string));
+    
+            var direccionParameter = direccion != null ?
+                new ObjectParameter("Direccion", direccion) :
+                new ObjectParameter("Direccion", typeof(string));
+    
+            var correoParameter = correo != null ?
+                new ObjectParameter("Correo", correo) :
+                new ObjectParameter("Correo", typeof(string));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
+    
+            var id_sectorParameter = id_sector.HasValue ?
+                new ObjectParameter("id_sector", id_sector) :
+                new ObjectParameter("id_sector", typeof(byte));
+    
+            var id_ubicacionParameter = id_ubicacion.HasValue ?
+                new ObjectParameter("id_ubicacion", id_ubicacion) :
+                new ObjectParameter("id_ubicacion", typeof(byte));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            var id_estadoParameter = id_estado.HasValue ?
+                new ObjectParameter("id_estado", id_estado) :
+                new ObjectParameter("id_estado", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updateContacto", idParameter, nombreParameter, razón_SocialParameter, nITParameter, telefonoParameter, direccionParameter, correoParameter, descripcionParameter, id_sectorParameter, id_ubicacionParameter, id_categoriaParameter, id_estadoParameter);
+        }
+    
+        public virtual ObjectResult<sp_consultaTodo_Result5> sp_consultaTodo(Nullable<bool> id_categoria)
         {
             var id_categoriaParameter = id_categoria.HasValue ?
                 new ObjectParameter("id_categoria", id_categoria) :
                 new ObjectParameter("id_categoria", typeof(bool));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_consultaTodo_Result3>("sp_consultaTodo", id_categoriaParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_consultaTodo_Result5>("sp_consultaTodo", id_categoriaParameter);
         }
     }
 }

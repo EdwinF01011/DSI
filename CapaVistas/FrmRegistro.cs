@@ -14,15 +14,13 @@ namespace DSI.CapaVistas
 {
     public partial class FrmRegistro : Form
     {
+        Clscontacto ObjCont = new Clscontacto();
         ClsBusqueda ObjBu = new ClsBusqueda();
         bool bandera = false;
         bool bandera2 = false;
-
-
-
-        Byte itemPais;
-        Byte itemSector;
-        Byte itemCity;
+        Byte itemPaisR;
+        Byte itemSectorR;
+        Byte itemCityR;
 
         public FrmRegistro()
         {
@@ -66,16 +64,9 @@ namespace DSI.CapaVistas
         {
             LlenarCboxs();// 
 
-            //AsignarValues();
-
             /// pruebas 
             /// 
-            if (bandera == true)
-            {
-               // LlenarCboxCity(3);
-
-
-            }
+            
 
             cboxCiudadRegistro.Enabled = false;
 
@@ -88,8 +79,6 @@ namespace DSI.CapaVistas
             cboxSectorR.DisplayMember = "nombre_sector";
             cboxSectorR.ValueMember = "id";
             //cboxSectorR.SelectedIndex = idSector;//  ubica el índice de la lista del cbox
-
-            //cboxSectorR.SelectedValue = "Comercio";
             
             //  PAÍS
             cboxPaisRegistro.DataSource = ObjBu.BuscarPais();
@@ -97,27 +86,20 @@ namespace DSI.CapaVistas
             cboxPaisRegistro.ValueMember = "id";
             //cboxPaisRegistro.SelectedIndex = idPais;//  ubica el índice de la lista del cbox
 
-
-            //  # pendiente esto 
             bandera = true;
-            
-            LlenarCboxCity(itemPais);// idCity
+            LlenarCboxCity(itemPaisR);// idCity
 
         }
 
         private void cboxPaisRegistro_SelectedValueChanged(object sender, EventArgs e)
         {
-
             if (bandera == true)
             {
-                itemPais = Byte.Parse(cboxPaisRegistro.SelectedValue.ToString());
-                LlenarCboxCity(itemPais);
+                itemPaisR = Byte.Parse(cboxPaisRegistro.SelectedValue.ToString());
+                LlenarCboxCity(itemPaisR);
                 lblPais.Text = cboxPaisRegistro.Text;
                 cboxCiudadRegistro.Enabled = true;
             }
-
-            
-
         }
 
         private void LlenarCboxCity(Byte x)
@@ -129,7 +111,6 @@ namespace DSI.CapaVistas
                 cboxCiudadRegistro.ValueMember = "id";
                 //cboxCiudadRegistro.SelectedIndex = x;
                 bandera2 = true;
-
             }
 
         }
@@ -145,8 +126,11 @@ namespace DSI.CapaVistas
             string Sector,
             string Pais,
             string City,
-            string descripcion
-            //Byte idPais
+            string descripcion,
+            Byte itemCity,
+            //Byte itemPais, en duda
+            Byte itemSector
+
             )
         {
             lblKey.Text = id.ToString();
@@ -160,18 +144,15 @@ namespace DSI.CapaVistas
             lblSector.Text = Sector;
             lblPais.Text = Pais;
             lblCity.Text = City;
-            //itemPais = idPais;
-
-
-            //LlenarCboxs(idSector, idPais ,idCity);
-
+            itemSectorR = itemSector;
+            itemCityR = itemCity;
         }
 
         private void cboxSectorR_SelectedValueChanged(object sender, EventArgs e)
         {
             if (bandera == true)
             {
-                itemSector = Byte.Parse(cboxSectorR.SelectedValue.ToString());
+                itemSectorR = Byte.Parse(cboxSectorR.SelectedValue.ToString());
                 lblSector.Text= cboxSectorR.Text;
             }
         }
@@ -180,9 +161,68 @@ namespace DSI.CapaVistas
         {
             if (bandera2 == true)
             {
-                itemCity = Byte.Parse(cboxCiudadRegistro.SelectedValue.ToString());
+                itemCityR = Byte.Parse(cboxCiudadRegistro.SelectedValue.ToString());
                 lblCity.Text = cboxCiudadRegistro.Text;
             }
+        }
+
+        private void InsertContacto()
+        {
+            ObjCont.InsertContacto(
+                txtNombreR.Text,
+                txtNIT.Text,
+                txtRsocialR.Text,
+                txtTelefonoR.Text,
+                txtCorreoR.Text,
+                txtDireccionR.Text,
+                txtDescripcionR.Text,
+                itemSectorR,
+                itemCityR,
+                true
+                );
+            MessageBox.Show("Contacto Creado");
+        }
+
+        private void UpdateContacto()
+        {
+            // necesito obtener el id del sector y la ciudad
+
+
+            ObjCont.UpdateContacto(
+                Byte.Parse(lblKey.Text),
+                txtNombreR.Text,
+                txtNIT.Text,
+                txtRsocialR.Text,
+                txtTelefonoR.Text,
+                txtCorreoR.Text,
+                txtDireccionR.Text,
+                txtDescripcionR.Text,
+                itemSectorR,
+                itemCityR,
+                true
+                );
+            MessageBox.Show("Contacto Actualizado");
+
+        }
+
+        public void Proces(Byte x)
+        {
+            if (x == 1)
+            {
+                btnGuardarR.Enabled = false;
+            }
+            else
+                btnActualizar.Enabled = false;
+        }
+
+        private void btnGuardarR_Click(object sender, EventArgs e)
+        {
+            InsertContacto();
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            UpdateContacto();
         }
     }
 }

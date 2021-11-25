@@ -42,7 +42,6 @@ namespace DSI.CapaVistas
             this.txtRsocialMenu = new System.Windows.Forms.TextBox();
             this.cboxPaisMenu = new System.Windows.Forms.ComboBox();
             this.cboxCiudadMenu = new System.Windows.Forms.ComboBox();
-            this.btnActualizar = new System.Windows.Forms.Button();
             this.btnCrearProveedor = new System.Windows.Forms.Button();
             this.btnConfigurar = new System.Windows.Forms.Button();
             this.btnSalirBusq = new System.Windows.Forms.Button();
@@ -54,7 +53,6 @@ namespace DSI.CapaVistas
             this.label11 = new System.Windows.Forms.Label();
             this.btnbuscar = new System.Windows.Forms.Button();
             this.cboxSectorMenu = new System.Windows.Forms.ComboBox();
-            this.chkDeshabilitados = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
             this.lblSocial = new System.Windows.Forms.Label();
@@ -62,6 +60,7 @@ namespace DSI.CapaVistas
             this.lblpais = new System.Windows.Forms.Label();
             this.lblciudad = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.chkDeshabilitados = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlMenu.SuspendLayout();
             this.SuspendLayout();
@@ -194,20 +193,6 @@ namespace DSI.CapaVistas
             this.cboxCiudadMenu.TabIndex = 29;
             this.cboxCiudadMenu.SelectedIndexChanged += new System.EventHandler(this.cboxCiudadMenu_SelectedIndexChanged);
             // 
-            // btnActualizar
-            // 
-            this.btnActualizar.FlatAppearance.BorderSize = 0;
-            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.ForeColor = System.Drawing.Color.White;
-            this.btnActualizar.Location = new System.Drawing.Point(74, 177);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(147, 71);
-            this.btnActualizar.TabIndex = 3;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            // 
             // btnCrearProveedor
             // 
             this.btnCrearProveedor.FlatAppearance.BorderSize = 0;
@@ -263,7 +248,6 @@ namespace DSI.CapaVistas
             this.pnlMenu.Controls.Add(this.btnSalirBusq);
             this.pnlMenu.Controls.Add(this.label4);
             this.pnlMenu.Controls.Add(this.label3);
-            this.pnlMenu.Controls.Add(this.btnActualizar);
             this.pnlMenu.Controls.Add(this.label11);
             this.pnlMenu.Controls.Add(this.btnCrearProveedor);
             this.pnlMenu.Location = new System.Drawing.Point(-10, -14);
@@ -354,22 +338,12 @@ namespace DSI.CapaVistas
             this.cboxSectorMenu.TabIndex = 35;
             this.cboxSectorMenu.SelectedValueChanged += new System.EventHandler(this.cboxSectorMenu_SelectedValueChanged);
             // 
-            // chkDeshabilitados
-            // 
-            this.chkDeshabilitados.AutoSize = true;
-            this.chkDeshabilitados.Location = new System.Drawing.Point(1746, 202);
-            this.chkDeshabilitados.Name = "chkDeshabilitados";
-            this.chkDeshabilitados.Size = new System.Drawing.Size(140, 24);
-            this.chkDeshabilitados.TabIndex = 36;
-            this.chkDeshabilitados.Text = "Deshabilitados";
-            this.chkDeshabilitados.UseVisualStyleBackColor = true;
-            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1430, 25);
+            this.label2.Location = new System.Drawing.Point(424, 35);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(32, 33);
@@ -394,7 +368,7 @@ namespace DSI.CapaVistas
             this.lblSocial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSocial.AutoSize = true;
             this.lblSocial.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSocial.Location = new System.Drawing.Point(1430, 70);
+            this.lblSocial.Location = new System.Drawing.Point(424, 35);
             this.lblSocial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSocial.Name = "lblSocial";
             this.lblSocial.Size = new System.Drawing.Size(32, 33);
@@ -407,7 +381,7 @@ namespace DSI.CapaVistas
             this.lblsector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblsector.AutoSize = true;
             this.lblsector.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblsector.Location = new System.Drawing.Point(1481, 102);
+            this.lblsector.Location = new System.Drawing.Point(424, 35);
             this.lblsector.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblsector.Name = "lblsector";
             this.lblsector.Size = new System.Drawing.Size(32, 33);
@@ -420,7 +394,7 @@ namespace DSI.CapaVistas
             this.lblpais.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblpais.AutoSize = true;
             this.lblpais.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpais.Location = new System.Drawing.Point(1481, 160);
+            this.lblpais.Location = new System.Drawing.Point(424, 35);
             this.lblpais.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblpais.Name = "lblpais";
             this.lblpais.Size = new System.Drawing.Size(32, 33);
@@ -433,7 +407,7 @@ namespace DSI.CapaVistas
             this.lblciudad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblciudad.AutoSize = true;
             this.lblciudad.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblciudad.Location = new System.Drawing.Point(1481, 248);
+            this.lblciudad.Location = new System.Drawing.Point(424, 35);
             this.lblciudad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblciudad.Name = "lblciudad";
             this.lblciudad.Size = new System.Drawing.Size(32, 33);
@@ -451,6 +425,16 @@ namespace DSI.CapaVistas
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(1615, 729);
             this.panelMenu.TabIndex = 43;
+            // 
+            // chkDeshabilitados
+            // 
+            this.chkDeshabilitados.AutoSize = true;
+            this.chkDeshabilitados.Location = new System.Drawing.Point(1746, 202);
+            this.chkDeshabilitados.Name = "chkDeshabilitados";
+            this.chkDeshabilitados.Size = new System.Drawing.Size(140, 24);
+            this.chkDeshabilitados.TabIndex = 36;
+            this.chkDeshabilitados.Text = "Deshabilitados";
+            this.chkDeshabilitados.UseVisualStyleBackColor = true;
             // 
             // FrmBusqueda
             // 
@@ -509,7 +493,6 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.TextBox txtRsocialMenu;
         private System.Windows.Forms.ComboBox cboxPaisMenu;
         private System.Windows.Forms.ComboBox cboxCiudadMenu;
-        private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnCrearProveedor;
         private System.Windows.Forms.Button btnConfigurar;
         private System.Windows.Forms.Button btnSalirBusq;
@@ -521,7 +504,6 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnbuscar;
         private System.Windows.Forms.ComboBox cboxSectorMenu;
-        private System.Windows.Forms.CheckBox chkDeshabilitados;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Label lblSocial;
@@ -529,5 +511,6 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.Label lblpais;
         private System.Windows.Forms.Label lblciudad;
         private System.Windows.Forms.Panel panelMenu;
+        private System.Windows.Forms.CheckBox chkDeshabilitados;
     }
 }

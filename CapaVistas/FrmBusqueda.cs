@@ -38,7 +38,7 @@ namespace DSI.CapaVistas
         string Pais;
         string City;
         string descripcion;
-        Byte idPais;
+        //Byte idPais; no se usa
 
 
         public FrmBusqueda()
@@ -191,7 +191,7 @@ namespace DSI.CapaVistas
             //frmR.Show();
 
             panelMenu.Visible = true;
-            traerFormRegistro();
+            traerFormRegistro1();
         }
 
         private void btnSalirBusq_Click(object sender, EventArgs e)
@@ -208,8 +208,9 @@ namespace DSI.CapaVistas
             dataGridView1.Columns[3].Visible = false;
             dataGridView1.Columns[9].Visible = false;
             dataGridView1.Columns[10].Visible = false;
-
-
+            dataGridView1.Columns[11].Visible = false;
+            dataGridView1.Columns[12].Visible = false;
+            dataGridView1.Columns[13].Visible = false;
 
 
 
@@ -301,6 +302,13 @@ namespace DSI.CapaVistas
             Pais= dataGridView1.CurrentRow.Cells[8].Value.ToString();
             City= dataGridView1.CurrentRow.Cells[7].Value.ToString();
             descripcion= dataGridView1.CurrentRow.Cells[10].Value.ToString();
+            itemCity = Byte.Parse(dataGridView1.CurrentRow.Cells[11].Value.ToString());
+            itemPais = Byte.Parse(dataGridView1.CurrentRow.Cells[12].Value.ToString());
+            itemSector = Byte.Parse(dataGridView1.CurrentRow.Cells[13].Value.ToString());
+
+
+            
+
             //idPais =Byte.Parse( dataGridView1.CurrentRow.Cells[13].Value.ToString());
 
 
@@ -318,6 +326,7 @@ namespace DSI.CapaVistas
             panelMenu.Controls.Add(frmRe);
             //
             frmRe.Show();
+            frmRe.Proces(1);
             frmRe.AsignarValues(
                 id,
                 name,
@@ -329,9 +338,22 @@ namespace DSI.CapaVistas
                  Sector,
                  Pais,
                  City,
-                descripcion
+                descripcion,
+                itemCity,
+                itemSector
+
                 //idPais
                 );
+
+        }
+
+        private void traerFormRegistro1()
+        {
+            frmRe = new FrmRegistro();
+            frmRe.TopLevel = false;
+            panelMenu.Controls.Add(frmRe);
+            frmRe.Show();
+            frmRe.Proces(0);
 
         }
 
@@ -342,13 +364,12 @@ namespace DSI.CapaVistas
 
         }
 
-        private void GetValuesDgv()
-        {
-
-
+        private void Proces()
+        {// esto no
+            
 
         }
-        
+
         private void txtNombreMenu_KeyPress(object sender, KeyPressEventArgs e)
         {
             //label2.Text =txtNombreMenu.Text ;
