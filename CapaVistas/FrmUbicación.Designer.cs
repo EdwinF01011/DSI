@@ -40,11 +40,12 @@ namespace DSI.CapaVistas
             this.btnAñadirPais = new System.Windows.Forms.Button();
             this.txtPais = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblAlert = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUbication)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -159,18 +160,19 @@ namespace DSI.CapaVistas
             this.label3.TabIndex = 8;
             this.label3.Text = "País";
             // 
-            // label4
+            // lblAlert
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(599, 278);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 20);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "label4";
+            this.lblAlert.AutoSize = true;
+            this.lblAlert.Location = new System.Drawing.Point(300, 260);
+            this.lblAlert.Name = "lblAlert";
+            this.lblAlert.Size = new System.Drawing.Size(14, 20);
+            this.lblAlert.TabIndex = 8;
+            this.lblAlert.Text = "-";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.lblAlert);
             this.panel1.Location = new System.Drawing.Point(5, 4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(979, 300);
@@ -183,7 +185,6 @@ namespace DSI.CapaVistas
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ClientSize = new System.Drawing.Size(989, 307);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvUbication);
@@ -199,8 +200,9 @@ namespace DSI.CapaVistas
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -217,7 +219,7 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.Button btnAñadirPais;
         private System.Windows.Forms.TextBox txtPais;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblAlert;
         private System.Windows.Forms.Panel panel1;
     }
 }

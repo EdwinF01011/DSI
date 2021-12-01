@@ -36,7 +36,6 @@ namespace DSI.CapaVistas
             this.lblPais = new System.Windows.Forms.Label();
             this.txtNIT = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnPlusSector = new System.Windows.Forms.Button();
             this.lblKey = new System.Windows.Forms.Label();
             this.cboxSectorR = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -81,7 +80,6 @@ namespace DSI.CapaVistas
             this.groupBox1.Controls.Add(this.lblPais);
             this.groupBox1.Controls.Add(this.txtNIT);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.btnPlusSector);
             this.groupBox1.Controls.Add(this.lblKey);
             this.groupBox1.Controls.Add(this.cboxSectorR);
             this.groupBox1.Controls.Add(this.label13);
@@ -105,7 +103,7 @@ namespace DSI.CapaVistas
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(677, 635);
-            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registro";
             // 
@@ -145,7 +143,7 @@ namespace DSI.CapaVistas
             this.txtNIT.Location = new System.Drawing.Point(90, 95);
             this.txtNIT.Name = "txtNIT";
             this.txtNIT.Size = new System.Drawing.Size(395, 35);
-            this.txtNIT.TabIndex = 41;
+            this.txtNIT.TabIndex = 1;
             // 
             // label1
             // 
@@ -156,18 +154,6 @@ namespace DSI.CapaVistas
             this.label1.Size = new System.Drawing.Size(160, 29);
             this.label1.TabIndex = 40;
             this.label1.Text = "Razón Social:";
-            // 
-            // btnPlusSector
-            // 
-            this.btnPlusSector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPlusSector.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlusSector.Location = new System.Drawing.Point(499, 368);
-            this.btnPlusSector.Name = "btnPlusSector";
-            this.btnPlusSector.Size = new System.Drawing.Size(53, 37);
-            this.btnPlusSector.TabIndex = 27;
-            this.btnPlusSector.Text = "+";
-            this.btnPlusSector.UseVisualStyleBackColor = true;
-            this.btnPlusSector.Click += new System.EventHandler(this.btnPlusSector_Click);
             // 
             // lblKey
             // 
@@ -186,7 +172,7 @@ namespace DSI.CapaVistas
             this.cboxSectorR.Location = new System.Drawing.Point(271, 368);
             this.cboxSectorR.Name = "cboxSectorR";
             this.cboxSectorR.Size = new System.Drawing.Size(214, 37);
-            this.cboxSectorR.TabIndex = 39;
+            this.cboxSectorR.TabIndex = 6;
             this.cboxSectorR.SelectedValueChanged += new System.EventHandler(this.cboxSectorR_SelectedValueChanged);
             // 
             // label13
@@ -205,7 +191,7 @@ namespace DSI.CapaVistas
             this.txtDireccionR.Location = new System.Drawing.Point(152, 314);
             this.txtDireccionR.Name = "txtDireccionR";
             this.txtDireccionR.Size = new System.Drawing.Size(333, 35);
-            this.txtDireccionR.TabIndex = 30;
+            this.txtDireccionR.TabIndex = 5;
             // 
             // cboxCiudadRegistro
             // 
@@ -214,7 +200,7 @@ namespace DSI.CapaVistas
             this.cboxCiudadRegistro.Location = new System.Drawing.Point(278, 455);
             this.cboxCiudadRegistro.Name = "cboxCiudadRegistro";
             this.cboxCiudadRegistro.Size = new System.Drawing.Size(207, 37);
-            this.cboxCiudadRegistro.TabIndex = 36;
+            this.cboxCiudadRegistro.TabIndex = 8;
             this.cboxCiudadRegistro.SelectedValueChanged += new System.EventHandler(this.cboxCiudadRegistro_SelectedValueChanged);
             // 
             // txtRsocialR
@@ -223,7 +209,7 @@ namespace DSI.CapaVistas
             this.txtRsocialR.Location = new System.Drawing.Point(191, 146);
             this.txtRsocialR.Name = "txtRsocialR";
             this.txtRsocialR.Size = new System.Drawing.Size(294, 35);
-            this.txtRsocialR.TabIndex = 26;
+            this.txtRsocialR.TabIndex = 2;
             // 
             // txtDescripcionR
             // 
@@ -232,7 +218,7 @@ namespace DSI.CapaVistas
             this.txtDescripcionR.Multiline = true;
             this.txtDescripcionR.Name = "txtDescripcionR";
             this.txtDescripcionR.Size = new System.Drawing.Size(616, 91);
-            this.txtDescripcionR.TabIndex = 32;
+            this.txtDescripcionR.TabIndex = 15;
             // 
             // label8
             // 
@@ -250,7 +236,7 @@ namespace DSI.CapaVistas
             this.txtNombreR.Location = new System.Drawing.Point(134, 44);
             this.txtNombreR.Name = "txtNombreR";
             this.txtNombreR.Size = new System.Drawing.Size(347, 35);
-            this.txtNombreR.TabIndex = 24;
+            this.txtNombreR.TabIndex = 0;
             // 
             // label4
             // 
@@ -299,7 +285,7 @@ namespace DSI.CapaVistas
             this.cboxPaisRegistro.Location = new System.Drawing.Point(24, 455);
             this.cboxPaisRegistro.Name = "cboxPaisRegistro";
             this.cboxPaisRegistro.Size = new System.Drawing.Size(204, 37);
-            this.cboxPaisRegistro.TabIndex = 35;
+            this.cboxPaisRegistro.TabIndex = 7;
             this.cboxPaisRegistro.SelectedValueChanged += new System.EventHandler(this.cboxPaisRegistro_SelectedValueChanged);
             // 
             // label3
@@ -309,7 +295,7 @@ namespace DSI.CapaVistas
             this.label3.Location = new System.Drawing.Point(21, 47);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 29);
-            this.label3.TabIndex = 23;
+            this.label3.TabIndex = 6;
             this.label3.Text = "Nombre:";
             // 
             // label7
@@ -338,7 +324,7 @@ namespace DSI.CapaVistas
             this.txtTelefonoR.Location = new System.Drawing.Point(145, 203);
             this.txtTelefonoR.Name = "txtTelefonoR";
             this.txtTelefonoR.Size = new System.Drawing.Size(340, 35);
-            this.txtTelefonoR.TabIndex = 28;
+            this.txtTelefonoR.TabIndex = 3;
             // 
             // txtCorreoR
             // 
@@ -346,7 +332,7 @@ namespace DSI.CapaVistas
             this.txtCorreoR.Location = new System.Drawing.Point(125, 256);
             this.txtCorreoR.Name = "txtCorreoR";
             this.txtCorreoR.Size = new System.Drawing.Size(360, 35);
-            this.txtCorreoR.TabIndex = 30;
+            this.txtCorreoR.TabIndex = 4;
             // 
             // btnActualizar
             // 
@@ -354,7 +340,7 @@ namespace DSI.CapaVistas
             this.btnActualizar.Location = new System.Drawing.Point(202, 662);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(178, 50);
-            this.btnActualizar.TabIndex = 24;
+            this.btnActualizar.TabIndex = 1;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
@@ -365,7 +351,7 @@ namespace DSI.CapaVistas
             this.btnGuardarR.Location = new System.Drawing.Point(18, 662);
             this.btnGuardarR.Name = "btnGuardarR";
             this.btnGuardarR.Size = new System.Drawing.Size(178, 50);
-            this.btnGuardarR.TabIndex = 23;
+            this.btnGuardarR.TabIndex = 0;
             this.btnGuardarR.Text = "Guardar";
             this.btnGuardarR.UseVisualStyleBackColor = true;
             this.btnGuardarR.Click += new System.EventHandler(this.btnGuardarR_Click);
@@ -376,7 +362,7 @@ namespace DSI.CapaVistas
             this.btnDocR.Location = new System.Drawing.Point(511, 662);
             this.btnDocR.Name = "btnDocR";
             this.btnDocR.Size = new System.Drawing.Size(178, 50);
-            this.btnDocR.TabIndex = 26;
+            this.btnDocR.TabIndex = 2;
             this.btnDocR.Text = "Documentos";
             this.btnDocR.UseVisualStyleBackColor = true;
             this.btnDocR.Click += new System.EventHandler(this.btnDocR_Click);
@@ -437,7 +423,6 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.TextBox txtDireccionR;
         private System.Windows.Forms.ComboBox cboxSectorR;
         private System.Windows.Forms.Button btnDocR;
-        private System.Windows.Forms.Button btnPlusSector;
         private System.Windows.Forms.Panel panelRegistro;
         private System.Windows.Forms.TextBox txtNIT;
         private System.Windows.Forms.Label label1;

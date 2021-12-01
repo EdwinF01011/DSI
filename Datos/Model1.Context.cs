@@ -781,5 +781,35 @@ namespace DSI.Datos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_consultaTodo_Result5>("sp_consultaTodo", id_categoriaParameter);
         }
+    
+        public virtual int sp_deleteDocu(Nullable<short> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(short));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_deleteDocu", idParameter);
+        }
+    
+        public virtual int sp_insertDocu(string nombre, string ruta, string observa, Nullable<int> id_contacto)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var rutaParameter = ruta != null ?
+                new ObjectParameter("Ruta", ruta) :
+                new ObjectParameter("Ruta", typeof(string));
+    
+            var observaParameter = observa != null ?
+                new ObjectParameter("observa", observa) :
+                new ObjectParameter("observa", typeof(string));
+    
+            var id_contactoParameter = id_contacto.HasValue ?
+                new ObjectParameter("id_contacto", id_contacto) :
+                new ObjectParameter("id_contacto", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_insertDocu", nombreParameter, rutaParameter, observaParameter, id_contactoParameter);
+        }
     }
 }

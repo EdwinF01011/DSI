@@ -30,9 +30,6 @@ namespace DSI.CapaVistas
         FrmDocumentos frmDoc = new FrmDocumentos();
         private void btnDocR_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            //FrmDocumentos frmDoc = new FrmDocumentos();
-            //frmDoc.Show();
             llamarFrmDocumentos();
         }
 
@@ -44,11 +41,7 @@ namespace DSI.CapaVistas
             frmDoc.Show();
         }
 
-        private void btnPlusSector_Click(object sender, EventArgs e)
-        {
-            FrmSector frmStor = new FrmSector();
-            frmStor.Show();
-        }
+
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
@@ -64,9 +57,15 @@ namespace DSI.CapaVistas
         {
             LlenarCboxs();// 
 
+            //if (lblKey.Text == "#0*")    // ajustar esto
+            //{
+            //    btnDocR.Enabled = false;
+            //}
+
+
             /// pruebas 
             /// 
-            
+
 
             cboxCiudadRegistro.Enabled = false;
 
@@ -146,6 +145,8 @@ namespace DSI.CapaVistas
             lblCity.Text = City;
             itemSectorR = itemSector;
             itemCityR = itemCity;
+            Clscontacto.idContanto = id;// para usarlo en FrmDocumentos, referenciar el documento.
+
         }
 
         private void cboxSectorR_SelectedValueChanged(object sender, EventArgs e)
@@ -210,9 +211,15 @@ namespace DSI.CapaVistas
             if (x == 1)
             {
                 btnGuardarR.Enabled = false;
+
             }
             else
+            {
                 btnActualizar.Enabled = false;
+                btnDocR.Enabled = false;
+
+            }
+
         }
 
         private void btnGuardarR_Click(object sender, EventArgs e)

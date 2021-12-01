@@ -45,6 +45,7 @@
           <Property Name="id_doc" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="varchar" MaxLength="50" />
           <Property Name="Ruta" Type="varchar" MaxLength="200" />
+          <Property Name="observaciones" Type="varchar" MaxLength="500" />
           <Property Name="id_contacto" Type="int" />
         </EntityType>
         <EntityType Name="Pais">
@@ -146,7 +147,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Documento__id_co__67DE6983">
+        <Association Name="FK__Documento__id_co__0E04126B">
           <End Role="contacto" Type="Self.contacto" Multiplicity="0..1" />
           <End Role="Documentos" Type="Self.Documentos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -212,6 +213,9 @@
           <Parameter Name="owner_id" Type="int" Mode="In" />
           <Parameter Name="version" Type="int" Mode="In" />
           <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_deleteDocu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="smallint" Mode="In" />
         </Function>
         <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -360,6 +364,12 @@
           <Parameter Name="id_categoria" Type="bit" Mode="In" />
           <Parameter Name="id_estado" Type="bit" Mode="In" />
         </Function>
+        <Function Name="sp_insertDocu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Ruta" Type="varchar" Mode="In" />
+          <Parameter Name="observa" Type="varchar" Mode="In" />
+          <Parameter Name="id_contacto" Type="int" Mode="In" />
+        </Function>
         <Function Name="sp_insertPais" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Npais" Type="varchar" Mode="In" />
         </Function>
@@ -428,7 +438,7 @@
             <End Role="Ciudad" EntitySet="Ciudad" />
             <End Role="contacto" EntitySet="contacto" />
           </AssociationSet>
-          <AssociationSet Name="FK__Documento__id_co__67DE6983" Association="Self.FK__Documento__id_co__67DE6983">
+          <AssociationSet Name="FK__Documento__id_co__0E04126B" Association="Self.FK__Documento__id_co__0E04126B">
             <End Role="contacto" EntitySet="contacto" />
             <End Role="Documentos" EntitySet="Documentos" />
           </AssociationSet>
@@ -785,13 +795,22 @@
             <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
             <Parameter Name="id_estado" Mode="In" Type="Boolean" />
           </FunctionImport>
+          <FunctionImport Name="sp_consultaTodo" ReturnType="Collection(DSIModel.sp_consultaTodo_Result5)">
+          <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
           <EntitySet Name="Documentos" EntityType="DSIModel.Documentos" />
-          <AssociationSet Name="FK__Documento__id_co__67DE6983" Association="DSIModel.FK__Documento__id_co__67DE6983">
+          <AssociationSet Name="FK__Documento__id_co__0E04126B" Association="DSIModel.FK__Documento__id_co__0E04126B">
             <End Role="contacto" EntitySet="contacto" />
             <End Role="Documentos" EntitySet="Documentos" />
           </AssociationSet>
-          <FunctionImport Name="sp_consultaTodo" ReturnType="Collection(DSIModel.sp_consultaTodo_Result5)">
-            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          <FunctionImport Name="sp_deleteDocu">
+            <Parameter Name="id" Mode="In" Type="Int16" />
+          </FunctionImport>
+          <FunctionImport Name="sp_insertDocu">
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Ruta" Mode="In" Type="String" />
+            <Parameter Name="observa" Mode="In" Type="String" />
+            <Parameter Name="id_contacto" Mode="In" Type="Int32" />
           </FunctionImport>
           </EntityContainer>
         <ComplexType Name="sp_consultaContacto_Result">
@@ -1069,7 +1088,7 @@
           <Property Name="id_categoria" Type="Boolean" />
           <Property Name="id_estado" Type="Boolean" />
           <Property Name="ruta_carpeta" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Documentos" Relationship="DSIModel.FK__Documento__id_co__67DE6983" FromRole="contacto" ToRole="Documentos" />
+          <NavigationProperty Name="Documentos" Relationship="DSIModel.FK__Documento__id_co__0E04126B" FromRole="contacto" ToRole="Documentos" />
           </EntityType>
         <Association Name="FK__contacto__id_cat__57A801BA">
           <End Type="DSIModel.Categoria" Role="Categoria" Multiplicity="0..1" />
@@ -1157,27 +1176,6 @@
           <Property Type="String" Name="Direccion" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
         </ComplexType>
-        <EntityType Name="Documentos">
-          <Key>
-            <PropertyRef Name="id_doc" />
-          </Key>
-          <Property Name="id_doc" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Ruta" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="id_contacto" Type="Int32" />
-        </EntityType>
-        <Association Name="FK__Documento__id_co__67DE6983">
-          <End Type="DSIModel.contacto" Role="contacto" Multiplicity="0..1" />
-          <End Type="DSIModel.Documentos" Role="Documentos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="contacto">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Documentos">
-              <PropertyRef Name="id_contacto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <ComplexType Name="sp_consultaTodo_Result4">
           <Property Type="Int32" Name="id" Nullable="false" />
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
@@ -1209,6 +1207,28 @@
           <Property Type="Byte" Name="id_pais" Nullable="true" />
           <Property Type="Byte" Name="id_sector" Nullable="true" />
         </ComplexType>
+        <EntityType Name="Documentos">
+          <Key>
+            <PropertyRef Name="id_doc" />
+          </Key>
+          <Property Name="id_doc" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ruta" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="observaciones" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="id_contacto" Type="Int32" />
+        </EntityType>
+        <Association Name="FK__Documento__id_co__0E04126B">
+          <End Type="DSIModel.contacto" Role="contacto" Multiplicity="0..1" />
+          <End Type="DSIModel.Documentos" Role="Documentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contacto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Documentos">
+              <PropertyRef Name="id_contacto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1649,16 +1669,6 @@
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_insertContacto" FunctionName="DSIModel.Store.sp_insertContacto" />
           <FunctionImportMapping FunctionImportName="sp_updateContacto" FunctionName="DSIModel.Store.sp_updateContacto" />
-          <EntitySetMapping Name="Documentos">
-            <EntityTypeMapping TypeName="DSIModel.Documentos">
-              <MappingFragment StoreEntitySet="Documentos">
-                <ScalarProperty Name="id_contacto" ColumnName="id_contacto" />
-                <ScalarProperty Name="Ruta" ColumnName="Ruta" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="id_doc" ColumnName="id_doc" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_consultaTodo" FunctionName="DSIModel.Store.sp_consultaTodo">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DSIModel.sp_consultaTodo_Result5">
@@ -1679,6 +1689,19 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="Documentos">
+            <EntityTypeMapping TypeName="DSIModel.Documentos">
+              <MappingFragment StoreEntitySet="Documentos">
+                <ScalarProperty Name="id_contacto" ColumnName="id_contacto" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+                <ScalarProperty Name="Ruta" ColumnName="Ruta" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="id_doc" ColumnName="id_doc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_deleteDocu" FunctionName="DSIModel.Store.sp_deleteDocu" />
+          <FunctionImportMapping FunctionImportName="sp_insertDocu" FunctionName="DSIModel.Store.sp_insertDocu" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

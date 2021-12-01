@@ -263,6 +263,7 @@
     <Compile Include="Negocio\ClsBusqueda.cs" />
     <Compile Include="Negocio\ClsContacto.cs" />
     <Compile Include="Negocio\ClsContactosCrud.cs" />
+    <Compile Include="Negocio\ClsDocumentos.cs" />
     <Compile Include="Negocio\ClsEncrytp.cs" />
     <Compile Include="Negocio\ClsLogin.cs" />
     <Compile Include="Negocio\ClsSector.cs" />

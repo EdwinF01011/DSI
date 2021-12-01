@@ -9,7 +9,7 @@ namespace DSI.Negocio
 {
     public class Clscontacto
     {
-        //public static string Nombre { get; set; }
+        public static Int16 idContanto { get; set; }
         //public static string Razón_Social { get; set; }
 
 
@@ -22,12 +22,12 @@ namespace DSI.Negocio
         //string Direccion { get; set; }
         //string Descripcion { get; set; }
         //string Ubicacion { get; set; }
-        
-        bool id_estado { get; set; }
+
+        //bool id_estado { get; set; }
 
         //string Pais { get; set; }
         //bool id_categoria { get; set; }
-        string ruta_carpeta { get; set; }// no usar este, todavía
+        //string ruta_carpeta { get; set; }// no usar este, todavía
 
         //estas no se están usando, igualmente dejarlas
         //public static string id_sector { get; set; }

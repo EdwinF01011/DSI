@@ -86,6 +86,7 @@ namespace DSI.CapaVistas
 
             //valueNsector = dgvSector.CurrentRow.Cells[1].Value.ToString();//  no se usa, eliminarlo
             btnActualizar.Enabled = true;
+            btnAgregarSector.Enabled = false;
 
         }
 
@@ -95,12 +96,16 @@ namespace DSI.CapaVistas
             llenarDGV();
             btnActualizar.Enabled = false;
             txtSector.Text = "";
+            btnAgregarSector.Enabled = true;
+
         }
 
         private void FrmSector_Click(object sender, EventArgs e)
         {
             btnActualizar.Enabled = false;
             txtSector.Text = "";
+            btnAgregarSector.Enabled = true;
+
 
         }
     }

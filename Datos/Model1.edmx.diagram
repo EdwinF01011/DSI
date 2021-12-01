@@ -20,8 +20,8 @@
         <AssociationConnector Association="DSIModel.FK__contacto__id_ubi__56B3DD81" />
         <AssociationConnector Association="DSIModel.FK__contacto__id_est__589C25F3" />
         <AssociationConnector Association="DSIModel.FK__contacto__id_sec__55BFB948" />
-        <EntityTypeShape EntityType="DSIModel.Documentos" Width="1.5" PointX="5.25" PointY="8.5" />
-        <AssociationConnector Association="DSIModel.FK__Documento__id_co__67DE6983" />
+        <EntityTypeShape EntityType="DSIModel.Documentos" Width="1.5" PointX="5.25" PointY="8.375" />
+        <AssociationConnector Association="DSIModel.FK__Documento__id_co__0E04126B" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

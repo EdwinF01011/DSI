@@ -31,20 +31,21 @@ namespace DSI.CapaVistas
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblregistro = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDocs = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNameDoc = new System.Windows.Forms.TextBox();
             this.txtRuta = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAnexar = new System.Windows.Forms.Button();
-            this.btnSeguimiento = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnExplorar = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.txtObsr = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.lblAlert = new System.Windows.Forms.Label();
+            this.btnOpenFile = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDocs)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -70,19 +71,17 @@ namespace DSI.CapaVistas
             this.lblregistro.TabIndex = 21;
             this.lblregistro.Text = "Documentos";
             // 
-            // dataGridView1
+            // dgvDocs
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column3,
-            this.Column2});
-            this.dataGridView1.Location = new System.Drawing.Point(11, 227);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(866, 308);
-            this.dataGridView1.TabIndex = 22;
+            this.dgvDocs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDocs.Location = new System.Drawing.Point(11, 337);
+            this.dgvDocs.Name = "dgvDocs";
+            this.dgvDocs.RowHeadersWidth = 62;
+            this.dgvDocs.RowTemplate.Height = 28;
+            this.dgvDocs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDocs.Size = new System.Drawing.Size(866, 308);
+            this.dgvDocs.TabIndex = 22;
+            this.dgvDocs.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocs_CellDoubleClick);
             // 
             // label3
             // 
@@ -100,7 +99,7 @@ namespace DSI.CapaVistas
             this.txtNameDoc.Location = new System.Drawing.Point(11, 62);
             this.txtNameDoc.Name = "txtNameDoc";
             this.txtNameDoc.Size = new System.Drawing.Size(510, 35);
-            this.txtNameDoc.TabIndex = 25;
+            this.txtNameDoc.TabIndex = 6;
             // 
             // txtRuta
             // 
@@ -108,7 +107,7 @@ namespace DSI.CapaVistas
             this.txtRuta.Location = new System.Drawing.Point(11, 147);
             this.txtRuta.Name = "txtRuta";
             this.txtRuta.Size = new System.Drawing.Size(671, 35);
-            this.txtRuta.TabIndex = 27;
+            this.txtRuta.TabIndex = 7;
             // 
             // label2
             // 
@@ -123,23 +122,13 @@ namespace DSI.CapaVistas
             // btnAnexar
             // 
             this.btnAnexar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnexar.Location = new System.Drawing.Point(787, 149);
+            this.btnAnexar.Location = new System.Drawing.Point(786, 296);
             this.btnAnexar.Name = "btnAnexar";
             this.btnAnexar.Size = new System.Drawing.Size(87, 35);
-            this.btnAnexar.TabIndex = 28;
+            this.btnAnexar.TabIndex = 9;
             this.btnAnexar.Text = "Anexar";
             this.btnAnexar.UseVisualStyleBackColor = true;
-            // 
-            // btnSeguimiento
-            // 
-            this.btnSeguimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeguimiento.Location = new System.Drawing.Point(12, 651);
-            this.btnSeguimiento.Name = "btnSeguimiento";
-            this.btnSeguimiento.Size = new System.Drawing.Size(118, 35);
-            this.btnSeguimiento.TabIndex = 29;
-            this.btnSeguimiento.Text = "$%#$%#";
-            this.btnSeguimiento.UseVisualStyleBackColor = true;
-            this.btnSeguimiento.Click += new System.EventHandler(this.btnSeguimiento_Click);
+            this.btnAnexar.Click += new System.EventHandler(this.btnAnexar_Click);
             // 
             // btnCancelar
             // 
@@ -147,7 +136,7 @@ namespace DSI.CapaVistas
             this.btnCancelar.Location = new System.Drawing.Point(770, 651);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(103, 35);
-            this.btnCancelar.TabIndex = 30;
+            this.btnCancelar.TabIndex = 12;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -158,46 +147,80 @@ namespace DSI.CapaVistas
             this.btnExplorar.Location = new System.Drawing.Point(694, 147);
             this.btnExplorar.Name = "btnExplorar";
             this.btnExplorar.Size = new System.Drawing.Size(66, 35);
-            this.btnExplorar.TabIndex = 31;
+            this.btnExplorar.TabIndex = 5;
             this.btnExplorar.Text = "...";
             this.btnExplorar.UseVisualStyleBackColor = true;
             this.btnExplorar.Click += new System.EventHandler(this.btnExplorar_Click);
             // 
-            // Column1
+            // txtObsr
             // 
-            this.Column1.HeaderText = "Nombre";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 150;
+            this.txtObsr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtObsr.Location = new System.Drawing.Point(12, 234);
+            this.txtObsr.Multiline = true;
+            this.txtObsr.Name = "txtObsr";
+            this.txtObsr.Size = new System.Drawing.Size(574, 97);
+            this.txtObsr.TabIndex = 8;
             // 
-            // Column3
+            // label1
             // 
-            this.Column3.HeaderText = "Ruta";
-            this.Column3.MinimumWidth = 8;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 150;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 202);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(155, 29);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Observación:";
             // 
-            // Column2
+            // btnDelete
             // 
-            this.Column2.HeaderText = "Fecha";
-            this.Column2.MinimumWidth = 8;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 150;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(650, 296);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(109, 35);
+            this.btnDelete.TabIndex = 10;
+            this.btnDelete.Text = "Eliminar";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // lblAlert
+            // 
+            this.lblAlert.AutoSize = true;
+            this.lblAlert.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlert.Location = new System.Drawing.Point(12, 660);
+            this.lblAlert.Name = "lblAlert";
+            this.lblAlert.Size = new System.Drawing.Size(26, 29);
+            this.lblAlert.TabIndex = 35;
+            this.lblAlert.Text = "#";
+            // 
+            // btnOpenFile
+            // 
+            this.btnOpenFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenFile.Location = new System.Drawing.Point(650, 651);
+            this.btnOpenFile.Name = "btnOpenFile";
+            this.btnOpenFile.Size = new System.Drawing.Size(103, 35);
+            this.btnOpenFile.TabIndex = 11;
+            this.btnOpenFile.Text = "Open";
+            this.btnOpenFile.UseVisualStyleBackColor = true;
+            this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
             // 
             // FrmDocumentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(889, 698);
+            this.Controls.Add(this.btnOpenFile);
+            this.Controls.Add(this.lblAlert);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtObsr);
             this.Controls.Add(this.btnExplorar);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnSeguimiento);
             this.Controls.Add(this.btnAnexar);
             this.Controls.Add(this.txtRuta);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNameDoc);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvDocs);
             this.Controls.Add(this.lblregistro);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -205,7 +228,8 @@ namespace DSI.CapaVistas
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmDocumentos";
             this.Load += new System.EventHandler(this.FrmDocumentos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Click += new System.EventHandler(this.FrmDocumentos_Click);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDocs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,18 +239,19 @@ namespace DSI.CapaVistas
 
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblregistro;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDocs;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNameDoc;
         private System.Windows.Forms.TextBox txtRuta;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAnexar;
-        private System.Windows.Forms.Button btnSeguimiento;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnExplorar;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.TextBox txtObsr;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Label lblAlert;
+        private System.Windows.Forms.Button btnOpenFile;
     }
 }

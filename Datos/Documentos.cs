@@ -17,6 +17,7 @@ namespace DSI.Datos
         public short id_doc { get; set; }
         public string Nombre { get; set; }
         public string Ruta { get; set; }
+        public string observaciones { get; set; }
         public Nullable<int> id_contacto { get; set; }
     }
 }

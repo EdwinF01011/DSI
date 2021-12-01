@@ -72,13 +72,17 @@ namespace DSI.CapaVistas
             if(btnAñadir.Text== "Actualizar")
             {
                 UpdateCity();
-                MessageBox.Show("actualizando ciudad, dentro del if");
+                lblAlert.Text = "Registro Actualizado";
+
+                //MessageBox.Show("actualizando ciudad, dentro del if");
 
             }
             else
                 InsertCity();
             LlenarCboxP();
             LlenarDgv();
+            lblAlert.Text = "Registro Agregado";
+
 
         }
 
@@ -88,11 +92,14 @@ namespace DSI.CapaVistas
             if (btnAñadirPais.Text == "Actualizar")
             {
                 UpdatePais();
+                lblAlert.Text = "País Actualizado";
+
             }
             else
                 InsertPais();
             LlenarCboxP();
             LlenarDgv();
+            lblAlert.Text = "País Agregado";
 
         }
 
@@ -109,7 +116,7 @@ namespace DSI.CapaVistas
 
 
 
-            label4.Text = idPais.ToString();
+            //lblAlert.Text = idPais.ToString();// retirar
 
         }
 

@@ -61,6 +61,7 @@ namespace DSI.CapaVistas
             this.dgvSector.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSector.Location = new System.Drawing.Point(21, 84);
             this.dgvSector.Name = "dgvSector";
+            this.dgvSector.ReadOnly = true;
             this.dgvSector.RowHeadersWidth = 62;
             this.dgvSector.RowTemplate.Height = 28;
             this.dgvSector.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
