@@ -376,6 +376,13 @@
         <Function Name="sp_insertSector" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="nombre" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="sp_insertUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="CC" Type="nchar" Mode="In" />
+          <Parameter Name="pass" Type="varchar" Mode="In" />
+          <Parameter Name="Rol" Type="bit" Mode="In" />
+          <Parameter Name="Estado" Type="bit" Mode="In" />
+        </Function>
         <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -406,6 +413,14 @@
         <Function Name="sp_updateSector" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
           <Parameter Name="nombre" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_updateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="tinyint" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="CC" Type="nchar" Mode="In" />
+          <Parameter Name="pass" Type="varchar" Mode="In" />
+          <Parameter Name="Rol" Type="bit" Mode="In" />
+          <Parameter Name="Estado" Type="bit" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DSIModelStoreContainer">
@@ -629,10 +644,6 @@
             <Parameter Name="pais" Mode="In" Type="Byte" />
             <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
           </FunctionImport>
-          <FunctionImport Name="sp_filtroOne" ReturnType="Collection(DSIModel.sp_filtroOne_Result)">
-            <Parameter Name="nombre" Mode="In" Type="String" />
-            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
-          </FunctionImport>
           <FunctionImport Name="sp_filtroOneFive" ReturnType="Collection(DSIModel.sp_filtroOneFive_Result)">
             <Parameter Name="nombre" Mode="In" Type="String" />
             <Parameter Name="r_social" Mode="In" Type="String" />
@@ -804,13 +815,32 @@
             <End Role="Documentos" EntitySet="Documentos" />
           </AssociationSet>
           <FunctionImport Name="sp_deleteDocu">
-            <Parameter Name="id" Mode="In" Type="Int16" />
+          <Parameter Name="id" Mode="In" Type="Int16" />
           </FunctionImport>
           <FunctionImport Name="sp_insertDocu">
             <Parameter Name="Nombre" Mode="In" Type="String" />
             <Parameter Name="Ruta" Mode="In" Type="String" />
             <Parameter Name="observa" Mode="In" Type="String" />
             <Parameter Name="id_contacto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_filtroOne" ReturnType="Collection(DSIModel.sp_filtroOne_Result1)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_insertUser">
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="CC" Mode="In" Type="String" />
+            <Parameter Name="pass" Mode="In" Type="String" />
+            <Parameter Name="Rol" Mode="In" Type="Boolean" />
+            <Parameter Name="Estado" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_updateUser">
+            <Parameter Name="id" Mode="In" Type="Byte" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="CC" Mode="In" Type="String" />
+            <Parameter Name="pass" Mode="In" Type="String" />
+            <Parameter Name="Rol" Mode="In" Type="Boolean" />
+            <Parameter Name="Estado" Mode="In" Type="Boolean" />
           </FunctionImport>
           </EntityContainer>
         <ComplexType Name="sp_consultaContacto_Result">
@@ -1229,6 +1259,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="sp_filtroOne_Result1">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
+          <Property Type="String" Name="Razón_Social" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="NIT" Nullable="false" MaxLength="11" />
+          <Property Type="String" Name="Sector" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Teléfono" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Direccion" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
+          <Property Type="Byte" Name="id_city" Nullable="false" />
+          <Property Type="Byte" Name="id_pais" Nullable="true" />
+          <Property Type="Byte" Name="id_sector" Nullable="true" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1406,19 +1452,6 @@
           <FunctionImportMapping FunctionImportName="sp_filtroFourTwo" FunctionName="DSIModel.Store.sp_filtroFourTwo">
             <ResultMapping>
               <ComplexTypeMapping TypeName="DSIModel.sp_filtroFourTwo_Result">
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
-                <ScalarProperty Name="Sector" ColumnName="Sector" />
-                <ScalarProperty Name="Correo" ColumnName="Correo" />
-                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
-                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
-                <ScalarProperty Name="País" ColumnName="País" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_filtroOne" FunctionName="DSIModel.Store.sp_filtroOne">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DSIModel.sp_filtroOne_Result">
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
                 <ScalarProperty Name="Sector" ColumnName="Sector" />
@@ -1702,6 +1735,28 @@
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_deleteDocu" FunctionName="DSIModel.Store.sp_deleteDocu" />
           <FunctionImportMapping FunctionImportName="sp_insertDocu" FunctionName="DSIModel.Store.sp_insertDocu" />
+          <FunctionImportMapping FunctionImportName="sp_filtroOne" FunctionName="DSIModel.Store.sp_filtroOne">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_filtroOne_Result1">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Razón_Social" ColumnName="Razón_Social" />
+                <ScalarProperty Name="NIT" ColumnName="NIT" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="País" ColumnName="País" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="id_city" ColumnName="id_city" />
+                <ScalarProperty Name="id_pais" ColumnName="id_pais" />
+                <ScalarProperty Name="id_sector" ColumnName="id_sector" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_insertUser" FunctionName="DSIModel.Store.sp_insertUser" />
+          <FunctionImportMapping FunctionImportName="sp_updateUser" FunctionName="DSIModel.Store.sp_updateUser" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

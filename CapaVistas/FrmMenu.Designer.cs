@@ -45,6 +45,7 @@ namespace DSI.CapaVistas
             this.btnUbicaciones = new System.Windows.Forms.Button();
             this.lblUsuarioname = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblPrueba = new System.Windows.Forms.Label();
             this.pnlMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +74,7 @@ namespace DSI.CapaVistas
             this.btnConfigurar.TabIndex = 1;
             this.btnConfigurar.Text = "Configurar";
             this.btnConfigurar.UseVisualStyleBackColor = true;
+            this.btnConfigurar.Click += new System.EventHandler(this.btnConfigurar_Click);
             // 
             // btnBackup
             // 
@@ -258,6 +260,17 @@ namespace DSI.CapaVistas
             this.panel2.Size = new System.Drawing.Size(320, 9);
             this.panel2.TabIndex = 12;
             // 
+            // lblPrueba
+            // 
+            this.lblPrueba.AutoSize = true;
+            this.lblPrueba.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrueba.Location = new System.Drawing.Point(530, 93);
+            this.lblPrueba.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPrueba.Name = "lblPrueba";
+            this.lblPrueba.Size = new System.Drawing.Size(137, 33);
+            this.lblPrueba.TabIndex = 14;
+            this.lblPrueba.Text = "Nombre*";
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -265,6 +278,7 @@ namespace DSI.CapaVistas
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1898, 1024);
+            this.Controls.Add(this.lblPrueba);
             this.Controls.Add(this.btnProveedorsGo);
             this.Controls.Add(this.btnClientesGo);
             this.Controls.Add(this.panel2);
@@ -300,5 +314,6 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.Label lblUsuarioname;
         private System.Windows.Forms.Button btnSectores;
         private System.Windows.Forms.Button btnUbicaciones;
+        private System.Windows.Forms.Label lblPrueba;
     }
 }

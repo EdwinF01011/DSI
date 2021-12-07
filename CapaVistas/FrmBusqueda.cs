@@ -225,10 +225,12 @@ namespace DSI.CapaVistas
             //dataGridView1.DataSource = ObjBu.FiltroOneFive();         //  Busca todo
         }
 
+
+
         IList<Clscontacto> listcontac = new List<Clscontacto>();
 
         private void Lenarlistcontac()
-        {//llena una lista de tipo Clscontacto
+        {//llena una lista de tipo Clscontacto # esto no se usa, borrarlo
             try
             {
                 

@@ -23,10 +23,21 @@ namespace DSI.CapaVistas
 
         }
 
+        private void accesosRol()//  bloque accesos según el rol
+        {
+            lblPrueba.Text = ClsUsuario.rolUsuario.ToString();
+            if(ClsUsuario.rolUsuario== 1)
+            {
+                btnBackup.Visible = false;
+                btnUbicaciones.Visible = false;
+                btnSectores.Visible = false;
+            }
+        }
 
         private void FrmMenu_Load(object sender, EventArgs e)
         {
             Nombre_Usuario();
+            accesosRol();
         }
 
         private void Nombre_Usuario()
@@ -71,6 +82,13 @@ namespace DSI.CapaVistas
             this.Close();
             FrmLogin frmLogin = new FrmLogin();
             frmLogin.Show();
+        }
+
+        private void btnConfigurar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmConfiguration _Confi = new FrmConfiguration();
+            _Confi.Show();
         }
     }
 }

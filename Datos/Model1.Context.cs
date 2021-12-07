@@ -253,19 +253,6 @@ namespace DSI.Datos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroFourTwo_Result>("sp_filtroFourTwo", r_socialParameter, paisParameter, id_categoriaParameter);
         }
     
-        public virtual ObjectResult<sp_filtroOne_Result> sp_filtroOne(string nombre, Nullable<bool> id_categoria)
-        {
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("nombre", nombre) :
-                new ObjectParameter("nombre", typeof(string));
-    
-            var id_categoriaParameter = id_categoria.HasValue ?
-                new ObjectParameter("id_categoria", id_categoria) :
-                new ObjectParameter("id_categoria", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroOne_Result>("sp_filtroOne", nombreParameter, id_categoriaParameter);
-        }
-    
         public virtual ObjectResult<sp_filtroOneFive_Result> sp_filtroOneFive(string nombre, string r_social, Nullable<byte> sector, Nullable<byte> ciudad, Nullable<byte> pais, Nullable<bool> id_categoria)
         {
             var nombreParameter = nombre != null ?
@@ -810,6 +797,73 @@ namespace DSI.Datos
                 new ObjectParameter("id_contacto", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_insertDocu", nombreParameter, rutaParameter, observaParameter, id_contactoParameter);
+        }
+    
+        public virtual ObjectResult<sp_filtroOne_Result1> sp_filtroOne(string nombre, Nullable<bool> id_categoria)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroOne_Result1>("sp_filtroOne", nombreParameter, id_categoriaParameter);
+        }
+    
+        public virtual int sp_insertUser(string nombre, string cC, string pass, Nullable<bool> rol, Nullable<bool> estado)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var cCParameter = cC != null ?
+                new ObjectParameter("CC", cC) :
+                new ObjectParameter("CC", typeof(string));
+    
+            var passParameter = pass != null ?
+                new ObjectParameter("pass", pass) :
+                new ObjectParameter("pass", typeof(string));
+    
+            var rolParameter = rol.HasValue ?
+                new ObjectParameter("Rol", rol) :
+                new ObjectParameter("Rol", typeof(bool));
+    
+            var estadoParameter = estado.HasValue ?
+                new ObjectParameter("Estado", estado) :
+                new ObjectParameter("Estado", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_insertUser", nombreParameter, cCParameter, passParameter, rolParameter, estadoParameter);
+        }
+    
+        public virtual int sp_updateUser(Nullable<byte> id, string nombre, string cC, string pass, Nullable<bool> rol, Nullable<bool> estado)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(byte));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var cCParameter = cC != null ?
+                new ObjectParameter("CC", cC) :
+                new ObjectParameter("CC", typeof(string));
+    
+            var passParameter = pass != null ?
+                new ObjectParameter("pass", pass) :
+                new ObjectParameter("pass", typeof(string));
+    
+            var rolParameter = rol.HasValue ?
+                new ObjectParameter("Rol", rol) :
+                new ObjectParameter("Rol", typeof(bool));
+    
+            var estadoParameter = estado.HasValue ?
+                new ObjectParameter("Estado", estado) :
+                new ObjectParameter("Estado", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updateUser", idParameter, nombreParameter, cCParameter, passParameter, rolParameter, estadoParameter);
         }
     }
 }

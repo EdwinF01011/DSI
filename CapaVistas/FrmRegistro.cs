@@ -57,6 +57,8 @@ namespace DSI.CapaVistas
         {
             LlenarCboxs();// 
 
+            accesosRol();
+
             //if (lblKey.Text == "#0*")    // ajustar esto
             //{
             //    btnDocR.Enabled = false;
@@ -210,13 +212,14 @@ namespace DSI.CapaVistas
         {
             if (x == 1)
             {
-                btnGuardarR.Enabled = false;
+                btnGuardarR.Visible = false;
 
             }
             else
             {
-                btnActualizar.Enabled = false;
-                btnDocR.Enabled = false;
+                btnActualizar.Visible = false;
+                btnDocR.Visible = false;
+                //btnGuardarR.Enabled = false;
 
             }
 
@@ -224,12 +227,51 @@ namespace DSI.CapaVistas
 
         private void btnGuardarR_Click(object sender, EventArgs e)
         {
-            InsertContacto();
+            bool x = noEmpty();
+            if (x == false)
+            {
+                lblKey.Text = "  Complete los campos   ←_← ";
+                //lblKey.ForeColor=
+            }
+            else { InsertContacto(); }
+                
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             UpdateContacto();
         }
+
+        private void accesosRol()//  bloque accesos según el rol
+        {
+            if (ClsUsuario.rolUsuario == 1)
+            {
+                btnActualizar.Visible = false;
+            }
+        }
+
+        private bool noEmpty()
+        {
+            if (txtNombreR.Text == String.Empty ||
+                txtNIT.Text == String.Empty ||
+                txtRsocialR.Text == String.Empty ||
+                txtTelefonoR.Text == "" ||
+                txtCorreoR.Text == "" ||
+                txtDireccionR.Text == "" ||
+                itemSectorR <= 0 ||
+                itemPaisR <= 0 ||
+                itemCityR <= 0
+
+                )
+            {
+                return false;
+            }
+            else
+                return true;
+        }
+
+
+
+
     }
 }

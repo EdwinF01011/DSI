@@ -22,8 +22,16 @@ namespace DSI.Negocio
                                 select l).FirstOrDefault();
                 if (busqueda != null)
                 {
-                    //PARA OBTENER EL NOMBRE DEL USUARIO
+                    //PARA OBTENER EL NOMBRE DEL USUARIO y ROL
                     ClsUsuario.nameUsuario=busqueda.Nombre;
+                     bool x=busqueda.id_Rol;
+                    if (x==false)
+                    {
+                        ClsUsuario.rolUsuario = 0;
+                    }
+                    else
+                        ClsUsuario.rolUsuario = 1;
+
                     return true;
                 }
                 else

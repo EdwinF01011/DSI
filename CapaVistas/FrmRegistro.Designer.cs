@@ -74,7 +74,7 @@ namespace DSI.CapaVistas
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Menu;
             this.groupBox1.Controls.Add(this.lblSector);
             this.groupBox1.Controls.Add(this.lblCity);
             this.groupBox1.Controls.Add(this.lblPais);
@@ -157,13 +157,16 @@ namespace DSI.CapaVistas
             // 
             // lblKey
             // 
+            this.lblKey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblKey.AutoSize = true;
-            this.lblKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKey.Location = new System.Drawing.Point(503, 47);
+            this.lblKey.BackColor = System.Drawing.SystemColors.Menu;
+            this.lblKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKey.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lblKey.Location = new System.Drawing.Point(129, 2);
             this.lblKey.Name = "lblKey";
-            this.lblKey.Size = new System.Drawing.Size(49, 29);
+            this.lblKey.Size = new System.Drawing.Size(20, 26);
             this.lblKey.TabIndex = 22;
-            this.lblKey.Text = "#0*";
+            this.lblKey.Text = "-";
             // 
             // cboxSectorR
             // 
@@ -337,7 +340,7 @@ namespace DSI.CapaVistas
             // btnActualizar
             // 
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.Location = new System.Drawing.Point(202, 662);
+            this.btnActualizar.Location = new System.Drawing.Point(327, 662);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(178, 50);
             this.btnActualizar.TabIndex = 1;

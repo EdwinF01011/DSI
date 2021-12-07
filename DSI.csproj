@@ -74,6 +74,12 @@
     <Compile Include="CapaVistas\FrmBusqueda.Designer.cs">
       <DependentUpon>FrmBusqueda.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapaVistas\FrmConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaVistas\FrmConfiguration.Designer.cs">
+      <DependentUpon>FrmConfiguration.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaVistas\FrmDocumentos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +227,9 @@
     <Compile Include="Datos\sp_filtroOne_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Datos\sp_filtroOne_Result1.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Datos\sp_filtroThreeFive_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -269,6 +278,7 @@
     <Compile Include="Negocio\ClsSector.cs" />
     <Compile Include="Negocio\ClsUbicacion.cs" />
     <Compile Include="Negocio\ClsUsuario.cs" />
+    <Compile Include="Negocio\ClsValidacionCajas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -306,6 +316,9 @@
   <ItemGroup>
     <EmbeddedResource Include="CapaVistas\FrmBusqueda.resx">
       <DependentUpon>FrmBusqueda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaVistas\FrmConfiguration.resx">
+      <DependentUpon>FrmConfiguration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaVistas\FrmDocumentos.resx">
       <DependentUpon>FrmDocumentos.cs</DependentUpon>

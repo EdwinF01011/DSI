@@ -36,6 +36,8 @@ namespace DSI.CapaVistas
             btnDelete.Enabled = false;
             btnAnexar.Enabled = false;
             btnOpenFile.Enabled = false;
+            accesosRol();
+
 
         }
 
@@ -141,6 +143,14 @@ namespace DSI.CapaVistas
         private void btnOpenFile_Click(object sender, EventArgs e)
         {
             abrirFile();
+        }
+
+        private void accesosRol()//  bloque accesos según el rol
+        {
+            if (ClsUsuario.rolUsuario == 1)
+            {
+                btnDelete.Visible = false;
+            }
         }
         /*
 
