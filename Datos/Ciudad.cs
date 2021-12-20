@@ -14,8 +14,17 @@ namespace DSI.Datos
     
     public partial class Ciudad
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Ciudad()
+        {
+            this.contacto = new HashSet<contacto>();
+        }
+    
         public byte id { get; set; }
         public string NCiudad { get; set; }
         public Nullable<byte> id_pais { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<contacto> contacto { get; set; }
     }
 }

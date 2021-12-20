@@ -34,8 +34,8 @@ namespace DSI.Datos
         public virtual DbSet<sector> sector { get; set; }
         public virtual DbSet<Tipo_Estado> Tipo_Estado { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
-        public virtual DbSet<contacto> contacto { get; set; }
         public virtual DbSet<Documentos> Documentos { get; set; }
+        public virtual DbSet<contacto> contacto { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -137,402 +137,6 @@ namespace DSI.Datos
                 new ObjectParameter("owner_id", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
-        }
-    
-        public virtual ObjectResult<sp_filtroFiveOne_Result> sp_filtroFiveOne(string nombre, Nullable<byte> sector, Nullable<byte> ciudad, Nullable<byte> pais, Nullable<bool> id_categoria)
-        {
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("nombre", nombre) :
-                new ObjectParameter("nombre", typeof(string));
-    
-            var sectorParameter = sector.HasValue ?
-                new ObjectParameter("sector", sector) :
-                new ObjectParameter("sector", typeof(byte));
-    
-            var ciudadParameter = ciudad.HasValue ?
-                new ObjectParameter("ciudad", ciudad) :
-                new ObjectParameter("ciudad", typeof(byte));
-    
-            var paisParameter = pais.HasValue ?
-                new ObjectParameter("pais", pais) :
-                new ObjectParameter("pais", typeof(byte));
-    
-            var id_categoriaParameter = id_categoria.HasValue ?
-                new ObjectParameter("id_categoria", id_categoria) :
-                new ObjectParameter("id_categoria", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroFiveOne_Result>("sp_filtroFiveOne", nombreParameter, sectorParameter, ciudadParameter, paisParameter, id_categoriaParameter);
-        }
-    
-        public virtual ObjectResult<sp_filtroFiveTwo_Result> sp_filtroFiveTwo(string r_social, Nullable<byte> ciudad, Nullable<byte> pais, Nullable<bool> id_categoria)
-        {
-            var r_socialParameter = r_social != null ?
-                new ObjectParameter("r_social", r_social) :
-                new ObjectParameter("r_social", typeof(string));
-    
-            var ciudadParameter = ciudad.HasValue ?
-                new ObjectParameter("ciudad", ciudad) :
-                new ObjectParameter("ciudad", typeof(byte));
-    
-            var paisParameter = pais.HasValue ?
-                new ObjectParameter("pais", pais) :
-                new ObjectParameter("pais", typeof(byte));
-    
-            var id_categoriaParameter = id_categoria.HasValue ?
-                new ObjectParameter("id_categoria", id_categoria) :
-                new ObjectParameter("id_categoria", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroFiveTwo_Result>("sp_filtroFiveTwo", r_socialParameter, ciudadParameter, paisParameter, id_categoriaParameter);
-        }
-    
-        public virtual ObjectResult<sp_filtroFour_Result> sp_filtroFour(string pais, Nullable<bool> id_categoria)
-        {
-            var paisParameter = pais != null ?
-                new ObjectParameter("pais", pais) :
-                new ObjectParameter("pais", typeof(string));
-    
-            var id_categoriaParameter = id_categoria.HasValue ?
-                new ObjectParameter("id_categoria", id_categoria) :
-                new ObjectParameter("id_categoria", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroFour_Result>("sp_filtroFour", paisParameter, id_categoriaParameter);
-        }
-    
-        public virtual ObjectResult<sp_filtroFourFive_Result> sp_filtroFourFive(string ciudad, string pais, Nullable<bool> id_categoria)
-        {
-            var ciudadParameter = ciudad != null ?
-                new ObjectParameter("ciudad", ciudad) :
-                new ObjectParameter("ciudad", typeof(string));
-    
-            var paisParameter = pais != null ?
-                new ObjectParameter("pais", pais) :
-                new ObjectParameter("pais", typeof(string));
-    
-            var id_categoriaParameter = id_categoria.HasValue ?
-                new ObjectParameter("id_categoria", id_categoria) :
-                new ObjectParameter("id_categoria", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroFourFive_Result>("sp_filtroFourFive", ciudadParameter, paisParameter, id_categoriaParameter);
-        }
-    
-        public virtual ObjectResult<sp_filtroFourOne_Result> sp_filtroFourOne(string nombre, Nullable<byte> sector, Nullable<byte> pais, Nullable<bool> id_categoria)
-        {
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("nombre", nombre) :
-                new ObjectParameter("nombre", typeof(string));
-    
-            var sectorParameter = sector.HasValue ?
-                new ObjectParameter("sector", sector) :
-                new ObjectParameter("sector", typeof(byte));
-    
-            var paisParameter = pais.HasValue ?
-                new ObjectParameter("pais", pais) :
-                new ObjectParameter("pais", typeof(byte));
-    
-            var id_categoriaParameter = id_categoria.HasValue ?
-                new ObjectParameter("id_categoria", id_categoria) :
-                new ObjectParameter("id_categoria", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroFourOne_Result>("sp_filtroFourOne", nombreParameter, sectorParameter, paisParameter, id_categoriaParameter);
-        }
-    
-        public virtual ObjectResult<sp_filtroFourTwo_Result> sp_filtroFourTwo(string r_social, Nullable<byte> pais, Nullable<bool> id_categoria)
-        {
-            var r_socialParameter = r_social != null ?
-                new ObjectParameter("r_social", r_social) :
-                new ObjectParameter("r_social", typeof(string));
-    
-            var paisParameter = pais.HasValue ?
-                new ObjectParameter("pais", pais) :
-                new ObjectParameter("pais", typeof(byte));
-    
-            var id_categoriaParameter = id_categoria.HasValue ?
-                new ObjectParameter("id_categoria", id_categoria) :
-                new ObjectParameter("id_categoria", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroFourTwo_Result>("sp_filtroFourTwo", r_socialParameter, paisParameter, id_categoriaParameter);
-        }
-    
-        public virtual ObjectResult<sp_filtroOneFive_Result> sp_filtroOneFive(string nombre, string r_social, Nullable<byte> sector, Nullable<byte> ciudad, Nullable<byte> pais, Nullable<bool> id_categoria)
-        {
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("nombre", nombre) :
-                new ObjectParameter("nombre", typeof(string));
-    
-            var r_socialParameter = r_social != null ?
-                new ObjectParameter("r_social", r_social) :
-                new ObjectParameter("r_social", typeof(string));
-    
-            var sectorParameter = sector.HasValue ?
-                new ObjectParameter("sector", sector) :
-                new ObjectParameter("sector", typeof(byte));
-    
-            var ciudadParameter = ciudad.HasValue ?
-                new ObjectParameter("ciudad", ciudad) :
-                new ObjectParameter("ciudad", typeof(byte));
-    
-            var paisParameter = pais.HasValue ?
-                new ObjectParameter("pais", pais) :
-                new ObjectParameter("pais", typeof(byte));
-    
-            var id_categoriaParameter = id_categoria.HasValue ?
-                new ObjectParameter("id_categoria", id_categoria) :
-                new ObjectParameter("id_categoria", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroOneFive_Result>("sp_filtroOneFive", nombreParameter, r_socialParameter, sectorParameter, ciudadParameter, paisParameter, id_categoriaParameter);
-        }
-    
-        public virtual ObjectResult<sp_filtroOneFour_Result> sp_filtroOneFour(string nombre, string r_social, string sector, string pais, Nullable<bool> id_categoria)
-        {
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("nombre", nombre) :
-                new ObjectParameter("nombre", typeof(string));
-    
-            var r_socialParameter = r_social != null ?
-                new ObjectParameter("r_social", r_social) :
-                new ObjectParameter("r_social", typeof(string));
-    
-            var sectorParameter = sector != null ?
-                new ObjectParameter("sector", sector) :
-                new ObjectParameter("sector", typeof(string));
-    
-            var paisParameter = pais != null ?
-                new ObjectParameter("pais", pais) :
-                new ObjectParameter("pais", typeof(string));
-    
-            var id_categoriaParameter = id_categoria.HasValue ?
-                new ObjectParameter("id_categoria", id_categoria) :
-                new ObjectParameter("id_categoria", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroOneFour_Result>("sp_filtroOneFour", nombreParameter, r_socialParameter, sectorParameter, paisParameter, id_categoriaParameter);
-        }
-    
-        public virtual ObjectResult<sp_filtroOneTFive_Result> sp_filtroOneTFive(string nombre, string r_social, Nullable<byte> ciudad, Nullable<byte> pais, Nullable<bool> id_categoria)
-        {
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("nombre", nombre) :
-                new ObjectParameter("nombre", typeof(string));
-    
-            var r_socialParameter = r_social != null ?
-                new ObjectParameter("r_social", r_social) :
-                new ObjectParameter("r_social", typeof(string));
-    
-            var ciudadParameter = ciudad.HasValue ?
-                new ObjectParameter("ciudad", ciudad) :
-                new ObjectParameter("ciudad", typeof(byte));
-    
-            var paisParameter = pais.HasValue ?
-                new ObjectParameter("pais", pais) :
-                new ObjectParameter("pais", typeof(byte));
-    
-            var id_categoriaParameter = id_categoria.HasValue ?
-                new ObjectParameter("id_categoria", id_categoria) :
-                new ObjectParameter("id_categoria", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroOneTFive_Result>("sp_filtroOneTFive", nombreParameter, r_socialParameter, ciudadParameter, paisParameter, id_categoriaParameter);
-        }
-    
-        public virtual ObjectResult<sp_filtroOneTFour_Result> sp_filtroOneTFour(string nombre, string r_social, Nullable<byte> pais, Nullable<bool> id_categoria)
-        {
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("nombre", nombre) :
-                new ObjectParameter("nombre", typeof(string));
-    
-            var r_socialParameter = r_social != null ?
-                new ObjectParameter("r_social", r_social) :
-                new ObjectParameter("r_social", typeof(string));
-    
-            var paisParameter = pais.HasValue ?
-                new ObjectParameter("pais", pais) :
-                new ObjectParameter("pais", typeof(byte));
-    
-            var id_categoriaParameter = id_categoria.HasValue ?
-                new ObjectParameter("id_categoria", id_categoria) :
-                new ObjectParameter("id_categoria", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroOneTFour_Result>("sp_filtroOneTFour", nombreParameter, r_socialParameter, paisParameter, id_categoriaParameter);
-        }
-    
-        public virtual ObjectResult<sp_filtroOneThree_Result> sp_filtroOneThree(string nombre, string r_social, string sector, Nullable<bool> id_categoria)
-        {
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("nombre", nombre) :
-                new ObjectParameter("nombre", typeof(string));
-    
-            var r_socialParameter = r_social != null ?
-                new ObjectParameter("r_social", r_social) :
-                new ObjectParameter("r_social", typeof(string));
-    
-            var sectorParameter = sector != null ?
-                new ObjectParameter("sector", sector) :
-                new ObjectParameter("sector", typeof(string));
-    
-            var id_categoriaParameter = id_categoria.HasValue ?
-                new ObjectParameter("id_categoria", id_categoria) :
-                new ObjectParameter("id_categoria", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroOneThree_Result>("sp_filtroOneThree", nombreParameter, r_socialParameter, sectorParameter, id_categoriaParameter);
-        }
-    
-        public virtual ObjectResult<sp_filtroOneTwo_Result> sp_filtroOneTwo(string nombre, string r_social, Nullable<bool> id_categoria)
-        {
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("nombre", nombre) :
-                new ObjectParameter("nombre", typeof(string));
-    
-            var r_socialParameter = r_social != null ?
-                new ObjectParameter("r_social", r_social) :
-                new ObjectParameter("r_social", typeof(string));
-    
-            var id_categoriaParameter = id_categoria.HasValue ?
-                new ObjectParameter("id_categoria", id_categoria) :
-                new ObjectParameter("id_categoria", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroOneTwo_Result>("sp_filtroOneTwo", nombreParameter, r_socialParameter, id_categoriaParameter);
-        }
-    
-        public virtual ObjectResult<sp_filtroThree_Result> sp_filtroThree(Nullable<byte> sector, Nullable<bool> id_categoria)
-        {
-            var sectorParameter = sector.HasValue ?
-                new ObjectParameter("sector", sector) :
-                new ObjectParameter("sector", typeof(byte));
-    
-            var id_categoriaParameter = id_categoria.HasValue ?
-                new ObjectParameter("id_categoria", id_categoria) :
-                new ObjectParameter("id_categoria", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroThree_Result>("sp_filtroThree", sectorParameter, id_categoriaParameter);
-        }
-    
-        public virtual ObjectResult<sp_filtroThreeFive_Result> sp_filtroThreeFive(string sector, string ciudad, string pais, Nullable<bool> id_categoria)
-        {
-            var sectorParameter = sector != null ?
-                new ObjectParameter("sector", sector) :
-                new ObjectParameter("sector", typeof(string));
-    
-            var ciudadParameter = ciudad != null ?
-                new ObjectParameter("ciudad", ciudad) :
-                new ObjectParameter("ciudad", typeof(string));
-    
-            var paisParameter = pais != null ?
-                new ObjectParameter("pais", pais) :
-                new ObjectParameter("pais", typeof(string));
-    
-            var id_categoriaParameter = id_categoria.HasValue ?
-                new ObjectParameter("id_categoria", id_categoria) :
-                new ObjectParameter("id_categoria", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroThreeFive_Result>("sp_filtroThreeFive", sectorParameter, ciudadParameter, paisParameter, id_categoriaParameter);
-        }
-    
-        public virtual ObjectResult<sp_filtroThreeFour_Result> sp_filtroThreeFour(string sector, string pais, Nullable<bool> id_categoria)
-        {
-            var sectorParameter = sector != null ?
-                new ObjectParameter("sector", sector) :
-                new ObjectParameter("sector", typeof(string));
-    
-            var paisParameter = pais != null ?
-                new ObjectParameter("pais", pais) :
-                new ObjectParameter("pais", typeof(string));
-    
-            var id_categoriaParameter = id_categoria.HasValue ?
-                new ObjectParameter("id_categoria", id_categoria) :
-                new ObjectParameter("id_categoria", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroThreeFour_Result>("sp_filtroThreeFour", sectorParameter, paisParameter, id_categoriaParameter);
-        }
-    
-        public virtual ObjectResult<sp_filtroThreeOne_Result> sp_filtroThreeOne(string nombre, Nullable<byte> sector, Nullable<bool> id_categoria)
-        {
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("nombre", nombre) :
-                new ObjectParameter("nombre", typeof(string));
-    
-            var sectorParameter = sector.HasValue ?
-                new ObjectParameter("sector", sector) :
-                new ObjectParameter("sector", typeof(byte));
-    
-            var id_categoriaParameter = id_categoria.HasValue ?
-                new ObjectParameter("id_categoria", id_categoria) :
-                new ObjectParameter("id_categoria", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroThreeOne_Result>("sp_filtroThreeOne", nombreParameter, sectorParameter, id_categoriaParameter);
-        }
-    
-        public virtual ObjectResult<sp_filtroTwo_Result> sp_filtroTwo(string r_social, Nullable<bool> id_categoria)
-        {
-            var r_socialParameter = r_social != null ?
-                new ObjectParameter("r_social", r_social) :
-                new ObjectParameter("r_social", typeof(string));
-    
-            var id_categoriaParameter = id_categoria.HasValue ?
-                new ObjectParameter("id_categoria", id_categoria) :
-                new ObjectParameter("id_categoria", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroTwo_Result>("sp_filtroTwo", r_socialParameter, id_categoriaParameter);
-        }
-    
-        public virtual ObjectResult<sp_filtroTwoFive_Result> sp_filtroTwoFive(string r_social, Nullable<byte> sector, Nullable<byte> ciudad, Nullable<byte> pais, Nullable<bool> id_categoria)
-        {
-            var r_socialParameter = r_social != null ?
-                new ObjectParameter("r_social", r_social) :
-                new ObjectParameter("r_social", typeof(string));
-    
-            var sectorParameter = sector.HasValue ?
-                new ObjectParameter("sector", sector) :
-                new ObjectParameter("sector", typeof(byte));
-    
-            var ciudadParameter = ciudad.HasValue ?
-                new ObjectParameter("ciudad", ciudad) :
-                new ObjectParameter("ciudad", typeof(byte));
-    
-            var paisParameter = pais.HasValue ?
-                new ObjectParameter("pais", pais) :
-                new ObjectParameter("pais", typeof(byte));
-    
-            var id_categoriaParameter = id_categoria.HasValue ?
-                new ObjectParameter("id_categoria", id_categoria) :
-                new ObjectParameter("id_categoria", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroTwoFive_Result>("sp_filtroTwoFive", r_socialParameter, sectorParameter, ciudadParameter, paisParameter, id_categoriaParameter);
-        }
-    
-        public virtual ObjectResult<sp_filtroTwoFour_Result> sp_filtroTwoFour(string r_social, string sector, string pais, Nullable<bool> id_categoria)
-        {
-            var r_socialParameter = r_social != null ?
-                new ObjectParameter("r_social", r_social) :
-                new ObjectParameter("r_social", typeof(string));
-    
-            var sectorParameter = sector != null ?
-                new ObjectParameter("sector", sector) :
-                new ObjectParameter("sector", typeof(string));
-    
-            var paisParameter = pais != null ?
-                new ObjectParameter("pais", pais) :
-                new ObjectParameter("pais", typeof(string));
-    
-            var id_categoriaParameter = id_categoria.HasValue ?
-                new ObjectParameter("id_categoria", id_categoria) :
-                new ObjectParameter("id_categoria", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroTwoFour_Result>("sp_filtroTwoFour", r_socialParameter, sectorParameter, paisParameter, id_categoriaParameter);
-        }
-    
-        public virtual ObjectResult<sp_filtroTwoThree_Result> sp_filtroTwoThree(string r_social, string sector, Nullable<bool> id_categoria)
-        {
-            var r_socialParameter = r_social != null ?
-                new ObjectParameter("r_social", r_social) :
-                new ObjectParameter("r_social", typeof(string));
-    
-            var sectorParameter = sector != null ?
-                new ObjectParameter("sector", sector) :
-                new ObjectParameter("sector", typeof(string));
-    
-            var id_categoriaParameter = id_categoria.HasValue ?
-                new ObjectParameter("id_categoria", id_categoria) :
-                new ObjectParameter("id_categoria", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroTwoThree_Result>("sp_filtroTwoThree", r_socialParameter, sectorParameter, id_categoriaParameter);
         }
     
         public virtual ObjectResult<sp_helpdiagramdefinition_Result> sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
@@ -864,6 +468,504 @@ namespace DSI.Datos
                 new ObjectParameter("Estado", typeof(bool));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updateUser", idParameter, nombreParameter, cCParameter, passParameter, rolParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<sp_filtroOneTwo_Result1> sp_filtroOneTwo(string nombre, string r_social, Nullable<bool> id_categoria)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var r_socialParameter = r_social != null ?
+                new ObjectParameter("r_social", r_social) :
+                new ObjectParameter("r_social", typeof(string));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroOneTwo_Result1>("sp_filtroOneTwo", nombreParameter, r_socialParameter, id_categoriaParameter);
+        }
+    
+        public virtual ObjectResult<sp_filtroOneFive_Result1> sp_filtroOneFive(string nombre, string r_social, Nullable<byte> sector, Nullable<byte> ciudad, Nullable<byte> pais, Nullable<bool> id_categoria)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var r_socialParameter = r_social != null ?
+                new ObjectParameter("r_social", r_social) :
+                new ObjectParameter("r_social", typeof(string));
+    
+            var sectorParameter = sector.HasValue ?
+                new ObjectParameter("sector", sector) :
+                new ObjectParameter("sector", typeof(byte));
+    
+            var ciudadParameter = ciudad.HasValue ?
+                new ObjectParameter("ciudad", ciudad) :
+                new ObjectParameter("ciudad", typeof(byte));
+    
+            var paisParameter = pais.HasValue ?
+                new ObjectParameter("pais", pais) :
+                new ObjectParameter("pais", typeof(byte));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroOneFive_Result1>("sp_filtroOneFive", nombreParameter, r_socialParameter, sectorParameter, ciudadParameter, paisParameter, id_categoriaParameter);
+        }
+    
+        public virtual ObjectResult<sp_filtroOneFour_Result1> sp_filtroOneFour(string nombre, string r_social, string sector, string pais, Nullable<bool> id_categoria)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var r_socialParameter = r_social != null ?
+                new ObjectParameter("r_social", r_social) :
+                new ObjectParameter("r_social", typeof(string));
+    
+            var sectorParameter = sector != null ?
+                new ObjectParameter("sector", sector) :
+                new ObjectParameter("sector", typeof(string));
+    
+            var paisParameter = pais != null ?
+                new ObjectParameter("pais", pais) :
+                new ObjectParameter("pais", typeof(string));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroOneFour_Result1>("sp_filtroOneFour", nombreParameter, r_socialParameter, sectorParameter, paisParameter, id_categoriaParameter);
+        }
+    
+        public virtual ObjectResult<sp_filtroOneThree_Result1> sp_filtroOneThree(string nombre, string r_social, string sector, Nullable<bool> id_categoria)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var r_socialParameter = r_social != null ?
+                new ObjectParameter("r_social", r_social) :
+                new ObjectParameter("r_social", typeof(string));
+    
+            var sectorParameter = sector != null ?
+                new ObjectParameter("sector", sector) :
+                new ObjectParameter("sector", typeof(string));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroOneThree_Result1>("sp_filtroOneThree", nombreParameter, r_socialParameter, sectorParameter, id_categoriaParameter);
+        }
+    
+        public virtual ObjectResult<sp_filtroTwo_Result1> sp_filtroTwo(string r_social, Nullable<bool> id_categoria)
+        {
+            var r_socialParameter = r_social != null ?
+                new ObjectParameter("r_social", r_social) :
+                new ObjectParameter("r_social", typeof(string));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroTwo_Result1>("sp_filtroTwo", r_socialParameter, id_categoriaParameter);
+        }
+    
+        public virtual ObjectResult<sp_filtroTwoFive_Result1> sp_filtroTwoFive(string r_social, Nullable<byte> sector, Nullable<byte> ciudad, Nullable<byte> pais, Nullable<bool> id_categoria)
+        {
+            var r_socialParameter = r_social != null ?
+                new ObjectParameter("r_social", r_social) :
+                new ObjectParameter("r_social", typeof(string));
+    
+            var sectorParameter = sector.HasValue ?
+                new ObjectParameter("sector", sector) :
+                new ObjectParameter("sector", typeof(byte));
+    
+            var ciudadParameter = ciudad.HasValue ?
+                new ObjectParameter("ciudad", ciudad) :
+                new ObjectParameter("ciudad", typeof(byte));
+    
+            var paisParameter = pais.HasValue ?
+                new ObjectParameter("pais", pais) :
+                new ObjectParameter("pais", typeof(byte));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroTwoFive_Result1>("sp_filtroTwoFive", r_socialParameter, sectorParameter, ciudadParameter, paisParameter, id_categoriaParameter);
+        }
+    
+        public virtual ObjectResult<sp_filtroTwoFour_Result1> sp_filtroTwoFour(string r_social, string sector, string pais, Nullable<bool> id_categoria)
+        {
+            var r_socialParameter = r_social != null ?
+                new ObjectParameter("r_social", r_social) :
+                new ObjectParameter("r_social", typeof(string));
+    
+            var sectorParameter = sector != null ?
+                new ObjectParameter("sector", sector) :
+                new ObjectParameter("sector", typeof(string));
+    
+            var paisParameter = pais != null ?
+                new ObjectParameter("pais", pais) :
+                new ObjectParameter("pais", typeof(string));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroTwoFour_Result1>("sp_filtroTwoFour", r_socialParameter, sectorParameter, paisParameter, id_categoriaParameter);
+        }
+    
+        public virtual ObjectResult<sp_filtroTwoThree_Result1> sp_filtroTwoThree(string r_social, string sector, Nullable<bool> id_categoria)
+        {
+            var r_socialParameter = r_social != null ?
+                new ObjectParameter("r_social", r_social) :
+                new ObjectParameter("r_social", typeof(string));
+    
+            var sectorParameter = sector != null ?
+                new ObjectParameter("sector", sector) :
+                new ObjectParameter("sector", typeof(string));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroTwoThree_Result1>("sp_filtroTwoThree", r_socialParameter, sectorParameter, id_categoriaParameter);
+        }
+    
+        public virtual ObjectResult<sp_filtroThree_Result1> sp_filtroThree(Nullable<byte> sector, Nullable<bool> id_categoria)
+        {
+            var sectorParameter = sector.HasValue ?
+                new ObjectParameter("sector", sector) :
+                new ObjectParameter("sector", typeof(byte));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroThree_Result1>("sp_filtroThree", sectorParameter, id_categoriaParameter);
+        }
+    
+        public virtual ObjectResult<sp_filtroThreeFive_Result1> sp_filtroThreeFive(string sector, string ciudad, string pais, Nullable<bool> id_categoria)
+        {
+            var sectorParameter = sector != null ?
+                new ObjectParameter("sector", sector) :
+                new ObjectParameter("sector", typeof(string));
+    
+            var ciudadParameter = ciudad != null ?
+                new ObjectParameter("ciudad", ciudad) :
+                new ObjectParameter("ciudad", typeof(string));
+    
+            var paisParameter = pais != null ?
+                new ObjectParameter("pais", pais) :
+                new ObjectParameter("pais", typeof(string));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroThreeFive_Result1>("sp_filtroThreeFive", sectorParameter, ciudadParameter, paisParameter, id_categoriaParameter);
+        }
+    
+        public virtual ObjectResult<sp_filtroThreeFour_Result1> sp_filtroThreeFour(string sector, string pais, Nullable<bool> id_categoria)
+        {
+            var sectorParameter = sector != null ?
+                new ObjectParameter("sector", sector) :
+                new ObjectParameter("sector", typeof(string));
+    
+            var paisParameter = pais != null ?
+                new ObjectParameter("pais", pais) :
+                new ObjectParameter("pais", typeof(string));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroThreeFour_Result1>("sp_filtroThreeFour", sectorParameter, paisParameter, id_categoriaParameter);
+        }
+    
+        public virtual ObjectResult<sp_filtroFour_Result1> sp_filtroFour(string pais, Nullable<bool> id_categoria)
+        {
+            var paisParameter = pais != null ?
+                new ObjectParameter("pais", pais) :
+                new ObjectParameter("pais", typeof(string));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroFour_Result1>("sp_filtroFour", paisParameter, id_categoriaParameter);
+        }
+    
+        public virtual ObjectResult<sp_filtroFourFive_Result1> sp_filtroFourFive(string ciudad, string pais, Nullable<bool> id_categoria)
+        {
+            var ciudadParameter = ciudad != null ?
+                new ObjectParameter("ciudad", ciudad) :
+                new ObjectParameter("ciudad", typeof(string));
+    
+            var paisParameter = pais != null ?
+                new ObjectParameter("pais", pais) :
+                new ObjectParameter("pais", typeof(string));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroFourFive_Result1>("sp_filtroFourFive", ciudadParameter, paisParameter, id_categoriaParameter);
+        }
+    
+        public virtual ObjectResult<sp_filtroFiveOne_Result1> sp_filtroFiveOne(string nombre, Nullable<byte> sector, Nullable<byte> ciudad, Nullable<byte> pais, Nullable<bool> id_categoria)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var sectorParameter = sector.HasValue ?
+                new ObjectParameter("sector", sector) :
+                new ObjectParameter("sector", typeof(byte));
+    
+            var ciudadParameter = ciudad.HasValue ?
+                new ObjectParameter("ciudad", ciudad) :
+                new ObjectParameter("ciudad", typeof(byte));
+    
+            var paisParameter = pais.HasValue ?
+                new ObjectParameter("pais", pais) :
+                new ObjectParameter("pais", typeof(byte));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroFiveOne_Result1>("sp_filtroFiveOne", nombreParameter, sectorParameter, ciudadParameter, paisParameter, id_categoriaParameter);
+        }
+    
+        public virtual ObjectResult<sp_filtroFourOne_Result1> sp_filtroFourOne(string nombre, Nullable<byte> sector, Nullable<byte> pais, Nullable<bool> id_categoria)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var sectorParameter = sector.HasValue ?
+                new ObjectParameter("sector", sector) :
+                new ObjectParameter("sector", typeof(byte));
+    
+            var paisParameter = pais.HasValue ?
+                new ObjectParameter("pais", pais) :
+                new ObjectParameter("pais", typeof(byte));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroFourOne_Result1>("sp_filtroFourOne", nombreParameter, sectorParameter, paisParameter, id_categoriaParameter);
+        }
+    
+        public virtual ObjectResult<sp_filtroThreeOne_Result1> sp_filtroThreeOne(string nombre, Nullable<byte> sector, Nullable<bool> id_categoria)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var sectorParameter = sector.HasValue ?
+                new ObjectParameter("sector", sector) :
+                new ObjectParameter("sector", typeof(byte));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroThreeOne_Result1>("sp_filtroThreeOne", nombreParameter, sectorParameter, id_categoriaParameter);
+        }
+    
+        public virtual ObjectResult<sp_filtroFiveTwo_Result1> sp_filtroFiveTwo(string r_social, Nullable<byte> ciudad, Nullable<byte> pais, Nullable<bool> id_categoria)
+        {
+            var r_socialParameter = r_social != null ?
+                new ObjectParameter("r_social", r_social) :
+                new ObjectParameter("r_social", typeof(string));
+    
+            var ciudadParameter = ciudad.HasValue ?
+                new ObjectParameter("ciudad", ciudad) :
+                new ObjectParameter("ciudad", typeof(byte));
+    
+            var paisParameter = pais.HasValue ?
+                new ObjectParameter("pais", pais) :
+                new ObjectParameter("pais", typeof(byte));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroFiveTwo_Result1>("sp_filtroFiveTwo", r_socialParameter, ciudadParameter, paisParameter, id_categoriaParameter);
+        }
+    
+        public virtual ObjectResult<sp_filtroFourTwo_Result1> sp_filtroFourTwo(string r_social, Nullable<byte> pais, Nullable<bool> id_categoria)
+        {
+            var r_socialParameter = r_social != null ?
+                new ObjectParameter("r_social", r_social) :
+                new ObjectParameter("r_social", typeof(string));
+    
+            var paisParameter = pais.HasValue ?
+                new ObjectParameter("pais", pais) :
+                new ObjectParameter("pais", typeof(byte));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroFourTwo_Result1>("sp_filtroFourTwo", r_socialParameter, paisParameter, id_categoriaParameter);
+        }
+    
+        public virtual ObjectResult<sp_filtroOneTFive_Result1> sp_filtroOneTFive(string nombre, string r_social, Nullable<byte> ciudad, Nullable<byte> pais, Nullable<bool> id_categoria)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var r_socialParameter = r_social != null ?
+                new ObjectParameter("r_social", r_social) :
+                new ObjectParameter("r_social", typeof(string));
+    
+            var ciudadParameter = ciudad.HasValue ?
+                new ObjectParameter("ciudad", ciudad) :
+                new ObjectParameter("ciudad", typeof(byte));
+    
+            var paisParameter = pais.HasValue ?
+                new ObjectParameter("pais", pais) :
+                new ObjectParameter("pais", typeof(byte));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroOneTFive_Result1>("sp_filtroOneTFive", nombreParameter, r_socialParameter, ciudadParameter, paisParameter, id_categoriaParameter);
+        }
+    
+        public virtual ObjectResult<sp_filtroOneTFour_Result2> sp_filtroOneTFour(string nombre, string r_social, Nullable<byte> pais, Nullable<bool> id_categoria)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var r_socialParameter = r_social != null ?
+                new ObjectParameter("r_social", r_social) :
+                new ObjectParameter("r_social", typeof(string));
+    
+            var paisParameter = pais.HasValue ?
+                new ObjectParameter("pais", pais) :
+                new ObjectParameter("pais", typeof(byte));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroOneTFour_Result2>("sp_filtroOneTFour", nombreParameter, r_socialParameter, paisParameter, id_categoriaParameter);
+        }
+    
+        public virtual ObjectResult<sp_filtroOfive_Result> sp_filtroOfive(string nombre, Nullable<byte> pais, Nullable<bool> id_categoria)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var paisParameter = pais.HasValue ?
+                new ObjectParameter("pais", pais) :
+                new ObjectParameter("pais", typeof(byte));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroOfive_Result>("sp_filtroOfive", nombreParameter, paisParameter, id_categoriaParameter);
+        }
+    
+        public virtual ObjectResult<sp_filtroOfive1_Result> sp_filtroOfive1(string nombre, Nullable<byte> ciudad, Nullable<byte> pais, Nullable<bool> id_categoria)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var ciudadParameter = ciudad.HasValue ?
+                new ObjectParameter("ciudad", ciudad) :
+                new ObjectParameter("ciudad", typeof(byte));
+    
+            var paisParameter = pais.HasValue ?
+                new ObjectParameter("pais", pais) :
+                new ObjectParameter("pais", typeof(byte));
+    
+            var id_categoriaParameter = id_categoria.HasValue ?
+                new ObjectParameter("id_categoria", id_categoria) :
+                new ObjectParameter("id_categoria", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroOfive1_Result>("sp_filtroOfive1", nombreParameter, ciudadParameter, paisParameter, id_categoriaParameter);
+        }
+    
+        public virtual int sp_createUsuario(string nombre, string cC, string pass, Nullable<bool> rol, Nullable<bool> estado)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var cCParameter = cC != null ?
+                new ObjectParameter("CC", cC) :
+                new ObjectParameter("CC", typeof(string));
+    
+            var passParameter = pass != null ?
+                new ObjectParameter("pass", pass) :
+                new ObjectParameter("pass", typeof(string));
+    
+            var rolParameter = rol.HasValue ?
+                new ObjectParameter("Rol", rol) :
+                new ObjectParameter("Rol", typeof(bool));
+    
+            var estadoParameter = estado.HasValue ?
+                new ObjectParameter("Estado", estado) :
+                new ObjectParameter("Estado", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_createUsuario", nombreParameter, cCParameter, passParameter, rolParameter, estadoParameter);
+        }
+    
+        public virtual int sp_disableUsuario(Nullable<byte> id, Nullable<bool> value)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(byte));
+    
+            var valueParameter = value.HasValue ?
+                new ObjectParameter("value", value) :
+                new ObjectParameter("value", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_disableUsuario", idParameter, valueParameter);
+        }
+    
+        public virtual int sp_updateUsuario(Nullable<byte> id, string nombre, string cC, string pass)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(byte));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var cCParameter = cC != null ?
+                new ObjectParameter("CC", cC) :
+                new ObjectParameter("CC", typeof(string));
+    
+            var passParameter = pass != null ?
+                new ObjectParameter("pass", pass) :
+                new ObjectParameter("pass", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updateUsuario", idParameter, nombreParameter, cCParameter, passParameter);
+        }
+    
+        public virtual ObjectResult<sp_selectUsuarios_Result> sp_selectUsuarios()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_selectUsuarios_Result>("sp_selectUsuarios");
         }
     }
 }

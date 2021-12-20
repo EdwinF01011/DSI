@@ -10,21 +10,22 @@
 namespace DSI.Datos
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class contacto
+    public partial class sp_filtroFourFive_Result1
     {
         public int id { get; set; }
         public string Nombre { get; set; }
         public string Razón_Social { get; set; }
         public string NIT { get; set; }
-        public string Telefono { get; set; }
-        public string Direccion { get; set; }
+        public string Sector { get; set; }
         public string Correo { get; set; }
+        public string Teléfono { get; set; }
+        public string Ciudad { get; set; }
+        public string País { get; set; }
+        public string Direccion { get; set; }
         public string Descripcion { get; set; }
+        public byte id_city { get; set; }
+        public Nullable<byte> id_pais { get; set; }
         public Nullable<byte> id_sector { get; set; }
-        public Nullable<byte> id_ubicacion { get; set; }
-        public Nullable<bool> id_categoria { get; set; }
-        public Nullable<bool> id_estado { get; set; }
     }
 }

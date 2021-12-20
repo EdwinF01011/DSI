@@ -407,5 +407,30 @@ namespace DSI.Negocio
             }
         }
 
+        public IList FiltroOFive(string name,  Byte itemPais)
+        {
+            using (DSIEntities1 BD = new DSIEntities1())
+            {
+                var Busqueda = BD.sp_filtroOfive(
+                    name,
+                    itemPais,
+                    ClsUsuario.number_categoria).ToList();
+                return Busqueda;
+            }
+        }
+
+        public IList FiltroOFive1(string name,  Byte itemCity, Byte itemPais)
+        {
+            using (DSIEntities1 BD = new DSIEntities1())
+            {
+                var Busqueda = BD.sp_filtroOfive1(
+                    name,
+                    itemCity,
+                    itemPais,
+                    ClsUsuario.number_categoria).ToList();
+                return Busqueda;
+            }
+        }
+
     }
 }

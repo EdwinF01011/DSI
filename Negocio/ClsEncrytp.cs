@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DSI.Negocio
 {
@@ -22,5 +23,22 @@ namespace DSI.Negocio
             for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
             return sb.ToString();
         }
+
+        public static string randomGenerator()
+        {
+            var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var charsarr = new char[8];
+            var randal = new Random();
+
+            for(int i=0; i<charsarr.Length; i++)
+            {
+                charsarr[i] = characters[randal.Next(characters.Length)];
+            }
+            var resultString = new String(charsarr);
+            //MessageBox.Show(resultString);
+
+            return resultString;
+        }
+
     }
 }

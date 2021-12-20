@@ -10,16 +10,15 @@
 namespace DSI.Datos
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Documentos
+    public partial class sp_filtroThreeOne_Result1
     {
-        public short id_doc { get; set; }
         public string Nombre { get; set; }
-        public string Ruta { get; set; }
-        public string observaciones { get; set; }
-        public Nullable<int> id_contacto { get; set; }
-    
-        public virtual contacto contacto { get; set; }
+        public string Razón_Social { get; set; }
+        public string Sector { get; set; }
+        public string Correo { get; set; }
+        public string Teléfono { get; set; }
+        public string Ciudad { get; set; }
+        public string País { get; set; }
     }
 }

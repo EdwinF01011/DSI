@@ -43,9 +43,17 @@ namespace DSI.CapaVistas
             bool busqueda= ObjL.BuscarUsuario(usuario,contraseña);
             if (busqueda == true)
             {
-                this.Hide();
-                FrmMenu frmM = new FrmMenu();
-                frmM.Show();
+                if (ClsUsuario.estado == false)
+                {
+                    this.Hide();
+                    FrmMenu frmM = new FrmMenu();
+                    frmM.Show();
+                }
+                else
+                {
+                    MessageBox.Show("No tiene acceso al programa");
+                }
+
             }
             else
                 lblinfo.Text = "*Credenciales incorrectas*";

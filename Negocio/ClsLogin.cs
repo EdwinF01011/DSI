@@ -24,7 +24,11 @@ namespace DSI.Negocio
                 {
                     //PARA OBTENER EL NOMBRE DEL USUARIO y ROL
                     ClsUsuario.nameUsuario=busqueda.Nombre;
-                     bool x=busqueda.id_Rol;
+                    ClsUsuario.idUsuario = busqueda.id;
+                    ClsUsuario.estado =bool.Parse( busqueda.id_Estado.ToString());
+
+
+                    bool x =busqueda.id_Rol;
                     if (x==false)
                     {
                         ClsUsuario.rolUsuario = 0;

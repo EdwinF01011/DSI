@@ -225,7 +225,16 @@ namespace DSI.CapaVistas
             //dataGridView1.DataSource = ObjBu.FiltroOneFive();         //  Busca todo
         }
 
-
+        private void ocultarCamposDGV()
+        {
+            dataGridView1.Columns[0].Visible = false;
+            dataGridView1.Columns[3].Visible = false;
+            dataGridView1.Columns[9].Visible = false;
+            dataGridView1.Columns[10].Visible = false;
+            dataGridView1.Columns[11].Visible = false;
+            dataGridView1.Columns[12].Visible = false;
+            dataGridView1.Columns[13].Visible = false;
+        }
 
         IList<Clscontacto> listcontac = new List<Clscontacto>();
 
@@ -475,6 +484,7 @@ namespace DSI.CapaVistas
             {
                 case (1):
                     dataGridView1.DataSource = ObjBu.FiltroOne(txtNombreMenu.Text);
+                    ocultarCamposDGV();
                     //contador = 0;
                     break;
                 case (3):
@@ -510,6 +520,7 @@ namespace DSI.CapaVistas
                 case (2):
                     dataGridView1.DataSource = ObjBu.FiltroTwo(
                     txtRsocialMenu.Text);
+                    ocultarCamposDGV(); //  ----
                     break;
                 case (7):
                     dataGridView1.DataSource = ObjBu.FiltroTwoThree(
@@ -531,6 +542,7 @@ namespace DSI.CapaVistas
                     break;
                 case (5):
                     dataGridView1.DataSource = ObjBu.FiltroThree(itemSector);
+                    ocultarCamposDGV(); //  ----
                     break;
                 case (14):
                     dataGridView1.DataSource = ObjBu.FiltroThreeFour(
@@ -545,6 +557,7 @@ namespace DSI.CapaVistas
                     break;
                 case (9):
                     dataGridView1.DataSource = ObjBu.FiltroFour(itemPais);
+                    ocultarCamposDGV(); //  ----
                     break;
                 case (20):
                     dataGridView1.DataSource = ObjBu.FiltroFourFive(itemPais, itemCity);
@@ -554,6 +567,8 @@ namespace DSI.CapaVistas
                     dataGridView1.DataSource = ObjBu.FiltroThreeOne(
                     txtNombreMenu.Text,
                     itemSector);
+                    ocultarCamposDGV(); //  ----
+                    //lblcategoria.Text = contador.ToString();
                     break;
                 case (15):
                     dataGridView1.DataSource = ObjBu.FiltroFourOne(
@@ -592,10 +607,18 @@ namespace DSI.CapaVistas
                     break;
 
                 case (10):
-                    
+                    dataGridView1.DataSource = ObjBu.FiltroOFive(
+                    txtNombreMenu.Text,
+                    itemPais);
+                    //MessageBox.Show(" pasando 10");
+
                     break;
                 case (21):
-                    MessageBox.Show(" pasando");
+                    dataGridView1.DataSource = ObjBu.FiltroOFive1(
+                    txtNombreMenu.Text,
+                    itemCity,
+                    itemPais);
+                    //MessageBox.Show(" pasando 21");
                     break;
 
 

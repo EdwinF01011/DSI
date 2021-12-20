@@ -26,7 +26,7 @@ namespace DSI.CapaVistas
         private void accesosRol()//  bloque accesos según el rol
         {
             lblPrueba.Text = ClsUsuario.rolUsuario.ToString();
-            if(ClsUsuario.rolUsuario== 1)
+            if (ClsUsuario.rolUsuario == 1)
             {
                 btnBackup.Visible = false;
                 btnUbicaciones.Visible = false;
@@ -38,6 +38,8 @@ namespace DSI.CapaVistas
         {
             Nombre_Usuario();
             accesosRol();
+            panelMenu.Visible = false;
+            btnClosed.Visible = false;
         }
 
         private void Nombre_Usuario()
@@ -86,9 +88,38 @@ namespace DSI.CapaVistas
 
         private void btnConfigurar_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FrmConfiguration _Confi = new FrmConfiguration();
-            _Confi.Show();
+            //this.Hide();
+            //FrmConfiguration _Confi = new FrmConfiguration();
+            //_Confi.Show();
+            btnClosed.Visible = true;
+            traerFrmConfi();
+        }
+
+        FrmConfiguration _confi = new FrmConfiguration();
+        private void traerFrmConfi()
+        {
+            panelMenu.Visible = true;
+
+            _confi = new FrmConfiguration();
+            _confi.TopLevel = false;
+            panelMenu.Controls.Add(_confi);
+            _confi.Show();
+
+        }
+
+        public void ClosePanel()
+        {
+            if(panelMenu.Visible==true)
+            {
+                panelMenu.Visible = false;
+            }
+        }
+
+        private void btnClosed_Click(object sender, EventArgs e)
+        {
+            ClosePanel();
+            btnClosed.Visible = false;
+
         }
     }
 }

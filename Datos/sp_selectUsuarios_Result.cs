@@ -10,16 +10,13 @@
 namespace DSI.Datos
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Documentos
+    public partial class sp_selectUsuarios_Result
     {
-        public short id_doc { get; set; }
+        public byte id { get; set; }
         public string Nombre { get; set; }
-        public string Ruta { get; set; }
-        public string observaciones { get; set; }
-        public Nullable<int> id_contacto { get; set; }
-    
-        public virtual contacto contacto { get; set; }
+        public string Usuario { get; set; }
+        public bool Rol { get; set; }
+        public Nullable<bool> Deshabilitado { get; set; }
     }
 }

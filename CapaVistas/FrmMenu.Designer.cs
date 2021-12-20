@@ -46,6 +46,8 @@ namespace DSI.CapaVistas
             this.lblUsuarioname = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblPrueba = new System.Windows.Forms.Label();
+            this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnClosed = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -271,6 +273,28 @@ namespace DSI.CapaVistas
             this.lblPrueba.TabIndex = 14;
             this.lblPrueba.Text = "Nombre*";
             // 
+            // panelMenu
+            // 
+            this.panelMenu.BackColor = System.Drawing.Color.DarkRed;
+            this.panelMenu.Location = new System.Drawing.Point(355, 67);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(1530, 948);
+            this.panelMenu.TabIndex = 15;
+            // 
+            // btnClosed
+            // 
+            this.btnClosed.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnClosed.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClosed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClosed.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnClosed.Location = new System.Drawing.Point(355, 26);
+            this.btnClosed.Name = "btnClosed";
+            this.btnClosed.Size = new System.Drawing.Size(133, 35);
+            this.btnClosed.TabIndex = 16;
+            this.btnClosed.Text = "Close";
+            this.btnClosed.UseVisualStyleBackColor = false;
+            this.btnClosed.Click += new System.EventHandler(this.btnClosed_Click);
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -278,6 +302,8 @@ namespace DSI.CapaVistas
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1898, 1024);
+            this.Controls.Add(this.btnClosed);
+            this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.lblPrueba);
             this.Controls.Add(this.btnProveedorsGo);
             this.Controls.Add(this.btnClientesGo);
@@ -315,5 +341,7 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.Button btnSectores;
         private System.Windows.Forms.Button btnUbicaciones;
         private System.Windows.Forms.Label lblPrueba;
+        private System.Windows.Forms.Panel panelMenu;
+        private System.Windows.Forms.Button btnClosed;
     }
 }
