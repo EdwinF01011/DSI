@@ -27,6 +27,13 @@ namespace DSI.CapaVistas
         private void FrmLogin_Load(object sender, EventArgs e)
         {
 
+            foreach (Form frm in Application.OpenForms)//   itera los forms abiertos y los esconde
+            {
+                if (frm != this)
+                {
+                    frm.Hide();//    no se pudo usar el Close o Dispose ()
+                }
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -62,6 +69,16 @@ namespace DSI.CapaVistas
         private void btnValidar_Click_1(object sender, EventArgs e)
         {
             CapturarDatos();
+        }
+
+
+
+        private void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar==13)// si es == al Enter: --> 
+            {
+                CapturarDatos();
+            }
         }
     }
 }

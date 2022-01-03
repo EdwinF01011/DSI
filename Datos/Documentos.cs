@@ -19,7 +19,5 @@ namespace DSI.Datos
         public string Ruta { get; set; }
         public string observaciones { get; set; }
         public Nullable<int> id_contacto { get; set; }
-    
-        public virtual contacto contacto { get; set; }
     }
 }

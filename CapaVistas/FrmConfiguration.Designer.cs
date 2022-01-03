@@ -52,20 +52,20 @@ namespace DSI.CapaVistas
             this.txtPass2 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.lblAviso = new System.Windows.Forms.Label();
             this.btnGuardarU = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.rbtnAuxiliar = new System.Windows.Forms.RadioButton();
-            this.rbtnAdmin = new System.Windows.Forms.RadioButton();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
-            this.txtUsuarioU = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.txtNameUsuarioU = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblAviso = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.rbtnAuxiliar = new System.Windows.Forms.RadioButton();
+            this.label5 = new System.Windows.Forms.Label();
+            this.rbtnAdmin = new System.Windows.Forms.RadioButton();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtNameUsuarioU = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtUsuarioU = new System.Windows.Forms.TextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -90,7 +90,7 @@ namespace DSI.CapaVistas
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.Silver;
+            this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.txtNameUsuarioP);
@@ -348,28 +348,6 @@ namespace DSI.CapaVistas
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblPassword.Location = new System.Drawing.Point(293, 174);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(39, 26);
-            this.lblPassword.TabIndex = 23;
-            this.lblPassword.Text = "P#";
-            // 
-            // lblAviso
-            // 
-            this.lblAviso.AutoSize = true;
-            this.lblAviso.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAviso.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblAviso.Location = new System.Drawing.Point(517, 80);
-            this.lblAviso.Name = "lblAviso";
-            this.lblAviso.Size = new System.Drawing.Size(24, 26);
-            this.lblAviso.TabIndex = 22;
-            this.lblAviso.Text = "#";
-            // 
             // btnGuardarU
             // 
             this.btnGuardarU.Location = new System.Drawing.Point(1219, 486);
@@ -380,41 +358,6 @@ namespace DSI.CapaVistas
             this.btnGuardarU.UseVisualStyleBackColor = true;
             this.btnGuardarU.Click += new System.EventHandler(this.btnGuardarU_Click);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(56, 232);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 30);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "Rol";
-            // 
-            // rbtnAuxiliar
-            // 
-            this.rbtnAuxiliar.AutoSize = true;
-            this.rbtnAuxiliar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.rbtnAuxiliar.Location = new System.Drawing.Point(61, 309);
-            this.rbtnAuxiliar.Name = "rbtnAuxiliar";
-            this.rbtnAuxiliar.Size = new System.Drawing.Size(101, 29);
-            this.rbtnAuxiliar.TabIndex = 19;
-            this.rbtnAuxiliar.TabStop = true;
-            this.rbtnAuxiliar.Text = "Auxiliar";
-            this.rbtnAuxiliar.UseVisualStyleBackColor = true;
-            // 
-            // rbtnAdmin
-            // 
-            this.rbtnAdmin.AutoSize = true;
-            this.rbtnAdmin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.rbtnAdmin.Location = new System.Drawing.Point(61, 274);
-            this.rbtnAdmin.Name = "rbtnAdmin";
-            this.rbtnAdmin.Size = new System.Drawing.Size(142, 29);
-            this.rbtnAdmin.TabIndex = 18;
-            this.rbtnAdmin.TabStop = true;
-            this.rbtnAdmin.Text = "Admistrador";
-            this.rbtnAdmin.UseVisualStyleBackColor = true;
-            // 
             // dgvUsuarios
             // 
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -424,64 +367,6 @@ namespace DSI.CapaVistas
             this.dgvUsuarios.RowTemplate.Height = 28;
             this.dgvUsuarios.Size = new System.Drawing.Size(1285, 243);
             this.dgvUsuarios.TabIndex = 17;
-            // 
-            // txtUsuarioU
-            // 
-            this.txtUsuarioU.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuarioU.Location = new System.Drawing.Point(61, 171);
-            this.txtUsuarioU.Name = "txtUsuarioU";
-            this.txtUsuarioU.Size = new System.Drawing.Size(198, 35);
-            this.txtUsuarioU.TabIndex = 13;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(56, 138);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(102, 30);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Usuario";
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Location = new System.Drawing.Point(1136, 316);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(132, 41);
-            this.btnGuardar.TabIndex = 11;
-            this.btnGuardar.Text = "Crear";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // txtNameUsuarioU
-            // 
-            this.txtNameUsuarioU.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNameUsuarioU.Location = new System.Drawing.Point(61, 80);
-            this.txtNameUsuarioU.Name = "txtNameUsuarioU";
-            this.txtNameUsuarioU.Size = new System.Drawing.Size(198, 35);
-            this.txtNameUsuarioU.TabIndex = 10;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(56, 47);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(231, 30);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Nombre de usuario";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 34);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1461, 847);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Backup";
-            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -500,6 +385,121 @@ namespace DSI.CapaVistas
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1285, 370);
             this.panel3.TabIndex = 24;
+            // 
+            // lblAviso
+            // 
+            this.lblAviso.AutoSize = true;
+            this.lblAviso.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAviso.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblAviso.Location = new System.Drawing.Point(517, 80);
+            this.lblAviso.Name = "lblAviso";
+            this.lblAviso.Size = new System.Drawing.Size(24, 26);
+            this.lblAviso.TabIndex = 22;
+            this.lblAviso.Text = "#";
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblPassword.Location = new System.Drawing.Point(293, 174);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(39, 26);
+            this.lblPassword.TabIndex = 23;
+            this.lblPassword.Text = "P#";
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Location = new System.Drawing.Point(1136, 316);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(132, 41);
+            this.btnGuardar.TabIndex = 11;
+            this.btnGuardar.Text = "Crear";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // rbtnAuxiliar
+            // 
+            this.rbtnAuxiliar.AutoSize = true;
+            this.rbtnAuxiliar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.rbtnAuxiliar.Location = new System.Drawing.Point(61, 309);
+            this.rbtnAuxiliar.Name = "rbtnAuxiliar";
+            this.rbtnAuxiliar.Size = new System.Drawing.Size(101, 29);
+            this.rbtnAuxiliar.TabIndex = 19;
+            this.rbtnAuxiliar.TabStop = true;
+            this.rbtnAuxiliar.Text = "Auxiliar";
+            this.rbtnAuxiliar.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(56, 232);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(52, 30);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Rol";
+            // 
+            // rbtnAdmin
+            // 
+            this.rbtnAdmin.AutoSize = true;
+            this.rbtnAdmin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.rbtnAdmin.Location = new System.Drawing.Point(61, 274);
+            this.rbtnAdmin.Name = "rbtnAdmin";
+            this.rbtnAdmin.Size = new System.Drawing.Size(142, 29);
+            this.rbtnAdmin.TabIndex = 18;
+            this.rbtnAdmin.TabStop = true;
+            this.rbtnAdmin.Text = "Admistrador";
+            this.rbtnAdmin.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Location = new System.Drawing.Point(56, 47);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(231, 30);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Nombre de usuario";
+            // 
+            // txtNameUsuarioU
+            // 
+            this.txtNameUsuarioU.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNameUsuarioU.Location = new System.Drawing.Point(61, 80);
+            this.txtNameUsuarioU.Name = "txtNameUsuarioU";
+            this.txtNameUsuarioU.Size = new System.Drawing.Size(198, 35);
+            this.txtNameUsuarioU.TabIndex = 10;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.Location = new System.Drawing.Point(56, 138);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(102, 30);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Usuario";
+            // 
+            // txtUsuarioU
+            // 
+            this.txtUsuarioU.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuarioU.Location = new System.Drawing.Point(61, 171);
+            this.txtUsuarioU.Name = "txtUsuarioU";
+            this.txtUsuarioU.Size = new System.Drawing.Size(198, 35);
+            this.txtUsuarioU.TabIndex = 13;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 34);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1461, 847);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Backup";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // FrmConfiguration
             // 

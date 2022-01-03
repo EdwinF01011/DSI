@@ -275,6 +275,9 @@ namespace DSI.CapaVistas
             // 
             // panelMenu
             // 
+            this.panelMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelMenu.BackColor = System.Drawing.Color.DarkRed;
             this.panelMenu.Location = new System.Drawing.Point(355, 67);
             this.panelMenu.Name = "panelMenu";
@@ -302,8 +305,8 @@ namespace DSI.CapaVistas
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1898, 1024);
-            this.Controls.Add(this.btnClosed);
             this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.btnClosed);
             this.Controls.Add(this.lblPrueba);
             this.Controls.Add(this.btnProveedorsGo);
             this.Controls.Add(this.btnClientesGo);

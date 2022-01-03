@@ -43,9 +43,10 @@ namespace DSI.CapaVistas
             this.cboxPaisMenu = new System.Windows.Forms.ComboBox();
             this.cboxCiudadMenu = new System.Windows.Forms.ComboBox();
             this.btnCrearProveedor = new System.Windows.Forms.Button();
-            this.btnConfigurar = new System.Windows.Forms.Button();
+            this.btnProveedor = new System.Windows.Forms.Button();
             this.btnSalirBusq = new System.Windows.Forms.Button();
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.btnCliente = new System.Windows.Forms.Button();
             this.lblUsuarioname = new System.Windows.Forms.Label();
             this.lblciudad = new System.Windows.Forms.Label();
             this.lblpais = new System.Windows.Forms.Label();
@@ -209,19 +210,20 @@ namespace DSI.CapaVistas
             this.btnCrearProveedor.UseVisualStyleBackColor = true;
             this.btnCrearProveedor.Click += new System.EventHandler(this.btnCrearProveedor_Click);
             // 
-            // btnConfigurar
+            // btnProveedor
             // 
-            this.btnConfigurar.FlatAppearance.BorderSize = 0;
-            this.btnConfigurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfigurar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfigurar.ForeColor = System.Drawing.Color.White;
-            this.btnConfigurar.Location = new System.Drawing.Point(54, 468);
-            this.btnConfigurar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnConfigurar.Name = "btnConfigurar";
-            this.btnConfigurar.Size = new System.Drawing.Size(192, 69);
-            this.btnConfigurar.TabIndex = 1;
-            this.btnConfigurar.Text = "Configurar";
-            this.btnConfigurar.UseVisualStyleBackColor = true;
+            this.btnProveedor.FlatAppearance.BorderSize = 0;
+            this.btnProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProveedor.ForeColor = System.Drawing.Color.White;
+            this.btnProveedor.Location = new System.Drawing.Point(54, 468);
+            this.btnProveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnProveedor.Name = "btnProveedor";
+            this.btnProveedor.Size = new System.Drawing.Size(192, 69);
+            this.btnProveedor.TabIndex = 1;
+            this.btnProveedor.Text = "Proveedor";
+            this.btnProveedor.UseVisualStyleBackColor = true;
+            this.btnProveedor.Click += new System.EventHandler(this.btnProveedor_Click);
             // 
             // btnSalirBusq
             // 
@@ -243,10 +245,11 @@ namespace DSI.CapaVistas
             this.pnlMenu.BackColor = System.Drawing.Color.Transparent;
             this.pnlMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlMenu.BackgroundImage")));
             this.pnlMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlMenu.Controls.Add(this.btnCliente);
             this.pnlMenu.Controls.Add(this.lblUsuarioname);
             this.pnlMenu.Controls.Add(this.lblciudad);
             this.pnlMenu.Controls.Add(this.lblpais);
-            this.pnlMenu.Controls.Add(this.btnConfigurar);
+            this.pnlMenu.Controls.Add(this.btnProveedor);
             this.pnlMenu.Controls.Add(this.lblsector);
             this.pnlMenu.Controls.Add(this.lblNombreUsuario);
             this.pnlMenu.Controls.Add(this.lblSocial);
@@ -261,6 +264,21 @@ namespace DSI.CapaVistas
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(274, 1042);
             this.pnlMenu.TabIndex = 33;
+            // 
+            // btnCliente
+            // 
+            this.btnCliente.FlatAppearance.BorderSize = 0;
+            this.btnCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCliente.ForeColor = System.Drawing.Color.White;
+            this.btnCliente.Location = new System.Drawing.Point(54, 468);
+            this.btnCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCliente.Name = "btnCliente";
+            this.btnCliente.Size = new System.Drawing.Size(192, 69);
+            this.btnCliente.TabIndex = 43;
+            this.btnCliente.Text = "Cliente";
+            this.btnCliente.UseVisualStyleBackColor = true;
+            this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
             // 
             // lblUsuarioname
             // 
@@ -503,7 +521,7 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.ComboBox cboxPaisMenu;
         private System.Windows.Forms.ComboBox cboxCiudadMenu;
         private System.Windows.Forms.Button btnCrearProveedor;
-        private System.Windows.Forms.Button btnConfigurar;
+        private System.Windows.Forms.Button btnProveedor;
         private System.Windows.Forms.Button btnSalirBusq;
         private System.Windows.Forms.Panel pnlMenu;
         private System.Windows.Forms.Label lblUsuarioname;
@@ -522,5 +540,6 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnCliente;
     }
 }

@@ -131,12 +131,22 @@ namespace DSI.CapaVistas
 
         private void abrirFile()
         {
-            //abre archivos por la ruta.
-            Process proceso = new Process();
-            //proceso.StartInfo.FileName = @"";// se índica la ruta entre las "".
-            proceso.StartInfo.FileName = rutaFile;
+            
 
-            proceso.Start();
+            try
+            {
+                //abre archivos por la ruta.
+                Process proceso = new Process();
+                //proceso.StartInfo.FileName = @"";// se índica la ruta entre las "".
+                proceso.StartInfo.FileName = rutaFile;
+
+                proceso.Start();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("El sistema no pudo encontrar el archivo seleccionado"  /*ex.ToString()*/);
+            }
 
         }
 

@@ -50,6 +50,7 @@ namespace DSI.CapaVistas
         {
             lblUsuarioname.Text = ClsUsuario.nameUsuario;
             lblcategoria.Text = ClsUsuario.categoria_busqueda;
+            
             //dataGridView1.DataSource = ObjBu.consultaTodo();
         }
 
@@ -60,6 +61,7 @@ namespace DSI.CapaVistas
 
             //LlenarComboxSector(); no
             Nombre_Usuario();
+            
 
             //txtNombreMenu.Enabled = false;
 
@@ -182,6 +184,9 @@ namespace DSI.CapaVistas
             //Cuando el usuario seleccione el tipo de categoría que
             //quiere buscar
             lblcategoria.Text = x;
+            nameButton();
+
+
         }
 
         private void btnCrearProveedor_Click(object sender, EventArgs e)
@@ -375,10 +380,38 @@ namespace DSI.CapaVistas
 
         }
 
-        private void Proces()
-        {// esto no
-            
+        private void nameButton()
+        {//     nombra de manera opuesta a la opción  que eleginos con
+         // anterioridad de búsqueda.
+            if (ClsUsuario.categoria_busqueda == "Proveedores")
+            {
+                btnCliente.Visible = true;
+                btnProveedor.Visible = false;
+            }
+            else if (ClsUsuario.categoria_busqueda == "Clientes")//     redundante
+            {
+                btnProveedor.Visible = true;
+                btnCliente.Visible = false;
+            }
+            //MessageBox.Show(ClsUsuario.categoria_busqueda+"  2");
+        }
 
+        private void btnProveedor_Click(object sender, EventArgs e)//  click cambio
+        {
+            ClsUsuario.number_categoria = true;
+            ClsUsuario.categoria_busqueda = "Proveedores";
+            btnCliente.Visible = true;
+            btnProveedor.Visible = false;
+            lblcategoria.Text = ClsUsuario.categoria_busqueda;
+        }
+
+        private void btnCliente_Click(object sender, EventArgs e)//  click cambio
+        {
+            ClsUsuario.number_categoria = false;
+            ClsUsuario.categoria_busqueda = "Clientes";
+            btnProveedor.Visible = true;
+            btnCliente.Visible = false;
+            lblcategoria.Text = ClsUsuario.categoria_busqueda;
         }
 
         private void txtNombreMenu_KeyPress(object sender, KeyPressEventArgs e)

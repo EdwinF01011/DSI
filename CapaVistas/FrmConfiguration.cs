@@ -13,6 +13,7 @@ namespace DSI.CapaVistas
 {
     public partial class FrmConfiguration : Form
     {
+        FrmLogin _frmLo = new FrmLogin();
         ClsUsuario _ClsUsu = new ClsUsuario();
         bool Rol, bandera=false;
         string contraseñaGenerada;
@@ -86,13 +87,33 @@ namespace DSI.CapaVistas
             //tabPage2.remov
         }
 
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            
-            
+
+
             updateUsuario();
 
-            
+            MessageBox.Show("Esta pestaña se cerrará, vuelva a iniciar sesión");
+
+            //FormCollection frms = Application.OpenForms;
+            //foreach (Form f in frms)
+            //{
+            //    if (f.Name != "FrmLogin")
+            //    {
+            //        f.Close();
+            //    }
+            //}
+
+            //foreach (Form frm in Application.OpenForms)
+            //{
+            //    if (frm != this)
+            //    {
+            //        frm.Close();
+            //    }
+            //}
+
+            _frmLo.Show();
 
 
             //  pruebas
