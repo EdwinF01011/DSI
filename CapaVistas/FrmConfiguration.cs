@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DSI.Negocio;
+using System.Data.SqlClient;
+using System.IO;
 
 namespace DSI.CapaVistas
 {
@@ -16,8 +18,9 @@ namespace DSI.CapaVistas
         FrmLogin _frmLo = new FrmLogin();
         ClsUsuario _ClsUsu = new ClsUsuario();
         bool Rol, bandera=false;
-        string contraseñaGenerada;
+        string contraseñaGenerada, postRuta;
         Byte conteo=0;
+        SqlConnection conex = new SqlConnection("SERVER=ELLIOT\\SQLEXPRESS;DATABASE=DSI;Integrated Security=true");//    Uid=admin;pwd=1234; si no se hace por autentificación de windows
 
 
 
@@ -94,7 +97,6 @@ namespace DSI.CapaVistas
 
             updateUsuario();
 
-            MessageBox.Show("Esta pestaña se cerrará, vuelva a iniciar sesión");
 
             //FormCollection frms = Application.OpenForms;
             //foreach (Form f in frms)
@@ -113,7 +115,7 @@ namespace DSI.CapaVistas
             //    }
             //}
 
-            _frmLo.Show();
+            
 
 
             //  pruebas
@@ -184,10 +186,14 @@ namespace DSI.CapaVistas
             if (conteo == 1)
             {
                 _ClsUsu.updateUsuario(txtNameUsuarioP.Text);
+                MessageBox.Show("Esta pestaña se cerrará, vuelva a iniciar sesión");
+                _frmLo.Show();
             }
             else if (conteo==2)
             {
                 _ClsUsu.updateUsuarioII(txtUsuarioP.Text);
+                MessageBox.Show("Esta pestaña se cerrará, vuelva a iniciar sesión");
+                _frmLo.Show();
             }
             else if (conteo ==3)
             {
@@ -196,6 +202,8 @@ namespace DSI.CapaVistas
                 {
                     string pass = ClsEncrytp.GetSHA256(contraseñaGenerada);
                     _ClsUsu.updateUsuarioIII(pass);
+                    MessageBox.Show("Esta pestaña se cerrará, vuelva a iniciar sesión");
+                    _frmLo.Show();
                 }
             }
             else if (conteo==4)
@@ -207,12 +215,14 @@ namespace DSI.CapaVistas
                     string pass = ClsEncrytp.GetSHA256(contraseñaGenerada);
                     _ClsUsu.updateUsuarioIV(txtNameUsuarioP.Text, txtUsuarioP.Text, pass);
                     MessageBox.Show("Actualizado");
-                    
+                    MessageBox.Show("Esta pestaña se cerrará, vuelva a iniciar sesión");
+                    _frmLo.Show();
+
                 }
                 else
                     MessageBox.Show("No se pudo concretar la acción");
             }
-            clear(); ;
+            clear(); 
 
             //bool x = compareTxt();
             //bool y = validationInfo2();
@@ -390,7 +400,7 @@ namespace DSI.CapaVistas
 
             bool valueEstado, valueRol;
             if (bandera==true)
-            {
+            {//
                 for (int i = 0; i < dgvUsuarios.RowCount; i++)//    obtnemos el valor de la celda, para darselo a otra.
                 {
                     valueRol = bool.Parse(dgvUsuarios.Rows[i].Cells[5].Value.ToString());
@@ -401,18 +411,14 @@ namespace DSI.CapaVistas
                     else
                     {
                         dgvUsuarios.Rows[i].Cells[0].Value = "Auxiliar";
-
                     }
-
                     valueEstado = bool.Parse(dgvUsuarios.Rows[i].Cells[6].Value.ToString());
                     dgvUsuarios.Rows[i].Cells[1].Value = valueEstado;
                 }
             }
-
         }
 
         IList<Usuario2> lista = new List<Usuario2>();
-
         private void tabControl1_Click(object sender, EventArgs e)
         {
             //  se necesita que el dgv cargue y termine el Load para ejecutar this.
@@ -500,7 +506,51 @@ namespace DSI.CapaVistas
 
         }
 
-        
+        private void btnCrear_Click(object sender, EventArgs e)
+        {
+            //
+
+            bool x= AjustarRuta();
+
+            
+            //  ejemplos
+            //string comando_consulta = "BACKUP DATABASE [DSI] TO  DISK = N'C:\\Users\\loros\\Downloads\\copiasSegurity\\"+fecha_copia + "' WITH NOFORMAT, NOINIT,  NAME = N'DSI-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+            //string comando_consulta3 = "BACKUP DATABASE [DSI] TO  DISK = N'C:\\Program Files\\Microsoft SQL Server\\MSSQL15.SQLEXPRESS\\MSSQL\\Backup\\DSI.bak' WITH NOFORMAT, NOINIT,  NAME = N'DSI-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+
+
+            try
+            {
+                if (x==true)
+                {
+                    //  ontiene fecha y hota del sistema
+                    string fecha_copia = "Fecha_" + System.DateTime.Now.ToString("dd_MM_yyyy") + "_hora_"
+                        + System.DateTime.Now.ToString("hhh_mm_ss") + ".bak";
+
+                    string comando_consulta2 = "BACKUP DATABASE [DSI] TO  DISK = N'" + postRuta + "\\" + fecha_copia + "' WITH NOFORMAT, NOINIT,  NAME = N'DSI-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+
+                    SqlCommand cmd = new SqlCommand(comando_consulta2, conex);
+
+                    conex.Open();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("creado correctamente BACKUP ");
+                }
+                else
+                    MessageBox.Show("No se pudo completar el backup");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("nada mi  prro "+ ex.ToString());
+            }
+            finally
+            {
+                conex.Close();
+                conex.Dispose();
+            }
+
+            //MessageBox.Show(fecha_copia);
+
+        }
 
         private void opcionesBusqueda()
         {
@@ -515,14 +565,12 @@ namespace DSI.CapaVistas
             {
                 txtUsuarioP.Visible = true;
                 conteo = 2;
-
             }
             else if (rbtnContraseña.Checked == true)
             {
                 txtPass1.Visible = true;
                 txtPass2.Visible = true;
                 conteo = 3;
-
             }
             else if (rbtnTodo.Checked == true)
             {
@@ -531,13 +579,46 @@ namespace DSI.CapaVistas
                 txtPass1.Visible = true;
                 txtPass2.Visible = true;
                 conteo = 4;
-
             }
-
-
         }
 
 
+
+        private void requestRuta()
+        {
+            openFileDialog1.InitialDirectory = "c:\\";
+            openFileDialog1.Filter = "Todos los archivos (*.*)|*.*";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string ruta= openFileDialog1.FileName;
+                MessageBox.Show(ruta);
+            }
+        }
+
+        private bool AjustarRuta()
+        {
+            if (txtRuta.Text!=String.Empty)
+            {
+                string preRuta = txtRuta.Text;
+                foreach (var item in preRuta)
+                {
+                    postRuta += item.ToString();
+                    if (item.ToString().Contains("\\"))
+                    {
+                        postRuta += "\\";
+                    }
+                }
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("agregue una ruta");
+                return false;
+            }
+        }
 
 
     }

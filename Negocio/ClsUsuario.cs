@@ -18,9 +18,6 @@ namespace DSI.Negocio
         public static bool number_categoria;
         public static bool estado;// 0: --> ; 1: --x;
 
-
-
-
         public IList selectUsuario()
         {
             using (DSIEntities1 bd = new DSIEntities1())
@@ -92,21 +89,16 @@ namespace DSI.Negocio
             bool estadoB = bool.Parse(estado);
             using (DSIEntities1 bd = new DSIEntities1())
             {
-
                 bd.sp_disableUsuario(idB, estadoB);
                     //MessageBox.Show("go go go,  bro");
-
             }
         }
-
-
     }
 
     public class Usuario2//     para crear una lista e iterar un datagridview
     {
         public string idUsuario;
         public string estado;
-
     }
 
 

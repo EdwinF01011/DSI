@@ -20,5 +20,6 @@ namespace DSI.Datos
         public string pass { get; set; }
         public bool id_Rol { get; set; }
         public Nullable<bool> id_Estado { get; set; }
+        public string Email { get; set; }
     }
 }

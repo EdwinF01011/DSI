@@ -26,7 +26,8 @@ namespace DSI.CapaVistas
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-
+            linkLabel1.Enabled = false;
+            btnVolver.Visible = false;
             foreach (Form frm in Application.OpenForms)//   itera los forms abiertos y los esconde
             {
                 if (frm != this)
@@ -60,15 +61,25 @@ namespace DSI.CapaVistas
                 {
                     MessageBox.Show("No tiene acceso al programa");
                 }
-
             }
             else
+            {
+                linkLabel1.Enabled = true;
                 lblinfo.Text = "*Credenciales incorrectas*";
+            }
         }
 
         private void btnValidar_Click_1(object sender, EventArgs e)
         {
-            CapturarDatos();
+            if (btnValidar.Text == "Enviar")
+            {
+                //ObjL.enviarCorreo2();
+                goEmail();
+            }
+            else
+            {
+                CapturarDatos();
+            }
         }
 
 
@@ -79,6 +90,45 @@ namespace DSI.CapaVistas
             {
                 CapturarDatos();
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            lblTitle.Location = new Point(74, 15);
+            lblContraseña.Visible = false;
+            txtContraseña.Visible = false;
+            lblTitle.Text = "Recuperación";
+            lblUser.Text = "Digite su Usuario ó Correo eléctrónico";
+            btnValidar.Text = "Enviar";
+            btnVolver.Visible = true;
+            linkLabel1.Visible = false;
+
+
+        }
+
+        private void goEmail()
+        {
+            ObjL.recoverPassword(txtUsuario.Text);
+        }
+
+        private void panel3_Click(object sender, EventArgs e)
+        {
+            lblinfo.Text = "-";
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            btnVolver.Visible = false;
+            linkLabel1.Visible = true;
+            lblTitle.Text = "Ingresar";
+            lblContraseña.Visible = true;
+            txtContraseña.Visible = true;
+            lblUser.Text = "Usuario";
+            btnValidar.Text = "Validar";
+            //lblTitle.Location = new Point(186, 28);
+
+
+
         }
     }
 }

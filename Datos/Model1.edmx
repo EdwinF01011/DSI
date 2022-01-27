@@ -85,6 +85,7 @@
           <Property Name="pass" Type="varchar" MaxLength="64" Nullable="false" />
           <Property Name="id_Rol" Type="bit" Nullable="false" />
           <Property Name="id_Estado" Type="bit" />
+          <Property Name="Email" Type="varchar" MaxLength="30" />
         </EntityType>
         <Association Name="FK__Ciudad__id_pais__4316F928">
           <End Role="Pais" Type="Self.Pais" Multiplicity="0..1" />
@@ -554,6 +555,7 @@
           <Property Name="pass" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="id_Rol" Type="Boolean" Nullable="false" />
           <Property Name="id_Estado" Type="Boolean" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           </EntityType>
         <Association Name="FK__Ciudad__id_pais__4316F928">
           <End Role="Pais" Type="Self.Pais" Multiplicity="0..1" />
@@ -1758,6 +1760,7 @@
           <EntitySetMapping Name="Usuarios">
             <EntityTypeMapping TypeName="DSIModel.Usuarios">
               <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="CC" ColumnName="CC" />

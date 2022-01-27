@@ -351,6 +351,8 @@
     <Compile Include="Negocio\ClsUbicacion.cs" />
     <Compile Include="Negocio\ClsUsuario.cs" />
     <Compile Include="Negocio\ClsValidacionCajas.cs" />
+    <Compile Include="Negocio\MailServices\MailServer.cs" />
+    <Compile Include="Negocio\MailServices\SystemSupportMail.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -445,5 +447,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

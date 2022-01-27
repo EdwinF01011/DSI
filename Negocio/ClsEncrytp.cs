@@ -14,7 +14,6 @@ namespace DSI.Negocio
         {
             // se importó el siguiente código.
             /*ohttps://hdeleon.net/funcion-para-encriptar-en-sha256-en-c-net/ */
-
             SHA256 sha256 = SHA256Managed.Create();
             ASCIIEncoding encoding = new ASCIIEncoding();
             byte[] stream = null;
@@ -29,16 +28,13 @@ namespace DSI.Negocio
             var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             var charsarr = new char[8];
             var randal = new Random();
-
             for(int i=0; i<charsarr.Length; i++)
             {
                 charsarr[i] = characters[randal.Next(characters.Length)];
             }
             var resultString = new String(charsarr);
             //MessageBox.Show(resultString);
-
             return resultString;
         }
-
     }
 }

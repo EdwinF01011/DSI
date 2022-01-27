@@ -18,17 +18,14 @@ namespace DSI.CapaVistas
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void accesosRol()//  bloque accesos según el rol
         {
             lblPrueba.Text = ClsUsuario.rolUsuario.ToString();
             if (ClsUsuario.rolUsuario == 1)
             {
-                btnBackup.Visible = false;
+                //btnBackup.Visible = false; borrar
                 btnUbicaciones.Visible = false;
                 btnSectores.Visible = false;
             }

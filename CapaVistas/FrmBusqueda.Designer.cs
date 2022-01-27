@@ -201,7 +201,7 @@ namespace DSI.CapaVistas
             this.btnCrearProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCrearProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrearProveedor.ForeColor = System.Drawing.Color.White;
-            this.btnCrearProveedor.Location = new System.Drawing.Point(28, 326);
+            this.btnCrearProveedor.Location = new System.Drawing.Point(28, 354);
             this.btnCrearProveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCrearProveedor.Name = "btnCrearProveedor";
             this.btnCrearProveedor.Size = new System.Drawing.Size(218, 72);
@@ -216,7 +216,7 @@ namespace DSI.CapaVistas
             this.btnProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProveedor.ForeColor = System.Drawing.Color.White;
-            this.btnProveedor.Location = new System.Drawing.Point(54, 468);
+            this.btnProveedor.Location = new System.Drawing.Point(41, 236);
             this.btnProveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnProveedor.Name = "btnProveedor";
             this.btnProveedor.Size = new System.Drawing.Size(192, 69);
@@ -231,7 +231,7 @@ namespace DSI.CapaVistas
             this.btnSalirBusq.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalirBusq.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalirBusq.ForeColor = System.Drawing.Color.White;
-            this.btnSalirBusq.Location = new System.Drawing.Point(54, 591);
+            this.btnSalirBusq.Location = new System.Drawing.Point(41, 460);
             this.btnSalirBusq.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSalirBusq.Name = "btnSalirBusq";
             this.btnSalirBusq.Size = new System.Drawing.Size(192, 72);
@@ -271,7 +271,7 @@ namespace DSI.CapaVistas
             this.btnCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCliente.ForeColor = System.Drawing.Color.White;
-            this.btnCliente.Location = new System.Drawing.Point(54, 468);
+            this.btnCliente.Location = new System.Drawing.Point(41, 243);
             this.btnCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCliente.Name = "btnCliente";
             this.btnCliente.Size = new System.Drawing.Size(192, 69);
@@ -284,7 +284,7 @@ namespace DSI.CapaVistas
             // 
             this.lblUsuarioname.AutoSize = true;
             this.lblUsuarioname.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuarioname.Location = new System.Drawing.Point(22, 28);
+            this.lblUsuarioname.Location = new System.Drawing.Point(22, 93);
             this.lblUsuarioname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsuarioname.Name = "lblUsuarioname";
             this.lblUsuarioname.Size = new System.Drawing.Size(137, 33);
