@@ -34,6 +34,21 @@ namespace DSI.Negocio
         //public static string id_ubicacion { get; set; }
         //public static string id_ubicacionPais { get; set; }
 
+        public bool verifyNit(string nit)// verificar si yá existe un contacto con ese NIT
+        {
+            using (DSIEntities1 bd = new DSIEntities1())
+            {
+                var reques = (from l in bd.contacto
+                              where l.NIT == nit
+                              select l).FirstOrDefault();
+                if(reques != null)
+                {
+                    return true;
+                }else
+                    return false;
+            }
+        }
+
 
         public void InsertContacto(
             string Nombre,

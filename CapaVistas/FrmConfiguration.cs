@@ -17,6 +17,8 @@ namespace DSI.CapaVistas
     {
         FrmLogin _frmLo = new FrmLogin();
         ClsUsuario _ClsUsu = new ClsUsuario();
+        ClsValidacionCajas validate = new ClsValidacionCajas();
+
         bool Rol, bandera=false;
         string contraseñaGenerada, postRuta;
         Byte conteo=0;
@@ -582,7 +584,15 @@ namespace DSI.CapaVistas
             }
         }
 
+        private void txtNameUsuarioP_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validate.SoloLetras(e);
+        }
 
+        private void txtNameUsuarioU_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validate.SoloLetras(e);
+        }
 
         private void requestRuta()
         {

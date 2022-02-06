@@ -16,6 +16,7 @@ namespace DSI.CapaVistas
     {
         Clscontacto ObjCont = new Clscontacto();
         ClsBusqueda ObjBu = new ClsBusqueda();
+        ClsValidacionCajas validate = new ClsValidacionCajas();
         bool bandera = false;
         bool bandera2 = false;
         Byte itemPaisR;
@@ -79,14 +80,23 @@ namespace DSI.CapaVistas
             cboxSectorR.DataSource = ObjBu.BuscarSector();
             cboxSectorR.DisplayMember = "nombre_sector";
             cboxSectorR.ValueMember = "id";
+            if (cboxSectorR.Items.Count > 1)
+            {
+                cboxSectorR.SelectedIndex = -1;
+            }
+
+
             //cboxSectorR.SelectedIndex = idSector;//  ubica el índice de la lista del cbox
-            
+
             //  PAÍS
             cboxPaisRegistro.DataSource = ObjBu.BuscarPais();
             cboxPaisRegistro.DisplayMember = "Npais";
             cboxPaisRegistro.ValueMember = "id";
             //cboxPaisRegistro.SelectedIndex = idPais;//  ubica el índice de la lista del cbox
-
+            if (cboxPaisRegistro.Items.Count > 1)
+            {
+                cboxPaisRegistro.SelectedIndex = -1;
+            }
             bandera = true;
             LlenarCboxCity(itemPaisR);// idCity
 
@@ -98,8 +108,9 @@ namespace DSI.CapaVistas
             {
                 itemPaisR = Byte.Parse(cboxPaisRegistro.SelectedValue.ToString());
                 LlenarCboxCity(itemPaisR);
-                lblPais.Text = cboxPaisRegistro.Text;
+                //lblPais.Text = cboxPaisRegistro.Text;
                 cboxCiudadRegistro.Enabled = true;
+
             }
         }
 
@@ -111,6 +122,10 @@ namespace DSI.CapaVistas
                 cboxCiudadRegistro.DisplayMember = "NCiudad";
                 cboxCiudadRegistro.ValueMember = "id";
                 //cboxCiudadRegistro.SelectedIndex = x;
+                if (cboxCiudadRegistro.Items.Count >= 1)
+                {
+                    cboxCiudadRegistro.SelectedIndex = -1;
+                }
                 bandera2 = true;
             }
 
@@ -129,7 +144,7 @@ namespace DSI.CapaVistas
             string City,
             string descripcion,
             Byte itemCity,
-            //Byte itemPais, en duda
+            Byte itemPais, //en duda
             Byte itemSector
 
             )
@@ -142,12 +157,16 @@ namespace DSI.CapaVistas
             txtCorreoR.Text = correo;
             txtDireccionR.Text = Direccion;
             txtDescripcionR.Text = descripcion;
-            lblSector.Text = Sector;
-            lblPais.Text = Pais;
-            lblCity.Text = City;
+            //lblSector.Text = Sector;// no existen
+            //lblPais.Text = Pais;
+            //lblCity.Text = City;
             itemSectorR = itemSector;
             itemCityR = itemCity;
             Clscontacto.idContanto = id;// para usarlo en FrmDocumentos, referenciar el documento.
+            //  permite que los comboBox se posesionen en el valor predefinido
+            cboxPaisRegistro.SelectedValue = itemPais;
+            cboxCiudadRegistro.SelectedValue = itemCity;
+            cboxSectorR.SelectedValue = itemSector;
 
         }
 
@@ -156,16 +175,30 @@ namespace DSI.CapaVistas
             if (bandera == true)
             {
                 itemSectorR = Byte.Parse(cboxSectorR.SelectedValue.ToString());
-                lblSector.Text= cboxSectorR.Text;
+                //lblSector.Text= cboxSectorR.Text;// no existe
             }
         }
 
         private void cboxCiudadRegistro_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (bandera2 == true)
+            //if (bandera2 == true && cboxCiudadRegistro.SelectedValue != null && cboxCiudadRegistro.SelectedIndex != -1)
+            //{
+            //    itemCityR = Byte.Parse(cboxCiudadRegistro.SelectedValue.ToString());
+            //    lblCity.Text = cboxCiudadRegistro.Text;
+            //}
+        }
+
+        private void cboxCiudadRegistro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(bandera2 == true && cboxCiudadRegistro.SelectedValue != null && cboxCiudadRegistro.SelectedIndex != -1)
             {
                 itemCityR = Byte.Parse(cboxCiudadRegistro.SelectedValue.ToString());
-                lblCity.Text = cboxCiudadRegistro.Text;
+
+                //lblCity.Text =cboxCiudadRegistro.SelectedValue.ToString();
+
+                ////lblCity
+
+                //lblCity.Text = cboxCiudadRegistro.Text;
             }
         }
 
@@ -233,7 +266,7 @@ namespace DSI.CapaVistas
                 lblKey.Text = "  Complete los campos   ←_← ";
                 //lblKey.ForeColor=
             }
-            else { InsertContacto(); }
+            else { InsertContacto(); CleanUp.limpiarCajas(this, groupBox1);  MessageBox.Show("cleanUp"); }
                 
         }
 
@@ -270,7 +303,42 @@ namespace DSI.CapaVistas
                 return true;
         }
 
+        private void txtNombreR_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validate.SoloLetras(e);
+        }
 
+        private void txtNIT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            txtNIT.ForeColor = Color.Black;
+
+            validate.SoloNumero(e);
+            //bool verifynit =ObjCont.verifyNit(txtNIT.Text);
+            //if (verifynit ==true)
+            //{
+            //    MessageBox.Show("Este nit ya existe");
+            //}
+        }
+
+        private void txtRsocialR_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validate.SoloLetras(e);
+        }
+
+        private void txtTelefonoR_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validate.SoloNumeroConsignos(e);
+        }
+
+        private void txtNIT_KeyUp(object sender, KeyEventArgs e)
+        {
+            bool verifynit = ObjCont.verifyNit(txtNIT.Text);
+            if (verifynit == true)
+            {
+                txtNIT.ForeColor = Color.Red;
+                MessageBox.Show("Este nit ya existe");
+            }
+        }
 
 
     }

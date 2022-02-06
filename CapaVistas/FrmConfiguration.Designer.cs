@@ -196,9 +196,11 @@ namespace DSI.CapaVistas
             // 
             this.txtNameUsuarioP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNameUsuarioP.Location = new System.Drawing.Point(608, 255);
+            this.txtNameUsuarioP.MaxLength = 30;
             this.txtNameUsuarioP.Name = "txtNameUsuarioP";
             this.txtNameUsuarioP.Size = new System.Drawing.Size(283, 35);
             this.txtNameUsuarioP.TabIndex = 0;
+            this.txtNameUsuarioP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNameUsuarioP_KeyPress);
             this.txtNameUsuarioP.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNameUsuarioP_KeyUp);
             // 
             // panel1
@@ -272,6 +274,7 @@ namespace DSI.CapaVistas
             // 
             this.txtUsuarioP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuarioP.Location = new System.Drawing.Point(61, 181);
+            this.txtUsuarioP.MaxLength = 10;
             this.txtUsuarioP.Name = "txtUsuarioP";
             this.txtUsuarioP.Size = new System.Drawing.Size(283, 35);
             this.txtUsuarioP.TabIndex = 0;
@@ -303,6 +306,7 @@ namespace DSI.CapaVistas
             // 
             this.txtPass1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass1.Location = new System.Drawing.Point(61, 271);
+            this.txtPass1.MaxLength = 15;
             this.txtPass1.Name = "txtPass1";
             this.txtPass1.PasswordChar = '*';
             this.txtPass1.Size = new System.Drawing.Size(284, 35);
@@ -326,6 +330,7 @@ namespace DSI.CapaVistas
             // 
             this.txtPass2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass2.Location = new System.Drawing.Point(63, 360);
+            this.txtPass2.MaxLength = 15;
             this.txtPass2.Name = "txtPass2";
             this.txtPass2.PasswordChar = '*';
             this.txtPass2.Size = new System.Drawing.Size(284, 35);
@@ -477,9 +482,11 @@ namespace DSI.CapaVistas
             // 
             this.txtNameUsuarioU.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNameUsuarioU.Location = new System.Drawing.Point(61, 80);
+            this.txtNameUsuarioU.MaxLength = 30;
             this.txtNameUsuarioU.Name = "txtNameUsuarioU";
             this.txtNameUsuarioU.Size = new System.Drawing.Size(198, 35);
             this.txtNameUsuarioU.TabIndex = 10;
+            this.txtNameUsuarioU.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNameUsuarioU_KeyPress);
             // 
             // label6
             // 
@@ -496,6 +503,7 @@ namespace DSI.CapaVistas
             // 
             this.txtUsuarioU.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuarioU.Location = new System.Drawing.Point(61, 171);
+            this.txtUsuarioU.MaxLength = 10;
             this.txtUsuarioU.Name = "txtUsuarioU";
             this.txtUsuarioU.Size = new System.Drawing.Size(198, 35);
             this.txtUsuarioU.TabIndex = 13;

@@ -341,6 +341,7 @@
     <Compile Include="Datos\Usuarios.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Negocio\CleanUp.cs" />
     <Compile Include="Negocio\ClsBusqueda.cs" />
     <Compile Include="Negocio\ClsContacto.cs" />
     <Compile Include="Negocio\ClsContactosCrud.cs" />

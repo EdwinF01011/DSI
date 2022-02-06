@@ -76,6 +76,7 @@ namespace DSI.CapaVistas
             this.dgvDocs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDocs.Location = new System.Drawing.Point(11, 337);
             this.dgvDocs.Name = "dgvDocs";
+            this.dgvDocs.ReadOnly = true;
             this.dgvDocs.RowHeadersWidth = 62;
             this.dgvDocs.RowTemplate.Height = 28;
             this.dgvDocs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -95,8 +96,10 @@ namespace DSI.CapaVistas
             // 
             // txtNameDoc
             // 
+            this.txtNameDoc.Enabled = false;
             this.txtNameDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNameDoc.Location = new System.Drawing.Point(11, 62);
+            this.txtNameDoc.MaxLength = 50;
             this.txtNameDoc.Name = "txtNameDoc";
             this.txtNameDoc.Size = new System.Drawing.Size(510, 35);
             this.txtNameDoc.TabIndex = 6;
@@ -105,6 +108,7 @@ namespace DSI.CapaVistas
             // 
             this.txtRuta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRuta.Location = new System.Drawing.Point(11, 147);
+            this.txtRuta.MaxLength = 200;
             this.txtRuta.Name = "txtRuta";
             this.txtRuta.Size = new System.Drawing.Size(671, 35);
             this.txtRuta.TabIndex = 7;
@@ -156,9 +160,10 @@ namespace DSI.CapaVistas
             // 
             this.txtObsr.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtObsr.Location = new System.Drawing.Point(12, 234);
+            this.txtObsr.MaxLength = 500;
             this.txtObsr.Multiline = true;
             this.txtObsr.Name = "txtObsr";
-            this.txtObsr.Size = new System.Drawing.Size(574, 97);
+            this.txtObsr.Size = new System.Drawing.Size(670, 97);
             this.txtObsr.TabIndex = 8;
             // 
             // label1
@@ -174,7 +179,7 @@ namespace DSI.CapaVistas
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(650, 296);
+            this.btnDelete.Location = new System.Drawing.Point(655, 651);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(109, 35);
             this.btnDelete.TabIndex = 10;
@@ -188,14 +193,14 @@ namespace DSI.CapaVistas
             this.lblAlert.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAlert.Location = new System.Drawing.Point(12, 660);
             this.lblAlert.Name = "lblAlert";
-            this.lblAlert.Size = new System.Drawing.Size(26, 29);
+            this.lblAlert.Size = new System.Drawing.Size(21, 29);
             this.lblAlert.TabIndex = 35;
-            this.lblAlert.Text = "#";
+            this.lblAlert.Text = "-";
             // 
             // btnOpenFile
             // 
             this.btnOpenFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenFile.Location = new System.Drawing.Point(650, 651);
+            this.btnOpenFile.Location = new System.Drawing.Point(546, 651);
             this.btnOpenFile.Name = "btnOpenFile";
             this.btnOpenFile.Size = new System.Drawing.Size(103, 35);
             this.btnOpenFile.TabIndex = 11;

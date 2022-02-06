@@ -31,6 +31,7 @@ namespace DSI.CapaVistas
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lblinfo = new System.Windows.Forms.Label();
             this.btnValidar = new System.Windows.Forms.Button();
@@ -45,7 +46,6 @@ namespace DSI.CapaVistas
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.btnVolver = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -68,6 +68,22 @@ namespace DSI.CapaVistas
             this.panel3.Size = new System.Drawing.Size(522, 331);
             this.panel3.TabIndex = 16;
             this.panel3.Click += new System.EventHandler(this.panel3_Click);
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.BackColor = System.Drawing.Color.Black;
+            this.btnVolver.FlatAppearance.BorderSize = 0;
+            this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.ForeColor = System.Drawing.Color.White;
+            this.btnVolver.Location = new System.Drawing.Point(14, 16);
+            this.btnVolver.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(63, 45);
+            this.btnVolver.TabIndex = 22;
+            this.btnVolver.Text = "←";
+            this.btnVolver.UseVisualStyleBackColor = false;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // linkLabel1
             // 
@@ -114,6 +130,7 @@ namespace DSI.CapaVistas
             this.txtContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContraseña.Location = new System.Drawing.Point(27, 210);
             this.txtContraseña.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtContraseña.MaxLength = 15;
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(373, 30);
             this.txtContraseña.TabIndex = 4;
@@ -125,6 +142,7 @@ namespace DSI.CapaVistas
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.Location = new System.Drawing.Point(27, 126);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtUsuario.MaxLength = 10;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(373, 30);
             this.txtUsuario.TabIndex = 3;
@@ -233,22 +251,6 @@ namespace DSI.CapaVistas
             this.label12.TabIndex = 17;
             this.label12.Text = "DSI";
             // 
-            // btnVolver
-            // 
-            this.btnVolver.BackColor = System.Drawing.Color.Black;
-            this.btnVolver.FlatAppearance.BorderSize = 0;
-            this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolver.ForeColor = System.Drawing.Color.White;
-            this.btnVolver.Location = new System.Drawing.Point(14, 16);
-            this.btnVolver.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(63, 45);
-            this.btnVolver.TabIndex = 22;
-            this.btnVolver.Text = "←";
-            this.btnVolver.UseVisualStyleBackColor = false;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
-            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -262,6 +264,7 @@ namespace DSI.CapaVistas
             this.Controls.Add(this.label12);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLogin";

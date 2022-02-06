@@ -20,8 +20,11 @@ namespace DSI.Negocio
         {
             using (DSIEntities1 BD =new DSIEntities1())
             {
-                var Bpais = (from l in BD.Pais
-                             select l).ToList();
+                //var Bpais = (from l in BD.Pais
+                //             select l).ToList();
+
+                var Bpais = BD.Pais.OrderBy(x => x.Npais).OrderBy(x=>x.Npais).ToList();
+
                 return Bpais;
             }
         }
@@ -32,7 +35,7 @@ namespace DSI.Negocio
             {
                 var BCity= (from l in BD.Ciudad
                             where l.id_pais==itemPais
-                             select l).ToList();
+                             select l).OrderBy(x=>x.NCiudad).ToList();
                 return BCity;
             }
         }
@@ -41,7 +44,7 @@ namespace DSI.Negocio
         {
             using (DSIEntities1 BD = new DSIEntities1())
             {
-                var BLugares =BD.sp_buscarLugares().ToList();
+                var BLugares = BD.sp_buscarLugares().ToList();
                 return BLugares;
             }
         }
@@ -50,8 +53,9 @@ namespace DSI.Negocio
         {
             using (DSIEntities1 BD = new DSIEntities1())
             {
-                var Bsector = (from l in BD.sector
-                             select l).ToList();
+                //var Bsector = (from l in BD.sector
+                //               select l).ToList();
+                var Bsector = BD.sector.OrderBy(x => x.nombre_sector).ToList();
                 return Bsector;
             }
         }

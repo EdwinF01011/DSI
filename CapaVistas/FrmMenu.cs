@@ -13,16 +13,17 @@ namespace DSI.CapaVistas
 {
     public partial class FrmMenu : Form
     {
+        FrmConfiguration _confi = new FrmConfiguration();
+        FrmBusqueda _busqueda = new FrmBusqueda();
+
         public FrmMenu()
         {
             InitializeComponent();
         }
 
-
-
         private void accesosRol()//  bloque accesos según el rol
         {
-            lblPrueba.Text = ClsUsuario.rolUsuario.ToString();
+            //lblPrueba.Text = ClsUsuario.rolUsuario.ToString();
             if (ClsUsuario.rolUsuario == 1)
             {
                 //btnBackup.Visible = false; borrar
@@ -37,6 +38,10 @@ namespace DSI.CapaVistas
             accesosRol();
             panelMenu.Visible = false;
             btnClosed.Visible = false;
+            //panelBusqueda.Visible = false;
+            // para suspender uso de  botones
+            ClsUsuario.number_categoria = true;
+            changeContac();
         }
 
         private void Nombre_Usuario()
@@ -44,24 +49,12 @@ namespace DSI.CapaVistas
             lblUsuarioname.Text = ClsUsuario.nameUsuario;
         }
 
-        private void btnClientesGo_Click(object sender, EventArgs e)
+        private void changeContac()
         {
-            ClsUsuario.number_categoria = false;
-            this.Hide();
-            FrmBusqueda fmB = new FrmBusqueda();
-            fmB.Show();
-            ClsUsuario.categoria_busqueda = "Clientes";
-            fmB.Busqueda_tipo_label("Clientes");
-        }
-
-        private void btnProveedorsGo_Click(object sender, EventArgs e)
-        {
-            ClsUsuario.number_categoria = true;
-            this.Hide();
-            FrmBusqueda fmB = new FrmBusqueda();
-            fmB.Show();
+            _busqueda = new FrmBusqueda();
             ClsUsuario.categoria_busqueda = "Proveedores";
-            fmB.Busqueda_tipo_label("Proveedores");
+            _busqueda.Busqueda_tipo_label("Proveedores");
+            traerFormBusqueda(_busqueda);
         }
 
         private void btnUbicaciones_Click(object sender, EventArgs e)
@@ -85,38 +78,37 @@ namespace DSI.CapaVistas
 
         private void btnConfigurar_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            //FrmConfiguration _Confi = new FrmConfiguration();
-            //_Confi.Show();
+            panelBusqueda.Visible = false;
             btnClosed.Visible = true;
             traerFrmConfi();
         }
 
-        FrmConfiguration _confi = new FrmConfiguration();
         private void traerFrmConfi()
         {
             panelMenu.Visible = true;
-
             _confi = new FrmConfiguration();
             _confi.TopLevel = false;
             panelMenu.Controls.Add(_confi);
             _confi.Show();
-
         }
 
-        public void ClosePanel()
+        private void traerFormBusqueda(Form frmbusqueda)
         {
-            if(panelMenu.Visible==true)
-            {
-                panelMenu.Visible = false;
-            }
+            frmbusqueda.TopLevel = false;
+            panelBusqueda.Visible = true;
+            panelBusqueda.Controls.Add(frmbusqueda);
+            frmbusqueda.Show();
         }
 
         private void btnClosed_Click(object sender, EventArgs e)
         {
-            ClosePanel();
+            panelMenu.Visible = false;
+            panelBusqueda.Enabled = true;
+            changeContac();
             btnClosed.Visible = false;
-
         }
+
+
+
     }
 }

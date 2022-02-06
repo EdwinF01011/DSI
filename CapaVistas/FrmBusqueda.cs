@@ -14,6 +14,8 @@ namespace DSI.CapaVistas
     public partial class FrmBusqueda : Form
     {
         ClsBusqueda ObjBu = new ClsBusqueda();
+        ClsValidacionCajas validate = new ClsValidacionCajas();
+
         //ClsContactosCrud ObjBusqueda = new ClsContactosCrud();    no se usa
         //ClsContactosCrud ObjBusquedaCr = new ClsContactosCrud();  no se usa
 
@@ -48,7 +50,7 @@ namespace DSI.CapaVistas
 
         private void Nombre_Usuario()
         {
-            lblUsuarioname.Text = ClsUsuario.nameUsuario;
+            //lblUsuarioname.Text = ClsUsuario.nameUsuario;// lblUsuarioname ya no existe
             lblcategoria.Text = ClsUsuario.categoria_busqueda;
             
             //dataGridView1.DataSource = ObjBu.consultaTodo();
@@ -61,7 +63,10 @@ namespace DSI.CapaVistas
 
             //LlenarComboxSector(); no
             Nombre_Usuario();
-            
+
+            completyDgv();
+
+
 
             //txtNombreMenu.Enabled = false;
 
@@ -103,10 +108,18 @@ namespace DSI.CapaVistas
             cboxPaisMenu.DataSource = ObjBu.BuscarPais();
             cboxPaisMenu.DisplayMember = "Npais";
             cboxPaisMenu.ValueMember = "id";
+            if (cboxPaisMenu.Items.Count>1)
+            {
+                cboxPaisMenu.SelectedIndex = -1;
+            }
             //  cbox del sector
             cboxSectorMenu.DataSource = ObjBu.BuscarSector();
             cboxSectorMenu.DisplayMember = "nombre_sector";
             cboxSectorMenu.ValueMember = "id";
+            if (cboxSectorMenu.Items.Count > 1)
+            {
+                cboxSectorMenu.SelectedIndex = -1;
+            }
             //  cbox de la ciudad
             //cboxCiudadMenu.DataSource = ObjBu.BuscarCiudad(itemPais);
             //cboxCiudadMenu.DisplayMember = "NCiudad";
@@ -140,7 +153,7 @@ namespace DSI.CapaVistas
         {
             //para poder obtener la pk de la tabla Pais
 
-            if (bandera == true)
+            if (bandera == true && cboxPaisMenu.SelectedValue!=null)
             {
                 itemPais = Byte.Parse(cboxPaisMenu.SelectedValue.ToString());
                 //MessageBox.Show(itemPais.ToString()+" pais");
@@ -155,6 +168,10 @@ namespace DSI.CapaVistas
             cboxCiudadMenu.DataSource = ObjBu.BuscarCiudad(itemPais);
             cboxCiudadMenu.DisplayMember = "NCiudad";
             cboxCiudadMenu.ValueMember = "id";
+            if (cboxCiudadMenu.Items.Count >= 1)
+            {
+                cboxCiudadMenu.SelectedIndex = -1;
+            }
         }
 
         private void cboxCiudadMenu_SelectedIndexChanged(object sender, EventArgs e)
@@ -163,17 +180,19 @@ namespace DSI.CapaVistas
             {
                 //itemCity = Byte.Parse(cboxCiudadMenu.SelectedValue.ToString());
                 short n;
-                string x =cboxCiudadMenu.SelectedValue.ToString();//   tocó usar string para prevenir el error
-                bool check = Int16.TryParse(x, out n);// si contiene números
-                if (check)
-                {
-                    itemCity =Byte.Parse(x);
-                    once = 11;
-                    Search_If();
-                    //MessageBox.Show(itemCity.ToString() + " city");
-                }
 
-                
+                if (cboxCiudadMenu.SelectedValue!=null)
+                {
+                    var x = cboxCiudadMenu.SelectedValue.ToString();//   tocó usar string para prevenir el error
+                    bool check = Int16.TryParse(x, out n);// si contiene números
+                    if (check)
+                    {
+                        itemCity = Byte.Parse(x);
+                        once = 11;
+                        Search_If();
+                        //MessageBox.Show(itemCity.ToString() + " city");
+                    }
+                }      
             }
         }
 
@@ -184,9 +203,6 @@ namespace DSI.CapaVistas
             //Cuando el usuario seleccione el tipo de categoría que
             //quiere buscar
             lblcategoria.Text = x;
-            nameButton();
-
-
         }
 
         private void btnCrearProveedor_Click(object sender, EventArgs e)
@@ -208,16 +224,16 @@ namespace DSI.CapaVistas
 
         private void btnbuscar_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = ObjBu.consultaTodo();
-            dataGridView1.Columns[0].Visible = false;
-            dataGridView1.Columns[3].Visible = false;
-            dataGridView1.Columns[9].Visible = false;
-            dataGridView1.Columns[10].Visible = false;
-            dataGridView1.Columns[11].Visible = false;
-            dataGridView1.Columns[12].Visible = false;
-            dataGridView1.Columns[13].Visible = false;
+            //dataGridView1.DataSource = ObjBu.consultaTodo();
+            //dataGridView1.Columns[0].Visible = false;
+            //dataGridView1.Columns[3].Visible = false;
+            //dataGridView1.Columns[9].Visible = false;
+            //dataGridView1.Columns[10].Visible = false;
+            //dataGridView1.Columns[11].Visible = false;
+            //dataGridView1.Columns[12].Visible = false;
+            //dataGridView1.Columns[13].Visible = false;
 
-
+            completyDgv();
 
             //dataGridView1.DataSource = ObjBu.consultaTodo2();
 
@@ -228,6 +244,18 @@ namespace DSI.CapaVistas
             //dataGridView1.DataSource = ObjBusqueda.ReadContacto();
 
             //dataGridView1.DataSource = ObjBu.FiltroOneFive();         //  Busca todo
+        }
+
+        public void completyDgv()
+        {
+            dataGridView1.DataSource = ObjBu.consultaTodo();
+            dataGridView1.Columns[0].Visible = false;
+            dataGridView1.Columns[3].Visible = false;
+            dataGridView1.Columns[9].Visible = false;
+            dataGridView1.Columns[10].Visible = false;
+            dataGridView1.Columns[11].Visible = false;
+            dataGridView1.Columns[12].Visible = false;
+            dataGridView1.Columns[13].Visible = false;
         }
 
         private void ocultarCamposDGV()
@@ -289,14 +317,12 @@ namespace DSI.CapaVistas
             dataGridView1.Columns.Clear();
             contador = 0;
             uno = 0; dos = 0; cinco = 0; nueve = 0; once=0;
-
-
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
             ClearTxts();
-            
+            //LlenarCombox();
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -356,9 +382,9 @@ namespace DSI.CapaVistas
                  City,
                 descripcion,
                 itemCity,
+                itemPais,
                 itemSector
 
-                //idPais
                 );
 
         }
@@ -370,7 +396,6 @@ namespace DSI.CapaVistas
             panelMenu.Controls.Add(frmRe);
             frmRe.Show();
             frmRe.Proces(0);
-
         }
 
         private void FrmBusqueda_Click(object sender, EventArgs e)
@@ -380,55 +405,59 @@ namespace DSI.CapaVistas
 
         }
 
-        private void nameButton()
-        {//     nombra de manera opuesta a la opción  que eleginos con
-         // anterioridad de búsqueda.
-            if (ClsUsuario.categoria_busqueda == "Proveedores")
+        private void btnCambio_Click(object sender, EventArgs e)
+        {
+            cambioBusqueda();
+            completyDgv();
+        }
+
+        private void cambioBusqueda()
+        {
+            if (lblcategoria.Text == "Clientes")
             {
-                btnCliente.Visible = true;
-                btnProveedor.Visible = false;
+                ClsUsuario.number_categoria = true;
+                ClsUsuario.categoria_busqueda = "Proveedores";
+                lblcategoria.Text = ClsUsuario.categoria_busqueda;
             }
-            else if (ClsUsuario.categoria_busqueda == "Clientes")//     redundante
+            else if (lblcategoria.Text == "Proveedores")
             {
-                btnProveedor.Visible = true;
-                btnCliente.Visible = false;
+                ClsUsuario.number_categoria = false;
+                ClsUsuario.categoria_busqueda = "Clientes";
+                lblcategoria.Text = ClsUsuario.categoria_busqueda;
             }
-            //MessageBox.Show(ClsUsuario.categoria_busqueda+"  2");
         }
 
-        private void btnProveedor_Click(object sender, EventArgs e)//  click cambio
+        private void panel3_Click(object sender, EventArgs e)
         {
-            ClsUsuario.number_categoria = true;
-            ClsUsuario.categoria_busqueda = "Proveedores";
-            btnCliente.Visible = true;
-            btnProveedor.Visible = false;
-            lblcategoria.Text = ClsUsuario.categoria_busqueda;
+            cambioBusqueda();
+            completyDgv();
         }
 
-        private void btnCliente_Click(object sender, EventArgs e)//  click cambio
+        private void txtNombreMenu_KeyUp(object sender, KeyEventArgs e)
         {
-            ClsUsuario.number_categoria = false;
-            ClsUsuario.categoria_busqueda = "Clientes";
-            btnProveedor.Visible = true;
-            btnCliente.Visible = false;
-            lblcategoria.Text = ClsUsuario.categoria_busqueda;
-        }
-
-        private void txtNombreMenu_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //label2.Text =txtNombreMenu.Text ;
-            //NombreContacto = txtNombreMenu.Text.Trim();
-            //Search_If();
+            //validate.SoloLetras2(e);
             uno = 1;
             Search_If();
         }
 
-        private void txtRsocialMenu_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtRsocialMenu_KeyUp(object sender, KeyEventArgs e)
         {
             RSocial = txtRsocialMenu.Text;
             dos = 2;
             Search_If();
         }
+
+        private void txtNombreMenu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validate.SoloLetras(e);
+        }
+
+        private void txtRsocialMenu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validate.SoloLetras(e);
+        }
+
+
 
         //private void Search_If()
         //{
@@ -505,12 +534,12 @@ namespace DSI.CapaVistas
         private void Search_If()
         {
             contador =uno + dos +cinco + nueve+ once;
-            label2.Text = contador.ToString();
-            //  pruebas
-            lblSocial.Text = txtRsocialMenu.Text;
-            lblsector.Text = itemSector.ToString();
-            lblpais.Text = itemPais.ToString();
-            lblciudad.Text = itemCity.ToString();
+            //label2.Text = contador.ToString();  desechar
+            ////  pruebas
+            //lblSocial.Text = txtRsocialMenu.Text;
+            //lblsector.Text = itemSector.ToString();
+            //lblpais.Text = itemPais.ToString();
+            //lblciudad.Text = itemCity.ToString();
             //
 
             switch (contador)

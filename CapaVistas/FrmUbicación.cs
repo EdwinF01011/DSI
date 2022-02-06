@@ -43,6 +43,10 @@ namespace DSI.CapaVistas
             cboxPais.DataSource = ObjBu.BuscarPais();
             cboxPais.DisplayMember = "Npais";
             cboxPais.ValueMember = "id";
+            if (cboxPais.Items.Count>1)
+            {
+                cboxPais.SelectedIndex = -1;
+            }
         }
 
         private void InsertPais()//                                  >>>>>>

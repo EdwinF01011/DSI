@@ -34,20 +34,17 @@ namespace DSI.CapaVistas
             this.btnConfigurar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.lblDirectorioEmpresarial = new System.Windows.Forms.Label();
-            this.btnProveedorsGo = new System.Windows.Forms.Button();
-            this.btnClientesGo = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSectores = new System.Windows.Forms.Button();
             this.btnUbicaciones = new System.Windows.Forms.Button();
             this.lblUsuarioname = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lblPrueba = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnClosed = new System.Windows.Forms.Button();
+            this.panelBusqueda = new System.Windows.Forms.Panel();
             this.pnlMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNombreUsuario
@@ -96,102 +93,44 @@ namespace DSI.CapaVistas
             // 
             this.lblDirectorioEmpresarial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDirectorioEmpresarial.AutoSize = true;
-            this.lblDirectorioEmpresarial.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDirectorioEmpresarial.Location = new System.Drawing.Point(1557, 9);
+            this.lblDirectorioEmpresarial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDirectorioEmpresarial.Location = new System.Drawing.Point(45, 12);
             this.lblDirectorioEmpresarial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDirectorioEmpresarial.Name = "lblDirectorioEmpresarial";
-            this.lblDirectorioEmpresarial.Size = new System.Drawing.Size(328, 33);
+            this.lblDirectorioEmpresarial.Size = new System.Drawing.Size(276, 29);
             this.lblDirectorioEmpresarial.TabIndex = 4;
             this.lblDirectorioEmpresarial.Text = "Directorio Empresarial";
-            // 
-            // btnProveedorsGo
-            // 
-            this.btnProveedorsGo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnProveedorsGo.BackgroundImage")));
-            this.btnProveedorsGo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnProveedorsGo.FlatAppearance.BorderSize = 0;
-            this.btnProveedorsGo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProveedorsGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProveedorsGo.ForeColor = System.Drawing.Color.Black;
-            this.btnProveedorsGo.Location = new System.Drawing.Point(1330, 402);
-            this.btnProveedorsGo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnProveedorsGo.Name = "btnProveedorsGo";
-            this.btnProveedorsGo.Size = new System.Drawing.Size(303, 291);
-            this.btnProveedorsGo.TabIndex = 5;
-            this.btnProveedorsGo.UseVisualStyleBackColor = true;
-            this.btnProveedorsGo.Click += new System.EventHandler(this.btnProveedorsGo_Click);
-            // 
-            // btnClientesGo
-            // 
-            this.btnClientesGo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClientesGo.BackgroundImage")));
-            this.btnClientesGo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnClientesGo.FlatAppearance.BorderSize = 0;
-            this.btnClientesGo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClientesGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClientesGo.Location = new System.Drawing.Point(722, 402);
-            this.btnClientesGo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnClientesGo.Name = "btnClientesGo";
-            this.btnClientesGo.Size = new System.Drawing.Size(296, 291);
-            this.btnClientesGo.TabIndex = 6;
-            this.btnClientesGo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnClientesGo.UseVisualStyleBackColor = true;
-            this.btnClientesGo.Click += new System.EventHandler(this.btnClientesGo_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(32, 993);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(171, 25);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "E ingenierías SAS";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(32, 969);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 25);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Suministros";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(32, 944);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 25);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Diseños ";
             // 
             // pnlMenu
             // 
             this.pnlMenu.BackColor = System.Drawing.Color.Transparent;
             this.pnlMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlMenu.BackgroundImage")));
             this.pnlMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlMenu.Controls.Add(this.pictureBox1);
             this.pnlMenu.Controls.Add(this.btnSectores);
             this.pnlMenu.Controls.Add(this.btnUbicaciones);
             this.pnlMenu.Controls.Add(this.lblUsuarioname);
             this.pnlMenu.Controls.Add(this.lblNombreUsuario);
             this.pnlMenu.Controls.Add(this.btnConfigurar);
-            this.pnlMenu.Controls.Add(this.label4);
-            this.pnlMenu.Controls.Add(this.label3);
-            this.pnlMenu.Controls.Add(this.label2);
+            this.pnlMenu.Controls.Add(this.panel2);
+            this.pnlMenu.Controls.Add(this.lblDirectorioEmpresarial);
             this.pnlMenu.Controls.Add(this.btnSalir);
             this.pnlMenu.Location = new System.Drawing.Point(-20, -3);
             this.pnlMenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlMenu.Name = "pnlMenu";
-            this.pnlMenu.Size = new System.Drawing.Size(368, 1028);
+            this.pnlMenu.Size = new System.Drawing.Size(342, 1028);
             this.pnlMenu.TabIndex = 10;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(32, 70);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(56, 56);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // btnSectores
             // 
@@ -227,7 +166,7 @@ namespace DSI.CapaVistas
             // 
             this.lblUsuarioname.AutoSize = true;
             this.lblUsuarioname.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuarioname.Location = new System.Drawing.Point(31, 96);
+            this.lblUsuarioname.Location = new System.Drawing.Point(95, 82);
             this.lblUsuarioname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsuarioname.Name = "lblUsuarioname";
             this.lblUsuarioname.Size = new System.Drawing.Size(137, 33);
@@ -237,24 +176,13 @@ namespace DSI.CapaVistas
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(243)))), ((int)(((byte)(138)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.panel2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel2.Location = new System.Drawing.Point(1563, 50);
+            this.panel2.Location = new System.Drawing.Point(33, 46);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(320, 9);
+            this.panel2.Size = new System.Drawing.Size(297, 9);
             this.panel2.TabIndex = 12;
-            // 
-            // lblPrueba
-            // 
-            this.lblPrueba.AutoSize = true;
-            this.lblPrueba.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrueba.Location = new System.Drawing.Point(530, 93);
-            this.lblPrueba.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPrueba.Name = "lblPrueba";
-            this.lblPrueba.Size = new System.Drawing.Size(137, 33);
-            this.lblPrueba.TabIndex = 14;
-            this.lblPrueba.Text = "Nombre*";
             // 
             // panelMenu
             // 
@@ -262,24 +190,35 @@ namespace DSI.CapaVistas
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelMenu.BackColor = System.Drawing.Color.DarkRed;
-            this.panelMenu.Location = new System.Drawing.Point(355, 67);
+            this.panelMenu.Location = new System.Drawing.Point(357, 77);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(1530, 948);
+            this.panelMenu.Size = new System.Drawing.Size(1529, 948);
             this.panelMenu.TabIndex = 15;
             // 
             // btnClosed
             // 
-            this.btnClosed.BackColor = System.Drawing.Color.MidnightBlue;
-            this.btnClosed.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClosed.BackColor = System.Drawing.Color.Transparent;
+            this.btnClosed.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClosed.BackgroundImage")));
+            this.btnClosed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnClosed.FlatAppearance.BorderSize = 0;
+            this.btnClosed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClosed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClosed.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnClosed.Location = new System.Drawing.Point(355, 26);
+            this.btnClosed.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnClosed.Location = new System.Drawing.Point(329, 29);
             this.btnClosed.Name = "btnClosed";
-            this.btnClosed.Size = new System.Drawing.Size(133, 35);
+            this.btnClosed.Size = new System.Drawing.Size(109, 42);
             this.btnClosed.TabIndex = 16;
-            this.btnClosed.Text = "Close";
             this.btnClosed.UseVisualStyleBackColor = false;
             this.btnClosed.Click += new System.EventHandler(this.btnClosed_Click);
+            // 
+            // panelBusqueda
+            // 
+            this.panelBusqueda.BackColor = System.Drawing.Color.Crimson;
+            this.panelBusqueda.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panelBusqueda.Location = new System.Drawing.Point(346, 0);
+            this.panelBusqueda.Name = "panelBusqueda";
+            this.panelBusqueda.Size = new System.Drawing.Size(1552, 1025);
+            this.panelBusqueda.TabIndex = 17;
             // 
             // FrmMenu
             // 
@@ -288,14 +227,10 @@ namespace DSI.CapaVistas
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1898, 1024);
+            this.Controls.Add(this.panelBusqueda);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.btnClosed);
-            this.Controls.Add(this.lblPrueba);
-            this.Controls.Add(this.btnProveedorsGo);
-            this.Controls.Add(this.btnClientesGo);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnlMenu);
-            this.Controls.Add(this.lblDirectorioEmpresarial);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -304,8 +239,8 @@ namespace DSI.CapaVistas
             this.Load += new System.EventHandler(this.FrmMenu_Load);
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -315,18 +250,14 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.Button btnConfigurar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Label lblDirectorioEmpresarial;
-        private System.Windows.Forms.Button btnProveedorsGo;
-        private System.Windows.Forms.Button btnClientesGo;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pnlMenu;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblUsuarioname;
         private System.Windows.Forms.Button btnSectores;
         private System.Windows.Forms.Button btnUbicaciones;
-        private System.Windows.Forms.Label lblPrueba;
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Button btnClosed;
+        private System.Windows.Forms.Panel panelBusqueda;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
