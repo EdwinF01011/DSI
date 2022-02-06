@@ -65,12 +65,15 @@ namespace DSI.CapaVistas
             this.txtNameUsuarioU = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtUsuarioU = new System.Windows.Forms.TextBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.lblAlert = new System.Windows.Forms.TabPage();
+            this.lblCreado = new System.Windows.Forms.Label();
+            this.btnRuta = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtRuta = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnCrear = new System.Windows.Forms.Button();
+            this.lblA = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -78,7 +81,7 @@ namespace DSI.CapaVistas
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.panel3.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            this.lblAlert.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -88,7 +91,7 @@ namespace DSI.CapaVistas
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.lblAlert);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(30, 33);
             this.tabControl1.Name = "tabControl1";
@@ -364,7 +367,7 @@ namespace DSI.CapaVistas
             // 
             // btnGuardarU
             // 
-            this.btnGuardarU.Location = new System.Drawing.Point(1219, 486);
+            this.btnGuardarU.Location = new System.Drawing.Point(1219, 743);
             this.btnGuardarU.Name = "btnGuardarU";
             this.btnGuardarU.Size = new System.Drawing.Size(149, 38);
             this.btnGuardarU.TabIndex = 21;
@@ -375,7 +378,7 @@ namespace DSI.CapaVistas
             // dgvUsuarios
             // 
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsuarios.Location = new System.Drawing.Point(83, 530);
+            this.dgvUsuarios.Location = new System.Drawing.Point(83, 494);
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.RowHeadersWidth = 62;
             this.dgvUsuarios.RowTemplate.Height = 28;
@@ -385,6 +388,8 @@ namespace DSI.CapaVistas
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.Controls.Add(this.txtCorreo);
             this.panel3.Controls.Add(this.lblAviso);
             this.panel3.Controls.Add(this.lblPassword);
             this.panel3.Controls.Add(this.btnGuardar);
@@ -395,9 +400,9 @@ namespace DSI.CapaVistas
             this.panel3.Controls.Add(this.txtNameUsuarioU);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.txtUsuarioU);
-            this.panel3.Location = new System.Drawing.Point(83, 77);
+            this.panel3.Location = new System.Drawing.Point(83, 31);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1285, 370);
+            this.panel3.Size = new System.Drawing.Size(1285, 416);
             this.panel3.TabIndex = 24;
             // 
             // lblAviso
@@ -416,7 +421,7 @@ namespace DSI.CapaVistas
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblPassword.Location = new System.Drawing.Point(293, 174);
+            this.lblPassword.Location = new System.Drawing.Point(293, 151);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(39, 26);
             this.lblPassword.TabIndex = 23;
@@ -424,7 +429,7 @@ namespace DSI.CapaVistas
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(1136, 316);
+            this.btnGuardar.Location = new System.Drawing.Point(1136, 359);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(132, 41);
             this.btnGuardar.TabIndex = 11;
@@ -436,7 +441,7 @@ namespace DSI.CapaVistas
             // 
             this.rbtnAuxiliar.AutoSize = true;
             this.rbtnAuxiliar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.rbtnAuxiliar.Location = new System.Drawing.Point(61, 309);
+            this.rbtnAuxiliar.Location = new System.Drawing.Point(61, 371);
             this.rbtnAuxiliar.Name = "rbtnAuxiliar";
             this.rbtnAuxiliar.Size = new System.Drawing.Size(101, 29);
             this.rbtnAuxiliar.TabIndex = 19;
@@ -449,7 +454,7 @@ namespace DSI.CapaVistas
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(56, 232);
+            this.label5.Location = new System.Drawing.Point(56, 294);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 30);
             this.label5.TabIndex = 20;
@@ -459,7 +464,7 @@ namespace DSI.CapaVistas
             // 
             this.rbtnAdmin.AutoSize = true;
             this.rbtnAdmin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.rbtnAdmin.Location = new System.Drawing.Point(61, 274);
+            this.rbtnAdmin.Location = new System.Drawing.Point(61, 336);
             this.rbtnAdmin.Name = "rbtnAdmin";
             this.rbtnAdmin.Size = new System.Drawing.Size(142, 29);
             this.rbtnAdmin.TabIndex = 18;
@@ -472,7 +477,7 @@ namespace DSI.CapaVistas
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(56, 47);
+            this.label7.Location = new System.Drawing.Point(56, 26);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(231, 30);
             this.label7.TabIndex = 9;
@@ -481,7 +486,7 @@ namespace DSI.CapaVistas
             // txtNameUsuarioU
             // 
             this.txtNameUsuarioU.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNameUsuarioU.Location = new System.Drawing.Point(61, 80);
+            this.txtNameUsuarioU.Location = new System.Drawing.Point(61, 59);
             this.txtNameUsuarioU.MaxLength = 30;
             this.txtNameUsuarioU.Name = "txtNameUsuarioU";
             this.txtNameUsuarioU.Size = new System.Drawing.Size(198, 35);
@@ -493,7 +498,7 @@ namespace DSI.CapaVistas
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(56, 138);
+            this.label6.Location = new System.Drawing.Point(56, 115);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(102, 30);
             this.label6.TabIndex = 12;
@@ -502,65 +507,92 @@ namespace DSI.CapaVistas
             // txtUsuarioU
             // 
             this.txtUsuarioU.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuarioU.Location = new System.Drawing.Point(61, 171);
+            this.txtUsuarioU.Location = new System.Drawing.Point(61, 148);
             this.txtUsuarioU.MaxLength = 10;
             this.txtUsuarioU.Name = "txtUsuarioU";
             this.txtUsuarioU.Size = new System.Drawing.Size(198, 35);
             this.txtUsuarioU.TabIndex = 13;
             // 
-            // tabPage3
+            // lblAlert
             // 
-            this.tabPage3.Controls.Add(this.label9);
-            this.tabPage3.Controls.Add(this.txtRuta);
-            this.tabPage3.Controls.Add(this.label8);
-            this.tabPage3.Controls.Add(this.btnCrear);
-            this.tabPage3.Location = new System.Drawing.Point(4, 34);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1461, 847);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Backup";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.lblAlert.Controls.Add(this.lblCreado);
+            this.lblAlert.Controls.Add(this.btnRuta);
+            this.lblAlert.Controls.Add(this.label9);
+            this.lblAlert.Controls.Add(this.lblA);
+            this.lblAlert.Location = new System.Drawing.Point(4, 34);
+            this.lblAlert.Name = "lblAlert";
+            this.lblAlert.Padding = new System.Windows.Forms.Padding(3);
+            this.lblAlert.Size = new System.Drawing.Size(1461, 847);
+            this.lblAlert.TabIndex = 2;
+            this.lblAlert.Text = "Backup";
+            this.lblAlert.UseVisualStyleBackColor = true;
+            this.lblAlert.Click += new System.EventHandler(this.lblAlert_Click);
+            // 
+            // lblCreado
+            // 
+            this.lblCreado.AutoSize = true;
+            this.lblCreado.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblCreado.Location = new System.Drawing.Point(820, 388);
+            this.lblCreado.Name = "lblCreado";
+            this.lblCreado.Size = new System.Drawing.Size(165, 25);
+            this.lblCreado.TabIndex = 28;
+            this.lblCreado.Text = "Creado con éxito.";
+            this.lblCreado.Visible = false;
+            // 
+            // btnRuta
+            // 
+            this.btnRuta.Location = new System.Drawing.Point(714, 381);
+            this.btnRuta.Name = "btnRuta";
+            this.btnRuta.Size = new System.Drawing.Size(91, 38);
+            this.btnRuta.TabIndex = 27;
+            this.btnRuta.Text = "...";
+            this.btnRuta.UseVisualStyleBackColor = true;
+            this.btnRuta.Click += new System.EventHandler(this.btnRuta_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(525, 313);
+            this.label9.Location = new System.Drawing.Point(303, 304);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(485, 25);
+            this.label9.Size = new System.Drawing.Size(913, 25);
             this.label9.TabIndex = 26;
-            this.label9.Text = "agregue la ruta donde desea que se guarde el  backup";
+            this.label9.Text = "Click para abrir el explorador de archivos y seleccionar la ubicación para el bac" +
+    "kup. La extensión es .bak\r\n";
             // 
-            // txtRuta
+            // lblA
             // 
-            this.txtRuta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRuta.Location = new System.Drawing.Point(507, 351);
-            this.txtRuta.Name = "txtRuta";
-            this.txtRuta.Size = new System.Drawing.Size(521, 35);
-            this.txtRuta.TabIndex = 25;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(574, 425);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(387, 25);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "click para crear backup de la base de datos";
-            // 
-            // btnCrear
-            // 
-            this.btnCrear.Location = new System.Drawing.Point(693, 473);
-            this.btnCrear.Name = "btnCrear";
-            this.btnCrear.Size = new System.Drawing.Size(149, 38);
-            this.btnCrear.TabIndex = 22;
-            this.btnCrear.Text = "Crear";
-            this.btnCrear.UseVisualStyleBackColor = true;
-            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
+            this.lblA.AutoSize = true;
+            this.lblA.Location = new System.Drawing.Point(552, 446);
+            this.lblA.Name = "lblA";
+            this.lblA.Size = new System.Drawing.Size(415, 50);
+            this.lblA.TabIndex = 23;
+            this.lblA.Text = "click para crear backup de la base de datos,\r\nsugerible en una carpeta cerca de l" +
+    "a unidad C.";
+            this.lblA.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label8.Location = new System.Drawing.Point(56, 203);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(92, 30);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "Correo";
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCorreo.Location = new System.Drawing.Point(61, 236);
+            this.txtCorreo.MaxLength = 30;
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(386, 35);
+            this.txtCorreo.TabIndex = 25;
             // 
             // FrmConfiguration
             // 
@@ -585,8 +617,8 @@ namespace DSI.CapaVistas
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
+            this.lblAlert.ResumeLayout(false);
+            this.lblAlert.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -614,7 +646,7 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.TextBox txtNameUsuarioU;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage lblAlert;
         private System.Windows.Forms.Button btnGuardarU;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblAviso;
@@ -629,10 +661,13 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.CheckBox chkContraseña;
         private System.Windows.Forms.Label lblAlertPerfil;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnCrear;
+        private System.Windows.Forms.Label lblA;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtRuta;
+        private System.Windows.Forms.Button btnRuta;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Label lblCreado;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtCorreo;
     }
 }

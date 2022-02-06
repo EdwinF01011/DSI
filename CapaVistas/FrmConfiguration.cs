@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DSI.Negocio;
 using System.Data.SqlClient;
 using System.IO;
+using System.Configuration;// jpara acceder al  App.config
 
 namespace DSI.CapaVistas
 {
@@ -22,7 +23,18 @@ namespace DSI.CapaVistas
         bool Rol, bandera=false;
         string contraseñaGenerada, postRuta;
         Byte conteo=0;
+        
+        //  2 modos para la conexión a la Base de Datos
+        //1  no tan segura"
         SqlConnection conex = new SqlConnection("SERVER=ELLIOT\\SQLEXPRESS;DATABASE=DSI;Integrated Security=true");//    Uid=admin;pwd=1234; si no se hace por autentificación de windows
+        //2   dicen que es seguro
+        private SqlConnection conx = new SqlConnection(ConfigurationManager.ConnectionStrings["conexionBackup"].ConnectionString);
+
+        //NOTA IMPORTANTE
+        //para usar la cadena de conexión de App.config, debemos modificar la que vayamos a utilizar. video explicativo
+        // video-https://www.youtube.com/watch?v=IukThCJajEA
+        //resultado del video:
+        //<add name="conexionBackup" connectionString="data source=ELLIOT\SQLEXPRESS;initial catalog=DSI;integrated security=True;" providerName="System.Data.EntityClient" />
 
 
 
@@ -129,7 +141,7 @@ namespace DSI.CapaVistas
             if (ClsUsuario.rolUsuario == 1)
             {
                 tabControl1.TabPages.Remove(tabPage2);
-                tabControl1.TabPages.Remove(tabPage3);
+                tabControl1.TabPages.Remove(lblAlert);
                 return false;
             }
             else
@@ -143,7 +155,6 @@ namespace DSI.CapaVistas
         {
             selectionRol();
             insertUsuario();
-
             clear();
         }
 
@@ -508,51 +519,40 @@ namespace DSI.CapaVistas
 
         }
 
-        private void btnCrear_Click(object sender, EventArgs e)
-        {
-            //
-
-            bool x= AjustarRuta();
-
-            
-            //  ejemplos
-            //string comando_consulta = "BACKUP DATABASE [DSI] TO  DISK = N'C:\\Users\\loros\\Downloads\\copiasSegurity\\"+fecha_copia + "' WITH NOFORMAT, NOINIT,  NAME = N'DSI-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
-            //string comando_consulta3 = "BACKUP DATABASE [DSI] TO  DISK = N'C:\\Program Files\\Microsoft SQL Server\\MSSQL15.SQLEXPRESS\\MSSQL\\Backup\\DSI.bak' WITH NOFORMAT, NOINIT,  NAME = N'DSI-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
-
-
-            try
-            {
-                if (x==true)
-                {
-                    //  ontiene fecha y hota del sistema
-                    string fecha_copia = "Fecha_" + System.DateTime.Now.ToString("dd_MM_yyyy") + "_hora_"
-                        + System.DateTime.Now.ToString("hhh_mm_ss") + ".bak";
-
-                    string comando_consulta2 = "BACKUP DATABASE [DSI] TO  DISK = N'" + postRuta + "\\" + fecha_copia + "' WITH NOFORMAT, NOINIT,  NAME = N'DSI-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
-
-                    SqlCommand cmd = new SqlCommand(comando_consulta2, conex);
-
-                    conex.Open();
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("creado correctamente BACKUP ");
-                }
-                else
-                    MessageBox.Show("No se pudo completar el backup");
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("nada mi  prro "+ ex.ToString());
-            }
-            finally
-            {
-                conex.Close();
-                conex.Dispose();
-            }
-
-            //MessageBox.Show(fecha_copia);
-
-        }
+        //private void btnCrear_Click(object sender, EventArgs e)
+        //{
+        //    // sin uso, mantener por si las moscas
+        //    bool x= AjustarRuta();
+        //    //  ejemplos
+        //    //string comando_consulta = "BACKUP DATABASE [DSI] TO  DISK = N'C:\\Users\\loros\\Downloads\\copiasSegurity\\"+fecha_copia + "' WITH NOFORMAT, NOINIT,  NAME = N'DSI-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+        //    //string comando_consulta3 = "BACKUP DATABASE [DSI] TO  DISK = N'C:\\Program Files\\Microsoft SQL Server\\MSSQL15.SQLEXPRESS\\MSSQL\\Backup\\DSI.bak' WITH NOFORMAT, NOINIT,  NAME = N'DSI-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+        //    try
+        //    {
+        //        if (x==true)
+        //        {
+        //            //  ontiene fecha y hora del sistema
+        //            string fecha_copia = "Fecha_" + System.DateTime.Now.ToString("dd_MM_yyyy") + "_hora_"
+        //                + System.DateTime.Now.ToString("hhh_mm_ss") + ".bak";
+        //            string comando_consulta2 = "BACKUP DATABASE [DSI] TO  DISK = N'" + postRuta + "\\" + fecha_copia + "' WITH NOFORMAT, NOINIT,  NAME = N'DSI-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+        //            SqlCommand cmd = new SqlCommand(comando_consulta2, conex);
+        //            conex.Open();
+        //            cmd.ExecuteNonQuery();
+        //            MessageBox.Show("creado correctamente BACKUP ");
+        //        }
+        //        else
+        //            MessageBox.Show("No se pudo completar el backup");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("nada mi  prro "+ ex.ToString());
+        //    }
+        //    finally
+        //    {
+        //        conex.Close();
+        //        conex.Dispose();
+        //    }
+        //    //MessageBox.Show(fecha_copia);
+        //}
 
         private void opcionesBusqueda()
         {
@@ -594,13 +594,55 @@ namespace DSI.CapaVistas
             validate.SoloLetras(e);
         }
 
+        private void btnRuta_Click(object sender, EventArgs e)
+        {
+            Backup();
+            string txt = "click para crear backup de la base de datos,\n" +
+            "sugerible en una carpeta cerca de la unidad C.";
+            //lblCreado.Visible = false;
+        }
+
+        private void lblAlert_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("click");
+            lblCreado.Visible = false;
+        }
+
+        private void Backup()
+        {
+            //  ontiene fecha y hora del sistema
+            string fecha_copia = "Fecha_" + System.DateTime.Now.ToString("dd_MM_yyyy") + "_hora_"
+                + System.DateTime.Now.ToString("hhh_mm_ss") + ".bak";
+            try
+            {
+                saveFileDialog1.Title = "SELECCIONE LA RUTA";
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    string ruta = Path.GetDirectoryName(saveFileDialog1.FileName);
+                    string nameFile = Path.GetFileName(saveFileDialog1.FileName);
+                    string comando_consulta = "BACKUP DATABASE [DSI] TO  DISK = N'" + ruta + "\\"+nameFile +"_"+ fecha_copia + "' WITH NOFORMAT, NOINIT,  NAME = N'DSI-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+                    SqlCommand cmd = new SqlCommand(comando_consulta, conx);
+                    conx.Open();
+                    cmd.ExecuteNonQuery();
+                    lblCreado.Visible = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conx.Close();
+            }
+        }
+
         private void requestRuta()
         {
             openFileDialog1.InitialDirectory = "c:\\";
             openFileDialog1.Filter = "Todos los archivos (*.*)|*.*";
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.RestoreDirectory = true;
-
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 string ruta= openFileDialog1.FileName;
@@ -608,27 +650,27 @@ namespace DSI.CapaVistas
             }
         }
 
-        private bool AjustarRuta()
-        {
-            if (txtRuta.Text!=String.Empty)
-            {
-                string preRuta = txtRuta.Text;
-                foreach (var item in preRuta)
-                {
-                    postRuta += item.ToString();
-                    if (item.ToString().Contains("\\"))
-                    {
-                        postRuta += "\\";
-                    }
-                }
-                return true;
-            }
-            else
-            {
-                MessageBox.Show("agregue una ruta");
-                return false;
-            }
-        }
+        //private bool AjustarRuta()// sin uso
+        //{
+        //    if (txtRuta.Text!=String.Empty)
+        //    {
+        //        string preRuta = txtRuta.Text;
+        //        foreach (var item in preRuta)
+        //        {
+        //            postRuta += item.ToString();
+        //            if (item.ToString().Contains("\\"))
+        //            {
+        //                postRuta += "\\";
+        //            }
+        //        }
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("agregue una ruta");
+        //        return false;
+        //    }
+        //}
 
 
     }

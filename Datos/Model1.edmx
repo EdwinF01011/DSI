@@ -220,6 +220,7 @@
           <Parameter Name="pass" Type="varchar" Mode="In" />
           <Parameter Name="Rol" Type="bit" Mode="In" />
           <Parameter Name="Estado" Type="bit" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
         </Function>
         <Function Name="sp_deleteDocu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="smallint" Mode="In" />
@@ -864,13 +865,6 @@
             <Parameter Name="pais" Mode="In" Type="Byte" />
             <Parameter Name="id_categoria" Mode="In" Type="Boolean" />
           </FunctionImport>
-          <FunctionImport Name="sp_createUsuario">
-            <Parameter Name="Nombre" Mode="In" Type="String" />
-            <Parameter Name="CC" Mode="In" Type="String" />
-            <Parameter Name="pass" Mode="In" Type="String" />
-            <Parameter Name="Rol" Mode="In" Type="Boolean" />
-            <Parameter Name="Estado" Mode="In" Type="Boolean" />
-          </FunctionImport>
           <FunctionImport Name="sp_disableUsuario">
             <Parameter Name="id" Mode="In" Type="Byte" />
             <Parameter Name="value" Mode="In" Type="Boolean" />
@@ -903,6 +897,14 @@
             <End Role="Documentos" EntitySet="Documentos" />
           </AssociationSet>
           <FunctionImport Name="sp_selectUsuarios" ReturnType="Collection(DSIModel.sp_selectUsuarios_Result)" />
+          <FunctionImport Name="sp_createUsuario">
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="CC" Mode="In" Type="String" />
+            <Parameter Name="pass" Mode="In" Type="String" />
+            <Parameter Name="Rol" Mode="In" Type="Boolean" />
+            <Parameter Name="Estado" Mode="In" Type="Boolean" />
+            <Parameter Name="email" Mode="In" Type="String" />
+          </FunctionImport>
           </EntityContainer>
         <ComplexType Name="sp_consultaContacto_Result">
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="35" />
@@ -2339,7 +2341,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_createUsuario" FunctionName="DSIModel.Store.sp_createUsuario" />
           <FunctionImportMapping FunctionImportName="sp_disableUsuario" FunctionName="DSIModel.Store.sp_disableUsuario" />
           <FunctionImportMapping FunctionImportName="sp_updateUsuario" FunctionName="DSIModel.Store.sp_updateUsuario" />
           <EntitySetMapping Name="contacto">
@@ -2371,6 +2372,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_createUsuario" FunctionName="DSIModel.Store.sp_createUsuario" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

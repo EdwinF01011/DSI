@@ -102,8 +102,6 @@ namespace DSI.CapaVistas
             btnValidar.Text = "Enviar";
             btnVolver.Visible = true;
             linkLabel1.Visible = false;
-
-
         }
 
         private void goEmail()

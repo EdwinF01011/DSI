@@ -168,7 +168,7 @@ namespace DSI.CapaVistas
             cboxCiudadMenu.DataSource = ObjBu.BuscarCiudad(itemPais);
             cboxCiudadMenu.DisplayMember = "NCiudad";
             cboxCiudadMenu.ValueMember = "id";
-            if (cboxCiudadMenu.Items.Count >= 1)
+            if (cboxCiudadMenu.Items.Count >= 1)//  así > no, al  haber un solo item no sirve
             {
                 cboxCiudadMenu.SelectedIndex = -1;
             }

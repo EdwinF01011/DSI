@@ -122,7 +122,7 @@ namespace DSI.CapaVistas
                 cboxCiudadRegistro.DisplayMember = "NCiudad";
                 cboxCiudadRegistro.ValueMember = "id";
                 //cboxCiudadRegistro.SelectedIndex = x;
-                if (cboxCiudadRegistro.Items.Count >= 1)
+                if (cboxCiudadRegistro.Items.Count >= 1)// se aconseja >= y no >, para cuando haya un solo valor
                 {
                     cboxCiudadRegistro.SelectedIndex = -1;
                 }
