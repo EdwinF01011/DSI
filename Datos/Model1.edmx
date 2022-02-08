@@ -446,11 +446,12 @@
           <Parameter Name="Rol" Type="bit" Mode="In" />
           <Parameter Name="Estado" Type="bit" Mode="In" />
         </Function>
-        <Function Name="sp_updateUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+        <Function Name="sp_updateUsuario2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="tinyint" Mode="In" />
           <Parameter Name="Nombre" Type="varchar" Mode="In" />
           <Parameter Name="CC" Type="nchar" Mode="In" />
           <Parameter Name="pass" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DSIModelStoreContainer">
@@ -869,12 +870,6 @@
             <Parameter Name="id" Mode="In" Type="Byte" />
             <Parameter Name="value" Mode="In" Type="Boolean" />
           </FunctionImport>
-          <FunctionImport Name="sp_updateUsuario">
-            <Parameter Name="id" Mode="In" Type="Byte" />
-            <Parameter Name="Nombre" Mode="In" Type="String" />
-            <Parameter Name="CC" Mode="In" Type="String" />
-            <Parameter Name="pass" Mode="In" Type="String" />
-          </FunctionImport>
           <EntitySet Name="contacto" EntityType="DSIModel.contacto" />
           <AssociationSet Name="FK__contacto__id_cat__57A801BA" Association="DSIModel.FK__contacto__id_cat__57A801BA">
             <End Role="Categoria" EntitySet="Categoria" />
@@ -903,6 +898,13 @@
             <Parameter Name="pass" Mode="In" Type="String" />
             <Parameter Name="Rol" Mode="In" Type="Boolean" />
             <Parameter Name="Estado" Mode="In" Type="Boolean" />
+            <Parameter Name="email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_updateUsuario2">
+            <Parameter Name="id" Mode="In" Type="Byte" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="CC" Mode="In" Type="String" />
+            <Parameter Name="pass" Mode="In" Type="String" />
             <Parameter Name="email" Mode="In" Type="String" />
           </FunctionImport>
           </EntityContainer>
@@ -2342,7 +2344,6 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_disableUsuario" FunctionName="DSIModel.Store.sp_disableUsuario" />
-          <FunctionImportMapping FunctionImportName="sp_updateUsuario" FunctionName="DSIModel.Store.sp_updateUsuario" />
           <EntitySetMapping Name="contacto">
             <EntityTypeMapping TypeName="DSIModel.contacto">
               <MappingFragment StoreEntitySet="contacto">
@@ -2373,6 +2374,7 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_createUsuario" FunctionName="DSIModel.Store.sp_createUsuario" />
+          <FunctionImportMapping FunctionImportName="sp_updateUsuario2" FunctionName="DSIModel.Store.sp_updateUsuario2" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

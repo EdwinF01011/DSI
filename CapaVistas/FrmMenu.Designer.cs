@@ -201,6 +201,8 @@ namespace DSI.CapaVistas
             this.btnClosed.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClosed.BackgroundImage")));
             this.btnClosed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnClosed.FlatAppearance.BorderSize = 0;
+            this.btnClosed.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnClosed.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnClosed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClosed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClosed.ForeColor = System.Drawing.SystemColors.HotTrack;

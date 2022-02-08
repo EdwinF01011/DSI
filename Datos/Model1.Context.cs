@@ -904,7 +904,25 @@ namespace DSI.Datos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_filtroOfive1_Result>("sp_filtroOfive1", nombreParameter, ciudadParameter, paisParameter, id_categoriaParameter);
         }
     
-        public virtual int sp_createUsuario(string nombre, string cC, string pass, Nullable<bool> rol, Nullable<bool> estado)
+        public virtual int sp_disableUsuario(Nullable<byte> id, Nullable<bool> value)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(byte));
+    
+            var valueParameter = value.HasValue ?
+                new ObjectParameter("value", value) :
+                new ObjectParameter("value", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_disableUsuario", idParameter, valueParameter);
+        }
+    
+        public virtual ObjectResult<sp_selectUsuarios_Result> sp_selectUsuarios()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_selectUsuarios_Result>("sp_selectUsuarios");
+        }
+    
+        public virtual int sp_createUsuario(string nombre, string cC, string pass, Nullable<bool> rol, Nullable<bool> estado, string email)
         {
             var nombreParameter = nombre != null ?
                 new ObjectParameter("Nombre", nombre) :
@@ -926,23 +944,14 @@ namespace DSI.Datos
                 new ObjectParameter("Estado", estado) :
                 new ObjectParameter("Estado", typeof(bool));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_createUsuario", nombreParameter, cCParameter, passParameter, rolParameter, estadoParameter);
+            var emailParameter = email != null ?
+                new ObjectParameter("email", email) :
+                new ObjectParameter("email", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_createUsuario", nombreParameter, cCParameter, passParameter, rolParameter, estadoParameter, emailParameter);
         }
     
-        public virtual int sp_disableUsuario(Nullable<byte> id, Nullable<bool> value)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(byte));
-    
-            var valueParameter = value.HasValue ?
-                new ObjectParameter("value", value) :
-                new ObjectParameter("value", typeof(bool));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_disableUsuario", idParameter, valueParameter);
-        }
-    
-        public virtual int sp_updateUsuario(Nullable<byte> id, string nombre, string cC, string pass)
+        public virtual int sp_updateUsuario2(Nullable<byte> id, string nombre, string cC, string pass, string email)
         {
             var idParameter = id.HasValue ?
                 new ObjectParameter("id", id) :
@@ -960,12 +969,11 @@ namespace DSI.Datos
                 new ObjectParameter("pass", pass) :
                 new ObjectParameter("pass", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updateUsuario", idParameter, nombreParameter, cCParameter, passParameter);
-        }
+            var emailParameter = email != null ?
+                new ObjectParameter("email", email) :
+                new ObjectParameter("email", typeof(string));
     
-        public virtual ObjectResult<sp_selectUsuarios_Result> sp_selectUsuarios()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_selectUsuarios_Result>("sp_selectUsuarios");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updateUsuario2", idParameter, nombreParameter, cCParameter, passParameter, emailParameter);
         }
     }
 }

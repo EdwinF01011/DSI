@@ -51,6 +51,11 @@ namespace DSI.CapaVistas
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnCambio = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.plRazon = new System.Windows.Forms.Panel();
+            this.plName = new System.Windows.Forms.Panel();
+            this.plSector = new System.Windows.Forms.Panel();
+            this.plPais = new System.Windows.Forms.Panel();
+            this.plCity = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,7 +152,7 @@ namespace DSI.CapaVistas
             // txtNombreMenu
             // 
             this.txtNombreMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreMenu.Location = new System.Drawing.Point(16, 181);
+            this.txtNombreMenu.Location = new System.Drawing.Point(16, 182);
             this.txtNombreMenu.MaxLength = 35;
             this.txtNombreMenu.Name = "txtNombreMenu";
             this.txtNombreMenu.Size = new System.Drawing.Size(314, 35);
@@ -158,7 +163,7 @@ namespace DSI.CapaVistas
             // txtRsocialMenu
             // 
             this.txtRsocialMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRsocialMenu.Location = new System.Drawing.Point(375, 181);
+            this.txtRsocialMenu.Location = new System.Drawing.Point(375, 182);
             this.txtRsocialMenu.MaxLength = 20;
             this.txtRsocialMenu.Name = "txtRsocialMenu";
             this.txtRsocialMenu.Size = new System.Drawing.Size(314, 35);
@@ -306,12 +311,62 @@ namespace DSI.CapaVistas
             this.panel3.TabIndex = 47;
             this.panel3.Click += new System.EventHandler(this.panel3_Click);
             // 
+            // plRazon
+            // 
+            this.plRazon.BackColor = System.Drawing.Color.Lime;
+            this.plRazon.Location = new System.Drawing.Point(375, 219);
+            this.plRazon.Name = "plRazon";
+            this.plRazon.Size = new System.Drawing.Size(314, 5);
+            this.plRazon.TabIndex = 48;
+            this.plRazon.Visible = false;
+            // 
+            // plName
+            // 
+            this.plName.BackColor = System.Drawing.Color.Lime;
+            this.plName.Location = new System.Drawing.Point(16, 219);
+            this.plName.Name = "plName";
+            this.plName.Size = new System.Drawing.Size(314, 5);
+            this.plName.TabIndex = 49;
+            this.plName.Visible = false;
+            // 
+            // plSector
+            // 
+            this.plSector.BackColor = System.Drawing.Color.Lime;
+            this.plSector.Location = new System.Drawing.Point(724, 219);
+            this.plSector.Name = "plSector";
+            this.plSector.Size = new System.Drawing.Size(191, 5);
+            this.plSector.TabIndex = 50;
+            this.plSector.Visible = false;
+            // 
+            // plPais
+            // 
+            this.plPais.BackColor = System.Drawing.Color.Lime;
+            this.plPais.Location = new System.Drawing.Point(969, 219);
+            this.plPais.Name = "plPais";
+            this.plPais.Size = new System.Drawing.Size(211, 5);
+            this.plPais.TabIndex = 51;
+            this.plPais.Visible = false;
+            // 
+            // plCity
+            // 
+            this.plCity.BackColor = System.Drawing.Color.Lime;
+            this.plCity.Location = new System.Drawing.Point(1223, 219);
+            this.plCity.Name = "plCity";
+            this.plCity.Size = new System.Drawing.Size(211, 5);
+            this.plCity.TabIndex = 52;
+            this.plCity.Visible = false;
+            // 
             // FrmBusqueda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1552, 1025);
+            this.Controls.Add(this.plCity);
+            this.Controls.Add(this.plPais);
+            this.Controls.Add(this.plSector);
+            this.Controls.Add(this.plName);
+            this.Controls.Add(this.plRazon);
             this.Controls.Add(this.btnCambio);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCrearProveedor);
@@ -369,5 +424,10 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Button btnCambio;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel plRazon;
+        private System.Windows.Forms.Panel plName;
+        private System.Windows.Forms.Panel plSector;
+        private System.Windows.Forms.Panel plPais;
+        private System.Windows.Forms.Panel plCity;
     }
 }

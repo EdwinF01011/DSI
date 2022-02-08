@@ -20,17 +20,17 @@ namespace DSI.Negocio
 
         public IList selectUsuario()
         {
-            using (DSIEntities1 bd = new DSIEntities1())
+            using (DSIEntities1 bd = new DSIEntities1())// llena el dgview de FrmConfiguration/Usuarios
             {
-                return  bd.sp_selectUsuarios().ToList();
+                return  bd.sp_selectUsuarios().Where(x=>x.id!=idUsuario).ToList();
             }
         }
 
-        public void insertUsuario(string name, string cc, string pass, bool rol, bool estado)
+        public void insertUsuario(string name, string cc, string pass, bool rol, bool estado, string mail)
         {
             using (DSIEntities1 bd= new DSIEntities1())
             {
-                bd.sp_createUsuario(name, cc, pass, rol, estado);
+                bd.sp_createUsuario(name, cc, pass, rol, estado,mail);
             }
         }
 
@@ -75,11 +75,26 @@ namespace DSI.Negocio
             }
         }
 
-        public void updateUsuarioIV( string name, string cc, string pass)
+        public void updateUsuarioIV(string mail)
         {
             using (DSIEntities1 bd = new DSIEntities1())
             {
-                bd.sp_updateUsuario(idUsuario , name, cc, pass);
+                var query = (from l in bd.Usuarios
+                             where l.id == idUsuario
+                             select l).FirstOrDefault();
+                query.Email = mail;
+                bd.SaveChanges();
+                MessageBox.Show("updateUsuarioIV(string mail)");
+            }
+        }
+
+        public void updateUsuarioV( string name, string cc, string pass, string mail)
+        {
+            using (DSIEntities1 bd = new DSIEntities1())
+            {
+                //bd.sp_updateUsuario(idUsuario , name, cc, pass);
+                bd.sp_updateUsuario2(idUsuario, name, cc, pass, mail);
+
             }
         }
 

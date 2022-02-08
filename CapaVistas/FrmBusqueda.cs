@@ -19,7 +19,6 @@ namespace DSI.CapaVistas
         //ClsContactosCrud ObjBusqueda = new ClsContactosCrud();    no se usa
         //ClsContactosCrud ObjBusquedaCr = new ClsContactosCrud();  no se usa
 
-
         string NombreContacto;
         string RSocial;
         Byte itemSector;
@@ -42,7 +41,6 @@ namespace DSI.CapaVistas
         string descripcion;
         //Byte idPais; no se usa
 
-
         public FrmBusqueda()
         {
             InitializeComponent();
@@ -52,7 +50,6 @@ namespace DSI.CapaVistas
         {
             //lblUsuarioname.Text = ClsUsuario.nameUsuario;// lblUsuarioname ya no existe
             lblcategoria.Text = ClsUsuario.categoria_busqueda;
-            
             //dataGridView1.DataSource = ObjBu.consultaTodo();
         }
 
@@ -69,7 +66,6 @@ namespace DSI.CapaVistas
 
 
             //txtNombreMenu.Enabled = false;
-
         }
         //int a=9,b=8;
 
@@ -102,8 +98,6 @@ namespace DSI.CapaVistas
         {
             //ladrar("peitas");
 
-
-
             //  cbox del país
             cboxPaisMenu.DataSource = ObjBu.BuscarPais();
             cboxPaisMenu.DisplayMember = "Npais";
@@ -133,31 +127,32 @@ namespace DSI.CapaVistas
             //cboxSectorMenu.DisplayMember = "nombre_sector";
             //cboxSectorMenu.ValueMember = "id";
             //bandera = true;
-
         }
 
         private void cboxSectorMenu_SelectedValueChanged(object sender, EventArgs e)
         {
             //MessageBox.Show(bandera.ToString());
+            
             if (bandera == true)
             {
                 itemSector = Byte.Parse(cboxSectorMenu.SelectedValue.ToString());
                 cinco = 5;
+                plSector.Visible = true;
                 Search_If();
                 //MessageBox.Show(itemSector.ToString());
-
             }
         }
 
         private void cboxPaisMenu_SelectedValueChanged(object sender, EventArgs e)
         {
             //para poder obtener la pk de la tabla Pais
-
+            
             if (bandera == true && cboxPaisMenu.SelectedValue!=null)
             {
                 itemPais = Byte.Parse(cboxPaisMenu.SelectedValue.ToString());
                 //MessageBox.Show(itemPais.ToString()+" pais");
                 nueve = 9;
+                plPais.Visible = true;
                 Search_If();
                 LlenarComboxCity();
             }
@@ -179,8 +174,8 @@ namespace DSI.CapaVistas
             if (bandera == true)
             {
                 //itemCity = Byte.Parse(cboxCiudadMenu.SelectedValue.ToString());
+                
                 short n;
-
                 if (cboxCiudadMenu.SelectedValue!=null)
                 {
                     var x = cboxCiudadMenu.SelectedValue.ToString();//   tocó usar string para prevenir el error
@@ -189,14 +184,13 @@ namespace DSI.CapaVistas
                     {
                         itemCity = Byte.Parse(x);
                         once = 11;
+                        plCity.Visible = true;
                         Search_If();
                         //MessageBox.Show(itemCity.ToString() + " city");
                     }
                 }      
             }
         }
-
-        
 
         public void Busqueda_tipo_label(string x)//string x
         {
@@ -275,8 +269,6 @@ namespace DSI.CapaVistas
         {//llena una lista de tipo Clscontacto # esto no se usa, borrarlo
             try
             {
-                
-
                 //Clscontacto ObjCont = new Clscontacto();
                 //  no se está usando
                 //Clscontacto.Nombre = txtNombreMenu.Text;
@@ -298,13 +290,11 @@ namespace DSI.CapaVistas
                 //    //Nombre = null esto no
 
                 //}) ;
-
             }
             catch
             {
 
             }
-            
         }
 
         private void ClearTxts()
@@ -317,6 +307,13 @@ namespace DSI.CapaVistas
             dataGridView1.Columns.Clear();
             contador = 0;
             uno = 0; dos = 0; cinco = 0; nueve = 0; once=0;
+            //ocultar paneles
+            plName.Visible = false;
+            plRazon.Visible = false;
+            plSector.Visible = false;
+            plPais.Visible = false;
+            plCity.Visible = false;
+
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -328,11 +325,8 @@ namespace DSI.CapaVistas
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             // doble click al datagridview
-
             //FrmRegistro ObjRegistro = new FrmRegistro();
             //ObjRegistro.Show();
-
-
             id = Byte.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
             name= dataGridView1.CurrentRow.Cells[1].Value.ToString();
             NIT= dataGridView1.CurrentRow.Cells[3].Value.ToString();
@@ -347,18 +341,10 @@ namespace DSI.CapaVistas
             itemCity = Byte.Parse(dataGridView1.CurrentRow.Cells[11].Value.ToString());
             itemPais = Byte.Parse(dataGridView1.CurrentRow.Cells[12].Value.ToString());
             itemSector = Byte.Parse(dataGridView1.CurrentRow.Cells[13].Value.ToString());
-
-
-            
-
             //idPais =Byte.Parse( dataGridView1.CurrentRow.Cells[13].Value.ToString());
-
-
-
             panelMenu.Visible = true;
             traerFormRegistro();
             //MessageBox.Show("sirve 2");
-
         }
         FrmRegistro frmRe = new FrmRegistro();
         private void traerFormRegistro()
@@ -384,9 +370,7 @@ namespace DSI.CapaVistas
                 itemCity,
                 itemPais,
                 itemSector
-
                 );
-
         }
 
         private void traerFormRegistro1()
@@ -402,7 +386,6 @@ namespace DSI.CapaVistas
         {// para cerrar el panel
             panelMenu.Visible = false;
             frmRe.Close();
-
         }
 
         private void btnCambio_Click(object sender, EventArgs e)
@@ -450,11 +433,13 @@ namespace DSI.CapaVistas
         private void txtNombreMenu_KeyPress(object sender, KeyPressEventArgs e)
         {
             validate.SoloLetras(e);
+            plName.Visible = true;
         }
 
         private void txtRsocialMenu_KeyPress(object sender, KeyPressEventArgs e)
         {
             validate.SoloLetras(e);
+            plRazon.Visible = true;
         }
 
 

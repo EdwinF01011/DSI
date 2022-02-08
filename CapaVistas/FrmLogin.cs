@@ -123,6 +123,8 @@ namespace DSI.CapaVistas
             txtContraseña.Visible = true;
             lblUser.Text = "Usuario";
             btnValidar.Text = "Validar";
+            txtUsuario.Text = "";
+            txtContraseña.Text = "";
             //lblTitle.Location = new Point(186, 28);
 
 

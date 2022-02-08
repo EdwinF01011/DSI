@@ -67,14 +67,12 @@ namespace DSI.CapaVistas
                 {
                     txtPass1.PasswordChar = '\0';
                     txtPass2.PasswordChar = '\0';
-
                 }
             }
             else
             {
                 txtPass1.PasswordChar = '*';
                 txtPass2.PasswordChar = '*';
-
             }
         }
 
@@ -89,6 +87,7 @@ namespace DSI.CapaVistas
             txtUsuarioP.Visible = false;
             txtPass1.Visible = false;
             txtPass2.Visible = false;
+            txtEmailP.Visible = false;
         }
 
         private void clearTxt()//     iniciar con las cajas de texto inactivas
@@ -185,7 +184,7 @@ namespace DSI.CapaVistas
                 string pass = ClsEncrytp.GetSHA256(prePass);
 
 
-                _ClsUsu.insertUsuario(txtNameUsuarioU.Text, txtUsuarioU.Text, pass, Rol, false);// estado:false default
+                _ClsUsu.insertUsuario(txtNameUsuarioU.Text, txtUsuarioU.Text, pass, Rol, false, txtCorreo.Text);// estado:false default
 
             }
             else
@@ -219,19 +218,24 @@ namespace DSI.CapaVistas
                     _frmLo.Show();
                 }
             }
-            else if (conteo==4)
+            else if (conteo == 4)
+            {
+                _ClsUsu.updateUsuarioIV(txtEmailP.Text);
+                MessageBox.Show("Esta pestaña se cerrará, vuelva a iniciar sesión y revise su correo");
+                _frmLo.Show();
+            }
+            else if (conteo==5)
             {
                 bool x = compareTxt();
                 bool y = validationInfo2();
                 if (x == true && y == true)
                 {
                     string pass = ClsEncrytp.GetSHA256(contraseñaGenerada);
-                    _ClsUsu.updateUsuarioIV(txtNameUsuarioP.Text, txtUsuarioP.Text, pass);
+                    _ClsUsu.updateUsuarioV(txtNameUsuarioP.Text, txtUsuarioP.Text, pass,txtEmailP.Text);
                     MessageBox.Show("Actualizado");
                     MessageBox.Show("Esta pestaña se cerrará, vuelva a iniciar sesión");
                     _frmLo.Show();
-
-                }
+                    }
                 else
                     MessageBox.Show("No se pudo concretar la acción");
             }
@@ -327,7 +331,7 @@ namespace DSI.CapaVistas
 
         private bool validationInfo()
         {
-            if (txtNameUsuarioU.Text == String.Empty || txtUsuarioU.Text == String.Empty || Rol.ToString() == String.Empty)
+            if (txtNameUsuarioU.Text == String.Empty || txtUsuarioU.Text == String.Empty || Rol.ToString() == String.Empty || txtCorreo.Text==String.Empty)
             {
                 return false;
             }
@@ -358,6 +362,7 @@ namespace DSI.CapaVistas
             txtUsuarioU.Text = "";
             rbtnAdmin.Checked = false;
             rbtnAuxiliar.Checked = false;
+            txtCorreo.Text = "";
 
         }
 
@@ -379,6 +384,12 @@ namespace DSI.CapaVistas
         }
 
         private void txtUsuarioP_KeyUp(object sender, KeyEventArgs e)
+        {
+            btnUpdate.Enabled = true;
+
+        }
+
+        private void txtEmailP_KeyUp(object sender, KeyEventArgs e)
         {
             btnUpdate.Enabled = true;
 
@@ -472,41 +483,38 @@ namespace DSI.CapaVistas
             colorBack();
             rbtnNombre.ForeColor = Color.Red;
             disableTxt();
-
             opcionesBusqueda();
-
         }
 
         private void rbtnUsuario_CheckedChanged(object sender, EventArgs e)
         {
             colorBack();
-
             rbtnUsuario.ForeColor = Color.Red;
-
             disableTxt();
-
             opcionesBusqueda();
         }
 
         private void rbtnContraseña_CheckedChanged(object sender, EventArgs e)
         {
             colorBack();
-
             rbtnContraseña.ForeColor = Color.Red;
-
             disableTxt();
+            opcionesBusqueda();
+        }
 
+        private void rbtnEmail_CheckedChanged(object sender, EventArgs e)
+        {
+            colorBack();
+            rbtnEmail.ForeColor = Color.Red;
+            disableTxt();
             opcionesBusqueda();
         }
 
         private void rbtnTodo_CheckedChanged(object sender, EventArgs e)
         {
             colorBack();
-
             rbtnTodo.ForeColor = Color.Red;
-
             disableTxt();
-
             opcionesBusqueda();
         }
 
@@ -514,9 +522,9 @@ namespace DSI.CapaVistas
         {
             rbtnNombre.ForeColor = Color.Cyan;
             rbtnUsuario.ForeColor = Color.Cyan;
+            rbtnEmail.ForeColor = Color.Cyan;
             rbtnContraseña.ForeColor = Color.Cyan;
             rbtnTodo.ForeColor = Color.Cyan;
-
         }
 
         //private void btnCrear_Click(object sender, EventArgs e)
@@ -574,13 +582,19 @@ namespace DSI.CapaVistas
                 txtPass2.Visible = true;
                 conteo = 3;
             }
+            else if (rbtnEmail.Checked==true)
+            {
+                txtEmailP.Visible = true;
+                conteo = 4;
+            }
             else if (rbtnTodo.Checked == true)
             {
                 txtNameUsuarioP.Visible = true;
                 txtUsuarioP.Visible = true;
+                txtEmailP.Visible = true;
                 txtPass1.Visible = true;
                 txtPass2.Visible = true;
-                conteo = 4;
+                conteo = 5;
             }
         }
 
@@ -606,6 +620,11 @@ namespace DSI.CapaVistas
         {
             MessageBox.Show("click");
             lblCreado.Visible = false;
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void Backup()

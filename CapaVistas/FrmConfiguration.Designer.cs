@@ -33,15 +33,18 @@ namespace DSI.CapaVistas
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbtnEmail = new System.Windows.Forms.RadioButton();
             this.rbtnContraseña = new System.Windows.Forms.RadioButton();
             this.rbtnNombre = new System.Windows.Forms.RadioButton();
             this.rbtnTodo = new System.Windows.Forms.RadioButton();
             this.rbtnUsuario = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtNameUsuarioP = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.lblAlertPerfil = new System.Windows.Forms.Label();
+            this.txtEmailP = new System.Windows.Forms.TextBox();
             this.chkContraseña = new System.Windows.Forms.CheckBox();
+            this.txtNameUsuarioP = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtUsuarioP = new System.Windows.Forms.TextBox();
@@ -55,6 +58,8 @@ namespace DSI.CapaVistas
             this.btnGuardarU = new System.Windows.Forms.Button();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
             this.lblAviso = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -72,8 +77,6 @@ namespace DSI.CapaVistas
             this.lblA = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtCorreo = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -105,7 +108,6 @@ namespace DSI.CapaVistas
             this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.txtNameUsuarioP);
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -115,10 +117,12 @@ namespace DSI.CapaVistas
             this.tabPage1.Size = new System.Drawing.Size(1461, 847);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Perfil";
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.groupBox1.Controls.Add(this.rbtnEmail);
             this.groupBox1.Controls.Add(this.rbtnContraseña);
             this.groupBox1.Controls.Add(this.rbtnNombre);
             this.groupBox1.Controls.Add(this.rbtnTodo);
@@ -128,10 +132,24 @@ namespace DSI.CapaVistas
             this.groupBox1.ForeColor = System.Drawing.Color.Cyan;
             this.groupBox1.Location = new System.Drawing.Point(198, 161);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(256, 261);
+            this.groupBox1.Size = new System.Drawing.Size(256, 312);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "¿Qué desea actualizar?";
+            // 
+            // rbtnEmail
+            // 
+            this.rbtnEmail.AutoSize = true;
+            this.rbtnEmail.Cursor = System.Windows.Forms.Cursors.Default;
+            this.rbtnEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnEmail.Location = new System.Drawing.Point(17, 197);
+            this.rbtnEmail.Name = "rbtnEmail";
+            this.rbtnEmail.Size = new System.Drawing.Size(112, 36);
+            this.rbtnEmail.TabIndex = 19;
+            this.rbtnEmail.TabStop = true;
+            this.rbtnEmail.Text = "Email";
+            this.rbtnEmail.UseVisualStyleBackColor = true;
+            this.rbtnEmail.CheckedChanged += new System.EventHandler(this.rbtnEmail_CheckedChanged);
             // 
             // rbtnContraseña
             // 
@@ -164,7 +182,7 @@ namespace DSI.CapaVistas
             // 
             this.rbtnTodo.AutoSize = true;
             this.rbtnTodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnTodo.Location = new System.Drawing.Point(17, 190);
+            this.rbtnTodo.Location = new System.Drawing.Point(17, 239);
             this.rbtnTodo.Name = "rbtnTodo";
             this.rbtnTodo.Size = new System.Drawing.Size(105, 36);
             this.rbtnTodo.TabIndex = 18;
@@ -189,28 +207,20 @@ namespace DSI.CapaVistas
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(57, 45);
+            this.label4.Location = new System.Drawing.Point(18, 22);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(652, 32);
             this.label4.TabIndex = 9;
             this.label4.Text = "Aquí tendrá el poder de modificar sus credenciales";
             // 
-            // txtNameUsuarioP
-            // 
-            this.txtNameUsuarioP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNameUsuarioP.Location = new System.Drawing.Point(608, 255);
-            this.txtNameUsuarioP.MaxLength = 30;
-            this.txtNameUsuarioP.Name = "txtNameUsuarioP";
-            this.txtNameUsuarioP.Size = new System.Drawing.Size(283, 35);
-            this.txtNameUsuarioP.TabIndex = 0;
-            this.txtNameUsuarioP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNameUsuarioP_KeyPress);
-            this.txtNameUsuarioP.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNameUsuarioP_KeyUp);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.lblAlertPerfil);
+            this.panel1.Controls.Add(this.txtEmailP);
             this.panel1.Controls.Add(this.chkContraseña);
+            this.panel1.Controls.Add(this.txtNameUsuarioP);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtUsuarioP);
@@ -220,10 +230,22 @@ namespace DSI.CapaVistas
             this.panel1.Controls.Add(this.btnUpdate);
             this.panel1.Controls.Add(this.txtPass2);
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(546, 161);
+            this.panel1.Location = new System.Drawing.Point(546, 119);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(415, 614);
+            this.panel1.Size = new System.Drawing.Size(415, 656);
             this.panel1.TabIndex = 13;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Black;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.Window;
+            this.label10.Location = new System.Drawing.Point(56, 207);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(74, 29);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "Email";
             // 
             // lblAlertPerfil
             // 
@@ -231,18 +253,29 @@ namespace DSI.CapaVistas
             this.lblAlertPerfil.BackColor = System.Drawing.Color.Black;
             this.lblAlertPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAlertPerfil.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblAlertPerfil.Location = new System.Drawing.Point(79, 469);
+            this.lblAlertPerfil.Location = new System.Drawing.Point(78, 522);
             this.lblAlertPerfil.Name = "lblAlertPerfil";
             this.lblAlertPerfil.Size = new System.Drawing.Size(19, 26);
             this.lblAlertPerfil.TabIndex = 16;
             this.lblAlertPerfil.Text = "-";
+            // 
+            // txtEmailP
+            // 
+            this.txtEmailP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmailP.Location = new System.Drawing.Point(60, 239);
+            this.txtEmailP.MaxLength = 30;
+            this.txtEmailP.Name = "txtEmailP";
+            this.txtEmailP.Size = new System.Drawing.Size(283, 35);
+            this.txtEmailP.TabIndex = 16;
+            this.txtEmailP.Visible = false;
+            this.txtEmailP.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtEmailP_KeyUp);
             // 
             // chkContraseña
             // 
             this.chkContraseña.AutoSize = true;
             this.chkContraseña.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.chkContraseña.ForeColor = System.Drawing.Color.Cyan;
-            this.chkContraseña.Location = new System.Drawing.Point(61, 411);
+            this.chkContraseña.Location = new System.Drawing.Point(61, 451);
             this.chkContraseña.Name = "chkContraseña";
             this.chkContraseña.Size = new System.Drawing.Size(249, 33);
             this.chkContraseña.TabIndex = 3;
@@ -250,12 +283,23 @@ namespace DSI.CapaVistas
             this.chkContraseña.UseVisualStyleBackColor = false;
             this.chkContraseña.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // txtNameUsuarioP
+            // 
+            this.txtNameUsuarioP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNameUsuarioP.Location = new System.Drawing.Point(62, 64);
+            this.txtNameUsuarioP.MaxLength = 30;
+            this.txtNameUsuarioP.Name = "txtNameUsuarioP";
+            this.txtNameUsuarioP.Size = new System.Drawing.Size(283, 35);
+            this.txtNameUsuarioP.TabIndex = 0;
+            this.txtNameUsuarioP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNameUsuarioP_KeyPress);
+            this.txtNameUsuarioP.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNameUsuarioP_KeyUp);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.ForeColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(62, 62);
+            this.label1.Location = new System.Drawing.Point(62, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(220, 29);
             this.label1.TabIndex = 0;
@@ -267,7 +311,7 @@ namespace DSI.CapaVistas
             this.label2.BackColor = System.Drawing.Color.Black;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Window;
-            this.label2.Location = new System.Drawing.Point(57, 149);
+            this.label2.Location = new System.Drawing.Point(57, 117);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 29);
             this.label2.TabIndex = 3;
@@ -276,7 +320,7 @@ namespace DSI.CapaVistas
             // txtUsuarioP
             // 
             this.txtUsuarioP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuarioP.Location = new System.Drawing.Point(61, 181);
+            this.txtUsuarioP.Location = new System.Drawing.Point(61, 149);
             this.txtUsuarioP.MaxLength = 10;
             this.txtUsuarioP.Name = "txtUsuarioP";
             this.txtUsuarioP.Size = new System.Drawing.Size(283, 35);
@@ -288,7 +332,7 @@ namespace DSI.CapaVistas
             this.lblConfirmPass.AutoSize = true;
             this.lblConfirmPass.BackColor = System.Drawing.Color.Black;
             this.lblConfirmPass.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblConfirmPass.Location = new System.Drawing.Point(62, 328);
+            this.lblConfirmPass.Location = new System.Drawing.Point(59, 363);
             this.lblConfirmPass.Name = "lblConfirmPass";
             this.lblConfirmPass.Size = new System.Drawing.Size(21, 29);
             this.lblConfirmPass.TabIndex = 12;
@@ -299,7 +343,7 @@ namespace DSI.CapaVistas
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Black;
             this.label3.ForeColor = System.Drawing.SystemColors.Window;
-            this.label3.Location = new System.Drawing.Point(57, 239);
+            this.label3.Location = new System.Drawing.Point(56, 287);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(206, 29);
             this.label3.TabIndex = 5;
@@ -308,7 +352,7 @@ namespace DSI.CapaVistas
             // txtPass1
             // 
             this.txtPass1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPass1.Location = new System.Drawing.Point(61, 271);
+            this.txtPass1.Location = new System.Drawing.Point(60, 319);
             this.txtPass1.MaxLength = 15;
             this.txtPass1.Name = "txtPass1";
             this.txtPass1.PasswordChar = '*';
@@ -321,7 +365,7 @@ namespace DSI.CapaVistas
             this.btnUpdate.BackColor = System.Drawing.Color.Black;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnUpdate.Location = new System.Drawing.Point(62, 529);
+            this.btnUpdate.Location = new System.Drawing.Point(61, 576);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(283, 45);
             this.btnUpdate.TabIndex = 4;
@@ -332,7 +376,7 @@ namespace DSI.CapaVistas
             // txtPass2
             // 
             this.txtPass2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPass2.Location = new System.Drawing.Point(63, 360);
+            this.txtPass2.Location = new System.Drawing.Point(60, 395);
             this.txtPass2.MaxLength = 15;
             this.txtPass2.Name = "txtPass2";
             this.txtPass2.PasswordChar = '*';
@@ -345,9 +389,9 @@ namespace DSI.CapaVistas
             this.panel2.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Location = new System.Drawing.Point(512, 126);
+            this.panel2.Location = new System.Drawing.Point(512, 84);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(481, 680);
+            this.panel2.Size = new System.Drawing.Size(481, 722);
             this.panel2.TabIndex = 14;
             // 
             // tabPage2
@@ -382,6 +426,7 @@ namespace DSI.CapaVistas
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.RowHeadersWidth = 62;
             this.dgvUsuarios.RowTemplate.Height = 28;
+            this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuarios.Size = new System.Drawing.Size(1285, 243);
             this.dgvUsuarios.TabIndex = 17;
             // 
@@ -404,6 +449,26 @@ namespace DSI.CapaVistas
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1285, 416);
             this.panel3.TabIndex = 24;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label8.Location = new System.Drawing.Point(56, 203);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(92, 30);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "Correo";
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCorreo.Location = new System.Drawing.Point(61, 236);
+            this.txtCorreo.MaxLength = 30;
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(386, 35);
+            this.txtCorreo.TabIndex = 25;
             // 
             // lblAviso
             // 
@@ -574,26 +639,6 @@ namespace DSI.CapaVistas
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(56, 203);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(92, 30);
-            this.label8.TabIndex = 24;
-            this.label8.Text = "Correo";
-            // 
-            // txtCorreo
-            // 
-            this.txtCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreo.Location = new System.Drawing.Point(61, 236);
-            this.txtCorreo.MaxLength = 30;
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(386, 35);
-            this.txtCorreo.TabIndex = 25;
-            // 
             // FrmConfiguration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -669,5 +714,8 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.Label lblCreado;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.RadioButton rbtnEmail;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtEmailP;
     }
 }
