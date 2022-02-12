@@ -299,6 +299,7 @@ namespace DSI.CapaVistas
 
         private void ClearTxts()
         {
+            //bandera = false;
             txtNombreMenu.Clear();
             txtRsocialMenu.Clear();
             itemCity = 0;
@@ -313,13 +314,19 @@ namespace DSI.CapaVistas
             plSector.Visible = false;
             plPais.Visible = false;
             plCity.Visible = false;
+            //cboxSectorMenu.SelectedValue = 0;
+            //  limpiar cbox
+            cboxCiudadMenu.DataSource = null;
+            cboxCiudadMenu.Items.Clear();
+
 
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            bandera = false;
             ClearTxts();
-            //LlenarCombox();
+            LlenarCombox();
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -390,7 +397,11 @@ namespace DSI.CapaVistas
 
         private void btnCambio_Click(object sender, EventArgs e)
         {
+            bandera = false;
+            ClearTxts();
             cambioBusqueda();
+            LlenarCombox();
+            ClearTxts();
             completyDgv();
         }
 
@@ -412,7 +423,10 @@ namespace DSI.CapaVistas
 
         private void panel3_Click(object sender, EventArgs e)
         {
+            bandera = false;
             cambioBusqueda();
+            LlenarCombox();
+            ClearTxts();
             completyDgv();
         }
 
@@ -429,6 +443,8 @@ namespace DSI.CapaVistas
             dos = 2;
             Search_If();
         }
+
+
 
         private void txtNombreMenu_KeyPress(object sender, KeyPressEventArgs e)
         {

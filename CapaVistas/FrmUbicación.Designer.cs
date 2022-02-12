@@ -29,7 +29,7 @@ namespace DSI.CapaVistas
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblCity = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCiudad = new System.Windows.Forms.TextBox();
             this.cboxPais = new System.Windows.Forms.ComboBox();
@@ -39,7 +39,7 @@ namespace DSI.CapaVistas
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnAñadirPais = new System.Windows.Forms.Button();
             this.txtPais = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblPais = new System.Windows.Forms.Label();
             this.lblAlert = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUbication)).BeginInit();
@@ -48,14 +48,14 @@ namespace DSI.CapaVistas
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // lblCity
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 29);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Ciudad";
+            this.lblCity.AutoSize = true;
+            this.lblCity.Location = new System.Drawing.Point(18, 43);
+            this.lblCity.Name = "lblCity";
+            this.lblCity.Size = new System.Drawing.Size(90, 29);
+            this.lblCity.TabIndex = 0;
+            this.lblCity.Text = "Ciudad";
             // 
             // label2
             // 
@@ -72,6 +72,7 @@ namespace DSI.CapaVistas
             this.txtCiudad.Name = "txtCiudad";
             this.txtCiudad.Size = new System.Drawing.Size(203, 35);
             this.txtCiudad.TabIndex = 2;
+            this.txtCiudad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCiudad_KeyUp);
             // 
             // cboxPais
             // 
@@ -108,7 +109,7 @@ namespace DSI.CapaVistas
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox1.Controls.Add(this.txtCiudad);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lblCity);
             this.groupBox1.Controls.Add(this.btnAñadir);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.cboxPais);
@@ -118,21 +119,21 @@ namespace DSI.CapaVistas
             this.groupBox1.Size = new System.Drawing.Size(259, 272);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Añadir Ciudad";
+            this.groupBox1.Text = "Añadir";
             // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox2.Controls.Add(this.btnAñadirPais);
             this.groupBox2.Controls.Add(this.txtPais);
-            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.lblPais);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(309, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(259, 191);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Añadir País";
+            this.groupBox2.Text = "Añadir";
             // 
             // btnAñadirPais
             // 
@@ -150,15 +151,16 @@ namespace DSI.CapaVistas
             this.txtPais.Name = "txtPais";
             this.txtPais.Size = new System.Drawing.Size(203, 35);
             this.txtPais.TabIndex = 9;
+            this.txtPais.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPais_KeyUp);
             // 
-            // label3
+            // lblPais
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 43);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 29);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "País";
+            this.lblPais.AutoSize = true;
+            this.lblPais.Location = new System.Drawing.Point(18, 43);
+            this.lblPais.Name = "lblPais";
+            this.lblPais.Size = new System.Drawing.Size(60, 29);
+            this.lblPais.TabIndex = 8;
+            this.lblPais.Text = "País";
             // 
             // lblAlert
             // 
@@ -178,6 +180,7 @@ namespace DSI.CapaVistas
             this.panel1.Size = new System.Drawing.Size(979, 300);
             this.panel1.TabIndex = 9;
             this.panel1.Click += new System.EventHandler(this.panel1_Click);
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // FrmUbicación
             // 
@@ -208,7 +211,7 @@ namespace DSI.CapaVistas
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblCity;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCiudad;
         private System.Windows.Forms.ComboBox cboxPais;
@@ -218,7 +221,7 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnAñadirPais;
         private System.Windows.Forms.TextBox txtPais;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblPais;
         private System.Windows.Forms.Label lblAlert;
         private System.Windows.Forms.Panel panel1;
     }

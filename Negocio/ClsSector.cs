@@ -37,5 +37,21 @@ namespace DSI.Negocio
                 db.sp_updateSector(id, sector);
             }
         }
+
+        public bool verifySector(string nameSector)
+        {
+            using (DSIEntities1 db = new DSIEntities1())
+            {
+                var ver = db.sector.Where(x => x.nombre_sector == nameSector).FirstOrDefault();
+                if (ver != null)
+                {
+                    return true;// si ya existe una ciudad con este nombre
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
     }
 }

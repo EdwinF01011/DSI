@@ -40,13 +40,16 @@ namespace DSI.CapaVistas
             // txtSector
             // 
             this.txtSector.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSector.Location = new System.Drawing.Point(21, 31);
+            this.txtSector.Location = new System.Drawing.Point(21, 29);
+            this.txtSector.MaxLength = 20;
             this.txtSector.Name = "txtSector";
             this.txtSector.Size = new System.Drawing.Size(291, 35);
             this.txtSector.TabIndex = 26;
+            this.txtSector.TextChanged += new System.EventHandler(this.txtSector_TextChanged);
             // 
             // btnAgregarSector
             // 
+            this.btnAgregarSector.Enabled = false;
             this.btnAgregarSector.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarSector.Location = new System.Drawing.Point(318, 26);
             this.btnAgregarSector.Name = "btnAgregarSector";
@@ -89,6 +92,7 @@ namespace DSI.CapaVistas
             this.btnActualizar.TabIndex = 30;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Visible = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // FrmSector

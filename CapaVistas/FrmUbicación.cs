@@ -35,7 +35,6 @@ namespace DSI.CapaVistas
             dgvUbication.DataSource= ObjBu.BuscarCiudad();
             dgvUbication.Columns[0].Visible = false;
             dgvUbication.Columns[2].Visible = false;
-
         }
 
         private void LlenarCboxP()
@@ -63,6 +62,8 @@ namespace DSI.CapaVistas
         {
             //label4.Text = cboxPais.SelectedValue.ToString();
             ObjUbi.InsertCity(txtCiudad.Text,Byte.Parse(cboxPais.SelectedValue.ToString()));
+            CleanUp.limpiarCajas(this, groupBox1);
+            CleanUp.limpiarCajas(this, groupBox2);
         }
 
         private void UpdateCity()
@@ -97,14 +98,12 @@ namespace DSI.CapaVistas
             {
                 UpdatePais();
                 lblAlert.Text = "País Actualizado";
-
             }
             else
                 InsertPais();
             LlenarCboxP();
             LlenarDgv();
             lblAlert.Text = "País Agregado";
-
         }
 
         private void dgvUbication_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -118,10 +117,10 @@ namespace DSI.CapaVistas
             idPais = Byte.Parse(dgvUbication.CurrentRow.Cells[2].Value.ToString());
             txtPais.Text = dgvUbication.CurrentRow.Cells[3].Value.ToString();
 
+            cboxPais.SelectedValue = idPais;// ubicar el cbox
 
 
             //lblAlert.Text = idPais.ToString();// retirar
-
         }
 
         private void FrmUbicación_Click(object sender, EventArgs e)
@@ -134,14 +133,57 @@ namespace DSI.CapaVistas
         {
             btnAñadir.Text = "Añadir";
             btnAñadirPais.Text = "Añadir";
+            CleanUp.limpiarCajas(this, groupBox1);
+            CleanUp.limpiarCajas(this, groupBox2);
+            LlenarCboxP();
+            lblAlert.Text = "-";
+
         }
 
-        private void getItem()
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        
+        private void txtPais_KeyUp(object sender, KeyEventArgs e)
+        {
+            btnAñadirPais.Enabled = true;
+            lblPais.Text = "País";
+            txtPais.ForeColor = Color.Black;
+            verifyPais();
+        }
+
+        private void verifyPais()// verificar if el país existe
+        {
+            bool x= ObjUbi.verifyPais(txtPais.Text);
+            if (x==true)
+            {
+                lblPais.Text = "Ya existe";
+                txtPais.ForeColor = Color.Red;
+                btnAñadirPais.Enabled = false;
+            }
+        }
+
+        private void txtCiudad_KeyUp(object sender, KeyEventArgs e)
+        {
+            btnAñadir.Enabled = true;
+            lblCity.Text = "ciudad";
+            txtCiudad.ForeColor = Color.Black;
+            verifyCiudad();
+        }
+
+        private void verifyCiudad()// verificar if la ciudad existe
+        {
+            bool x = ObjUbi.verifyCity(txtCiudad.Text);
+            if (x == true)
+            {
+                lblCity.Text = "Ya existe";
+                txtCiudad.ForeColor = Color.Red;
+                btnAñadir.Enabled = false;
+            }
+        }
+
+
 
 
 
