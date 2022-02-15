@@ -38,6 +38,7 @@ namespace DSI.CapaVistas
             btnOpenFile.Enabled = false;
             accesosRol();
 
+        //--https://www.youtube.com/watch?v=HDcdX2endE8
 
         }
 
