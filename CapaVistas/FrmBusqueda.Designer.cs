@@ -29,6 +29,9 @@ namespace DSI.CapaVistas
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBusqueda));
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblcategoria = new System.Windows.Forms.Label();
@@ -88,10 +91,44 @@ namespace DSI.CapaVistas
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SpringGreen;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SpringGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.ColumnHeadersHeight = 34;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.GridColor = System.Drawing.Color.Blue;
             this.dataGridView1.Location = new System.Drawing.Point(1, 243);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Violet;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -151,6 +188,8 @@ namespace DSI.CapaVistas
             // 
             // txtNombreMenu
             // 
+            this.txtNombreMenu.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.txtNombreMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNombreMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreMenu.Location = new System.Drawing.Point(16, 182);
             this.txtNombreMenu.MaxLength = 35;
@@ -162,6 +201,8 @@ namespace DSI.CapaVistas
             // 
             // txtRsocialMenu
             // 
+            this.txtRsocialMenu.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.txtRsocialMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtRsocialMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRsocialMenu.Location = new System.Drawing.Point(375, 182);
             this.txtRsocialMenu.MaxLength = 20;
@@ -173,6 +214,8 @@ namespace DSI.CapaVistas
             // 
             // cboxPaisMenu
             // 
+            this.cboxPaisMenu.BackColor = System.Drawing.Color.White;
+            this.cboxPaisMenu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxPaisMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxPaisMenu.FormattingEnabled = true;
             this.cboxPaisMenu.Location = new System.Drawing.Point(969, 181);
@@ -180,9 +223,12 @@ namespace DSI.CapaVistas
             this.cboxPaisMenu.Size = new System.Drawing.Size(211, 37);
             this.cboxPaisMenu.TabIndex = 4;
             this.cboxPaisMenu.SelectedValueChanged += new System.EventHandler(this.cboxPaisMenu_SelectedValueChanged);
+            this.cboxPaisMenu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboxPaisMenu_KeyPress);
             // 
             // cboxCiudadMenu
             // 
+            this.cboxCiudadMenu.BackColor = System.Drawing.Color.White;
+            this.cboxCiudadMenu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxCiudadMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxCiudadMenu.FormattingEnabled = true;
             this.cboxCiudadMenu.Location = new System.Drawing.Point(1223, 181);
@@ -190,6 +236,7 @@ namespace DSI.CapaVistas
             this.cboxCiudadMenu.Size = new System.Drawing.Size(211, 37);
             this.cboxCiudadMenu.TabIndex = 5;
             this.cboxCiudadMenu.SelectedIndexChanged += new System.EventHandler(this.cboxCiudadMenu_SelectedIndexChanged);
+            this.cboxCiudadMenu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboxCiudadMenu_KeyPress);
             // 
             // btnCrearProveedor
             // 
@@ -233,6 +280,8 @@ namespace DSI.CapaVistas
             // 
             // cboxSectorMenu
             // 
+            this.cboxSectorMenu.BackColor = System.Drawing.Color.White;
+            this.cboxSectorMenu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxSectorMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxSectorMenu.FormattingEnabled = true;
             this.cboxSectorMenu.Location = new System.Drawing.Point(724, 181);
@@ -240,6 +289,7 @@ namespace DSI.CapaVistas
             this.cboxSectorMenu.Size = new System.Drawing.Size(191, 37);
             this.cboxSectorMenu.TabIndex = 3;
             this.cboxSectorMenu.SelectedValueChanged += new System.EventHandler(this.cboxSectorMenu_SelectedValueChanged);
+            this.cboxSectorMenu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboxSectorMenu_KeyPress);
             // 
             // btnClear
             // 

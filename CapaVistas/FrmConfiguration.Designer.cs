@@ -142,7 +142,7 @@ namespace DSI.CapaVistas
             this.rbtnEmail.AutoSize = true;
             this.rbtnEmail.Cursor = System.Windows.Forms.Cursors.Default;
             this.rbtnEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnEmail.Location = new System.Drawing.Point(17, 197);
+            this.rbtnEmail.Location = new System.Drawing.Point(17, 160);
             this.rbtnEmail.Name = "rbtnEmail";
             this.rbtnEmail.Size = new System.Drawing.Size(112, 36);
             this.rbtnEmail.TabIndex = 19;
@@ -155,7 +155,7 @@ namespace DSI.CapaVistas
             // 
             this.rbtnContraseña.AutoSize = true;
             this.rbtnContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnContraseña.Location = new System.Drawing.Point(17, 155);
+            this.rbtnContraseña.Location = new System.Drawing.Point(17, 200);
             this.rbtnContraseña.Name = "rbtnContraseña";
             this.rbtnContraseña.Size = new System.Drawing.Size(187, 36);
             this.rbtnContraseña.TabIndex = 19;

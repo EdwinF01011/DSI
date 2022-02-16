@@ -17,7 +17,7 @@ namespace DSI.Negocio
             {
                 MessageBox.Show("Solo número", "Alerta", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
-                x.Handled = true;
+                x.Handled = true;// evita la escritura
                 //return;
             }
             return x;
@@ -106,7 +106,6 @@ namespace DSI.Negocio
             }
             return x;
         }
-
 
     }
 }

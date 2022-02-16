@@ -63,7 +63,10 @@ namespace DSI.CapaVistas
 
             completyDgv();
 
-
+            //evitar editar
+            cboxSectorMenu.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboxPaisMenu.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboxCiudadMenu.DropDownStyle = ComboBoxStyle.DropDownList;
 
             //txtNombreMenu.Enabled = false;
         }
@@ -444,6 +447,21 @@ namespace DSI.CapaVistas
             Search_If();
         }
 
+        private void cboxSectorMenu_KeyPress(object sender, KeyPressEventArgs e)
+        {//evitar que editen el cbox
+            e.Handled = true;
+        }
+
+        private void cboxPaisMenu_KeyPress(object sender, KeyPressEventArgs e)
+        {//evitar que editen el cbox
+            e.Handled = true;
+        }
+
+        private void cboxCiudadMenu_KeyPress(object sender, KeyPressEventArgs e)
+        {//evitar que editen el cbox
+            e.Handled = true;
+        }
+
 
 
         private void txtNombreMenu_KeyPress(object sender, KeyPressEventArgs e)
@@ -630,7 +648,7 @@ namespace DSI.CapaVistas
                     dataGridView1.DataSource = ObjBu.FiltroThreeOne(
                     txtNombreMenu.Text,
                     itemSector);
-                    ocultarCamposDGV(); //  ----
+                    //ocultarCamposDGV(); //  aquí provocó errores
                     //lblcategoria.Text = contador.ToString();
                     break;
                 case (15):
@@ -638,6 +656,7 @@ namespace DSI.CapaVistas
                     txtNombreMenu.Text,
                     itemSector,
                     itemPais);
+                    ocultarCamposDGV();
                     break;
                 case (26):
                     dataGridView1.DataSource = ObjBu.FiltroFiveOne(
