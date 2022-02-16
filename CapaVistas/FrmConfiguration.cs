@@ -16,11 +16,14 @@ namespace DSI.CapaVistas
 {
     public partial class FrmConfiguration : Form
     {
+        ClsLogin _login = new ClsLogin();
+
         FrmLogin _frmLo = new FrmLogin();
         ClsUsuario _ClsUsu = new ClsUsuario();
         ClsValidacionCajas validate = new ClsValidacionCajas();
 
         bool Rol, bandera=false;
+        private string rolname;
         string contraseñaGenerada, postRuta;
         Byte conteo=0;
         
@@ -162,10 +165,13 @@ namespace DSI.CapaVistas
             if (rbtnAdmin.Checked)
             {
                 Rol = false;
+                rolname="Administrador";
             }
             else if (rbtnAuxiliar.Checked)
             {
                 Rol = true;
+                rolname = "Auxiliar";
+
             }
             //MessageBox.Show(Rol.ToString());
         }
@@ -186,6 +192,7 @@ namespace DSI.CapaVistas
 
                 _ClsUsu.insertUsuario(txtNameUsuarioU.Text, txtUsuarioU.Text, pass, Rol, false, txtCorreo.Text);// estado:false default
 
+                _login.emailEnvia(txtNameUsuarioU.Text, txtUsuarioU.Text, txtCorreo.Text, prePass,rolname);
             }
             else
                 MessageBox.Show("No pudo registrarlo");

@@ -69,9 +69,29 @@ namespace DSI.Negocio
                 var query = (from l in bd.Usuarios
                              where l.id == idUsuario
                              select l).FirstOrDefault();
-                query.pass = pass;
-                bd.SaveChanges();
-                MessageBox.Show("updateUsuarioIII(string pass)");
+                if (query!= null)
+                {
+                    query.pass = pass;
+                    bd.SaveChanges();
+                    MessageBox.Show("updateUsuarioIII(string pass)");
+                }
+                
+            }       
+        }
+        public void updateUsuarioIIIContra(Byte userId,string pass)
+        {
+            using (DSIEntities1 bd = new DSIEntities1())
+            {
+                var query = (from l in bd.Usuarios
+                             where l.id == userId
+                             select l).FirstOrDefault();
+                if (query != null)
+                {
+                    query.pass = pass;
+                    bd.SaveChanges();
+                    MessageBox.Show("updateUsuarioIIIConstra(string pass)");
+                }
+
             }
         }
 
