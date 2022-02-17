@@ -62,6 +62,8 @@ namespace DSI.CapaVistas
             // btnConfigurar
             // 
             this.btnConfigurar.FlatAppearance.BorderSize = 0;
+            this.btnConfigurar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btnConfigurar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Indigo;
             this.btnConfigurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfigurar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfigurar.ForeColor = System.Drawing.Color.White;
@@ -77,6 +79,8 @@ namespace DSI.CapaVistas
             // btnSalir
             // 
             this.btnSalir.FlatAppearance.BorderSize = 0;
+            this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Indigo;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.White;
@@ -135,6 +139,8 @@ namespace DSI.CapaVistas
             // btnSectores
             // 
             this.btnSectores.FlatAppearance.BorderSize = 0;
+            this.btnSectores.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btnSectores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Indigo;
             this.btnSectores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSectores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSectores.ForeColor = System.Drawing.Color.White;
@@ -150,6 +156,8 @@ namespace DSI.CapaVistas
             // btnUbicaciones
             // 
             this.btnUbicaciones.FlatAppearance.BorderSize = 0;
+            this.btnUbicaciones.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btnUbicaciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Indigo;
             this.btnUbicaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUbicaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUbicaciones.ForeColor = System.Drawing.Color.White;

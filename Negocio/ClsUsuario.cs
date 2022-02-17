@@ -128,6 +128,36 @@ namespace DSI.Negocio
                     //MessageBox.Show("go go go,  bro");
             }
         }
+
+        public bool verifyUser(string cc)
+        {
+            using (DSIEntities1 bd = new DSIEntities1())
+            {
+                var verify=bd.Usuarios.Where(x => x.CC == cc).FirstOrDefault();
+                if (verify != null)
+                {
+                    return true;// si existe
+                }
+                else
+                    return false;
+            }
+        }
+
+        public bool verifyMail(string mail)
+        {
+            using (DSIEntities1 bd = new DSIEntities1())
+            {
+                var verify = bd.Usuarios.Where(x => x.Email == mail).FirstOrDefault();
+                if (verify != null)
+                {
+                    return true;// si existe
+                }
+                else
+                    return false;
+            }
+        }
+
+
     }
 
     public class Usuario2//     para crear una lista e iterar un datagridview
@@ -135,6 +165,9 @@ namespace DSI.Negocio
         public string idUsuario;
         public string estado;
     }
+
+    //  demás funciones
+    
 
 
 }

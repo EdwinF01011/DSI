@@ -22,7 +22,7 @@ namespace DSI.CapaVistas
         ClsUsuario _ClsUsu = new ClsUsuario();
         ClsValidacionCajas validate = new ClsValidacionCajas();
 
-        bool Rol, bandera=false;
+        bool Rol, bandera=false,bandera1=false, bandera2 = false;
         private string rolname;
         string contraseñaGenerada, postRuta;
         Byte conteo=0;
@@ -157,7 +157,7 @@ namespace DSI.CapaVistas
         {
             selectionRol();
             insertUsuario();
-            clear();
+            //clear();
         }
 
         private void selectionRol()
@@ -180,7 +180,7 @@ namespace DSI.CapaVistas
         {
             bool x = validationInfo();
 
-            if (x == true)
+            if (x == true && bandera1== true && bandera2 == true)
             {
                 string prePass = ClsEncrytp.randomGenerator();
                 lblAviso.Text = "USUARIO CREADO,  una vez inglese al sistema,\n modifique esta misma contraseña: "+prePass;
@@ -190,9 +190,11 @@ namespace DSI.CapaVistas
                 string pass = ClsEncrytp.GetSHA256(prePass);
 
 
-                _ClsUsu.insertUsuario(txtNameUsuarioU.Text, txtUsuarioU.Text, pass, Rol, false, txtCorreo.Text);// estado:false default
+                _ClsUsu.insertUsuario(txtNameUsuarioU.Text.Trim(), txtUsuarioU.Text.Trim(), pass, Rol, false, txtCorreo.Text.Trim());// estado:false default
 
                 _login.emailEnvia(txtNameUsuarioU.Text, txtUsuarioU.Text, txtCorreo.Text, prePass,rolname);
+                clear();
+
             }
             else
                 MessageBox.Show("No pudo registrarlo");
@@ -646,7 +648,7 @@ namespace DSI.CapaVistas
                 {
                     string ruta = Path.GetDirectoryName(saveFileDialog1.FileName);
                     string nameFile = Path.GetFileName(saveFileDialog1.FileName);
-                    string comando_consulta = "BACKUP DATABASE [DSI] TO  DISK = N'" + ruta + "\\"+nameFile +"_"+ fecha_copia + "' WITH NOFORMAT, NOINIT,  NAME = N'DSI-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+                    string comando_consulta = "BACKUP DATABASE [DSI] TO  DISK = N'" + ruta + "\\" + nameFile + "_" + fecha_copia + "' WITH NOFORMAT, NOINIT,  NAME = N'DSI-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
                     SqlCommand cmd = new SqlCommand(comando_consulta, conx);
                     conx.Open();
                     cmd.ExecuteNonQuery();
@@ -661,6 +663,43 @@ namespace DSI.CapaVistas
             {
                 conx.Close();
             }
+        }
+
+        //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+        private void txtCorreo_KeyUp(object sender, KeyEventArgs e)
+        {// verificar si existe
+            bool x = _ClsUsu.verifyMail(txtCorreo.Text);
+            if (x == true)
+            {
+                bandera2 = false;
+                txtCorreo.ForeColor = Color.Red;
+            }
+            else
+            {
+                bandera2 = true;
+                txtCorreo.ForeColor = Color.Black;
+            }          
+        }
+
+        private void txtUsuarioU_KeyUp(object sender, KeyEventArgs e)
+        {// verificar si existe
+            bool x = _ClsUsu.verifyUser(txtUsuarioU.Text);
+            if (x == true)
+            {
+                bandera1 = false;
+                txtUsuarioU.ForeColor = Color.Red;
+            }
+            else
+            {
+                bandera1 = true;
+                txtUsuarioU.ForeColor = Color.Black;
+            }   
+        }
+
+        private void txtNameUsuarioU_KeyUp(object sender, KeyEventArgs e)
+        {
+            
         }
 
         private void requestRuta()
