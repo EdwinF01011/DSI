@@ -117,7 +117,7 @@ namespace DSI.Negocio
             }
         }
 
-        public void recoverPassword2(string userRequesting)
+        public bool recoverPassword2(string userRequesting)
         {
 
             using (DSIEntities1 BD = new DSIEntities1())
@@ -158,11 +158,14 @@ namespace DSI.Negocio
                         MessageBox.Show("error en catch del método enviarCorreo2() " + ex.ToString());
                         //throw;
                     }
+                    return true;
                     
                 }
                 else
                 {
-                    MessageBox.Show("es nulo");
+                    return false;
+
+                    //MessageBox.Show("es nulo");
 
                     //return "algo salió mal con el proceso de recuperación de contraseña, por favor rectifique su Usuaio ó Correo Electrónico \n " +
                         //"Gracias.";

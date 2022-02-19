@@ -18,7 +18,7 @@ namespace DSI.CapaVistas
         ClsBusqueda ObjBu = new ClsBusqueda();
         ClsValidacionCajas validate = new ClsValidacionCajas();
         bool bandera = false;
-        bool bandera2 = false;
+        bool bandera2 = false, bandera3 = false;
         Byte itemPaisR;
         Byte itemSectorR;
         Byte itemCityR;
@@ -293,7 +293,8 @@ namespace DSI.CapaVistas
                 txtDireccionR.Text == "" ||
                 itemSectorR <= 0 ||
                 itemPaisR <= 0 ||
-                itemCityR <= 0
+                itemCityR <= 0 ||
+                bandera3 ==false
 
                 )
             {
@@ -340,6 +341,28 @@ namespace DSI.CapaVistas
             }
         }
 
-
+        private void txtCorreoR_KeyUp(object sender, KeyEventArgs e)
+        {
+            char Dot = '#';
+            lblCorreoAlert.Text = "-";
+            bool y = email_validation.isvalideEmail(txtCorreoR.Text.Trim());
+            string dot = txtCorreoR.Text.Trim();
+            for (int i = 0; i < dot.Length; i++)
+            {
+                if (dot[i].ToString() == ".")
+                {
+                    Dot = dot[i];
+                }
+            }
+            if (y == true && Dot == '.')
+            {
+                bandera3 = true;
+                lblCorreoAlert.Text = "↴";
+            }
+            else
+            {
+                lblCorreoAlert.Text = "↺";
+            }
+        }
     }
 }

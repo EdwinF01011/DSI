@@ -79,7 +79,16 @@ namespace DSI.CapaVistas
             {
                 //ObjL.enviarCorreo2();
                 //goEmail();
-                ObjL.recoverPassword2(txtUsuario.Text);
+                bool x=ObjL.recoverPassword2(txtUsuario.Text);
+                if (x==true)
+                {
+                    lblinfo.Text = "Enviado... revisa el correo!";
+                }
+                else
+                {
+                    lblinfo.Text = "Algo salió mal.. rectifica los datos.";
+                }
+
             }
             else
             {
@@ -159,6 +168,9 @@ namespace DSI.CapaVistas
             btnValidar.Text = "Enviar";
             btnVolver.Visible = true;
             linkLabel1.Visible = false;
+            txtUsuario.Text = "";
+            lblinfo.Text = "";
+
         }
 
         private void goEmail()
@@ -182,9 +194,9 @@ namespace DSI.CapaVistas
             btnValidar.Text = "Validar";
             txtUsuario.Text = "";
             txtContraseña.Text = "";
+            lblinfo.Text = "";
+            txtUsuario.Text = "";
             //lblTitle.Location = new Point(186, 28);
-
-
 
         }
     }

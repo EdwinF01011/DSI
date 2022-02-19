@@ -254,7 +254,7 @@ namespace DSI.CapaVistas
             this.btnCrearProveedor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCrearProveedor.Name = "btnCrearProveedor";
             this.btnCrearProveedor.Size = new System.Drawing.Size(53, 48);
-            this.btnCrearProveedor.TabIndex = 2;
+            this.btnCrearProveedor.TabIndex = 8;
             this.btnCrearProveedor.UseVisualStyleBackColor = false;
             this.btnCrearProveedor.Click += new System.EventHandler(this.btnCrearProveedor_Click);
             // 
@@ -274,7 +274,7 @@ namespace DSI.CapaVistas
             this.btnbuscar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnbuscar.Name = "btnbuscar";
             this.btnbuscar.Size = new System.Drawing.Size(63, 52);
-            this.btnbuscar.TabIndex = 0;
+            this.btnbuscar.TabIndex = 7;
             this.btnbuscar.UseVisualStyleBackColor = false;
             this.btnbuscar.Click += new System.EventHandler(this.btnbuscar_Click);
             // 
@@ -350,7 +350,7 @@ namespace DSI.CapaVistas
             this.btnCambio.Location = new System.Drawing.Point(1, 12);
             this.btnCambio.Name = "btnCambio";
             this.btnCambio.Size = new System.Drawing.Size(61, 50);
-            this.btnCambio.TabIndex = 46;
+            this.btnCambio.TabIndex = 9;
             this.btnCambio.UseVisualStyleBackColor = false;
             this.btnCambio.Click += new System.EventHandler(this.btnCambio_Click);
             // 

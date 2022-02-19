@@ -352,6 +352,7 @@
     <Compile Include="Negocio\ClsUbicacion.cs" />
     <Compile Include="Negocio\ClsUsuario.cs" />
     <Compile Include="Negocio\ClsValidacionCajas.cs" />
+    <Compile Include="Negocio\email_validation.cs" />
     <Compile Include="Negocio\MailServices\MailServer.cs" />
     <Compile Include="Negocio\MailServices\SystemSupportMail.cs" />
     <Compile Include="Program.cs" />

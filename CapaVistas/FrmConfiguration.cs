@@ -669,17 +669,37 @@ namespace DSI.CapaVistas
 
         private void txtCorreo_KeyUp(object sender, KeyEventArgs e)
         {// verificar si existe
-            bool x = _ClsUsu.verifyMail(txtCorreo.Text);
-            if (x == true)
+            char Dot='#';
+            lblPassword.Text = "-";
+            bool y = email_validation.isvalideEmail(txtCorreo.Text.Trim());
+            string dot = txtCorreo.Text.Trim();
+            for (int i = 0; i < dot.Length; i++)
             {
-                bandera2 = false;
-                txtCorreo.ForeColor = Color.Red;
+                if (dot[i].ToString()==".")
+                {
+                    Dot = dot[i];
+                }
+            }
+            if (y == true && Dot =='.')
+            {
+                bool x = _ClsUsu.verifyMail(txtCorreo.Text.Trim());
+                if (x == true)// si ya existe
+                {
+                    bandera2 = false;
+                    txtCorreo.ForeColor = Color.Red;
+                    lblPassword.Text = "Este correo, yá se encuentra en uso.     ಠ_ಠ";
+                }
+                else
+                {
+                    bandera2 = true;
+                    txtCorreo.ForeColor = Color.Black;
+                    lblPassword.Text = "Perfect.     （￣︶￣）↗　";
+                }
             }
             else
             {
-                bandera2 = true;
-                txtCorreo.ForeColor = Color.Black;
-            }          
+                lblPassword.Text = "El formato  de correo no existe.     X﹏X";
+            }         
         }
 
         private void txtUsuarioU_KeyUp(object sender, KeyEventArgs e)

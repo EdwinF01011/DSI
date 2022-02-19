@@ -56,6 +56,7 @@ namespace DSI.CapaVistas
             this.btnGuardarR = new System.Windows.Forms.Button();
             this.btnDocR = new System.Windows.Forms.Button();
             this.panelRegistro = new System.Windows.Forms.Panel();
+            this.lblCorreoAlert = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,6 +73,7 @@ namespace DSI.CapaVistas
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Menu;
+            this.groupBox1.Controls.Add(this.lblCorreoAlert);
             this.groupBox1.Controls.Add(this.txtNIT);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.lblKey);
@@ -320,6 +322,7 @@ namespace DSI.CapaVistas
             this.txtCorreoR.Size = new System.Drawing.Size(360, 35);
             this.txtCorreoR.TabIndex = 4;
             this.txtCorreoR.Tag = "";
+            this.txtCorreoR.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCorreoR_KeyUp);
             // 
             // btnActualizar
             // 
@@ -360,6 +363,16 @@ namespace DSI.CapaVistas
             this.panelRegistro.Name = "panelRegistro";
             this.panelRegistro.Size = new System.Drawing.Size(889, 698);
             this.panelRegistro.TabIndex = 27;
+            // 
+            // lblCorreoAlert
+            // 
+            this.lblCorreoAlert.AutoSize = true;
+            this.lblCorreoAlert.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorreoAlert.Location = new System.Drawing.Point(527, 287);
+            this.lblCorreoAlert.Name = "lblCorreoAlert";
+            this.lblCorreoAlert.Size = new System.Drawing.Size(28, 37);
+            this.lblCorreoAlert.TabIndex = 41;
+            this.lblCorreoAlert.Text = "-";
             // 
             // FrmRegistro
             // 
@@ -414,5 +427,6 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblCorreoAlert;
     }
 }

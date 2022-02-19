@@ -267,7 +267,7 @@ namespace DSI.CapaVistas
             this.txtEmailP.MaxLength = 30;
             this.txtEmailP.Name = "txtEmailP";
             this.txtEmailP.Size = new System.Drawing.Size(283, 35);
-            this.txtEmailP.TabIndex = 16;
+            this.txtEmailP.TabIndex = 2;
             this.txtEmailP.Visible = false;
             this.txtEmailP.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtEmailP_KeyUp);
             // 
@@ -279,7 +279,7 @@ namespace DSI.CapaVistas
             this.chkContraseña.Location = new System.Drawing.Point(61, 451);
             this.chkContraseña.Name = "chkContraseña";
             this.chkContraseña.Size = new System.Drawing.Size(249, 33);
-            this.chkContraseña.TabIndex = 3;
+            this.chkContraseña.TabIndex = 5;
             this.chkContraseña.Text = "Mostrar Contraseña";
             this.chkContraseña.UseVisualStyleBackColor = false;
             this.chkContraseña.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
@@ -325,7 +325,7 @@ namespace DSI.CapaVistas
             this.txtUsuarioP.MaxLength = 10;
             this.txtUsuarioP.Name = "txtUsuarioP";
             this.txtUsuarioP.Size = new System.Drawing.Size(283, 35);
-            this.txtUsuarioP.TabIndex = 0;
+            this.txtUsuarioP.TabIndex = 1;
             this.txtUsuarioP.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtUsuarioP_KeyUp);
             // 
             // lblConfirmPass
@@ -358,7 +358,7 @@ namespace DSI.CapaVistas
             this.txtPass1.Name = "txtPass1";
             this.txtPass1.PasswordChar = '*';
             this.txtPass1.Size = new System.Drawing.Size(284, 35);
-            this.txtPass1.TabIndex = 1;
+            this.txtPass1.TabIndex = 3;
             this.txtPass1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPass1_KeyUp);
             // 
             // btnUpdate
@@ -369,7 +369,7 @@ namespace DSI.CapaVistas
             this.btnUpdate.Location = new System.Drawing.Point(61, 576);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(283, 45);
-            this.btnUpdate.TabIndex = 4;
+            this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "Actualizar";
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -382,7 +382,7 @@ namespace DSI.CapaVistas
             this.txtPass2.Name = "txtPass2";
             this.txtPass2.PasswordChar = '*';
             this.txtPass2.Size = new System.Drawing.Size(284, 35);
-            this.txtPass2.TabIndex = 2;
+            this.txtPass2.TabIndex = 4;
             this.txtPass2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPass2_KeyUp);
             // 
             // panel2
@@ -428,7 +428,7 @@ namespace DSI.CapaVistas
             this.dgvUsuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -485,7 +485,7 @@ namespace DSI.CapaVistas
             this.txtCorreo.MaxLength = 30;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(386, 35);
-            this.txtCorreo.TabIndex = 25;
+            this.txtCorreo.TabIndex = 2;
             this.txtCorreo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCorreo_KeyUp);
             // 
             // lblAviso
@@ -504,7 +504,7 @@ namespace DSI.CapaVistas
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblPassword.Location = new System.Drawing.Point(293, 151);
+            this.lblPassword.Location = new System.Drawing.Point(477, 241);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(39, 26);
             this.lblPassword.TabIndex = 23;
@@ -515,7 +515,7 @@ namespace DSI.CapaVistas
             this.btnGuardar.Location = new System.Drawing.Point(1136, 359);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(132, 41);
-            this.btnGuardar.TabIndex = 11;
+            this.btnGuardar.TabIndex = 5;
             this.btnGuardar.Text = "Crear";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -527,7 +527,7 @@ namespace DSI.CapaVistas
             this.rbtnAuxiliar.Location = new System.Drawing.Point(61, 371);
             this.rbtnAuxiliar.Name = "rbtnAuxiliar";
             this.rbtnAuxiliar.Size = new System.Drawing.Size(101, 29);
-            this.rbtnAuxiliar.TabIndex = 19;
+            this.rbtnAuxiliar.TabIndex = 4;
             this.rbtnAuxiliar.TabStop = true;
             this.rbtnAuxiliar.Text = "Auxiliar";
             this.rbtnAuxiliar.UseVisualStyleBackColor = true;
@@ -550,7 +550,7 @@ namespace DSI.CapaVistas
             this.rbtnAdmin.Location = new System.Drawing.Point(61, 336);
             this.rbtnAdmin.Name = "rbtnAdmin";
             this.rbtnAdmin.Size = new System.Drawing.Size(142, 29);
-            this.rbtnAdmin.TabIndex = 18;
+            this.rbtnAdmin.TabIndex = 3;
             this.rbtnAdmin.TabStop = true;
             this.rbtnAdmin.Text = "Admistrador";
             this.rbtnAdmin.UseVisualStyleBackColor = true;
@@ -573,7 +573,7 @@ namespace DSI.CapaVistas
             this.txtNameUsuarioU.MaxLength = 30;
             this.txtNameUsuarioU.Name = "txtNameUsuarioU";
             this.txtNameUsuarioU.Size = new System.Drawing.Size(198, 35);
-            this.txtNameUsuarioU.TabIndex = 10;
+            this.txtNameUsuarioU.TabIndex = 0;
             this.txtNameUsuarioU.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNameUsuarioU_KeyPress);
             this.txtNameUsuarioU.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNameUsuarioU_KeyUp);
             // 
@@ -595,7 +595,7 @@ namespace DSI.CapaVistas
             this.txtUsuarioU.MaxLength = 10;
             this.txtUsuarioU.Name = "txtUsuarioU";
             this.txtUsuarioU.Size = new System.Drawing.Size(198, 35);
-            this.txtUsuarioU.TabIndex = 13;
+            this.txtUsuarioU.TabIndex = 1;
             this.txtUsuarioU.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtUsuarioU_KeyUp);
             // 
             // lblAlert

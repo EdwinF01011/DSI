@@ -65,7 +65,7 @@ namespace DSI.CapaVistas
             this.panel3.Location = new System.Drawing.Point(596, 197);
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(522, 331);
+            this.panel3.Size = new System.Drawing.Size(522, 352);
             this.panel3.TabIndex = 16;
             this.panel3.Click += new System.EventHandler(this.panel3_Click);
             // 
@@ -102,7 +102,7 @@ namespace DSI.CapaVistas
             this.lblinfo.AutoSize = true;
             this.lblinfo.BackColor = System.Drawing.Color.Transparent;
             this.lblinfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblinfo.Location = new System.Drawing.Point(22, 298);
+            this.lblinfo.Location = new System.Drawing.Point(22, 309);
             this.lblinfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblinfo.Name = "lblinfo";
             this.lblinfo.Size = new System.Drawing.Size(19, 25);
@@ -116,7 +116,7 @@ namespace DSI.CapaVistas
             this.btnValidar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnValidar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnValidar.ForeColor = System.Drawing.Color.White;
-            this.btnValidar.Location = new System.Drawing.Point(362, 278);
+            this.btnValidar.Location = new System.Drawing.Point(362, 298);
             this.btnValidar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnValidar.Name = "btnValidar";
             this.btnValidar.Size = new System.Drawing.Size(147, 45);
