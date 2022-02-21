@@ -171,7 +171,6 @@ namespace DSI.CapaVistas
             {
                 Rol = true;
                 rolname = "Auxiliar";
-
             }
             //MessageBox.Show(Rol.ToString());
         }
@@ -179,31 +178,24 @@ namespace DSI.CapaVistas
         private void insertUsuario()
         {
             bool x = validationInfo();
-
             if (x == true && bandera1== true && bandera2 == true)
             {
                 string prePass = ClsEncrytp.randomGenerator();
                 lblAviso.Text = "USUARIO CREADO,  una vez inglese al sistema,\n modifique esta misma contraseña: "+prePass;
                 lblPassword.Text = prePass;
-
-
                 string pass = ClsEncrytp.GetSHA256(prePass);
-
-
                 _ClsUsu.insertUsuario(txtNameUsuarioU.Text.Trim(), txtUsuarioU.Text.Trim(), pass, Rol, false, txtCorreo.Text.Trim());// estado:false default
-
                 _login.emailEnvia(txtNameUsuarioU.Text, txtUsuarioU.Text, txtCorreo.Text, prePass,rolname);
                 clear();
-
             }
             else
-                MessageBox.Show("No pudo registrarlo");
-
+            {
+                lblAviso.Text= "◱  No pudo crear un nuevo usuario.  ◱";
+            }
         }
 
         private void updateUsuario()
         {
-
             if (conteo == 1)
             {
                 _ClsUsu.updateUsuario(txtNameUsuarioP.Text);
@@ -227,9 +219,9 @@ namespace DSI.CapaVistas
                     _frmLo.Show();
                 }
             }
-            else if (conteo == 4)
+            else if (conteo == 4 && txtEmailP.Text!=string.Empty && bandera2==true)
             {
-                _ClsUsu.updateUsuarioIV(txtEmailP.Text);
+                _ClsUsu.updateUsuarioIV(txtEmailP.Text.Trim());
                 MessageBox.Show("Esta pestaña se cerrará, vuelva a iniciar sesión y revise su correo");
                 _frmLo.Show();
             }
@@ -241,12 +233,16 @@ namespace DSI.CapaVistas
                 {
                     string pass = ClsEncrytp.GetSHA256(contraseñaGenerada);
                     _ClsUsu.updateUsuarioV(txtNameUsuarioP.Text, txtUsuarioP.Text, pass,txtEmailP.Text);
-                    MessageBox.Show("Actualizado");
+                    //MessageBox.Show("Actualizado");
+                    lblAlerta.Text="Actualizado";
                     MessageBox.Show("Esta pestaña se cerrará, vuelva a iniciar sesión");
                     _frmLo.Show();
                     }
                 else
-                    MessageBox.Show("No se pudo concretar la acción");
+                {
+                    lblAlerta.Visible = true;
+                }
+                    //MessageBox.Show("No se pudo concretar la acción");
             }
             clear(); 
 
@@ -364,6 +360,8 @@ namespace DSI.CapaVistas
             txtUsuarioP.Text = "";
             txtPass1.Text = "";
             txtPass2.Text = "";
+            lblAlerta.Visible = false;
+
             //lblAlertPerfil.Text = "";// no
 
             //-----
@@ -372,7 +370,6 @@ namespace DSI.CapaVistas
             rbtnAdmin.Checked = false;
             rbtnAuxiliar.Checked = false;
             txtCorreo.Text = "";
-
         }
 
         private void txtPass1_KeyUp(object sender, KeyEventArgs e)
@@ -395,13 +392,40 @@ namespace DSI.CapaVistas
         private void txtUsuarioP_KeyUp(object sender, KeyEventArgs e)
         {
             btnUpdate.Enabled = true;
-
         }
 
         private void txtEmailP_KeyUp(object sender, KeyEventArgs e)
         {
             btnUpdate.Enabled = true;
+            lblMail.Text = "";
+            //valideMail();
+            txtEmailP.ForeColor = Color.Black;
 
+            bool y = email_validation.isvalideEmail(txtEmailP.Text.Trim());
+            if (y == true)
+            {
+                bool x = _ClsUsu.verifyMail(txtEmailP.Text.Trim());
+                if (x == true)// si ya existe
+                {
+                    bandera2 = false;
+                    txtEmailP.ForeColor = Color.Red;
+                    lblMail.Text = "⨉";
+                    //MessageBox.Show("X");
+                }
+                else
+                {
+                    bandera2 = true;
+                    txtEmailP.ForeColor = Color.Black;
+                    lblMail.Text = "ↆ";
+                    //MessageBox.Show("down");
+                }
+            }
+            else
+            {
+                bandera2 = false;
+                //MessageBox.Show("non");
+                lblMail.Text = "⨯";
+            }
         }
 
         private void btnGuardarU_Click(object sender, EventArgs e)
@@ -627,7 +651,7 @@ namespace DSI.CapaVistas
 
         private void lblAlert_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("click");
+            //MessageBox.Show("click");
             lblCreado.Visible = false;
         }
 
@@ -669,18 +693,9 @@ namespace DSI.CapaVistas
 
         private void txtCorreo_KeyUp(object sender, KeyEventArgs e)
         {// verificar si existe
-            char Dot='#';
             lblPassword.Text = "-";
             bool y = email_validation.isvalideEmail(txtCorreo.Text.Trim());
-            string dot = txtCorreo.Text.Trim();
-            for (int i = 0; i < dot.Length; i++)
-            {
-                if (dot[i].ToString()==".")
-                {
-                    Dot = dot[i];
-                }
-            }
-            if (y == true && Dot =='.')
+            if (y == true /*&& Dot =='.'*/)
             {
                 bool x = _ClsUsu.verifyMail(txtCorreo.Text.Trim());
                 if (x == true)// si ya existe
@@ -700,6 +715,38 @@ namespace DSI.CapaVistas
             {
                 lblPassword.Text = "El formato  de correo no existe.     X﹏X";
             }         
+        }
+
+        private void valideMail()
+        {// verificar si existe
+         //lblMail.Text = "";//⇅
+            txtEmailP.ForeColor = Color.Black;
+
+            bool y = email_validation.isvalideEmail(txtEmailP.Text.Trim());
+            if (y == true)
+            {
+                bool x = _ClsUsu.verifyMail(txtCorreo.Text.Trim());
+                if (x == true)// si ya existe
+                {
+                    bandera2 = false;
+                    txtEmailP.ForeColor = Color.Red;
+                    lblMail.Text = "⨉";
+                    //MessageBox.Show("X");
+                }
+                else
+                {
+                    bandera2 = true;
+                    txtEmailP.ForeColor = Color.Black;
+                    lblMail.Text = "ↆ";
+                    //MessageBox.Show("down");
+                }
+            }
+            else
+            {
+                bandera2 = false;
+                //MessageBox.Show("non");
+                //lblMail.Text = "⨯";
+            }
         }
 
         private void txtUsuarioU_KeyUp(object sender, KeyEventArgs e)

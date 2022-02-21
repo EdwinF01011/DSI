@@ -10,15 +10,30 @@ namespace DSI.Negocio
     {
         public static bool isvalideEmail(string email)
         {
+            char Dot = '#';
             try
             {
+                string dot = email;
                 var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
+                for (int i = 0; i < dot.Length; i++)
+                {
+                    if (dot[i].ToString() == ".")
+                    {
+                        Dot = dot[i];
+                    }
+                }
+                if (addr.Address == email && Dot == '.')
+                {
+                    return addr.Address == email;
+                }
+                else
+                    return false;
             }
             catch
             {
                 return false;
             }
+
         }
     }
 }

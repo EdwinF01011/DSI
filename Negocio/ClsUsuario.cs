@@ -45,7 +45,7 @@ namespace DSI.Negocio
                 query.Nombre = name;
                 bd.SaveChanges();
             }
-            MessageBox.Show("updateUsuario(string name)");
+            //MessageBox.Show("updateUsuario(string name)");
         }
 
         public void updateUsuarioII(string cc)
@@ -58,7 +58,7 @@ namespace DSI.Negocio
                                 select l).FirstOrDefault();
                 query.CC = cc;
                 bd.SaveChanges();
-                MessageBox.Show("updateUsuarioII(string cc)");
+                //MessageBox.Show("updateUsuarioII(string cc)");
             }
         }
 
@@ -73,7 +73,7 @@ namespace DSI.Negocio
                 {
                     query.pass = pass;
                     bd.SaveChanges();
-                    MessageBox.Show("updateUsuarioIII(string pass)");
+                    //MessageBox.Show("updateUsuarioIII(string pass)");
                 }
                 
             }       
@@ -89,7 +89,7 @@ namespace DSI.Negocio
                 {
                     query.pass = pass;
                     bd.SaveChanges();
-                    MessageBox.Show("updateUsuarioIIIConstra(string pass)");
+                    //MessageBox.Show("updateUsuarioIIIConstra(string pass)");
                 }
 
             }
@@ -104,7 +104,7 @@ namespace DSI.Negocio
                              select l).FirstOrDefault();
                 query.Email = mail;
                 bd.SaveChanges();
-                MessageBox.Show("updateUsuarioIV(string mail)");
+                //MessageBox.Show("updateUsuarioIV(string mail)");
             }
         }
 

@@ -41,6 +41,7 @@ namespace DSI.CapaVistas
             this.rbtnUsuario = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblMail = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.lblAlertPerfil = new System.Windows.Forms.Label();
             this.txtEmailP = new System.Windows.Forms.TextBox();
@@ -55,6 +56,7 @@ namespace DSI.CapaVistas
             this.btnUpdate = new System.Windows.Forms.Button();
             this.txtPass2 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblAlerta = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnGuardarU = new System.Windows.Forms.Button();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
@@ -82,6 +84,7 @@ namespace DSI.CapaVistas
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.panel3.SuspendLayout();
@@ -217,6 +220,7 @@ namespace DSI.CapaVistas
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.lblMail);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.lblAlertPerfil);
             this.panel1.Controls.Add(this.txtEmailP);
@@ -235,6 +239,18 @@ namespace DSI.CapaVistas
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(415, 656);
             this.panel1.TabIndex = 13;
+            // 
+            // lblMail
+            // 
+            this.lblMail.AutoSize = true;
+            this.lblMail.BackColor = System.Drawing.Color.Black;
+            this.lblMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMail.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblMail.Location = new System.Drawing.Point(269, 207);
+            this.lblMail.Name = "lblMail";
+            this.lblMail.Size = new System.Drawing.Size(21, 29);
+            this.lblMail.TabIndex = 18;
+            this.lblMail.Text = "-";
             // 
             // label10
             // 
@@ -390,10 +406,24 @@ namespace DSI.CapaVistas
             this.panel2.BackColor = System.Drawing.Color.MidnightBlue;
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.lblAlerta);
             this.panel2.Location = new System.Drawing.Point(512, 84);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(481, 722);
             this.panel2.TabIndex = 14;
+            // 
+            // lblAlerta
+            // 
+            this.lblAlerta.AutoSize = true;
+            this.lblAlerta.BackColor = System.Drawing.Color.Black;
+            this.lblAlerta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlerta.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblAlerta.Location = new System.Drawing.Point(74, 682);
+            this.lblAlerta.Name = "lblAlerta";
+            this.lblAlerta.Size = new System.Drawing.Size(317, 26);
+            this.lblAlerta.TabIndex = 17;
+            this.lblAlerta.Text = "No se pudo concretar la acción.";
+            this.lblAlerta.Visible = false;
             // 
             // tabPage2
             // 
@@ -678,6 +708,8 @@ namespace DSI.CapaVistas
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.panel3.ResumeLayout(false);
@@ -737,5 +769,7 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.RadioButton rbtnEmail;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtEmailP;
+        private System.Windows.Forms.Label lblMail;
+        private System.Windows.Forms.Label lblAlerta;
     }
 }
