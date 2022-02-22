@@ -74,6 +74,11 @@ namespace DSI.CapaVistas
             this.label6 = new System.Windows.Forms.Label();
             this.txtUsuarioU = new System.Windows.Forms.TextBox();
             this.lblAlert = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnRestaurar = new System.Windows.Forms.Button();
+            this.txtRutaRestoreBackup = new System.Windows.Forms.TextBox();
+            this.btnCargarBak = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
             this.lblCreado = new System.Windows.Forms.Label();
             this.btnRuta = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
@@ -89,6 +94,7 @@ namespace DSI.CapaVistas
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.panel3.SuspendLayout();
             this.lblAlert.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -630,6 +636,7 @@ namespace DSI.CapaVistas
             // 
             // lblAlert
             // 
+            this.lblAlert.Controls.Add(this.groupBox2);
             this.lblAlert.Controls.Add(this.lblCreado);
             this.lblAlert.Controls.Add(this.btnRuta);
             this.lblAlert.Controls.Add(this.label9);
@@ -643,11 +650,62 @@ namespace DSI.CapaVistas
             this.lblAlert.UseVisualStyleBackColor = true;
             this.lblAlert.Click += new System.EventHandler(this.lblAlert_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnRestaurar);
+            this.groupBox2.Controls.Add(this.txtRutaRestoreBackup);
+            this.groupBox2.Controls.Add(this.btnCargarBak);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Location = new System.Drawing.Point(54, 416);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1339, 361);
+            this.groupBox2.TabIndex = 31;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Restauración de Base de datos";
+            // 
+            // btnRestaurar
+            // 
+            this.btnRestaurar.Location = new System.Drawing.Point(26, 143);
+            this.btnRestaurar.Name = "btnRestaurar";
+            this.btnRestaurar.Size = new System.Drawing.Size(209, 38);
+            this.btnRestaurar.TabIndex = 32;
+            this.btnRestaurar.Text = "Restaurar";
+            this.btnRestaurar.UseVisualStyleBackColor = true;
+            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
+            // 
+            // txtRutaRestoreBackup
+            // 
+            this.txtRutaRestoreBackup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRutaRestoreBackup.Location = new System.Drawing.Point(26, 102);
+            this.txtRutaRestoreBackup.MaxLength = 30;
+            this.txtRutaRestoreBackup.Name = "txtRutaRestoreBackup";
+            this.txtRutaRestoreBackup.Size = new System.Drawing.Size(734, 35);
+            this.txtRutaRestoreBackup.TabIndex = 31;
+            // 
+            // btnCargarBak
+            // 
+            this.btnCargarBak.Location = new System.Drawing.Point(766, 102);
+            this.btnCargarBak.Name = "btnCargarBak";
+            this.btnCargarBak.Size = new System.Drawing.Size(91, 38);
+            this.btnCargarBak.TabIndex = 29;
+            this.btnCargarBak.Text = "...";
+            this.btnCargarBak.UseVisualStyleBackColor = true;
+            this.btnCargarBak.Click += new System.EventHandler(this.btnCargarBak_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(21, 74);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(94, 25);
+            this.label11.TabIndex = 30;
+            this.label11.Text = "Examinar";
+            // 
             // lblCreado
             // 
             this.lblCreado.AutoSize = true;
             this.lblCreado.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lblCreado.Location = new System.Drawing.Point(820, 388);
+            this.lblCreado.Location = new System.Drawing.Point(809, 230);
             this.lblCreado.Name = "lblCreado";
             this.lblCreado.Size = new System.Drawing.Size(165, 25);
             this.lblCreado.TabIndex = 28;
@@ -656,7 +714,7 @@ namespace DSI.CapaVistas
             // 
             // btnRuta
             // 
-            this.btnRuta.Location = new System.Drawing.Point(714, 381);
+            this.btnRuta.Location = new System.Drawing.Point(703, 223);
             this.btnRuta.Name = "btnRuta";
             this.btnRuta.Size = new System.Drawing.Size(91, 38);
             this.btnRuta.TabIndex = 27;
@@ -667,7 +725,7 @@ namespace DSI.CapaVistas
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(303, 304);
+            this.label9.Location = new System.Drawing.Point(292, 146);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(913, 25);
             this.label9.TabIndex = 26;
@@ -677,7 +735,7 @@ namespace DSI.CapaVistas
             // lblA
             // 
             this.lblA.AutoSize = true;
-            this.lblA.Location = new System.Drawing.Point(552, 446);
+            this.lblA.Location = new System.Drawing.Point(541, 288);
             this.lblA.Name = "lblA";
             this.lblA.Size = new System.Drawing.Size(415, 50);
             this.lblA.TabIndex = 23;
@@ -716,6 +774,8 @@ namespace DSI.CapaVistas
             this.panel3.PerformLayout();
             this.lblAlert.ResumeLayout(false);
             this.lblAlert.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -771,5 +831,10 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.TextBox txtEmailP;
         private System.Windows.Forms.Label lblMail;
         private System.Windows.Forms.Label lblAlerta;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox txtRutaRestoreBackup;
+        private System.Windows.Forms.Button btnCargarBak;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnRestaurar;
     }
 }

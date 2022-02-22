@@ -39,7 +39,7 @@ namespace DSI.Negocio
             using (DSIEntities1 bd = new DSIEntities1())
             {
                 var reques = (from l in bd.contacto
-                              where l.NIT == nit
+                              where l.NIT == nit && l.id_categoria== ClsUsuario.number_categoria
                               select l).FirstOrDefault();
                 if(reques != null)
                 {

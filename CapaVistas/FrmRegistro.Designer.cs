@@ -31,6 +31,7 @@ namespace DSI.CapaVistas
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblCorreoAlert = new System.Windows.Forms.Label();
             this.txtNIT = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblKey = new System.Windows.Forms.Label();
@@ -56,7 +57,6 @@ namespace DSI.CapaVistas
             this.btnGuardarR = new System.Windows.Forms.Button();
             this.btnDocR = new System.Windows.Forms.Button();
             this.panelRegistro = new System.Windows.Forms.Panel();
-            this.lblCorreoAlert = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,6 +103,16 @@ namespace DSI.CapaVistas
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registro";
             // 
+            // lblCorreoAlert
+            // 
+            this.lblCorreoAlert.AutoSize = true;
+            this.lblCorreoAlert.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorreoAlert.Location = new System.Drawing.Point(527, 287);
+            this.lblCorreoAlert.Name = "lblCorreoAlert";
+            this.lblCorreoAlert.Size = new System.Drawing.Size(28, 37);
+            this.lblCorreoAlert.TabIndex = 41;
+            this.lblCorreoAlert.Text = "-";
+            // 
             // txtNIT
             // 
             this.txtNIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -140,6 +150,7 @@ namespace DSI.CapaVistas
             // 
             // cboxSectorR
             // 
+            this.cboxSectorR.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxSectorR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxSectorR.FormattingEnabled = true;
             this.cboxSectorR.Location = new System.Drawing.Point(188, 396);
@@ -181,6 +192,7 @@ namespace DSI.CapaVistas
             // 
             // cboxCiudadRegistro
             // 
+            this.cboxCiudadRegistro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxCiudadRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxCiudadRegistro.FormattingEnabled = true;
             this.cboxCiudadRegistro.Location = new System.Drawing.Point(188, 505);
@@ -205,7 +217,7 @@ namespace DSI.CapaVistas
             // 
             this.txtDescripcionR.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcionR.Location = new System.Drawing.Point(24, 559);
-            this.txtDescripcionR.MaxLength = 100;
+            this.txtDescripcionR.MaxLength = 500;
             this.txtDescripcionR.Multiline = true;
             this.txtDescripcionR.Name = "txtDescripcionR";
             this.txtDescripcionR.Size = new System.Drawing.Size(566, 123);
@@ -264,6 +276,7 @@ namespace DSI.CapaVistas
             // 
             // cboxPaisRegistro
             // 
+            this.cboxPaisRegistro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxPaisRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxPaisRegistro.FormattingEnabled = true;
             this.cboxPaisRegistro.Location = new System.Drawing.Point(188, 450);
@@ -363,16 +376,6 @@ namespace DSI.CapaVistas
             this.panelRegistro.Name = "panelRegistro";
             this.panelRegistro.Size = new System.Drawing.Size(889, 698);
             this.panelRegistro.TabIndex = 27;
-            // 
-            // lblCorreoAlert
-            // 
-            this.lblCorreoAlert.AutoSize = true;
-            this.lblCorreoAlert.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorreoAlert.Location = new System.Drawing.Point(527, 287);
-            this.lblCorreoAlert.Name = "lblCorreoAlert";
-            this.lblCorreoAlert.Size = new System.Drawing.Size(28, 37);
-            this.lblCorreoAlert.TabIndex = 41;
-            this.lblCorreoAlert.Text = "-";
             // 
             // FrmRegistro
             // 

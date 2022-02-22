@@ -717,37 +717,47 @@ namespace DSI.CapaVistas
             }         
         }
 
-        private void valideMail()
-        {// verificar si existe
-         //lblMail.Text = "";//⇅
-            txtEmailP.ForeColor = Color.Black;
-
-            bool y = email_validation.isvalideEmail(txtEmailP.Text.Trim());
-            if (y == true)
-            {
-                bool x = _ClsUsu.verifyMail(txtCorreo.Text.Trim());
-                if (x == true)// si ya existe
-                {
-                    bandera2 = false;
-                    txtEmailP.ForeColor = Color.Red;
-                    lblMail.Text = "⨉";
-                    //MessageBox.Show("X");
-                }
-                else
-                {
-                    bandera2 = true;
-                    txtEmailP.ForeColor = Color.Black;
-                    lblMail.Text = "ↆ";
-                    //MessageBox.Show("down");
-                }
-            }
-            else
-            {
-                bandera2 = false;
-                //MessageBox.Show("non");
-                //lblMail.Text = "⨯";
-            }
+        private void btnCargarBak_Click(object sender, EventArgs e)
+        {
+            requestRuta();
         }
+
+        private void btnRestaurar_Click(object sender, EventArgs e)
+        {
+            RestaurarBD();
+        }
+
+        //private void valideMail()
+        //{// verificar si existe
+        // //lblMail.Text = "";//⇅
+        //    txtEmailP.ForeColor = Color.Black;
+
+        //    bool y = email_validation.isvalideEmail(txtEmailP.Text.Trim());
+        //    if (y == true)
+        //    {
+        //        bool x = _ClsUsu.verifyMail(txtCorreo.Text.Trim());
+        //        if (x == true)// si ya existe
+        //        {
+        //            bandera2 = false;
+        //            txtEmailP.ForeColor = Color.Red;
+        //            lblMail.Text = "⨉";
+        //            //MessageBox.Show("X");
+        //        }
+        //        else
+        //        {
+        //            bandera2 = true;
+        //            txtEmailP.ForeColor = Color.Black;
+        //            lblMail.Text = "ↆ";
+        //            //MessageBox.Show("down");
+        //        }
+        //    }
+        //    else
+        //    {
+        //        bandera2 = false;
+        //        //MessageBox.Show("non");
+        //        //lblMail.Text = "⨯";
+        //    }
+        //}
 
         private void txtUsuarioU_KeyUp(object sender, KeyEventArgs e)
         {// verificar si existe
@@ -769,25 +779,76 @@ namespace DSI.CapaVistas
             
         }
 
-        private void requestRuta()
+        private void requestRuta()//  -https://www.youtube.com/watch?v=wbVb6tH_BDc
         {
-            openFileDialog1.InitialDirectory = "c:\\";
-            openFileDialog1.Filter = "Todos los archivos (*.*)|*.*";
+            //openFileDialog1.InitialDirectory = "c:\\";
+            openFileDialog1.InitialDirectory = @"c:\";  // evita errores por diagonales inversas @.
+
+            openFileDialog1.Filter = "Archivos .bak (*.bak*)|*.bak*";//"Todos los archivos (*.*)|*."
+            openFileDialog1.Title = "Selecccionar respaldo";
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.RestoreDirectory = true;
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 string ruta= openFileDialog1.FileName;
-                MessageBox.Show(ruta);
+                //AjustarRuta(ruta);
+                txtRutaRestoreBackup.Text = ruta;
+                //MessageBox.Show(ruta);
+            }
+
+            /*  para hacer la restauración
+             *  
+             *  -https://elblogdelbeto.com/codigo-en-c-para-crear-un-respaldo-de-una-base-de-datos-en-sql-server-y-restaurarla/
+             *  -https://cpiprodesign.blogspot.com/2018/06/backup-y-restore-database-sql-server.html
+             *  
+             *  
+             *  USE [master]
+                RESTORE DATABASE [DSI] FROM  DISK = N'C:\z\ultima_Fecha_14_02_2022_hora_09_36_14.bak' WITH  FILE = 1,  NOUNLOAD,  STATS = 5
+                GO
+             */
+        }
+
+        private void RestaurarBD()
+        {
+            string ruta = txtRutaRestoreBackup.Text.Trim();
+            string bd = conx.Database.ToString();
+            try
+            {
+                if (conx.State != ConnectionState.Open)
+                {
+                    conx.Open();
+                }
+                //hacer single user y rollback
+                string sqlT1 = String.Format("ALTER DATABASE [" + bd + "] SET SINGLE_USER WITH ROLLBACK IMMEDIATE");
+                SqlCommand cmd1 = new SqlCommand(sqlT1, conx);
+                cmd1.ExecuteNonQuery();
+                string comandoConsulta = "USE [master] RESTORE DATABASE[DSI] FROM DISK = N'"+ruta+"' WITH FILE = 1, NOUNLOAD, STATS = 5  GO";
+                //  ALTER TABLE
+                string sqlT2 = @"USE [master] RESTORE DATABASE[DSI] FROM DISK = N'C:\z\ultima_Fecha_14_02_2022_hora_09_36_14.bak' WITH FILE = 1, NOUNLOAD, STATS = 5 ";
+                SqlCommand cmd2 = new SqlCommand(sqlT2, conx);
+                cmd2.ExecuteNonQuery();
+                //hacer multi user
+                string sqlT3 = String.Format("ALTER DATABASE [" + bd + "] SET MULTI_USER");
+                SqlCommand cmd3 = new SqlCommand(sqlT3, conx);
+                cmd3.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conx.Close();
             }
         }
 
-        //private bool AjustarRuta()// sin uso
+
+        //private void AjustarRuta(string ruta)// sin uso, sirve
         //{
-        //    if (txtRuta.Text!=String.Empty)
-        //    {
-        //        string preRuta = txtRuta.Text;
-        //        foreach (var item in preRuta)
+        //    //    if (txtRutaRestoreBackup.Text != String.Empty)
+        //    //    {
+        //    //string preRuta = ruta;
+        //        foreach (var item in ruta)
         //        {
         //            postRuta += item.ToString();
         //            if (item.ToString().Contains("\\"))
@@ -795,13 +856,15 @@ namespace DSI.CapaVistas
         //                postRuta += "\\";
         //            }
         //        }
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("agregue una ruta");
-        //        return false;
-        //    }
+        //        txtRutaRestoreBackup.Text = postRuta;
+        //        //return true;
+
+        //    //}
+        //    //else
+        //    //{
+        //    //    MessageBox.Show("agregue una ruta");
+        //    //    //return false;
+        //    //}
         //}
 
 

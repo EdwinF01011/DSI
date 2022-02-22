@@ -42,8 +42,6 @@ namespace DSI.CapaVistas
             frmDoc.Show();
         }
 
-
-
         private void btnVolver_Click(object sender, EventArgs e)
         {
             //esta acción no será tan util, mantener así
@@ -51,7 +49,6 @@ namespace DSI.CapaVistas
             //this.Hide();
             //FrmBusqueda frmBusq = new FrmBusqueda();
             //frmBusq.Show();
-
         }
 
         private void FrmRegistro_Load(object sender, EventArgs e)
@@ -99,7 +96,6 @@ namespace DSI.CapaVistas
             }
             bandera = true;
             LlenarCboxCity(itemPaisR);// idCity
-
         }
 
         private void cboxPaisRegistro_SelectedValueChanged(object sender, EventArgs e)
@@ -110,7 +106,6 @@ namespace DSI.CapaVistas
                 LlenarCboxCity(itemPaisR);
                 //lblPais.Text = cboxPaisRegistro.Text;
                 cboxCiudadRegistro.Enabled = true;
-
             }
         }
 
@@ -128,7 +123,6 @@ namespace DSI.CapaVistas
                 }
                 bandera2 = true;
             }
-
         }
 
         public void AsignarValues(// agrega los valores de FrmBusqueda de dgv
@@ -146,7 +140,6 @@ namespace DSI.CapaVistas
             Byte itemCity,
             Byte itemPais, //en duda
             Byte itemSector
-
             )
         {
             lblKey.Text = id.ToString();
@@ -167,7 +160,6 @@ namespace DSI.CapaVistas
             cboxPaisRegistro.SelectedValue = itemPais;
             cboxCiudadRegistro.SelectedValue = itemCity;
             cboxSectorR.SelectedValue = itemSector;
-
         }
 
         private void cboxSectorR_SelectedValueChanged(object sender, EventArgs e)
@@ -222,8 +214,6 @@ namespace DSI.CapaVistas
         private void UpdateContacto()
         {
             // necesito obtener el id del sector y la ciudad
-
-
             ObjCont.UpdateContacto(
                 Byte.Parse(lblKey.Text),
                 txtNombreR.Text,
@@ -238,7 +228,6 @@ namespace DSI.CapaVistas
                 true
                 );
             MessageBox.Show("Contacto Actualizado");
-
         }
 
         public void Proces(Byte x)
@@ -246,7 +235,6 @@ namespace DSI.CapaVistas
             if (x == 1)
             {
                 btnGuardarR.Visible = false;
-
             }
             else
             {
@@ -255,7 +243,6 @@ namespace DSI.CapaVistas
                 //btnGuardarR.Enabled = false;
 
             }
-
         }
 
         private void btnGuardarR_Click(object sender, EventArgs e)
@@ -266,8 +253,7 @@ namespace DSI.CapaVistas
                 lblKey.Text = "  Complete los campos   ←_← ";
                 //lblKey.ForeColor=
             }
-            else { InsertContacto(); CleanUp.limpiarCajas(this, groupBox1);  MessageBox.Show("cleanUp"); }
-                
+            else { InsertContacto(); CleanUp.limpiarCajas(this, groupBox1);  /*MessageBox.Show("cleanUp");*/ }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -295,7 +281,6 @@ namespace DSI.CapaVistas
                 itemPaisR <= 0 ||
                 itemCityR <= 0 ||
                 bandera3 ==false
-
                 )
             {
                 return false;
