@@ -12,6 +12,7 @@ namespace DSI.Negocio
     public class ClsUsuario
     {
         public static string nameUsuario;
+        public static string CCusuario;
         public static Byte idUsuario;
         public static Byte rolUsuario;//    para los accesos a componentes del sistema.
         public static string categoria_busqueda;//indica qué se va buscar cliente, proveedor 

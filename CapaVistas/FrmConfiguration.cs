@@ -831,6 +831,9 @@ namespace DSI.CapaVistas
                 string sqlT3 = String.Format("ALTER DATABASE [" + bd + "] SET MULTI_USER");
                 SqlCommand cmd3 = new SqlCommand(sqlT3, conx);
                 cmd3.ExecuteNonQuery();
+                //Bibliografía
+                //-https://www.sqlshack.com/alter-database-set-single_user-statement-in-sql-server/
+                //-https://cpiprodesign.blogspot.com/2018/06/backup-y-restore-database-sql-server.html
             }
             catch (Exception ex)
             {

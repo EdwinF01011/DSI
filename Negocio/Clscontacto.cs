@@ -14,18 +14,23 @@ namespace DSI.Negocio
 
 
         //int id { get; set; }
-        //string Nombre { get; set; }
+        public string Nombre { get; set; }
         //string NIT { get; set; }
-        //string RazSocial { get; set; }
-        //string Telefono { get; set; }
-        //string Correo { get; set; }
+        public string RazSocial { get; set; }
+        public string Sector { get; set; }
+
+        public string Correo { get; set; }
+
+        public string Telefono { get; set; }
         //string Direccion { get; set; }
         //string Descripcion { get; set; }
         //string Ubicacion { get; set; }
 
         //bool id_estado { get; set; }
 
-        //string Pais { get; set; }
+        public string Ciudad { get; set; }
+
+        public string Pais { get; set; }
         //bool id_categoria { get; set; }
         //string ruta_carpeta { get; set; }// no usar este, todavía
 

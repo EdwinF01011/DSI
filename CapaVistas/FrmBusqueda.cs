@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -35,9 +36,9 @@ namespace DSI.CapaVistas
         string Tel;
         string correo;
         string Direccion;
-        string Sector;
-        string Pais;
-        string City;
+        string Sector="";
+        string Pais = "";
+        string City = "";
         string descripcion;
         //Byte idPais; no se usa
 
@@ -138,6 +139,8 @@ namespace DSI.CapaVistas
             
             if (bandera == true)
             {
+                Sector = cboxSectorMenu.Text;
+
                 itemSector = Byte.Parse(cboxSectorMenu.SelectedValue.ToString());
                 cinco = 5;
                 plSector.Visible = true;
@@ -149,9 +152,10 @@ namespace DSI.CapaVistas
         private void cboxPaisMenu_SelectedValueChanged(object sender, EventArgs e)
         {
             //para poder obtener la pk de la tabla Pais
-            
-            if (bandera == true && cboxPaisMenu.SelectedValue!=null)
+
+            if (bandera == true && cboxPaisMenu.SelectedValue != null)
             {
+                Pais = cboxPaisMenu.Text;
                 itemPais = Byte.Parse(cboxPaisMenu.SelectedValue.ToString());
                 //MessageBox.Show(itemPais.ToString()+" pais");
                 nueve = 9;
@@ -181,10 +185,13 @@ namespace DSI.CapaVistas
                 short n;
                 if (cboxCiudadMenu.SelectedValue!=null)
                 {
+                    
+
                     var x = cboxCiudadMenu.SelectedValue.ToString();//   tocó usar string para prevenir el error
                     bool check = Int16.TryParse(x, out n);// si contiene números
                     if (check)
                     {
+                        City = cboxCiudadMenu.Text;
                         itemCity = Byte.Parse(x);
                         once = 11;
                         plCity.Visible = true;
@@ -230,6 +237,7 @@ namespace DSI.CapaVistas
             //dataGridView1.Columns[12].Visible = false;
             //dataGridView1.Columns[13].Visible = false;
 
+
             completyDgv();
 
             //dataGridView1.DataSource = ObjBu.consultaTodo2();
@@ -253,6 +261,8 @@ namespace DSI.CapaVistas
             dataGridView1.Columns[11].Visible = false;
             dataGridView1.Columns[12].Visible = false;
             dataGridView1.Columns[13].Visible = false;
+            btnExportar.Visible = true;
+
         }
 
         private void ocultarCamposDGV()
@@ -321,6 +331,8 @@ namespace DSI.CapaVistas
             //  limpiar cbox
             cboxCiudadMenu.DataSource = null;
             cboxCiudadMenu.Items.Clear();
+
+            btnExportar.Visible = false;
 
 
         }
@@ -461,9 +473,7 @@ namespace DSI.CapaVistas
         {//evitar que editen el cbox
             e.Handled = true;
         }
-
-
-
+                
         private void txtNombreMenu_KeyPress(object sender, KeyPressEventArgs e)
         {
             validate.SoloLetras(e);
@@ -706,6 +716,7 @@ namespace DSI.CapaVistas
 
 
             }
+            btnExportar.Visible = true;
 
 
 
@@ -863,5 +874,37 @@ namespace DSI.CapaVistas
          */
 
 
-    }
+        //  REPORTES
+        Reporte repor = new Reporte();
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            IList<Clscontacto> lista = new List<Clscontacto>();
+            int numberRows =int.Parse(dataGridView1.RowCount.ToString());
+            //MessageBox.Show(dato);
+
+            foreach (DataGridViewRow item in dataGridView1.Rows)
+            {
+                lista.Add(new Clscontacto
+                {
+                    Nombre = item.Cells[1].Value.ToString(), 
+                    RazSocial = item.Cells[2].Value.ToString(),
+                    Sector = item.Cells[4].Value.ToString(),
+                    Correo = item.Cells[5].Value.ToString(),
+                    Telefono = item.Cells[6].Value.ToString(),
+                    Ciudad = item.Cells[7].Value.ToString(),
+                    Pais = item.Cells[8].Value.ToString()
+                });
+            }
+
+            string[] parametros= {txtNombreMenu.Text, txtRsocialMenu.Text,Sector,Pais,City };
+            if (Sector == null || Pais == null || City == null)
+            {
+
+            }
+
+            repor.createPdf(numberRows, lista,parametros);
+            txtNombreMenu.Text = ""; txtRsocialMenu.Text = ""; Sector = ""; Pais = ""; City = "";
+        }
+
+    } 
 }
