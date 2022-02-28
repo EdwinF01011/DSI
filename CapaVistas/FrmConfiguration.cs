@@ -668,6 +668,7 @@ namespace DSI.CapaVistas
             try
             {
                 saveFileDialog1.Title = "SELECCIONE LA RUTA";
+                saveFileDialog1.FileName = "Backup";
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     string ruta = Path.GetDirectoryName(saveFileDialog1.FileName);

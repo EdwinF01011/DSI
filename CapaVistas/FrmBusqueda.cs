@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -878,15 +879,43 @@ namespace DSI.CapaVistas
         Reporte repor = new Reporte();
         private void btnExportar_Click(object sender, EventArgs e)
         {
-            IList<Clscontacto> lista = new List<Clscontacto>();
-            int numberRows =int.Parse(dataGridView1.RowCount.ToString());
+            createPdf();
+
+            //IList<Clscontacto> lista = new List<Clscontacto>();
+            //int numberRows = int.Parse(dataGridView1.RowCount.ToString());
             //MessageBox.Show(dato);
 
+            //foreach (DataGridViewRow item in dataGridView1.Rows)
+            //{
+            //    lista.Add(new Clscontacto
+            //    {
+            //        Nombre = item.Cells[1].Value.ToString(),
+            //        RazSocial = item.Cells[2].Value.ToString(),
+            //        Sector = item.Cells[4].Value.ToString(),
+            //        Correo = item.Cells[5].Value.ToString(),
+            //        Telefono = item.Cells[6].Value.ToString(),
+            //        Ciudad = item.Cells[7].Value.ToString(),
+            //        Pais = item.Cells[8].Value.ToString()
+            //    });
+            //}
+
+            //string[] parametros = { txtNombreMenu.Text, txtRsocialMenu.Text, Sector, Pais, City };
+            //repor.createPdf(numberRows, lista, parametros);
+            //txtNombreMenu.Text = ""; txtRsocialMenu.Text = ""; Sector = ""; Pais = ""; City = "";
+        }
+
+
+        private void createPdf()
+        {
+            IList<Clscontacto> lista = new List<Clscontacto>();
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            int numberRows = int.Parse(dataGridView1.RowCount.ToString());
+            string[] parametros = { txtNombreMenu.Text, txtRsocialMenu.Text, Sector, Pais, City };
             foreach (DataGridViewRow item in dataGridView1.Rows)
             {
                 lista.Add(new Clscontacto
                 {
-                    Nombre = item.Cells[1].Value.ToString(), 
+                    Nombre = item.Cells[1].Value.ToString(),
                     RazSocial = item.Cells[2].Value.ToString(),
                     Sector = item.Cells[4].Value.ToString(),
                     Correo = item.Cells[5].Value.ToString(),
@@ -895,16 +924,29 @@ namespace DSI.CapaVistas
                     Pais = item.Cells[8].Value.ToString()
                 });
             }
-
-            string[] parametros= {txtNombreMenu.Text, txtRsocialMenu.Text,Sector,Pais,City };
-            if (Sector == null || Pais == null || City == null)
+            try
             {
-
+                saveFileDialog1.Title = "SELECCIONE LA RUTA";
+                saveFileDialog1.FileName = "reporteDE";
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    string ruta = Path.GetDirectoryName(saveFileDialog1.FileName);
+                    string nameFile = Path.GetFileName(saveFileDialog1.FileName);
+                    string rutaRun =ruta+@"\"+nameFile+".pdf";
+                    repor.createPdf(numberRows, lista, parametros, rutaRun);
+                }
             }
-
-            repor.createPdf(numberRows, lista,parametros);
-            txtNombreMenu.Text = ""; txtRsocialMenu.Text = ""; Sector = ""; Pais = ""; City = "";
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                txtNombreMenu.Text = ""; txtRsocialMenu.Text = ""; Sector = ""; Pais = ""; City = "";
+                //conx.Close();
+            }
         }
+
 
     } 
 }

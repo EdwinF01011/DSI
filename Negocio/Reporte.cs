@@ -19,15 +19,15 @@ namespace DSI.Negocio
     {
         Clscontacto contacto = new Clscontacto();
 
-        public void createPdf(int numberRows, IList<Clscontacto> listado, string[] parametros)
+        public void createPdf(int numberRows, IList<Clscontacto> listado, string[] parametros, string rutaRun)
         {
             PdfFont fontColumnas = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
             PdfFont fontContenido = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
 
-            string categoria = ClsUsuario.categoria_busqueda, usuario = ClsUsuario.CCusuario.Trim();
+            string categoria = ClsUsuario.categoria_busqueda, usuario = ClsUsuario.CCusuario.Trim(), nameFile= "reporteDE.pdf";
             DataGridView Dgv = new DataGridView();
-
-            PdfWriter pdfwrites = new PdfWriter("reporteDE.pdf");// el nombre o la carpteta donde se guardará
+            
+            PdfWriter pdfwrites = new PdfWriter(rutaRun);//  @"C:\z\reporteDE.pdf"  reporteDE.pdf  el nombre o la carpteta donde se guardará
             PdfDocument pdf = new PdfDocument(pdfwrites);
             Document documento = new Document(pdf, PageSize.LETTER);
 
@@ -75,7 +75,6 @@ namespace DSI.Negocio
 
             for (int i = 0; i < numberRows; i++)
             {
-               
                 //tabla2.AddCell(new Cell().Add(new Paragraph(listado[i].Nombre.ToString())));
                 //tabla2.AddCell(new Cell().Add(new Paragraph(listado[i].RazSocial.ToString())));
                 //tabla2.AddCell(new Cell().Add(new Paragraph(listado[i].Sector.ToString())));
@@ -98,9 +97,11 @@ namespace DSI.Negocio
             documento.Add(tabla2).SetFontSize(7);
             documento.Add(parrafoPie).SetFontSize(4);
             documento.Close();
+
         }
 
 
+        
 
 
     }
