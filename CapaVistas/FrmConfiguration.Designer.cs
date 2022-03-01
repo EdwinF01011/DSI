@@ -30,7 +30,7 @@ namespace DSI.CapaVistas
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConfiguration));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -85,6 +85,9 @@ namespace DSI.CapaVistas
             this.lblA = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -462,14 +465,14 @@ namespace DSI.CapaVistas
             this.dgvUsuarios.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvUsuarios.BackgroundColor = System.Drawing.Color.White;
             this.dgvUsuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvUsuarios.ColumnHeadersHeight = 34;
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvUsuarios.EnableHeadersVisualStyles = false;
@@ -636,6 +639,7 @@ namespace DSI.CapaVistas
             // 
             // lblAlert
             // 
+            this.lblAlert.Controls.Add(this.panel4);
             this.lblAlert.Controls.Add(this.groupBox2);
             this.lblAlert.Controls.Add(this.lblCreado);
             this.lblAlert.Controls.Add(this.btnRuta);
@@ -652,6 +656,8 @@ namespace DSI.CapaVistas
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.panel5);
             this.groupBox2.Controls.Add(this.btnRestaurar);
             this.groupBox2.Controls.Add(this.txtRutaRestoreBackup);
             this.groupBox2.Controls.Add(this.btnCargarBak);
@@ -739,13 +745,41 @@ namespace DSI.CapaVistas
             this.lblA.Name = "lblA";
             this.lblA.Size = new System.Drawing.Size(415, 50);
             this.lblA.TabIndex = 23;
-            this.lblA.Text = "click para crear backup de la base de datos,\r\nsugerible en una carpeta cerca de l" +
-    "a unidad C.";
+            this.lblA.Text = "Para crear backup de la base de datos,\r\nsugerible en una carpeta cerca de la unid" +
+    "ad C.";
             this.lblA.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // panel4
+            // 
+            this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel4.Location = new System.Drawing.Point(703, 39);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(91, 91);
+            this.panel4.TabIndex = 32;
+            // 
+            // panel5
+            // 
+            this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel5.Location = new System.Drawing.Point(649, 175);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(91, 91);
+            this.panel5.TabIndex = 33;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(264, 279);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(861, 25);
+            this.label12.TabIndex = 34;
+            this.label12.Text = "Examine en el explorador de archivos, seleccione y dar en restaurar, el formato d" +
+    "el backup de .bak\r\n";
             // 
             // FrmConfiguration
             // 
@@ -836,5 +870,8 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.Button btnCargarBak;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnRestaurar;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label12;
     }
 }

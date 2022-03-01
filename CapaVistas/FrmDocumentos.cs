@@ -46,6 +46,7 @@ namespace DSI.CapaVistas
         {
             ExploradorArchivos();
             btnAnexar.Enabled = true;
+            clearVista();
         }
 
         private void ExploradorArchivos()
@@ -101,15 +102,19 @@ namespace DSI.CapaVistas
             btnOpenFile.Enabled = true;
             btnDelete.Enabled = true;
             btnOpenFile.Focus();
+
+            txtObsr.Text = dgvDocs.CurrentRow.Cells[3].Value.ToString();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            deleteDocs();
-            lblAlert.Text = "El documento ha sido eliminado";
-            //consultarDocs();
-            clearVista();
-
+            if (MessageBox.Show("Desea eliminar este archivo del sistema","Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
+            {
+                deleteDocs();
+                lblAlert.Text = "El documento ha sido eliminado";
+                //consultarDocs();
+                clearVista();
+            }
         }
 
         private void clearVista()
