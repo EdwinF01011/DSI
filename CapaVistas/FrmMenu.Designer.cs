@@ -70,7 +70,7 @@ namespace DSI.CapaVistas
             this.btnConfigurar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnConfigurar.FlatAppearance.BorderSize = 0;
             this.btnConfigurar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.btnConfigurar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Indigo;
+            this.btnConfigurar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnConfigurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfigurar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfigurar.ForeColor = System.Drawing.Color.White;
@@ -88,7 +88,7 @@ namespace DSI.CapaVistas
             this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnSalir.FlatAppearance.BorderSize = 0;
             this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Indigo;
+            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.White;
@@ -104,6 +104,7 @@ namespace DSI.CapaVistas
             // 
             this.lblDirectorioEmpresarial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDirectorioEmpresarial.AutoSize = true;
+            this.lblDirectorioEmpresarial.BackColor = System.Drawing.Color.Transparent;
             this.lblDirectorioEmpresarial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDirectorioEmpresarial.Location = new System.Drawing.Point(45, 12);
             this.lblDirectorioEmpresarial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -114,7 +115,7 @@ namespace DSI.CapaVistas
             // 
             // pnlMenu
             // 
-            this.pnlMenu.BackColor = System.Drawing.Color.Transparent;
+            this.pnlMenu.BackColor = System.Drawing.Color.Indigo;
             this.pnlMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlMenu.BackgroundImage")));
             this.pnlMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlMenu.Controls.Add(this.label4);
@@ -204,10 +205,10 @@ namespace DSI.CapaVistas
             // lblUsuarioname
             // 
             this.lblUsuarioname.AutoSize = true;
-            this.lblUsuarioname.BackColor = System.Drawing.Color.Teal;
+            this.lblUsuarioname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.lblUsuarioname.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblUsuarioname.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuarioname.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblUsuarioname.ForeColor = System.Drawing.Color.Transparent;
             this.lblUsuarioname.Location = new System.Drawing.Point(94, 80);
             this.lblUsuarioname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsuarioname.Name = "lblUsuarioname";
@@ -234,7 +235,7 @@ namespace DSI.CapaVistas
             this.btnSectores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnSectores.FlatAppearance.BorderSize = 0;
             this.btnSectores.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.btnSectores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Indigo;
+            this.btnSectores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnSectores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSectores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSectores.ForeColor = System.Drawing.Color.White;
@@ -252,7 +253,7 @@ namespace DSI.CapaVistas
             this.btnUbicaciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnUbicaciones.FlatAppearance.BorderSize = 0;
             this.btnUbicaciones.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.btnUbicaciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Indigo;
+            this.btnUbicaciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnUbicaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUbicaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUbicaciones.ForeColor = System.Drawing.Color.White;

@@ -13,9 +13,9 @@ namespace DSI.Negocio
         public IList TraerSectores()
         {
             using (DSIEntities1 db= new DSIEntities1())
-            {
+            {// obj anónimo xd
                 var bsector = (from s in db.sector
-                               select s).ToList();
+                               select new { Id = s.id, Nombre = s.nombre_sector}).OrderBy(s=> s.Nombre).ToList();
                 return bsector;
             }
             

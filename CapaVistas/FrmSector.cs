@@ -98,6 +98,7 @@ namespace DSI.CapaVistas
             btnActualizar.Enabled = false;
             btnAgregarSector.Enabled = false;
             bandera = true;
+            //btnActualizar.Focus(true) = Focus().
 
         }
 
@@ -105,9 +106,10 @@ namespace DSI.CapaVistas
         {
             updateSector();
             llenarDGV();
-            btnActualizar.Enabled = false;
             txtSector.Text = "";
             btnAgregarSector.Enabled = true;
+            btnActualizar.Enabled = false;
+
         }
 
         private void FrmSector_Click(object sender, EventArgs e)

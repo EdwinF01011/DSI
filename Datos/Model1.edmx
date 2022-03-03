@@ -31,7 +31,7 @@
           <Property Name="Telefono" Type="varchar" MaxLength="30" />
           <Property Name="Direccion" Type="varchar" MaxLength="50" />
           <Property Name="Correo" Type="varchar" MaxLength="50" />
-          <Property Name="Descripcion" Type="varchar" MaxLength="500" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" />
           <Property Name="id_sector" Type="tinyint" />
           <Property Name="id_ubicacion" Type="tinyint" />
           <Property Name="id_categoria" Type="bit" />
@@ -415,6 +415,7 @@
         <Function Name="sp_updateCiudad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="tinyint" Mode="In" />
           <Parameter Name="NCiudad" Type="varchar" Mode="In" />
+          <Parameter Name="idpais" Type="tinyint" Mode="In" />
         </Function>
         <Function Name="sp_updateContacto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="In" />
@@ -674,10 +675,6 @@
           <FunctionImport Name="sp_insertPais">
           <Parameter Name="Npais" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="sp_updateCiudad">
-            <Parameter Name="id" Mode="In" Type="Byte" />
-            <Parameter Name="NCiudad" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="sp_updatePais">
             <Parameter Name="id" Mode="In" Type="Byte" />
             <Parameter Name="Npais" Mode="In" Type="String" />
@@ -906,6 +903,11 @@
             <Parameter Name="CC" Mode="In" Type="String" />
             <Parameter Name="pass" Mode="In" Type="String" />
             <Parameter Name="email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_updateCiudad">
+            <Parameter Name="id" Mode="In" Type="Byte" />
+            <Parameter Name="NCiudad" Mode="In" Type="String" />
+            <Parameter Name="idpais" Mode="In" Type="Byte" />
           </FunctionImport>
           </EntityContainer>
         <ComplexType Name="sp_consultaContacto_Result">
@@ -1633,7 +1635,7 @@
           <Property Name="Telefono" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="id_sector" Type="Byte" />
           <Property Name="id_ubicacion" Type="Byte" />
           <Property Name="id_categoria" Type="Boolean" />
@@ -1851,7 +1853,6 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_insertCiudad" FunctionName="DSIModel.Store.sp_insertCiudad" />
           <FunctionImportMapping FunctionImportName="sp_insertPais" FunctionName="DSIModel.Store.sp_insertPais" />
-          <FunctionImportMapping FunctionImportName="sp_updateCiudad" FunctionName="DSIModel.Store.sp_updateCiudad" />
           <FunctionImportMapping FunctionImportName="sp_updatePais" FunctionName="DSIModel.Store.sp_updatePais" />
           <FunctionImportMapping FunctionImportName="sp_insertContacto" FunctionName="DSIModel.Store.sp_insertContacto" />
           <FunctionImportMapping FunctionImportName="sp_updateContacto" FunctionName="DSIModel.Store.sp_updateContacto" />
@@ -2375,6 +2376,7 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_createUsuario" FunctionName="DSIModel.Store.sp_createUsuario" />
           <FunctionImportMapping FunctionImportName="sp_updateUsuario2" FunctionName="DSIModel.Store.sp_updateUsuario2" />
+          <FunctionImportMapping FunctionImportName="sp_updateCiudad" FunctionName="DSIModel.Store.sp_updateCiudad" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

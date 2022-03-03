@@ -236,19 +236,6 @@ namespace DSI.Datos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_insertPais", npaisParameter);
         }
     
-        public virtual int sp_updateCiudad(Nullable<byte> id, string nCiudad)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(byte));
-    
-            var nCiudadParameter = nCiudad != null ?
-                new ObjectParameter("NCiudad", nCiudad) :
-                new ObjectParameter("NCiudad", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updateCiudad", idParameter, nCiudadParameter);
-        }
-    
         public virtual int sp_updatePais(Nullable<byte> id, string npais)
         {
             var idParameter = id.HasValue ?
@@ -974,6 +961,23 @@ namespace DSI.Datos
                 new ObjectParameter("email", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updateUsuario2", idParameter, nombreParameter, cCParameter, passParameter, emailParameter);
+        }
+    
+        public virtual int sp_updateCiudad(Nullable<byte> id, string nCiudad, Nullable<byte> idpais)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(byte));
+    
+            var nCiudadParameter = nCiudad != null ?
+                new ObjectParameter("NCiudad", nCiudad) :
+                new ObjectParameter("NCiudad", typeof(string));
+    
+            var idpaisParameter = idpais.HasValue ?
+                new ObjectParameter("idpais", idpais) :
+                new ObjectParameter("idpais", typeof(byte));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updateCiudad", idParameter, nCiudadParameter, idpaisParameter);
         }
     }
 }

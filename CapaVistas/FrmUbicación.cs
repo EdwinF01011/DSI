@@ -68,7 +68,8 @@ namespace DSI.CapaVistas
 
         private void UpdateCity()
         {
-            ObjUbi.UpdateCity(txtCiudad.Text, idCity);
+            idPais= Byte.Parse(cboxPais.SelectedValue.ToString());
+            ObjUbi.UpdateCity(txtCiudad.Text, idCity,idPais);
         }//                                                         <<<<<<
 
         private void btnAñadir_Click(object sender, EventArgs e)

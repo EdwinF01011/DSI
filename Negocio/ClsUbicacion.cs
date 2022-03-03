@@ -33,11 +33,11 @@ namespace DSI.Negocio
             }
         }
 
-        public void UpdateCity(string Ncity, Byte id)
+        public void UpdateCity(string Ncity, Byte id, Byte idPais)
         {
             using (DSIEntities1 db = new DSIEntities1())
             {
-                db.sp_updateCiudad(id, Ncity);
+                db.sp_updateCiudad(id, Ncity,idPais);
             }
         }
         //------------------------------------------------------------------------------------
