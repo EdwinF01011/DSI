@@ -36,8 +36,8 @@ namespace DSI.CapaVistas
             this.lblDirectorioEmpresarial = new System.Windows.Forms.Label();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblSector = new System.Windows.Forms.Label();
+            this.lblUbicacion = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblUsuarioname = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -118,8 +118,8 @@ namespace DSI.CapaVistas
             this.pnlMenu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlMenu.BackgroundImage")));
             this.pnlMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlMenu.Controls.Add(this.label4);
-            this.pnlMenu.Controls.Add(this.label3);
-            this.pnlMenu.Controls.Add(this.label2);
+            this.pnlMenu.Controls.Add(this.lblSector);
+            this.pnlMenu.Controls.Add(this.lblUbicacion);
             this.pnlMenu.Controls.Add(this.label1);
             this.pnlMenu.Controls.Add(this.lblUsuarioname);
             this.pnlMenu.Controls.Add(this.pictureBox1);
@@ -140,7 +140,7 @@ namespace DSI.CapaVistas
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label4.BackColor = System.Drawing.Color.Indigo;
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Window;
@@ -153,42 +153,42 @@ namespace DSI.CapaVistas
             this.label4.Text = "Salir";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // lblSector
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.Window;
-            this.label3.Location = new System.Drawing.Point(158, 695);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 29);
-            this.label3.TabIndex = 17;
-            this.label3.Tag = "Ajuste";
-            this.label3.Text = "Sector";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSector.AutoSize = true;
+            this.lblSector.BackColor = System.Drawing.Color.Indigo;
+            this.lblSector.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblSector.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSector.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblSector.Location = new System.Drawing.Point(158, 695);
+            this.lblSector.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSector.Name = "lblSector";
+            this.lblSector.Size = new System.Drawing.Size(75, 29);
+            this.lblSector.TabIndex = 17;
+            this.lblSector.Tag = "Ajuste";
+            this.lblSector.Text = "Sector";
+            this.lblSector.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lblUbicacion
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Window;
-            this.label2.Location = new System.Drawing.Point(136, 549);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 29);
-            this.label2.TabIndex = 16;
-            this.label2.Tag = "Ajuste";
-            this.label2.Text = "Ubicaciones";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUbicacion.AutoSize = true;
+            this.lblUbicacion.BackColor = System.Drawing.Color.Indigo;
+            this.lblUbicacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblUbicacion.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUbicacion.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblUbicacion.Location = new System.Drawing.Point(136, 549);
+            this.lblUbicacion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUbicacion.Name = "lblUbicacion";
+            this.lblUbicacion.Size = new System.Drawing.Size(128, 29);
+            this.lblUbicacion.TabIndex = 16;
+            this.lblUbicacion.Tag = "Ajuste";
+            this.lblUbicacion.Text = "Ubicaciones";
+            this.lblUbicacion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label1.BackColor = System.Drawing.Color.Indigo;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Window;
@@ -366,7 +366,7 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblUsuarioname;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblSector;
+        private System.Windows.Forms.Label lblUbicacion;
     }
 }

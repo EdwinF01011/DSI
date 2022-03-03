@@ -29,6 +29,8 @@ namespace DSI.CapaVistas
                 //btnBackup.Visible = false; borrar
                 btnUbicaciones.Visible = false;
                 btnSectores.Visible = false;
+                lblUbicacion.Visible = false;
+                lblSector.Visible = false;
             }
         }
 

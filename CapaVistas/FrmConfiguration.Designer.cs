@@ -30,7 +30,7 @@ namespace DSI.CapaVistas
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConfiguration));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -74,7 +74,10 @@ namespace DSI.CapaVistas
             this.label6 = new System.Windows.Forms.Label();
             this.txtUsuarioU = new System.Windows.Forms.TextBox();
             this.lblAlert = new System.Windows.Forms.TabPage();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.btnRestaurar = new System.Windows.Forms.Button();
             this.txtRutaRestoreBackup = new System.Windows.Forms.TextBox();
             this.btnCargarBak = new System.Windows.Forms.Button();
@@ -85,9 +88,8 @@ namespace DSI.CapaVistas
             this.lblA = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
+            this.btnReload = new System.Windows.Forms.Button();
+            this.lblResta = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -436,6 +438,7 @@ namespace DSI.CapaVistas
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnReload);
             this.tabPage2.Controls.Add(this.btnGuardarU);
             this.tabPage2.Controls.Add(this.dgvUsuarios);
             this.tabPage2.Controls.Add(this.panel3);
@@ -465,19 +468,19 @@ namespace DSI.CapaVistas
             this.dgvUsuarios.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvUsuarios.BackgroundColor = System.Drawing.Color.White;
             this.dgvUsuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvUsuarios.ColumnHeadersHeight = 34;
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvUsuarios.EnableHeadersVisualStyles = false;
             this.dgvUsuarios.GridColor = System.Drawing.SystemColors.Highlight;
-            this.dgvUsuarios.Location = new System.Drawing.Point(83, 494);
+            this.dgvUsuarios.Location = new System.Drawing.Point(66, 494);
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.RowHeadersVisible = false;
             this.dgvUsuarios.RowHeadersWidth = 62;
@@ -654,8 +657,18 @@ namespace DSI.CapaVistas
             this.lblAlert.UseVisualStyleBackColor = true;
             this.lblAlert.Click += new System.EventHandler(this.lblAlert_Click);
             // 
+            // panel4
+            // 
+            this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel4.Location = new System.Drawing.Point(703, 39);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(91, 91);
+            this.panel4.TabIndex = 32;
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.lblResta);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.panel5);
             this.groupBox2.Controls.Add(this.btnRestaurar);
@@ -668,6 +681,25 @@ namespace DSI.CapaVistas
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Restauración de Base de datos";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(264, 279);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(861, 25);
+            this.label12.TabIndex = 34;
+            this.label12.Text = "Examine en el explorador de archivos, seleccione y dar en restaurar, el formato d" +
+    "el backup de .bak\r\n";
+            // 
+            // panel5
+            // 
+            this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel5.Location = new System.Drawing.Point(649, 175);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(91, 91);
+            this.panel5.TabIndex = 33;
             // 
             // btnRestaurar
             // 
@@ -694,7 +726,7 @@ namespace DSI.CapaVistas
             this.btnCargarBak.Name = "btnCargarBak";
             this.btnCargarBak.Size = new System.Drawing.Size(91, 38);
             this.btnCargarBak.TabIndex = 29;
-            this.btnCargarBak.Text = "...";
+            this.btnCargarBak.Text = "Buscar";
             this.btnCargarBak.UseVisualStyleBackColor = true;
             this.btnCargarBak.Click += new System.EventHandler(this.btnCargarBak_Click);
             // 
@@ -753,33 +785,28 @@ namespace DSI.CapaVistas
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // panel4
+            // btnReload
             // 
-            this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
-            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel4.Location = new System.Drawing.Point(703, 39);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(91, 91);
-            this.panel4.TabIndex = 32;
+            this.btnReload.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnReload.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReload.Location = new System.Drawing.Point(66, 743);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(66, 66);
+            this.btnReload.TabIndex = 25;
+            this.btnReload.Text = "↺";
+            this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
-            // panel5
+            // lblResta
             // 
-            this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
-            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel5.Location = new System.Drawing.Point(649, 175);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(91, 91);
-            this.panel5.TabIndex = 33;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(264, 279);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(861, 25);
-            this.label12.TabIndex = 34;
-            this.label12.Text = "Examine en el explorador de archivos, seleccione y dar en restaurar, el formato d" +
-    "el backup de .bak\r\n";
+            this.lblResta.AutoSize = true;
+            this.lblResta.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblResta.Location = new System.Drawing.Point(761, 217);
+            this.lblResta.Name = "lblResta";
+            this.lblResta.Size = new System.Drawing.Size(212, 25);
+            this.lblResta.TabIndex = 33;
+            this.lblResta.Text = "Restablecido con éxito.";
+            this.lblResta.Visible = false;
             // 
             // FrmConfiguration
             // 
@@ -873,5 +900,7 @@ namespace DSI.CapaVistas
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnReload;
+        private System.Windows.Forms.Label lblResta;
     }
 }

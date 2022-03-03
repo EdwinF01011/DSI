@@ -49,7 +49,7 @@ namespace DSI.Negocio
             //MessageBox.Show("updateUsuario(string name)");
         }
 
-        public void updateUsuarioII(string cc)
+        public bool updateUsuarioII(string cc)
         {
             using (DSIEntities1 bd = new DSIEntities1())
             {
@@ -60,6 +60,7 @@ namespace DSI.Negocio
                 query.CC = cc;
                 bd.SaveChanges();
                 //MessageBox.Show("updateUsuarioII(string cc)");
+                return false;
             }
         }
 

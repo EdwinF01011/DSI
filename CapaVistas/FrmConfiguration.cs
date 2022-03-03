@@ -39,8 +39,6 @@ namespace DSI.CapaVistas
         //resultado del video:
         //<add name="conexionBackup" connectionString="data source=ELLIOT\SQLEXPRESS;initial catalog=DSI;integrated security=True;" providerName="System.Data.EntityClient" />
 
-
-
         public FrmConfiguration()
         {
             InitializeComponent();
@@ -59,7 +57,7 @@ namespace DSI.CapaVistas
                 selectUsuarios();
             }
             disableTxt();
-
+            //lblResta.Visible = false;
         }
 
         private void enmascarar()
@@ -204,9 +202,17 @@ namespace DSI.CapaVistas
             }
             else if (conteo==2)
             {
-                _ClsUsu.updateUsuarioII(txtUsuarioP.Text);
-                MessageBox.Show("Esta pestaña se cerrará, vuelva a iniciar sesión");
-                _frmLo.Show();
+                bool response=_ClsUsu.updateUsuarioII(txtUsuarioP.Text);
+                if (response==false)
+                {
+                    MessageBox.Show("Esta pestaña se cerrará, vuelva a iniciar sesión");
+                    _frmLo.Show();
+                }
+                else
+                {
+                    
+                }
+                
             }
             else if (conteo ==3)
             {
@@ -244,7 +250,8 @@ namespace DSI.CapaVistas
                 }
                     //MessageBox.Show("No se pudo concretar la acción");
             }
-            clear(); 
+            clear();
+            lblAlerta.Visible = true;
 
             //bool x = compareTxt();
             //bool y = validationInfo2();
@@ -259,7 +266,7 @@ namespace DSI.CapaVistas
             //    MessageBox.Show("No se pudo concretar la acción");
         }
 
-        private void disableUsuario()
+        private bool disableUsuario()
         {
             try
             {
@@ -275,17 +282,19 @@ namespace DSI.CapaVistas
 
                     }
                     MessageBox.Show("guardado con éxito");
+                    return true;
                 }
                 else
                 {
-                    MessageBox.Show("pailas mi Rey");
-
+                    MessageBox.Show("Error al guardar");
+                    return false;
                 }
             }
             catch (Exception ex)
             {
 
-                    MessageBox.Show("pailas mi Rey  CATCH"+ ex.ToString());
+                MessageBox.Show("pailas mi Rey  CATCH"+ ex.ToString());
+                return false;
 
             }
 
@@ -310,9 +319,10 @@ namespace DSI.CapaVistas
 
             bandera = true;
 
+            //columnasedit();
 
 
-
+            
 
             //dgvUsuarios.CurrentRow.Cells[4].Style = dgvChek.DefaultCellStyle;
 
@@ -391,7 +401,19 @@ namespace DSI.CapaVistas
 
         private void txtUsuarioP_KeyUp(object sender, KeyEventArgs e)
         {
-            btnUpdate.Enabled = true;
+            bool verify=_ClsUsu.verifyUser(txtUsuarioP.Text);
+            if (verify==false)
+            {
+                txtUsuarioP.ForeColor = Color.Black;
+
+                btnUpdate.Enabled = true;
+            }
+            else
+            {
+                btnUpdate.Enabled = false;
+                txtUsuarioP.ForeColor = Color.Red;
+            }
+
         }
 
         private void txtEmailP_KeyUp(object sender, KeyEventArgs e)
@@ -410,7 +432,10 @@ namespace DSI.CapaVistas
                     bandera2 = false;
                     txtEmailP.ForeColor = Color.Red;
                     lblMail.Text = "⨉";
+                    btnUpdate.Enabled = false;
+
                     //MessageBox.Show("X");
+
                 }
                 else
                 {
@@ -425,6 +450,8 @@ namespace DSI.CapaVistas
                 bandera2 = false;
                 //MessageBox.Show("non");
                 lblMail.Text = "⨯";
+                btnUpdate.Enabled = false;
+
             }
         }
 
@@ -448,15 +475,30 @@ namespace DSI.CapaVistas
 
             //listar();
             listar();
-            disableUsuario();
+            bool x=disableUsuario();
+            if (x == true)
+            {
+                //dgvUsuarios.Columns.Clear();
+                //selectUsuarios();
+            }
+            //dgvUsuarios.Columns.Clear();
 
+            //selectUsuarios();
         }
 
         private void columnasedit()
         {
 
             bool valueEstado, valueRol;
-            if (bandera==true)
+            var valide = dgvUsuarios.Rows[0].Cells[5].Value;// var para evirar excepciones
+
+            //while (valide != null)
+            //{
+            //    MessageBox.Show("Esperando");
+            //    valide = dgvUsuarios.Rows[0].Cells[5].Value;
+            //}
+            
+            if (bandera==true /*&& valide != null*/)
             {//
                 for (int i = 0; i < dgvUsuarios.RowCount; i++)//    obtnemos el valor de la celda, para darselo a otra.
                 {
@@ -653,6 +695,7 @@ namespace DSI.CapaVistas
         {
             //MessageBox.Show("click");
             lblCreado.Visible = false;
+            lblResta.Visible = false;
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -725,7 +768,17 @@ namespace DSI.CapaVistas
 
         private void btnRestaurar_Click(object sender, EventArgs e)
         {
-            RestaurarBD();
+            if (MessageBox.Show("Seguro de restablecer","Restablecer",MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==DialogResult.Yes)
+            {
+                RestaurarBD();
+                txtRutaRestoreBackup.Text = "";
+            }
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            //selectUsuarios();
+            columnasedit();
         }
 
         //private void valideMail()
@@ -835,6 +888,8 @@ namespace DSI.CapaVistas
                 //Bibliografía
                 //-https://www.sqlshack.com/alter-database-set-single_user-statement-in-sql-server/
                 //-https://cpiprodesign.blogspot.com/2018/06/backup-y-restore-database-sql-server.html
+
+                lblResta.Visible = true;
             }
             catch (Exception ex)
             {
