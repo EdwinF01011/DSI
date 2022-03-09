@@ -66,11 +66,12 @@ namespace DSI.CapaVistas
             // 
             // btnConfigurar
             // 
+            this.btnConfigurar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(48)))), ((int)(((byte)(125)))));
             this.btnConfigurar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnConfigurar.BackgroundImage")));
             this.btnConfigurar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnConfigurar.FlatAppearance.BorderSize = 0;
             this.btnConfigurar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.btnConfigurar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnConfigurar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(201)))), ((int)(((byte)(195)))));
             this.btnConfigurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfigurar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfigurar.ForeColor = System.Drawing.Color.White;
@@ -79,16 +80,17 @@ namespace DSI.CapaVistas
             this.btnConfigurar.Name = "btnConfigurar";
             this.btnConfigurar.Size = new System.Drawing.Size(349, 69);
             this.btnConfigurar.TabIndex = 1;
-            this.btnConfigurar.UseVisualStyleBackColor = true;
+            this.btnConfigurar.UseVisualStyleBackColor = false;
             this.btnConfigurar.Click += new System.EventHandler(this.btnConfigurar_Click);
             // 
             // btnSalir
             // 
+            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(48)))), ((int)(((byte)(125)))));
             this.btnSalir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSalir.BackgroundImage")));
             this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnSalir.FlatAppearance.BorderSize = 0;
             this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(201)))), ((int)(((byte)(195)))));
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.White;
@@ -97,7 +99,7 @@ namespace DSI.CapaVistas
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(349, 69);
             this.btnSalir.TabIndex = 3;
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // lblDirectorioEmpresarial
@@ -141,7 +143,7 @@ namespace DSI.CapaVistas
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Indigo;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(48)))), ((int)(((byte)(125)))));
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Window;
@@ -157,7 +159,7 @@ namespace DSI.CapaVistas
             // lblSector
             // 
             this.lblSector.AutoSize = true;
-            this.lblSector.BackColor = System.Drawing.Color.Indigo;
+            this.lblSector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(48)))), ((int)(((byte)(125)))));
             this.lblSector.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblSector.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSector.ForeColor = System.Drawing.SystemColors.Window;
@@ -173,7 +175,7 @@ namespace DSI.CapaVistas
             // lblUbicacion
             // 
             this.lblUbicacion.AutoSize = true;
-            this.lblUbicacion.BackColor = System.Drawing.Color.Indigo;
+            this.lblUbicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(48)))), ((int)(((byte)(125)))));
             this.lblUbicacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblUbicacion.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUbicacion.ForeColor = System.Drawing.SystemColors.Window;
@@ -189,7 +191,7 @@ namespace DSI.CapaVistas
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Indigo;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(48)))), ((int)(((byte)(125)))));
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Window;
@@ -231,11 +233,12 @@ namespace DSI.CapaVistas
             // 
             // btnSectores
             // 
+            this.btnSectores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(48)))), ((int)(((byte)(125)))));
             this.btnSectores.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSectores.BackgroundImage")));
             this.btnSectores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnSectores.FlatAppearance.BorderSize = 0;
             this.btnSectores.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.btnSectores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnSectores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(201)))), ((int)(((byte)(195)))));
             this.btnSectores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSectores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSectores.ForeColor = System.Drawing.Color.White;
@@ -244,16 +247,17 @@ namespace DSI.CapaVistas
             this.btnSectores.Name = "btnSectores";
             this.btnSectores.Size = new System.Drawing.Size(349, 72);
             this.btnSectores.TabIndex = 13;
-            this.btnSectores.UseVisualStyleBackColor = true;
+            this.btnSectores.UseVisualStyleBackColor = false;
             this.btnSectores.Click += new System.EventHandler(this.btnSectores_Click);
             // 
             // btnUbicaciones
             // 
+            this.btnUbicaciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(48)))), ((int)(((byte)(125)))));
             this.btnUbicaciones.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnUbicaciones.BackgroundImage")));
             this.btnUbicaciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnUbicaciones.FlatAppearance.BorderSize = 0;
             this.btnUbicaciones.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.btnUbicaciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnUbicaciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(201)))), ((int)(((byte)(195)))));
             this.btnUbicaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUbicaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUbicaciones.ForeColor = System.Drawing.Color.White;
@@ -262,7 +266,7 @@ namespace DSI.CapaVistas
             this.btnUbicaciones.Name = "btnUbicaciones";
             this.btnUbicaciones.Size = new System.Drawing.Size(349, 72);
             this.btnUbicaciones.TabIndex = 13;
-            this.btnUbicaciones.UseVisualStyleBackColor = true;
+            this.btnUbicaciones.UseVisualStyleBackColor = false;
             this.btnUbicaciones.Click += new System.EventHandler(this.btnUbicaciones_Click);
             // 
             // panel2
