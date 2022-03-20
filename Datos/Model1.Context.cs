@@ -209,11 +209,6 @@ namespace DSI.Datos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updateSector", idParameter, nombreParameter);
         }
     
-        public virtual ObjectResult<sp_buscarLugares_Result> sp_buscarLugares()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_buscarLugares_Result>("sp_buscarLugares");
-        }
-    
         public virtual int sp_insertCiudad(Nullable<byte> id, string nCiudad)
         {
             var idParameter = id.HasValue ?
@@ -961,6 +956,11 @@ namespace DSI.Datos
                 new ObjectParameter("email", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_updateUsuario2", idParameter, nombreParameter, cCParameter, passParameter, emailParameter);
+        }
+    
+        public virtual ObjectResult<sp_buscarLugares_Result1> sp_buscarLugares()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_buscarLugares_Result1>("sp_buscarLugares");
         }
     
         public virtual int sp_updateCiudad(Nullable<byte> id, string nCiudad, Nullable<byte> idpais)

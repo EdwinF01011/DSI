@@ -101,10 +101,13 @@ namespace DSI.CapaVistas
                 lblAlert.Text = "País Actualizado";
             }
             else
+            {
                 InsertPais();
+                lblAlert.Text = "País Agregado";
+            }
             LlenarCboxP();
             LlenarDgv();
-            lblAlert.Text = "País Agregado";
+            
         }
 
         private void dgvUbication_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

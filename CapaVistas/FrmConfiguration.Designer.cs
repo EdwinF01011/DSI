@@ -58,6 +58,7 @@ namespace DSI.CapaVistas
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblAlerta = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnReload = new System.Windows.Forms.Button();
             this.btnGuardarU = new System.Windows.Forms.Button();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -76,6 +77,7 @@ namespace DSI.CapaVistas
             this.lblAlert = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblResta = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnRestaurar = new System.Windows.Forms.Button();
@@ -88,8 +90,6 @@ namespace DSI.CapaVistas
             this.lblA = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.btnReload = new System.Windows.Forms.Button();
-            this.lblResta = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -452,6 +452,19 @@ namespace DSI.CapaVistas
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
+            // btnReload
+            // 
+            this.btnReload.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnReload.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReload.Location = new System.Drawing.Point(66, 743);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(66, 66);
+            this.btnReload.TabIndex = 25;
+            this.btnReload.Text = "↺";
+            this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Visible = false;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
             // btnGuardarU
             // 
             this.btnGuardarU.Location = new System.Drawing.Point(1219, 743);
@@ -682,6 +695,17 @@ namespace DSI.CapaVistas
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Restauración de Base de datos";
             // 
+            // lblResta
+            // 
+            this.lblResta.AutoSize = true;
+            this.lblResta.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lblResta.Location = new System.Drawing.Point(761, 217);
+            this.lblResta.Name = "lblResta";
+            this.lblResta.Size = new System.Drawing.Size(212, 25);
+            this.lblResta.TabIndex = 33;
+            this.lblResta.Text = "Restablecido con éxito.";
+            this.lblResta.Visible = false;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -784,29 +808,6 @@ namespace DSI.CapaVistas
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // btnReload
-            // 
-            this.btnReload.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnReload.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReload.Location = new System.Drawing.Point(66, 743);
-            this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(66, 66);
-            this.btnReload.TabIndex = 25;
-            this.btnReload.Text = "↺";
-            this.btnReload.UseVisualStyleBackColor = true;
-            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
-            // 
-            // lblResta
-            // 
-            this.lblResta.AutoSize = true;
-            this.lblResta.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lblResta.Location = new System.Drawing.Point(761, 217);
-            this.lblResta.Name = "lblResta";
-            this.lblResta.Size = new System.Drawing.Size(212, 25);
-            this.lblResta.TabIndex = 33;
-            this.lblResta.Text = "Restablecido con éxito.";
-            this.lblResta.Visible = false;
             // 
             // FrmConfiguration
             // 

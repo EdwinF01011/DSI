@@ -667,7 +667,6 @@
             <Parameter Name="id" Mode="In" Type="Int32" />
             <Parameter Name="nombre" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="sp_buscarLugares" ReturnType="Collection(DSIModel.sp_buscarLugares_Result)" />
           <FunctionImport Name="sp_insertCiudad">
             <Parameter Name="id" Mode="In" Type="Byte" />
             <Parameter Name="NCiudad" Mode="In" Type="String" />
@@ -904,6 +903,7 @@
             <Parameter Name="pass" Mode="In" Type="String" />
             <Parameter Name="email" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="sp_buscarLugares" ReturnType="Collection(DSIModel.sp_buscarLugares_Result1)" />
           <FunctionImport Name="sp_updateCiudad">
             <Parameter Name="id" Mode="In" Type="Byte" />
             <Parameter Name="NCiudad" Mode="In" Type="String" />
@@ -1708,6 +1708,12 @@
           <Property Type="Boolean" Name="Rol" Nullable="false" />
           <Property Type="Boolean" Name="Deshabilitado" Nullable="true" />
         </ComplexType>
+        <ComplexType Name="sp_buscarLugares_Result1">
+          <Property Type="Byte" Name="id" Nullable="false" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="30" />
+          <Property Type="Byte" Name="id_pais" Nullable="true" />
+          <Property Type="String" Name="País" Nullable="true" MaxLength="30" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1841,16 +1847,6 @@
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="DSIModel.Store.sp_upgraddiagrams" />
           <FunctionImportMapping FunctionImportName="sp_insertSector" FunctionName="DSIModel.Store.sp_insertSector" />
           <FunctionImportMapping FunctionImportName="sp_updateSector" FunctionName="DSIModel.Store.sp_updateSector" />
-          <FunctionImportMapping FunctionImportName="sp_buscarLugares" FunctionName="DSIModel.Store.sp_buscarLugares">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DSIModel.sp_buscarLugares_Result">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="NCiudad" ColumnName="NCiudad" />
-                <ScalarProperty Name="id_pais" ColumnName="id_pais" />
-                <ScalarProperty Name="Npais" ColumnName="Npais" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_insertCiudad" FunctionName="DSIModel.Store.sp_insertCiudad" />
           <FunctionImportMapping FunctionImportName="sp_insertPais" FunctionName="DSIModel.Store.sp_insertPais" />
           <FunctionImportMapping FunctionImportName="sp_updatePais" FunctionName="DSIModel.Store.sp_updatePais" />
@@ -2376,6 +2372,16 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_createUsuario" FunctionName="DSIModel.Store.sp_createUsuario" />
           <FunctionImportMapping FunctionImportName="sp_updateUsuario2" FunctionName="DSIModel.Store.sp_updateUsuario2" />
+          <FunctionImportMapping FunctionImportName="sp_buscarLugares" FunctionName="DSIModel.Store.sp_buscarLugares">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DSIModel.sp_buscarLugares_Result1">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="id_pais" ColumnName="id_pais" />
+                <ScalarProperty Name="País" ColumnName="País" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_updateCiudad" FunctionName="DSIModel.Store.sp_updateCiudad" />
         </EntityContainerMapping>
       </Mapping>

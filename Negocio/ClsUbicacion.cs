@@ -37,7 +37,7 @@ namespace DSI.Negocio
         {
             using (DSIEntities1 db = new DSIEntities1())
             {
-                db.sp_updateCiudad(id, Ncity,idPais);
+                db.sp_updateCiudad(id, Ncity, idPais);     //descomentar
             }
         }
         //------------------------------------------------------------------------------------

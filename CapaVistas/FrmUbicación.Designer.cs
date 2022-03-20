@@ -98,6 +98,8 @@ namespace DSI.CapaVistas
             // 
             this.dgvUbication.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvUbication.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvUbication.BackgroundColor = System.Drawing.Color.White;
+            this.dgvUbication.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUbication.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;

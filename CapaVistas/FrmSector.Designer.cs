@@ -92,14 +92,14 @@ namespace DSI.CapaVistas
             this.dgvSector.RowHeadersWidth = 62;
             this.dgvSector.RowTemplate.Height = 28;
             this.dgvSector.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSector.Size = new System.Drawing.Size(431, 173);
+            this.dgvSector.Size = new System.Drawing.Size(431, 228);
             this.dgvSector.TabIndex = 28;
             this.dgvSector.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSector_CellDoubleClick);
             // 
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(318, 263);
+            this.btnCancelar.Location = new System.Drawing.Point(318, 318);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(134, 40);
             this.btnCancelar.TabIndex = 29;
@@ -110,7 +110,7 @@ namespace DSI.CapaVistas
             // btnActualizar
             // 
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.Location = new System.Drawing.Point(21, 263);
+            this.btnActualizar.Location = new System.Drawing.Point(21, 318);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(134, 40);
             this.btnActualizar.TabIndex = 30;
@@ -123,7 +123,7 @@ namespace DSI.CapaVistas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(477, 314);
+            this.ClientSize = new System.Drawing.Size(477, 370);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.dgvSector);
